@@ -12,7 +12,7 @@ namespace Gyunbox40.Common
         /// </summary>
         /// <param name="checkVal">오브젝트 값</param>
         /// <returns></returns>
-        protected bool IsNullBlank(object checkVal)
+        public bool IsNullBlank(object checkVal)
         {
             if (checkVal == null)
             {
@@ -95,10 +95,7 @@ namespace Gyunbox40.Common
             string reVal = "";
             if (reqVal != null)
             {
-                reVal = reqVal.ToString().Replace(",", "");
-                reVal = reVal.Replace("\"", "");
-                reVal = reVal.Replace("/", "");
-                reVal = reVal.Replace("\\", "");
+                reVal = reqVal.ToString();
                 reVal = reVal.Replace("'", "''");
             }
             return reVal;

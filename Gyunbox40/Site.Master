@@ -23,8 +23,8 @@
 				<li><a href="/Views/Home/About.aspx">개발자 소개</a></li>
 				<li><a href="/Views/Home/Portfolio.aspx">포트폴리오</a></li>
 				<li><a href="/Views/Home/Contact.aspx">문의하기</a></li>
-                <li><a href="/Views/Home/Index.aspx">개발정보</a></li>
-			</ul>
+                <li><a href="/Views/DevHome/Board/List.aspx">게시판</a></li>
+            </ul>
 		</nav>
 		<a style="cursor:pointer;">
 			<span class="menu-toggle-btn">

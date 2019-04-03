@@ -267,6 +267,7 @@
     <Content Include="images\s-images\promo03.png" />
     <Content Include="images\s-images\promo04.png" />
     <Content Include="Properties\PublishProfiles\CustomProfile.pubxml.user" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
