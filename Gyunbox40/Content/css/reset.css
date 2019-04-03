@@ -1,0 +1,83 @@
+﻿@charset
+
+utf-8;
+/* 웹폰트 css */
+@import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Serif');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+/* CSS 초기화 */
+/* 모든 테그를 기본값으로 초기화 */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+/*  body에 폰트 속성과 배경 속성 그리고 글자 행간 속성을 설정 */
+body {
+    font-family: 'Montserrat',DroidSans,AppleSDGothicNeo,Sans-serif,Helvetica;
+    line-height: 1;
+}
+
+/* html5 태그들이 정상적으로 작동하도록 display 속성의 값을 display block으로 설정*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+    /* 목록 스타일 초기화 */
+    nav ul, li {
+        list-style: none;
+    }
+
+/* a 태그를 기본값으로 초기화 */
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+}
+
+/* 이미지 태그의 간격제거 */
+img {
+    vertical-align: top;
+}
+
+
+/* hr태그 기본값으로 초기화 */
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* input ,textarea 태그 기본값으로 초기화 */
+input, textarea {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #757575;
+    color: #3f51b5;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    vertical-align: top;
+    border-radius: 0;
+    box-sizing: content-box;
+    appearance: none;
+}
+
+/* input 태그의 placeholder 속성의 색상을 설정 */
+::-moz-input-placeholder, ::-moz-textarea-placeholder {
+    color: #3f51b5;
+}
+
+::-webkit-input-placeholder, ::-webkit-textarea-placeholder {
+    color: #3f51b5;
+}
