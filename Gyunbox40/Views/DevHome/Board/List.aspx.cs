@@ -52,10 +52,10 @@ namespace Gyunbox40.Views.DevHome.Board
             //1. 쿼리자체에서 페이징 처리해서 가져오는 방법
             //2. C# 에서 FILL 시에 시작과 끝을 지정해주는 방법 - 2번방법으로 실행
             sb.AppendLine(" SELECT * FROM(   ");
-            sb.AppendLine("     select ROW_NUMBER() OVER(ORDER BY serial_no desc) as row_num, * from hope20603.board ");
+            sb.AppendLine("     select ROW_NUMBER() OVER(ORDER BY serial_no desc) as row_num, * from hope20603.board where del_flag ='N' ");
             sb.AppendLine(" ) as BOARD ");
             sb.AppendLine(" WHERE row_num > @start  and row_num< @end ; ");
-            sb.AppendLine(" SELECT count(*) as totalCnt from hope20603.board; ");
+            sb.AppendLine(" SELECT count(*) as totalCnt from hope20603.board where del_flag ='N'; ");
             
             DBConn conn = new DBConn();
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn.GetConn());

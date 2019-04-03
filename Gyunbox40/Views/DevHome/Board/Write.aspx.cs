@@ -59,7 +59,8 @@ namespace Gyunbox40.Views.DevHome.Board
                 conn.Close();
             }
 
-            Response.Redirect("/");
+            Response.Redirect("/Views/DevHome/Board/List.aspx");
+            Response.End();
         }
     }
 }

@@ -66,5 +66,38 @@ namespace Gyunbox40.Views.DevHome.Board
 
 
         }
+
+        protected void btnList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Views/DevHome/Board/List.aspx");
+        }
+
+        protected void btnModify_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Views/DevHome/Board/Modify.aspx?sn=" + serial_no);
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(" update hope20603.board set del_flag='Y' WHERE serial_no = " + serial_no);
+
+            DBConn dbCon = new DBConn();
+
+            try
+            {
+                dbCon.ExcuteNonQuery(sb.ToString());
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                dbCon.Close();
+            }
+
+            Response.Redirect("/Views/DevHome/Board/List.aspx");
+        }
     }
 }
