@@ -7,45 +7,36 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace Gyunbox40.Views.DevHome.Board {
+namespace Gyunbox40 {
     
     
-    public partial class Detail {
+    public partial class BlogSite {
         
         /// <summary>
-        /// btnList 컨트롤입니다.
+        /// MainHeader 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnList;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainHeader;
         
         /// <summary>
-        /// btnModify 컨트롤입니다.
+        /// WriteHeader 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModify;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder WriteHeader;
         
         /// <summary>
-        /// btnDelete 컨트롤입니다.
+        /// MainContent 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
-        
-        /// <summary>
-        /// ltl_Content 컨트롤입니다.
-        /// </summary>
-        /// <remarks>
-        /// 자동 생성 필드입니다.
-        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltl_Content;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
     }
 }

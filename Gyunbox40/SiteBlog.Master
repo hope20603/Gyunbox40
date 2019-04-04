@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteBlog.Master.cs" Inherits="Gyunbox40.BlogSite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Gyunbox</title>
+    <link rel="shortcut icon" href="/images/favicon/GB.png" />
+    <link rel="apple-touch-icon-precomposed" href="/images/favicon/indigo-touch-icon.png">
+    <link href="/Content/css/blogDefault.css" rel="stylesheet" />
+    <link href="/Content/css/reset.css" rel="stylesheet" />
+    <script src="/Content/js/jquery-3.3.1.min.js"></script>
+    <script src="/Content/js/common.min.js"></script>
+</head>
+<body>
+    <form runat="server">
+    <div id="blog_wrap">
+     
+       <asp:ContentPlaceHolder ID="MainHeader" runat="server"></asp:ContentPlaceHolder>
+       <asp:ContentPlaceHolder ID="WriteHeader" runat="server"></asp:ContentPlaceHolder>
+       <div class="blog_content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+       </div>
+    </div>
+    <footer class="blog_footer">
+    </footer>
+    </form>
+</body>
+</html>

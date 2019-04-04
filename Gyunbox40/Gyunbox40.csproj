@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
+    <Content Include="Content\css\blogDefault.css" />
+    <Content Include="SiteBlog.Master" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -319,6 +321,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteBlog.Master.cs">
+      <DependentUpon>SiteBlog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteBlog.Master.designer.cs">
+      <DependentUpon>SiteBlog.Master</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonController.cs" />
     <Compile Include="Common\DBConn.cs" />

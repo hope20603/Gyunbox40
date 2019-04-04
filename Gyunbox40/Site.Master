@@ -16,14 +16,14 @@
 <body>
     <div id="wrap">
       <header class="header cfixed">
-      	<h1 class="logo"><a href="/Home/Index">KSG</a></h1>
+      	<h1 class="logo"><a href="/">KSG</a></h1>
       	<nav>
 			<ul class="gnb">
 				<li><a href="/">홈</a></li>
 				<li><a href="/Views/Home/About.aspx">개발자 소개</a></li>
 				<li><a href="/Views/Home/Portfolio.aspx">포트폴리오</a></li>
 				<li><a href="/Views/Home/Contact.aspx">문의하기</a></li>
-                <li><a href="/Views/DevHome/Board/List.aspx">게시판</a></li>
+                <li><a href="/Views/DevHome/Board/List.aspx">블로그</a></li>
             </ul>
 		</nav>
 		<a style="cursor:pointer;">

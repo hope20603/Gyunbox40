@@ -9,13 +9,13 @@ table{
     margin: auto;
 }
 
-.tbl_base td {
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    border-bottom: 1px solid #d2d2d2;
-    border-right:1px solid #d2d2d2;
-}
+    .tbl_base td {
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        /*border-bottom: 1px solid #d2d2d2;
+    border-right:1px solid #d2d2d2;*/
+    }
 
 .tbl_base tr:last-child td {
     border-bottom: none;
@@ -29,3 +29,41 @@ table{
     .se2Wrap #ir1 {
         width: 100%;
     }
+
+/* list.aspx */
+.tbl_base {
+    background-color: #ffffff;
+}
+
+    .tbl_base .fst {
+        color: #ED6668;
+        font-weight: bold;
+    }
+
+    .tbl_base .sec {
+        text-align: left;
+    }
+
+/* detail.aspx */
+.detail_wrap{width:100%;}
+.board_content {
+    width: 1200px;
+    margin: auto;
+    border: 1px solid #d2d2d2;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color:#ffffff;
+}
+
+    .board_content .btn_wrap{
+        width:100%;
+        height: 50px;
+        display:block;
+    }
+
+    .board_content .btn_wrap .btn{
+        width:100px; height:30px; float:left;margin-right:10px;
+        border:1px solid #d2d2d2;
+        cursor:pointer;
+    }
+

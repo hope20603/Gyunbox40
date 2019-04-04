@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Write.aspx.cs" Inherits="Gyunbox40.Views.DevHome.Board.Write" validateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteBlog.Master" AutoEventWireup="true" CodeBehind="Write.aspx.cs" Inherits="Gyunbox40.Views.DevHome.Board.Write" validateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="/Content/css/board.css" rel="stylesheet" />
