@@ -14,7 +14,8 @@
     <script src="/Content/js/common.min.js"></script>
 </head>
 <body>
-    <div id="wrap">
+    <form id="form1" runat="server" >
+        <div id="wrap">
       <header class="header cfixed">
       	<h1 class="logo"><a href="/">KSG</a></h1>
       	<nav>
@@ -38,11 +39,12 @@
         
        </asp:ContentPlaceHolder>
     </div>
-    <footer class="master_footer">
+        <footer class="master_footer">
         <ul>
             <li><span><a href="/" title="메인 페이지로 이동">KANG SEUNG GYUN</a></span></li>
             <li><span><a href="mailto:gyunbox@naver.com">gyunbox@naver.com</a></span></li>
         </ul>
     </footer>
+    </form>
 </body>
 </html>

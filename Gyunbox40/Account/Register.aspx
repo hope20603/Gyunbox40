@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="등록" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Register.aspx.cs" Inherits="Gyunbox400.Account.Register" %>
+    CodeBehind="Register.aspx.cs" Inherits="Gyunbox40.Account.Register" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-</asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser">
         <LayoutTemplate>

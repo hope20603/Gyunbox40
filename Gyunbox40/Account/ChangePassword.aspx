@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="암호 변경" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="ChangePassword.aspx.cs" Inherits="Gyunbox400.Account.ChangePassword" %>
+    CodeBehind="ChangePassword.aspx.cs" Inherits="Gyunbox40.Account.ChangePassword" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-</asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
         암호 변경

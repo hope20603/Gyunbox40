@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Gyunbox400.Account
+namespace Gyunbox40.Account
 {
     public partial class ChangePassword : System.Web.UI.Page
     {

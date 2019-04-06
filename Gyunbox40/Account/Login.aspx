@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="로그인" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Login.aspx.cs" Inherits="Gyunbox400.Account.Login" %>
+    CodeBehind="Login.aspx.cs" Inherits="Gyunbox40.Account.Login" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-</asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
         로그인
