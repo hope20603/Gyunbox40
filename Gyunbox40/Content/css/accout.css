@@ -1,0 +1,45 @@
+﻿body {
+}
+
+/* login.aspx */
+.login_wrap {
+    margin: auto;
+    margin-top: 30px;
+    width: 600px;
+    border: 1px solid #d2d2d2;
+    height: 800px;
+    padding-top: 50px;
+}
+
+    .login_wrap .textEntry {
+        height: 30px;
+        border: 1px solid #d2d2d2;
+        padding: 10px;
+        font-size:12pt;
+        line-height:16px;
+        position:relative;
+        width:580px;
+    }
+
+    .login_wrap .passwordEntry {
+        height: 30px;
+        border: 1px solid #d2d2d2;
+        padding: 10px;
+        font-size: 12pt;
+        line-height: 16px;
+        position: relative;
+        width: 580px;
+    }
+
+    .login_wrap .btnLogin {
+        margin-top: 30px;
+        width: 600px;
+        height: 60px;
+        font-size: 23px;
+        color: #ffffff;
+        background-color: #222222;
+        cursor:pointer;
+    }
+
+
+    

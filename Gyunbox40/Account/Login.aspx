@@ -2,14 +2,13 @@
     CodeBehind="Login.aspx.cs" Inherits="Gyunbox40.Account.Login" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        로그인
-    </h2>
-    <p>
-        사용자 이름과 암호를 입력하십시오.
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">계정이 없는 경우</asp:HyperLink> 등록하십시오.
-    </p>
-    <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
+<link href="/Content/css/accout.css" rel="stylesheet" />
+    
+    <div class="login_wrap">
+        <p>사용자 이름과 암호를 입력하십시오.
+            <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">계정이 없는 경우</asp:HyperLink> 등록하십시오.
+        </p>
+        <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
         <LayoutTemplate>
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
@@ -21,14 +20,14 @@
                     <legend>계정 정보</legend>
                     <p>
                         <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">사용자 이름:</asp:Label>
-                        <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
+                        <asp:TextBox ID="UserName" runat="server" CssClass="textEntry" placeholder="아이디"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
                              CssClass="failureNotification" ErrorMessage="사용자 이름이 필요합니다." ToolTip="사용자 이름이 필요합니다." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
                     <p>
                         <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">암호:</asp:Label>
-                        <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"  placeholder="비밀번호"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
                              CssClass="failureNotification" ErrorMessage="암호가 필요합니다." ToolTip="암호가 필요합니다." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -39,9 +38,11 @@
                     </p>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="로그인" ValidationGroup="LoginUserValidationGroup"/>
+                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="로그인" ValidationGroup="LoginUserValidationGroup" CssClass="btnLogin"/>
                 </p>
             </div>
         </LayoutTemplate>
     </asp:Login>
+    </div>
+    
 </asp:Content>

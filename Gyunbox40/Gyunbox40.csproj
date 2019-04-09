@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\accout.css" />
     <Content Include="Account\Web.config" />
     <Content Include="Content\css\blogDefault.css" />
     <Content Include="SiteBlog.Master" />
