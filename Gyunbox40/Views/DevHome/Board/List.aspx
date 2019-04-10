@@ -20,7 +20,7 @@
             location.href = pageUrl;
         }
     </script>
-    <table class="tbl_base" summary="개발정보 게시판">
+    <table class="tbl_base list" summary="개발정보 게시판">
         <colgroup>
             <col width="5%" />
             <col width="75%" />

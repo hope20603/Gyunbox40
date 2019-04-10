@@ -14,6 +14,7 @@ namespace Gyunbox40.Views.DevHome.Board
     public partial class Write : System.Web.UI.Page
     {
         protected string txtContent = string.Empty;
+        protected string txtTitle = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,7 @@ namespace Gyunbox40.Views.DevHome.Board
             else
             {
                 txtContent = cc.ChkParam(Request["ir1"]);
+                txtTitle = cc.ChkParam(Request["title"]);
                 saveContent();
             }
         }
@@ -41,7 +43,7 @@ namespace Gyunbox40.Views.DevHome.Board
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn.GetConn());
             cmd.Parameters.AddWithValue("@writer", "hope20603");
             cmd.Parameters.AddWithValue("@password", "1025");
-            cmd.Parameters.AddWithValue("@title", "테스트입니다.");
+            cmd.Parameters.AddWithValue("@title", txtTitle);
             cmd.Parameters.AddWithValue("@message", txtContent);
 
             sbUpdate.Append("UPDATE hope20603.board SET ref_id = serial_no WHERE ref_id = 0");

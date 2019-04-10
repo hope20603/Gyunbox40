@@ -1,6 +1,18 @@
 ﻿/* 공통 */
-table{
-    border-collapse:collapse;
+html, body {
+    height: 100% !important;
+}
+
+.baseForm{
+    height:100%;
+}
+
+.blind {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 .tbl_base {
@@ -17,17 +29,53 @@ table{
     border-right:1px solid #d2d2d2;*/
     }
 
-.tbl_base tr:last-child td {
-    border-bottom: none;
+    .tbl_base tr:last-child td {
+        border-bottom: none;
+    }
+
+    .tbl_base tr td:last-child {
+        border-right: none;
+    }
+/* Write.aspx */
+.container.write {
+    width: 1200px;
+    margin: auto;
+    height: 700px;
 }
 
-    .tbl_base tr td:last-child{
-        border-right:none;
-
+    .container.write .input_type1 {
+        border: 1px solid #B5B5B5;
+        height: 40px;
+        padding: 5px 0 5px 10px;
+        font-size: 15pt;
+        box-sizing: border-box;
     }
-    /* Write.aspx */
-    .se2Wrap #ir1 {
-        width: 100%;
+
+    .container.write .con_top {
+    }
+
+    .container.write .con_mid {
+        background-color: #ffffff;
+    }
+
+    .container.write .con_bot {
+        height: 70px;
+        margin-top: 20px;
+    }
+
+        .container.write .con_bot .btn.save {
+            width:100px; 
+            float:right;
+            cursor:pointer;
+        }
+
+        .container.write .con_mid #ir1 {
+            width: 1198px;
+            height: 520px;
+        }
+
+    .container.write .con_top #title {
+        margin-bottom: 30px;
     }
 
 /* list.aspx */
@@ -44,26 +92,39 @@ table{
         text-align: left;
     }
 
+    .tbl_base.list td a {
+        color: #000000;
+    }
+
+        .tbl_base.list td a:hover {
+            text-decoration: underline;
+        }
+
 /* detail.aspx */
-.detail_wrap{width:100%;}
+.detail_wrap {
+    width: 100%;
+}
+
 .board_content {
     width: 1200px;
     margin: auto;
     border: 1px solid #d2d2d2;
     padding: 30px;
     box-sizing: border-box;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
-    .board_content .btn_wrap{
-        width:100%;
+    .board_content .btn_wrap {
+        width: 100%;
         height: 50px;
-        display:block;
+        display: block;
     }
 
-    .board_content .btn_wrap .btn{
-        width:100px; height:30px; float:left;margin-right:10px;
-        border:1px solid #d2d2d2;
-        cursor:pointer;
-    }
-
+        .board_content .btn_wrap .btn {
+            width: 100px;
+            height: 30px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #d2d2d2;
+            cursor: pointer;
+        }

@@ -5,9 +5,6 @@
 <link href="/Content/css/accout.css" rel="stylesheet" />
     
     <div class="login_wrap">
-        <p>사용자 이름과 암호를 입력하십시오.
-            <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">계정이 없는 경우</asp:HyperLink> 등록하십시오.
-        </p>
         <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
         <LayoutTemplate>
             <span class="failureNotification">

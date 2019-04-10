@@ -1,7 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteBlog.Master.cs" Inherits="Gyunbox40.BlogSite" %>
-
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <meta charset="UTF-8">
@@ -15,9 +13,8 @@
     <script src="/Content/js/common.min.js"></script>
 </head>
 <body>
-    <form runat="server">
+    <form name="form1" runat="server" class="baseForm">
     <div id="blog_wrap">
-     
        <asp:ContentPlaceHolder ID="MainHeader" runat="server"></asp:ContentPlaceHolder>
        <asp:ContentPlaceHolder ID="WriteHeader" runat="server"></asp:ContentPlaceHolder>
        <div class="blog_content">
