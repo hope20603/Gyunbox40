@@ -3,8 +3,8 @@ html, body {
     height: 100% !important;
 }
 
-.baseForm{
-    height:100%;
+.baseForm {
+    height: 100%;
 }
 
 .blind {
@@ -64,15 +64,15 @@ table {
     }
 
         .container.write .con_bot .btn.save {
-            width:100px; 
-            float:right;
-            cursor:pointer;
+            width: 100px;
+            float: right;
+            cursor: pointer;
         }
 
-        .container.write .con_mid #ir1 {
-            width: 1198px;
-            height: 520px;
-        }
+    .container.write .con_mid #ir1 {
+        width: 1198px;
+        height: 520px;
+    }
 
     .container.write .con_top #title {
         margin-bottom: 30px;
@@ -101,30 +101,102 @@ table {
         }
 
 /* detail.aspx */
-.detail_wrap {
+.board_wrap {
     width: 100%;
 }
 
-.board_content {
-    width: 1200px;
-    margin: auto;
-    border: 1px solid #d2d2d2;
-    padding: 30px;
-    box-sizing: border-box;
-    background-color: #ffffff;
-}
-
-    .board_content .btn_wrap {
-        width: 100%;
-        height: 50px;
-        display: block;
+    .board_wrap .board_content {
+        width: 1200px;
+        margin: auto;
+        border: 1px solid #d2d2d2;
+        padding: 30px;
+        box-sizing: border-box;
+        background-color: #ffffff;
     }
 
-        .board_content .btn_wrap .btn {
-            width: 100px;
-            height: 30px;
-            float: left;
-            margin-right: 10px;
-            border: 1px solid #d2d2d2;
-            cursor: pointer;
+        .board_wrap .board_content .btn_wrap{
+            width:340px;
+            display:block;
+            float:right;
+            height:70px;
         }
+
+       /*
+        .board_wrap .board_content .btn_wrap {
+            width: 100%;
+            height: 50px;
+            display: block;
+        }*/
+            .board_wrap .board_content .btn_wrap .btn {
+                float: right;
+                line-height:35px;
+            }
+
+        .board_wrap .board_content .content {
+        }
+
+            .board_wrap .board_content .content .content_tit {
+                height: 180px;
+                text-align: center;
+                display: block;
+            }
+
+                .board_wrap .board_content .content .content_tit span {
+                    width: 100%;
+                    display: inline-block;
+                }
+
+                    .board_wrap .board_content .content .content_tit span.tit_category {
+                        color: #3DB39E;
+                        font-weight: bold;
+                    }
+
+                    .board_wrap .board_content .content .content_tit span.tit_post {
+                        font-size: 40px;
+                        margin-top: 10px;
+                        font-weight: bold;
+                        height: 50px;
+                        line-height: 50px;
+                    }
+
+                    .board_wrap .board_content .content .content_tit span.tit_info {
+                        color: #AAAAAA;
+                        width: 100%;
+                        display: block;
+                    }
+
+                        .board_wrap .board_content .content .content_tit span.tit_info .sp_wrap {
+                            margin: auto;
+                            width: 300px;
+                            font-size: 20px;
+                            margin-top: 20px;
+                        }
+
+                        .board_wrap .board_content .content .content_tit span.tit_info .sp_writer {
+                            width: 80px;
+                            float: left;
+                            border-right: 3px solid #EBEBEB;
+                        }
+
+                        .board_wrap .board_content .content .content_tit span.tit_info .sp_time {
+                            width: 180px;
+                            float: left;
+                        }
+
+            .board_wrap .board_content .content .content_con {
+                display: block;
+                margin-top: 80px;
+                padding-top: 80px;
+                border-top: 2px solid #EBEBEB;
+            }
+
+        
+
+            .board_wrap .board_content .btn_wrap .btn {
+                width: 100px;
+                height: 30px;
+                float: left;
+                margin-right: 10px;
+                border: 1px solid #d2d2d2;
+                cursor: pointer;
+            }

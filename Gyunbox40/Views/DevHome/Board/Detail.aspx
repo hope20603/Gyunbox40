@@ -20,7 +20,19 @@
                 <asp:Button ID="btnDelete" runat="server" Text="삭제" OnClick="btnDelete_Click"  CssClass="btn del"/>
             </div>
             <div class="content">
-                <asp:Literal ID="ltl_Content" runat="server"></asp:Literal>
+                <div class="content_tit">
+                    <span class="tit_category">Classic ASP</span>
+                    <span class="tit_post"><asp:Literal ID="ltl_Title" runat="server"></asp:Literal></span>
+                    <span class="tit_info">
+                        <span class="sp_wrap">
+                            <span class="sp_writer">강승균</span>
+                            <span class="sp_time">2019-01-01 16:57</span>
+                        </span>
+                    </span>
+                </div>
+                <div class="content_con">
+                    <asp:Literal ID="ltl_Content" runat="server"></asp:Literal>
+                </div>
             </div>
         </div>
     </div>

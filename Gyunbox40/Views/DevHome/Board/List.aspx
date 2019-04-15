@@ -41,7 +41,7 @@
         </tbody>
     </table>
     <!-- Paging -->
-    <div class="pageNotice">
+    <div class="pageNotice blind" >
         <p class="page">
             <b><span class="sp_num">
                 <asp:Label ID="lb_total" runat="server"></asp:Label></span></b> 페이지 / 총 <b>

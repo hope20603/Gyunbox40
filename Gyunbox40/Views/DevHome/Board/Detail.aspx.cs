@@ -57,6 +57,7 @@ namespace Gyunbox40.Views.DevHome.Board
             if (ds.Tables[0].Rows.Count > 0)
             {
                 ltl_Content.Text = ds.Tables[0].Rows[0]["message"].ToString();
+                ltl_Title.Text = ds.Tables[0].Rows[0]["title"].ToString();
             }
             else
             {
