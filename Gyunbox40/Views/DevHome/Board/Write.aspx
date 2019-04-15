@@ -9,7 +9,7 @@
                 <li class="btn write"><a href="/Views/DevHome/Board/List.aspx">목록</a></li>
             </ul>
         </nav>
-    </header>
+    </header> 
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="/Content/css/board.css" rel="stylesheet" />
