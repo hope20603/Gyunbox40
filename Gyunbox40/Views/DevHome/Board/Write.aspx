@@ -3,13 +3,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHeader" runat="server" Visible="false"></asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="WriteHeader" runat="server">
     <header class="blog_header">
-        <h1 class="logo"></h1>
-        <nav>
-            <ul class="gnb">
-                <li class="btn write"><a href="/Views/DevHome/Board/List.aspx">목록</a></li>
-            </ul>
-        </nav>
-    </header> 
+        <div class="inner">
+            <h1 class="logo">
+                <a href="/Views/DevHome/Board/List.aspx">블로그</a>
+            </h1>
+            <nav id="gnb">
+                <ul>
+                    <li class="btn home">
+                        <a href="/">메인 홈</a>
+                    </li>
+                    <li class="btn write">
+                        <a href="/Views/DevHome/Board/List.aspx">목록</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="/Content/css/board.css" rel="stylesheet" />

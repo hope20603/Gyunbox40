@@ -11,7 +11,7 @@ a {
     background: transparent;
     text-decoration: none;
 }
-
+/*
 .btn {
     width: 100px;
     border: 1px solid #d2d2d2;
@@ -23,7 +23,6 @@ a {
     border-radius: 20px;
 }
 
-
     .btn a {
         color: #ffffff;
     }
@@ -31,6 +30,7 @@ a {
     .btn:hover {
         background-color: #FF5544;
     }
+    */
 
 #blog_wrap {
     width: 100%;
@@ -48,8 +48,7 @@ a {
     padding-top: 50px;
     background-color: #F3F5F7;
     padding-bottom: 50px;
-    min-height:1000px;
-    
+    min-height: 1000px;
 }
 
 .blog_footer {
@@ -60,28 +59,40 @@ a {
 }
 
 .blog_header .gnb {
-    margin-top: 20px;
-    float: right;
-    width: 300px;
+    float: left;
 }
 
-    .blog_header .gnb .btn.write {
-        width: 100px;
-        border: 1px solid #d2d2d2;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        background-color: #000000;
-        color: #ffffff;
-        border-radius: 20px;
+.blog_header a {
+    color: #000000;
+}
+
+.blog_header {
+    padding: 25px 0 25px 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+    .blog_header .inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 10px;
+        box-sizing: border-box;
     }
 
-        .blog_header .gnb .btn.write a {
-            color: #ffffff;
+    .blog_header .logo {
+        font-size: 26px;
+        color: #ffffff;
+        font-weight: normal;
+        float: left;
+    }
+
+    .blog_header #gnb {
+        float: right;
+        display: block;
+    }
+
+        .blog_header #gnb li {
+            float: left;
+            padding: 0 20px;
+            font-size: 20px;
         }
-
-        .blog_header .gnb .btn.write:hover {
-            background-color: #FF5544;
-        }
-
-
