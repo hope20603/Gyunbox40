@@ -37,7 +37,7 @@ namespace Gyunbox40.Views.DevHome.Board
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
 
-            sb.AppendLine(" SELECT * FROM  board WHERE serial_no = "+ serial_no);
+            sb.AppendLine(" SELECT * FROM board A left join BRDMNU B on a.board_num = b.BRDSEQ  WHERE serial_no = " + serial_no);
 
             DBConn dbCon = new DBConn();
 
@@ -58,6 +58,10 @@ namespace Gyunbox40.Views.DevHome.Board
             {
                 ltl_Content.Text = ds.Tables[0].Rows[0]["message"].ToString();
                 ltl_Title.Text = ds.Tables[0].Rows[0]["title"].ToString();
+                ltl_category.Text = ds.Tables[0].Rows[0]["BRDNME"].ToString();
+                ltl_writer.Text = ds.Tables[0].Rows[0]["writer"].ToString();
+                ltl_regDate.Text = ds.Tables[0].Rows[0]["reg_date"].ToString();
+
             }
             else
             {

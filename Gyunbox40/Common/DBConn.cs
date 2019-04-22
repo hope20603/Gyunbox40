@@ -147,3 +147,43 @@ namespace Gyunbox40.Common
 
     }
 }
+
+/*
+private void SetPersonalSchedule()
+{
+    string spName = "sp_getPersonalSchedule";
+
+    SqlParameter[] _sqlParam = {   new SqlParameter("@date", DateTime.Today.ToString("yyyyMMdd")),
+                                            new SqlParameter("@userId", GetMyID) };
+
+    SqlConnection oCon = new SqlConnection(eItmBase.ConnectionString);
+    DataSet ds = null;
+
+    try
+    {
+        ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName, _sqlParam);
+
+        this.repeterPersonnelSchedule.DataSource = ds.Tables[0].DefaultView;
+        this.repeterPersonnelSchedule.DataBind();
+
+        if (repeterPersonnelSchedule.Items.Count == 0)
+            lblPersonalSchduleNone.Visible = true;
+        else
+            lblPersonalSchduleNone.Visible = false;
+    }
+    catch (Exception ex)
+    {
+        string err = ex.ToString();
+        Debug.Write(err);
+    }
+    finally
+    {
+        ds.Dispose();
+
+        if (oCon.State == ConnectionState.Open)
+            oCon.Close();
+
+        oCon.Dispose();
+    }
+}
+*/

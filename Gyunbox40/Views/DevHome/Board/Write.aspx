@@ -25,6 +25,9 @@
     <script src="/Content/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
     <script type="text/javascript" src="/Content/se2/js/service/HuskyEZCreator.js"></script>
     <div class="container write">
+        <div class="con_cat">
+            <asp:DropDownList ID="ddl_category" runat="server"></asp:DropDownList>
+        </div>
         <div class="con_top">
             <input type="text" id="title" name="title" value="" placeholder="제목" class="input_type1" />
         </div>

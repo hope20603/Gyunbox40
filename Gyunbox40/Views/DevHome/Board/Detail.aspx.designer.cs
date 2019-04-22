@@ -40,6 +40,15 @@ namespace Gyunbox40.Views.DevHome.Board {
         protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
+        /// ltl_category 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltl_category;
+        
+        /// <summary>
         /// ltl_Title 컨트롤입니다.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,24 @@ namespace Gyunbox40.Views.DevHome.Board {
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal ltl_Title;
+        
+        /// <summary>
+        /// ltl_writer 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltl_writer;
+        
+        /// <summary>
+        /// ltl_regDate 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltl_regDate;
         
         /// <summary>
         /// ltl_Content 컨트롤입니다.

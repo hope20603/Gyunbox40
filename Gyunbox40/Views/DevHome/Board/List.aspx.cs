@@ -52,7 +52,8 @@ namespace Gyunbox40.Views.DevHome.Board
             //1. 쿼리자체에서 페이징 처리해서 가져오는 방법
             //2. C# 에서 FILL 시에 시작과 끝을 지정해주는 방법 - 2번방법으로 실행
             sb.AppendLine(" SELECT * FROM(   ");
-            sb.AppendLine("     select ROW_NUMBER() OVER(ORDER BY serial_no desc) as row_num, * from hope20603.board where del_flag ='N' ");
+            sb.AppendLine("     select ROW_NUMBER() OVER(ORDER BY serial_no desc) as row_num, * ");
+            sb.AppendLine("     from hope20603.board A LEFT JOIN hope20603.BRDMNU B on A.board_num = B.BRDSEQ where del_flag ='N' ");
             sb.AppendLine(" ) as BOARD ");
             sb.AppendLine(" WHERE row_num > @start  and row_num< @end ; ");
             sb.AppendLine(" SELECT count(*) as totalCnt from hope20603.board where del_flag ='N'; ");
@@ -61,7 +62,6 @@ namespace Gyunbox40.Views.DevHome.Board
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn.GetConn());
             cmd.Parameters.AddWithValue("@start", start_id);
             cmd.Parameters.AddWithValue("@end", end_id);
-
 
             try
             {
@@ -110,13 +110,13 @@ namespace Gyunbox40.Views.DevHome.Board
             return returnString;
         }
 
-        protected string ShowTitle(string serialNo, string title, string delFlag)
+        protected string ShowTitle(string serialNo, string category, string title, string delFlag)
         {
             string returnString = "";
             if(delFlag == "N")
             {
                 returnString += "<a href='Detail.aspx?sn=" + serialNo +"'  ";
-                returnString += "class='a01'>" + title + "</a>";
+                returnString += "class='a01'>[ " + category + " ] " + title + "</a>";
             }
             else
             {

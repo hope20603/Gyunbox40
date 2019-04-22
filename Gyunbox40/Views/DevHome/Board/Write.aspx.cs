@@ -7,6 +7,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Gyunbox40.Common;
 using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+using Microsoft.ApplicationBlocks.Data;
 
 
 namespace Gyunbox40.Views.DevHome.Board
@@ -15,29 +19,74 @@ namespace Gyunbox40.Views.DevHome.Board
     {
         protected string txtContent = string.Empty;
         protected string txtTitle = string.Empty;
+        private string connectionString = ConfigurationManager.ConnectionStrings["GyunBox"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             CommonController cc = new CommonController();
             if (!IsPostBack)
             {
-                //초기화
+                InitCategory();
             }
             else
             {
                 txtContent = cc.ChkParam(Request["ir1"]);
                 txtTitle = cc.ChkParam(Request["title"]);
-                saveContent();
+                SaveContent();
             }
         }
 
-        public void saveContent()
+        /// <summary>
+        /// 카테고리 초기화
+        /// </summary>
+        public void InitCategory()
+        {
+
+            DataSet ds = null;
+            //ope20603.sp_selectBRDMNU 
+            //초기화
+            ListItem item1 = new ListItem("카테고리", "0");
+            ddl_category.Items.Add(item1);
+
+            string spName = "sp_getBRDMNU";
+            SqlConnection oCon = new SqlConnection(connectionString);
+            //SqlParameter[] _sqlParam = null;
+
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName);
+
+                if(ds.Tables[0].Rows.Count > 0)
+                {
+                    for(int i=0; i<ds.Tables[0].Rows.Count; i++)
+                    {
+                        ListItem tmpItem = new ListItem(ds.Tables[0].Rows[i]["BRDNME"].ToString(), ds.Tables[0].Rows[i]["BRDSEQ"].ToString());
+                        ddl_category.Items.Add(tmpItem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                ds.Dispose();
+                if (oCon.State == ConnectionState.Open)
+                    oCon.Close();
+
+                oCon.Dispose();
+
+            }
+        }
+
+        public void SaveContent()
         {
             StringBuilder sb = new StringBuilder(); //insert Query
             StringBuilder sbUpdate = new StringBuilder(); //update Query
 
-            sb.Append(" INSERT INTO hope20603.board (writer, password, title, message, ref_id, inner_id, depth, read_count, del_flag, reg_date) ");
-            sb.Append(" VALUES(@writer, @password, @title, @message, 0, 0, 0, 0, 'N', GETDATE()) ");
+            sb.Append(" INSERT INTO hope20603.board (writer, password, title, message, ref_id, inner_id, depth, read_count, del_flag, reg_date , board_num) ");
+            sb.Append(" VALUES(@writer, @password, @title, @message, 0, 0, 0, 0, 'N', GETDATE() , @category) ");
 
             DBConn conn = new DBConn();
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn.GetConn());
@@ -45,6 +94,7 @@ namespace Gyunbox40.Views.DevHome.Board
             cmd.Parameters.AddWithValue("@password", "1025");
             cmd.Parameters.AddWithValue("@title", txtTitle);
             cmd.Parameters.AddWithValue("@message", txtContent);
+            cmd.Parameters.AddWithValue("@category", ddl_category.SelectedIndex);
 
             sbUpdate.Append("UPDATE hope20603.board SET ref_id = serial_no WHERE ref_id = 0");
 

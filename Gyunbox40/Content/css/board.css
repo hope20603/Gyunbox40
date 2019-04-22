@@ -51,6 +51,24 @@ table {
         box-sizing: border-box;
     }
 
+    .container.write .con_cat {
+        width: 100%;
+        height: 50px;
+    }
+
+        .container.write .con_cat select {
+            border: 1px solid #d2d2d2;
+            height: 40px;
+            width: 200px;
+            color: #A5A5A5;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        .container.write .con_cat option {
+            padding: 5px;
+        }
+
     .container.write .con_top {
     }
 
@@ -114,14 +132,14 @@ table {
         background-color: #ffffff;
     }
 
-        .board_wrap .board_content .btn_wrap{
-            width:340px;
-            display:block;
-            float:right;
-            height:70px;
+        .board_wrap .board_content .btn_wrap {
+            width: 340px;
+            display: block;
+            float: right;
+            height: 70px;
         }
 
-       /*
+            /*
         .board_wrap .board_content .btn_wrap {
             width: 100%;
             height: 50px;
@@ -129,7 +147,7 @@ table {
         }*/
             .board_wrap .board_content .btn_wrap .btn {
                 float: right;
-                line-height:35px;
+                line-height: 35px;
             }
 
         .board_wrap .board_content .content {
@@ -173,13 +191,10 @@ table {
                         }
 
                         .board_wrap .board_content .content .content_tit span.tit_info .sp_writer {
-                            width: 80px;
                             float: left;
-                            border-right: 3px solid #EBEBEB;
                         }
 
                         .board_wrap .board_content .content .content_tit span.tit_info .sp_time {
-                            width: 180px;
                             float: left;
                         }
 
@@ -190,13 +205,13 @@ table {
                 border-top: 2px solid #EBEBEB;
             }
 
-        
 
-            .board_wrap .board_content .btn_wrap .btn {
-                width: 100px;
-                height: 30px;
-                float: left;
-                margin-right: 10px;
-                border: 1px solid #d2d2d2;
-                cursor: pointer;
-            }
+
+        .board_wrap .board_content .btn_wrap .btn {
+            width: 100px;
+            height: 30px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #d2d2d2;
+            cursor: pointer;
+        }

@@ -21,12 +21,12 @@
             </div>
             <div class="content">
                 <div class="content_tit">
-                    <span class="tit_category">Classic ASP</span>
+                    <span class="tit_category"><asp:Literal ID="ltl_category" runat="server"></asp:Literal></span>
                     <span class="tit_post"><asp:Literal ID="ltl_Title" runat="server"></asp:Literal></span>
                     <span class="tit_info">
                         <span class="sp_wrap">
-                            <span class="sp_writer">강승균</span>
-                            <span class="sp_time">2019-01-01 16:57</span>
+                            <span class="sp_writer"><asp:Literal ID="ltl_writer" runat="server"></asp:Literal></span>
+                            <span class="sp_time"><asp:Literal ID="ltl_regDate" runat="server"></asp:Literal></span>
                         </span>
                     </span>
                 </div>

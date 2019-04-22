@@ -41,7 +41,7 @@
             <ItemTemplate>
                 <tr>
                     <td class="fst"><%# Eval("serial_no")%></td>
-                    <td class="sec"><%# ShowReplyIcon((int)Eval("inner_id"))%><%#ShowDepth((int)Eval("depth"))%><%# ShowTitle(Eval("serial_no").ToString(),Eval("title").ToString(),Eval("del_flag").ToString())%></td>
+                    <td class="sec"><%# ShowReplyIcon((int)Eval("inner_id"))%><%#ShowDepth((int)Eval("depth"))%><%# ShowTitle(Eval("serial_no").ToString(),Eval("BRDNME").ToString(),Eval("title").ToString(),Eval("del_flag").ToString())%></td>
                     <td><%# Eval("writer")%></td>
                     <td><%# ShowDate((DateTime)Eval("reg_date"))%></td>
                 </tr>
