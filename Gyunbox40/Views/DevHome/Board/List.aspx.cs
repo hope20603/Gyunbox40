@@ -13,7 +13,7 @@ namespace Gyunbox40.Views.DevHome.Board
 {
     public partial class List : System.Web.UI.Page
     {
-        public int PAGE_SIZE = 100;
+        public int PAGE_SIZE = 2000;
         public int now_page = 0;
         public int total_page = 0;
         protected CommonController cc;
