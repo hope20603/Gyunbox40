@@ -41,7 +41,7 @@
                     sSkinURI: "/Content/se2/SmartEditor2Skin.html",
                     fCreator: "createSEditor2",
                     fOnAppLoad: function () {
-                        oEditors.getById["ir1"].exec("PASTE_HTML", ['<%=txtContent%>']);
+                        oEditors.getById["ir1"].exec("PASTE_HTML", ["<%=txtContent%>"]);
                     }
                     
                 });

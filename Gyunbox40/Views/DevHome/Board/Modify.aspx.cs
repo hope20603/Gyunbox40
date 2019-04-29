@@ -70,7 +70,7 @@ namespace Gyunbox40.Views.DevHome.Board
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                txtContent = ds.Tables[0].Rows[0]["message"].ToString();
+                txtContent = ds.Tables[0].Rows[0]["message"].ToString().Replace("\"", "").Replace("''", "'");
                 //ir1.Value = ds.Tables[0].Rows[0]["message"].ToString();
                 title.Value = ds.Tables[0].Rows[0]["title"].ToString();
                 //ltl_category.Text = ds.Tables[0].Rows[0]["BRDNME"].ToString();
