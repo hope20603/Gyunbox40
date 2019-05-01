@@ -65,6 +65,7 @@
     <Content Include="Content\css\accout.css" />
     <Content Include="Account\Web.config" />
     <Content Include="Content\css\blogDefault.css" />
+    <Content Include="Content\css\erp.css" />
     <Content Include="SiteBlog.Master" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -283,6 +284,11 @@
     <Content Include="Views\DevHome\Board\List.aspx" />
     <Content Include="Views\DevHome\Board\Modify.aspx" />
     <Content Include="Views\DevHome\Board\Write.aspx" />
+    <Content Include="Views\Erp\AddMember.aspx" />
+    <Content Include="Views\Erp\FormIndex.aspx" />
+    <Content Include="Views\Erp\Index.aspx" />
+    <Content Include="Views\Erp\ManageDepart.aspx" />
+    <Content Include="Views\Erp\WriteForm.aspx" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Contact.aspx" />
     <Content Include="Views\Home\Portfolio.aspx" />
@@ -382,6 +388,41 @@
     <Compile Include="Views\DevHome\Board\Write.aspx.designer.cs">
       <DependentUpon>Write.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Erp\AddMember.aspx.cs">
+      <DependentUpon>AddMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Erp\AddMember.aspx.designer.cs">
+      <DependentUpon>AddMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Erp\FormIndex.aspx.cs">
+      <DependentUpon>FormIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Erp\FormIndex.aspx.designer.cs">
+      <DependentUpon>FormIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Erp\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Erp\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Erp\ManageDepart.aspx.cs">
+      <DependentUpon>ManageDepart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Erp\ManageDepart.aspx.designer.cs">
+      <DependentUpon>ManageDepart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Erp\WriteForm.aspx.cs">
+      <DependentUpon>WriteForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Erp\WriteForm.aspx.designer.cs">
+      <DependentUpon>WriteForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,7 +461,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Erp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,30 @@
+﻿body {
+}
+
+
+.FormIndexWrap {
+}
+
+    .FormIndexWrap ul {
+        float: left;
+    }
+
+        .FormIndexWrap ul li {
+            float: left;
+            width: 100px;
+            float: left;
+            text-align: center;
+        }
+
+            .FormIndexWrap ul li img {
+                display: block;
+                margin: auto;
+                cursor: pointer;
+            }
+
+            .FormIndexWrap ul li span {
+                float: left;
+                width: 100px;
+                display: inline-block;
+                text-align: center;
+            }
