@@ -97,18 +97,30 @@ table {
     }
 
 /* list.aspx */
-.tbl_base {
+
+.tbl_base.list {
     background-color: #ffffff;
+    width:100%;
 }
 
-    .tbl_base .fst {
-        color: #ED6668;
-        font-weight: bold;
+    .tbl_base.list .hide_mobile {
+        visibility:hidden;
     }
+
+.tbl_base td{
+    min-height:50px;
+}
+
+.tbl_base .fst {
+    color: #ED6668;
+    font-weight: bold;
+    width:10%;
+}
 
     .tbl_base .sec {
         text-align: left;
     }
+
 
     .tbl_base.list td a {
         color: #000000;
@@ -215,3 +227,35 @@ table {
             border: 1px solid #d2d2d2;
             cursor: pointer;
         }
+
+/* 테블릿 */
+@media all and (min-width:768px) {
+    /* list.aspx */
+   
+}
+
+/* pc */
+@media all and (min-width:1132px){
+
+    /* list.aspx */
+    .tbl_base.list {
+        width: 1200px;
+    }
+
+        .tbl_base.list .hide_mobile {
+            visibility:visible;
+        }
+
+    .tbl_base td {
+        min-height: 30px;
+        border-bottom: 1px solid #d2d2d2;
+    }
+
+    .tbl_base .fst {
+        color: #ED6668;
+        font-weight: bold;
+        width: 30px;
+    }
+   
+
+}
