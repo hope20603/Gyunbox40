@@ -6,7 +6,7 @@
       		<div class="container">
       			<h2 class="sec-tit">Web Programmer</h2>
       			<p class="desc">
-      			    ASP.NET (C#) , ASP, Javascript, jQuery, HTML, CSS, ORACLE, DB2
+      			    ASP.NET (C#) , ASP, Javascript, jQuery, HTML, CSS, ORACLE, DB2, MS-SQL
                 </p>
 			</div>
 		</section>
@@ -31,7 +31,7 @@
 							</p>
 						</a>
 					</li>
-					<li>
+					<%--<li>
 						<a href="/Views/Home/Contact.aspx">
 							<img src="/images/s-images/promo04.png" alt="">    
 							<h3>Contact</h3>
@@ -39,7 +39,7 @@
 								개발자에게 문의
 							</p>
 						</a>
-					</li>
+					</li>--%>
 				</ul>		
 			</div>
 		</section>
@@ -144,7 +144,7 @@
 		 		</ul>
 		 	</div>
 		</section>--%>
-		<section class="contact-section">
+		<section class="contact-section" style="display:none;">
 		 	<div class="container">
 		 		<h2 class="sec-tit">CONTACT</h2>
 		 		<div class="form-box">

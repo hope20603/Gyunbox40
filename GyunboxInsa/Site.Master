@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GyunboxInsa.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <style type="text/css">
+        #left_menu_wrap{}
+        #left_menu_wrap #left_menu{float:left; width:100px; float:left; background-color:#d2d2d2; height:100%; min-height:1000px;}
+        #left_menu_wrap #left_menu .menu{float:left; height:100px; border-bottom:1px solid red; width:100px;}
+    </style>
+    <form id="form1" runat="server">
+        <div id="wrap">
+            <div id="left_menu_wrap">
+                <div id="left_menu">
+                    <div class="menu menu_1">인사관리</div>
+                    <div class="menu menu_2">프로젝트관리</div>
+                    <div class="menu menu_3">경력관리</div>
+                </div>
+            </div>
+            <div id="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

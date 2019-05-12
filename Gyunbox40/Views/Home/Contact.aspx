@@ -4,7 +4,7 @@
 		 	<div class="container">
 		 		<h2 class="location">CONTACT</h2>
                 <div class="form-box">
-		 			<form action="/Home/SaveContact" method="post" id="cForm">
+		 			<form action="/Views/Home/SaveContent.aspx" method="post" id="cForm">
 		 				<fieldset class="cfixed">
 		 					<legend class="blind">CONTACT US</legend>
 		 					<div class="form">
@@ -65,38 +65,9 @@
 
             function fnContact() {
                 if (chkValidation()) {
-                    var postUrl = "/Home/SaveContact";
-                    var param = $("#cForm").serialize() + "&gub=INDEX";
-
-                    $.ajax({
-                        type: "POST",
-                        url: postUrl,
-                        dataType: "html",
-                        data: param,
-                        success: function (data, status) {
-                            if (data == "0") {
-                                //등록 성공
-                                alert("문의가 정상적으로 등록되었습니다.");
-                                location.href = "/Home/Index";
-                            } else {
-                                //등록 실패
-                                alert("등록중 문제가 발생 하였습니다.\n다시 시도해주세요.");
-                                location.href = "/Home/Index";
-                            }
-                        },
-                        beforeSend: function () {
-
-                        },
-                        complete: function () {
-
-                        },
-                        error: function () {
-                            alert("등록중 문제가 발생 하였습니다.\n다시 시도해주세요.");
-                            location.href = "/Home/Index";
-                        }
-                    });
+                    $("#cForm").submit();
+                   
                 }
-                
             }
         </script>
 </asp:Content>

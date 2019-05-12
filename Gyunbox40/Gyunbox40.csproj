@@ -293,6 +293,7 @@
     <Content Include="Views\Home\Contact.aspx" />
     <Content Include="Views\Home\Portfolio.aspx" />
     <Content Include="Views\Home\Project.aspx" />
+    <Content Include="Views\Home\SaveContent.aspx" />
     <Content Include="Views\Shared\Pagenavigator.ascx" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
@@ -450,6 +451,13 @@
     </Compile>
     <Compile Include="Views\Home\Project.aspx.designer.cs">
       <DependentUpon>Project.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\SaveContent.aspx.cs">
+      <DependentUpon>SaveContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\SaveContent.aspx.designer.cs">
+      <DependentUpon>SaveContent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\Pagenavigator.ascx.cs">
       <DependentUpon>Pagenavigator.ascx</DependentUpon>

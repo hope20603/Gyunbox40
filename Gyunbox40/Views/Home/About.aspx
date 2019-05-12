@@ -25,6 +25,7 @@
                         <li><span class="st-th">HTML</span><span class="sp-td"></span></li>
                         <li><span class="st-th">CSS</span><span class="sp-td"></span></li>
                         <li><span class="st-th">ORACLE</span><span class="sp-td"></span></li>
+                        <li><span class="st-th">MS-SQL</span><span class="sp-td"></span></li>
                     </ul>
                 </div>
                 <hr class="divider" />
@@ -134,6 +135,11 @@
                             <span class="spTd1">18.08 ~ 18.11</span>
                             <span class="spTd2">한진관광</span>
                             <span class="spTd3">한진관광 CRM 도입에 따른 웹사이트 개발 </span>
+                        </li>
+                        <li>
+                            <span class="spTd1">18.12 ~ 현재</span>
+                            <span class="spTd2">(주)아이티엠코퍼레이션</span>
+                            <span class="spTd3">PMIS(건설사업관리시스템)사이트 유지보수 및 인사 사이트 개발</span>
                         </li>
                     </ul>
                 </div>
