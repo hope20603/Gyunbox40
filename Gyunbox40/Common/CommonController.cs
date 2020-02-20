@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -7,8 +8,25 @@ namespace Gyunbox40.Common
 {
     public class CommonController
     {
+        //기본이 되는 호스트 url
+        public string hostString = "";
+
+
         /// <summary>
-        /// Null 또는 Blank인지 여부 체크
+        /// 생성자에서 기본 셋팅처리
+        /// </summary>
+        public CommonController()
+        {
+#if (DEBUG != true)
+            hostString = ConfigurationManager.AppSettings["REAL_HOST"].ToString();
+#else
+            hostString = ConfigurationManager.AppSettings["DEBUG_HOST"].ToString();
+#endif
+
+        }
+
+        /// <summary>
+        /// Null 인지 Blank인지 여부 체크
         /// </summary>
         /// <param name="checkVal">오브젝트 값</param>
         /// <returns></returns>

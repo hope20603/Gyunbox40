@@ -43,20 +43,26 @@
             },
             methods: {
                 clickBtn() {
-                    let reqUrl = "http://localhost:11111/DDoService.asmx/CheckUserId?";
-                    let params = "uid=" + document.getElementById("userId").value;
-                    
-                    axios.get(reqUrl + params)
-                        .then(function (response) {
-                            if (response.data == "OKK") {
-                                alert("사용가능한 아이디입니다.");
-                                this.hid_chk.value = "Y";
-                            } else {
-                                alert("사용중인 아이디입니다.");
-                                this.userId.value = "";
-                                this.hid_chk.value = "N";
-                            }
-                        });
+
+                    if (document.getElementById("userId").value == "") {
+                        alert("사용할 아이디를 입력해주세요.");
+                    } else {
+                        let reqUrl = "http://<%=hostString%>/DDoService.asmx/CheckUserId?";
+                        let params = "uid=" + document.getElementById("userId").value;
+
+                        axios.get(reqUrl + params)
+                            .then(function (response) {
+                                if (response.data == "OKK") {
+                                    alert("사용가능한 아이디입니다.");
+                                    this.hid_chk.value = "Y";
+                                } else {
+                                    alert("사용중인 아이디입니다.");
+                                    this.userId.value = "";
+                                    this.hid_chk.value = "N";
+                                }
+                            });
+                    }
+
                 },
                 register() {
                     let config = {
@@ -64,7 +70,7 @@
                         //    "x-api-key": "YOUR_API_KEY"
                         //}
                     }
-                    let reqUrl = "http://localhost:11111/DDoService.asmx/UserRegister";
+                    let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserRegister";
                     
                     //validation check
                     var registerData = ""; 
