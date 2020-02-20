@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Vue.master.cs" Inherits="Gyunbox40.Share.Vue" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../Content/js/jquery-3.3.1.min.js"></script>
+    <link rel="shortcut icon" href="/images/favicon/GB.png" />
+    <link rel="apple-touch-icon-precomposed" href="/images/favicon/indigo-touch-icon.png">
+    <link href="../Content/css/Ddogram.css" rel="stylesheet" />
+    <link href="../Content/css/reset.css" rel="stylesheet" />
+    <title>또그램</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrap">
+            <header class="header cfixed">
+                <h1 class="logo"><a href="/vue/index.aspx">또그램</a></h1>
+                <nav>
+                    <ul class="gnb">
+                        <li class="menu_1"><a href="Login.aspx?id=gyunbox"><%=loginState%></a></li>
+                        <li class="menu_2"><a href="Join.aspx">회원가입</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="master_footer">
+            
+        </footer>
+    </form>
+</body>
+</html>

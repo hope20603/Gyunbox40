@@ -1,0 +1,453 @@
+﻿body {
+}
+
+a{
+    color:black;
+    cursor:pointer;
+}
+
+ul,li{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+
+#wrap {
+}
+
+
+/* header */
+.header {
+    height: 20px;
+    padding: 20px 5%;
+    background-color: #343A40;
+}
+
+    .header .logo {
+        color: #ffffff;
+        width: 100px;
+        float: left;
+    }
+
+        .header .logo a {
+            color: #ffffff;
+        }
+
+    .header .gnb {
+        float: right;
+        width: 160px;
+    }
+
+        .header .gnb li {
+            float: left;
+        }
+
+        .header .gnb .menu_1 {
+            width: 80px;
+        }
+
+        .header .gnb .menu_2 {
+            width: 80px;
+        }
+
+        .header .gnb a {
+            color: #ffffff;
+            float: left;
+        }
+
+
+/* index.aspx */
+.app-index .section {
+    border: 1px solid red;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* display: block; */
+    margin-bottom: 10px;
+    /* min-height: 100px; */
+    min-height: 100px;
+    float: left;
+    padding: 10px 0 10px 0;
+}
+
+    .app-index .section h2 {
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        color: #1F7087;
+    }
+
+
+.app-index .section-1 {
+    display: block;
+    height: 150px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+    .app-index .section-1 a {
+        color: #ffffff;
+    }
+
+
+    .app-index .section-1 .box-1 {
+        width: 49%;
+        background: #385F73;
+        float: left;
+        height: 150px;
+    }
+
+    .app-index .section-1 .box-2 {
+        width: 49%;
+        background: #952175;
+        float: right;
+        height: 150px;
+    }
+
+
+.app-index .section-4 {
+    height: 200px;
+}
+
+
+.app-index .section-2 ul li span {
+    height: 45px;
+    width: 45px;
+    display: block;
+    float: left;
+    line-height: 45px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #d2d2d2;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+    .app-index .section-2 ul li span.last {
+        margin-right: 0px;
+    }
+
+
+.app-index .section-3 ul li span {
+    height: 45px;
+    width: 45px;
+    display: block;
+    float: left;
+    line-height: 45px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #d2d2d2;
+    margin-right: 5px;
+}
+
+    .app-index .section-3 ul li span.last {
+        margin-right: 0px;
+    }
+
+
+/* createNumber */
+.app-createNumber {
+}
+
+    .app-createNumber .section {
+        border: 1px solid red;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        /* display: block; */
+        margin-bottom: 10px;
+        /* min-height: 100px; */
+        min-height: 100px;
+        float: left;
+        padding: 10px 0 10px 0;
+    }
+
+        .app-createNumber .section h2 {
+            height: 30px;
+            line-height: 30px;
+            font-weight: bold;
+            color: #1F7087;
+        }
+
+    .app-createNumber .section-0 ul li span {
+        height: 45px;
+        width: 45px;
+        display: block;
+        float: left;
+        line-height: 45px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #d2d2d2;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .app-createNumber .section-1 ul li span {
+        height: 45px;
+        width: 45px;
+        display: block;
+        float: left;
+        line-height: 45px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #d2d2d2;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+        .app-createNumber .section-1 ul li span.last {
+            margin-right: 0px;
+        }
+
+
+    .app-createNumber .section-2 {
+        min-height: 50px !important;
+    }
+
+        .app-createNumber .section-2 span {
+            border: 1px solid red;
+            width: 100px;
+            height: 50px;
+            float: right;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+
+    .app-createNumber .section-3 ul li span {
+        height: 45px;
+        width: 45px;
+        display: block;
+        float: left;
+        line-height: 45px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #d2d2d2;
+        margin-right: 5px;
+    }
+
+        .app-createNumber .section-3 ul li span.last {
+            margin-right: 0px;
+        }
+
+    .app-createNumber .section-4 {
+        height: 200px;
+    }
+
+
+/* ManageNumber.aspx */
+.app-manageNumber {
+}
+
+    .app-manageNumber .section {
+        border: 1px solid red;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        /* display: block; */
+        margin-bottom: 10px;
+        /* min-height: 100px; */
+        min-height: 100px;
+        float: left;
+        padding: 10px 0 10px 0;
+    }
+
+        .app-manageNumber .section h2 {
+            height: 30px;
+            line-height: 30px;
+            font-weight: bold;
+            color: #1F7087;
+        }
+
+    .app-manageNumber .section-0 ul li span {
+        height: 45px;
+        width: 45px;
+        display: block;
+        float: left;
+        line-height: 45px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #d2d2d2;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .app-manageNumber .section-1 ul {
+        width: 100%;
+        float: left;
+    }
+
+        .app-manageNumber .section-1 ul li span {
+            height: 45px;
+            width: 45px;
+            display: block;
+            float: left;
+            line-height: 45px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #d2d2d2;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+
+
+            .app-manageNumber .section-1 ul li span.last {
+                margin-right: 0px;
+            }
+
+    .app-manageNumber .section-4 {
+        height: 200px;
+    }
+
+
+/* login.aspx */
+.app-login h2 {
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+
+.app-login .box-login {
+    padding: 20px;
+}
+
+    .app-login .box-login #userPwd {
+        margin-top: 20px;
+    }
+
+
+    .app-login .box-login .sp_auto {
+        margin-top: 40px;
+        float: left;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+        .app-login .box-login .sp_auto input {
+            float: left;
+            width: 30px;
+            height: 30px;
+        }
+
+    .app-login .box-login .box_findId {
+        width: 80%;
+        margin: auto;
+        height: 80px;
+    }
+
+        .app-login .box-login .box_findId ul {
+            height: 20px;
+            width: 100%;
+            float: left;
+            padding-top: 50px;
+        }
+
+        .app-login .box-login .box_findId li {
+            width: 110px;
+            float: left;
+            text-align: center;
+            border-right: 1px solid #d2d2d2;
+            height: 20px;
+        }
+
+        .app-login .box-login .box_findId li.last{
+            border:none;
+        }
+
+/* join.aspx */
+.app-join {
+
+}
+
+
+    .app-join h2 {
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+        text-align: center;
+        width: 100%;
+        font-weight: normal;
+        margin-top: 20px;
+    }
+
+
+    .app-join .box-join {
+        padding: 20px;
+    }
+
+        .app-join .box-join li{
+            width:100%;
+            float:left;
+            text-align:left;
+        }
+
+
+        .app-join .box-join #userId {
+            
+        }
+
+        .app-join .box-join #btn_userIdChk {
+            float:right;
+            margin-right:0px;
+            margin-top:10px;
+        }
+
+.app-join .box-join #userPwd {
+    margin-top: 20px;
+}
+
+        .app-join .box-join #userPwdChk {
+            margin-top: 20px;
+        }
+
+        .app-join .box-join #userEml {
+            margin-top: 40px;
+        }
+
+        .app-join .box-join #btn_login {
+            margin-top:40px;
+        }
+/* 공용 css */
+.btn_wide {
+    width: 100%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+}
+
+        .btn_mid{
+            width:100px;
+            height:40px;
+            line-height:40px;
+            float:left;
+            text-align:center;
+        }
+
+.btn_black {
+    background-color: #3F3F3F;
+    color: #ffffff;
+}
+
+.txt_wide {
+    height: 50px;
+    width: 90%;
+    padding: 5px 5% 5px 5%;
+    border: none;
+    color: #C7C7CC;
+    font-size: 15px;
+    font-family: "Montserrat",DroidSans,AppleSDGothicNeo,Sans-serif,Helvetica
+}
+
+.txt_gray {
+    background-color: #F4F4F4;
+}
