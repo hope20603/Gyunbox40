@@ -16,7 +16,7 @@
                 <div class="box_findId">
                     <ul>
                         <li><a onclick="javascript:alert('준비중입니다.');">아이디 찾기</a></li>
-                        <li><a onclick="javascript:alert('준비중입니다.');;">비밀번호 찾기</a></li>
+                        <li><a onclick="javascript:alert('준비중입니다.');">비밀번호 찾기</a></li>
                         <li class="last"><a href="Join.aspx">회원가입</a></li>
                     </ul>
                 </div>
