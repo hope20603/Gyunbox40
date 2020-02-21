@@ -19,21 +19,6 @@
                 </li>
             </ul>
         </div>
-        <div class="section section-1">
-            <h2>행운번호</h2>
-            <ul>
-                <li>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span class="last">8</span>
-                </li>
-            </ul>
-        </div>
         <div class="section section-2">
             <span><a onclick="javascript:alert('test');">번호생성</a></span>
         </div>
