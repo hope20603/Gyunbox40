@@ -92,5 +92,44 @@ namespace Gyunbox40
 
             return string.Empty;
         }
+
+
+        /// <summary>
+        /// 로그인
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod (EnableSession=true)]
+        //[ScriptMethod(UseHttpGet = true)]
+        public string UserLogin()
+        {
+            string returnStr = "OKK";
+            MemberController mem = new MemberController();
+            DaDdogram ddo = new DaDdogram();
+            DataSet ds = new DataSet();
+            Util util = new Util();
+            
+            //http://localhost:11111/DDoService.asmx/ServiceTest
+            string userId = cc.NullToBlank(HttpContext.Current.Request["userId"]);
+            string userPwd = cc.NullToBlank(HttpContext.Current.Request["userPwd"]);
+            
+            if (userId != "" && userPwd != "")
+            {
+                ds = ddo.UserLogin(userId, userPwd);
+
+                if (util.ChkDsIsNull(ds))
+                {
+                    mem.Login(ds);
+                }
+                else
+                {
+                    returnStr = "FAIL";
+                }
+            }
+
+            Context.Response.Write(returnStr);
+            Context.Response.End();
+
+            return string.Empty;
+        }
     }
 }

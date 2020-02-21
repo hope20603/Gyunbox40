@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -122,6 +123,18 @@ namespace Gyunbox40.Common
             }
 
             return reVal;
+        }
+
+        public bool ChkDsIsNull(DataSet ds)
+        {
+            if(ds!=null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

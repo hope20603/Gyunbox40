@@ -9,9 +9,10 @@ namespace Gyunbox40.Vue
 {
     public partial class Login : System.Web.UI.Page
     {
+        public string hostString = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            hostString = new Common.CommonController().hostString;
         }
     }
 }

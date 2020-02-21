@@ -10,7 +10,12 @@ namespace Gyunbox40.Common
     {
         //기본이 되는 호스트 url
         public string hostString = "";
+        public string g_USER_ID { get { return CookieRead("USER_ID"); } set { CookieWrite("USER_ID", value); } }                    // 사용자 아이디
 
+        private HttpRequest iRequest = null;
+        private HttpResponse iResponse = null;
+        private HttpRequestBase bRequest = null;
+        private HttpResponseBase bResponse = null;
 
         /// <summary>
         /// 생성자에서 기본 셋팅처리
@@ -117,6 +122,77 @@ namespace Gyunbox40.Common
                 reVal = reVal.Replace("'", "''");
             }
             return reVal;
+        }
+
+        public string CookieRead(string key)
+        {
+            if (iRequest != null)
+            {
+                if (iRequest.Cookies[key] == null)
+                    iResponse.Cookies[key].Value = null;
+
+                return iRequest.Cookies[key].Value;
+            }
+            else if (bRequest != null)
+            {
+                if (bRequest.Cookies[key] == null)
+                    bResponse.Cookies[key].Value = null;
+
+                return bRequest.Cookies[key].Value;
+            }
+            else
+            {
+                
+                if (HttpContext.Current.Request.Cookies[key] == null)
+                    HttpContext.Current.Response.Cookies[key].Value = null;
+
+                return HttpContext.Current.Request.Cookies[key].Value;
+            }
+        }
+
+        public void CookieWrite(string key, string value)
+        {
+            
+            if (iResponse != null)
+            {
+                iResponse.Cookies[key].Value = value;
+                iRequest.Cookies[key].Value = value;
+            }
+            else if (bResponse != null)
+            {
+                bResponse.Cookies[key].Value = value;
+                bRequest.Cookies[key].Value = value;
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies[key].Value = value;
+                HttpContext.Current.Request.Cookies[key].Value = value;
+            }
+            
+        }
+
+        public void CookieDelete(string key)
+        {
+            //HttpCookie c = HttpContext.Request.Cookies["KALTOUR"];
+            //c.Values.Remove(key);
+            //c.Expires = DateTime.Now.AddDays(1);
+            //c.Path = "/";
+            //HttpContext.Response.Cookies.Add(c);
+            if (iRequest != null)
+            {
+                iResponse.Cookies[key].Value = null;
+                iRequest.Cookies[key].Value = null;
+            }
+            else if (bRequest != null)
+            {
+                bResponse.Cookies[key].Value = null;
+                bRequest.Cookies[key].Value = null;
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies[key].Value = null;
+                HttpContext.Current.Request.Cookies[key].Value = null;
+            }
         }
     }
 }

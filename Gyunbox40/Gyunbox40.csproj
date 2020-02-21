@@ -353,6 +353,7 @@
       <DependentUpon>DDoService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MemberController.cs" />
     <Compile Include="Model\DaDdogram.cs" />
     <Compile Include="Share\bootstrap.aspx.cs">
       <DependentUpon>bootstrap.aspx</DependentUpon>

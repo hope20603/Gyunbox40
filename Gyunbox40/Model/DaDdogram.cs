@@ -68,5 +68,25 @@ namespace Gyunbox40.Model
 
             return result;
         }
+
+        /// <summary>
+        /// 사용자 정보 불러오기 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="userPwd"></param>
+        /// <returns></returns>
+        public DataSet UserLogin(string userId, string userPwd)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+
+            sb.AppendLine("select * from hope20603.DDOMEM where uid='@userID' and pwd='@userPwd' ;");
+            sb.Replace("@userID", util.ChkInjection(userId));
+            sb.Replace("@userPwd", util.ChkInjection(userPwd));
+
+            ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_login");
+
+            return ds;
+        }
     }
 }
