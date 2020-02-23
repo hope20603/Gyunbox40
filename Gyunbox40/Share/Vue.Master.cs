@@ -12,7 +12,8 @@ namespace Gyunbox40.Share
     {
         CommonController cc = new CommonController();
         Util util = new Util();
-        protected string loginState = "로그인";
+        protected string loginState = "";
+        protected string joinStr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             string id = util.NullToBlank(Session["userID"]);
@@ -20,10 +21,12 @@ namespace Gyunbox40.Share
             if (id != "")
             {
                 loginState = "<a href = 'Logout.aspx' >로그아웃</a>";
+                joinStr = "";
             }
             else
             {
                 loginState = "<a href = 'Login.aspx' >로그인</a>";
+                joinStr = "<a href = 'Join.aspx'>회원가입</a>";
             }
         }
     }

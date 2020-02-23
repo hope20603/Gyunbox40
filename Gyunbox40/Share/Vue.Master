@@ -26,8 +26,8 @@
                 <h1 class="logo"><a href="/vue/index.aspx">또그램</a></h1>
                 <nav>
                     <ul class="gnb">
-                        <li class="menu_1"><%=loginState%></li>
-                        <li class="menu_2"><a href="Join.aspx">회원가입</a></li>
+                        <li class="menu_1"><%=joinStr%></li>
+                        <li class="menu_2"><%=loginState%></li>
                     </ul>
                 </nav>
             </header>

@@ -43,12 +43,12 @@ namespace Gyunbox40
             //http://localhost:11111/DDoService.asmx/ServiceTest
             string chkUid = cc.NullToBlank(HttpContext.Current.Request["uid"]);
 
-            
+
             if (chkUid != "")
             {
                 DataSet ds = ddo.ChkUserId(chkUid);
 
-                if(ds != null && ds.Tables[0].Rows.Count > 0)
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
                     returnStr = "FAIL";
                 }
@@ -78,7 +78,7 @@ namespace Gyunbox40
             string userEml = cc.NullToBlank(HttpContext.Current.Request["userEml"]);
 
 
-            if (userId != "" && userPwd !="" && userEml != "")
+            if (userId != "" && userPwd != "" && userEml != "")
             {
                 ht["UID"] = userId;
                 ht["PWD"] = userPwd;
@@ -98,7 +98,7 @@ namespace Gyunbox40
         /// 로그인
         /// </summary>
         /// <returns></returns>
-        [WebMethod (EnableSession=true)]
+        [WebMethod(EnableSession = true)]
         //[ScriptMethod(UseHttpGet = true)]
         public string UserLogin()
         {
@@ -107,11 +107,11 @@ namespace Gyunbox40
             DaDdogram ddo = new DaDdogram();
             DataSet ds = new DataSet();
             Util util = new Util();
-            
+
             //http://localhost:11111/DDoService.asmx/ServiceTest
             string userId = cc.NullToBlank(HttpContext.Current.Request["userId"]);
             string userPwd = cc.NullToBlank(HttpContext.Current.Request["userPwd"]);
-            
+
             if (userId != "" && userPwd != "")
             {
                 ds = ddo.UserLogin(userId, userPwd);
@@ -132,4 +132,45 @@ namespace Gyunbox40
             return string.Empty;
         }
     }
+
+
+    //XML FROM URL
+    //XmlDocument xmlApi = new XmlDocument();
+    //xmlApi.Load("https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=898");
+    //XmlDocument xmlResult = xmlApi;
+
+    //JSON FROM URL
+    //string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=898";
+    //using (var webClient = new System.Net.WebClient())
+    //{
+    //    var json = webClient.DownloadString(URL);
+    //}
+
+
+    //Json from Url
+    //protected void Request_Json()
+    //{
+    //    string result = null;
+    //    string url = "가져올 url";
+    //    //http://www.redmine.org/issues.json
+    //    try
+    //    {
+    //        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+    //        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+    //        Stream stream = response.GetResponseStream();
+    //        StreamReader reader = new StreamReader(stream);
+    //        result = reader.ReadToEnd();
+    //        stream.Close();
+    //        response.Close();
+    //        //Response.Write(result);
+    //    }
+    //    catch (Exception e)
+    //    {
+    //        Console.WriteLine(e.Message);
+    //    }
+    //    ParseJson(result);
+    //    //return result;
+    //}
+
+
 }

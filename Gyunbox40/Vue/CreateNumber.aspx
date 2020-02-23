@@ -8,14 +8,14 @@
             <h2>{{ message }}</h2>
             <ul>
                 <li>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span class="last">8</span>
+                    <span class="lottoBall">1</span>
+                    <span class="lottoBall">2</span>
+                    <span class="lottoBall">3</span>
+                    <span class="lottoBall">4</span>
+                    <span class="lottoBall">5</span>
+                    <span class="lottoBall">6</span>
+                    <span class="lottoBall">7</span>
+                    <span class="last lottoBall">8</span>
                 </li>
             </ul>
         </div>
@@ -26,14 +26,14 @@
             <h2>내가 만든 번호</h2>
             <ul>
                 <li>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span class="last">8</span>
+                    <span class="lottoBall">1</span>
+                    <span class="lottoBall">2</span>
+                    <span class="lottoBall">3</span>
+                    <span class="lottoBall">4</span>
+                    <span class="lottoBall">5</span>
+                    <span class="lottoBall">6</span>
+                    <span class="lottoBall">7</span>
+                    <span class="last lottoBall">8</span>
                 </li>
             </ul>
         </div>
