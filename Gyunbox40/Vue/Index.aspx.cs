@@ -12,8 +12,11 @@ namespace Gyunbox40.Vue
 {
     public partial class Index : System.Web.UI.Page
     {
+        public string hostString = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            hostString = new Common.CommonController().hostString;
+
             //XmlDocument xmlApi = new XmlDocument();
             //xmlApi.Load("https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=898");
             //XmlDocument xmlResult = xmlApi;

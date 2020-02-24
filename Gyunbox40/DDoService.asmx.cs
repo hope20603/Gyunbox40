@@ -7,7 +7,9 @@ using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
 using Gyunbox40.Common;
+using Gyunbox40.Controller;
 using Gyunbox40.Model;
+using Newtonsoft.Json.Linq;
 
 namespace Gyunbox40
 {
@@ -59,6 +61,44 @@ namespace Gyunbox40
 
             return string.Empty;
         }
+
+
+        /// <summary>
+        /// 로또 당첨번호 가져오기
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public string GetLottoNumber()
+        {
+            int nowTime = 898;
+            
+            string SDate = "2020-02-15";
+            string EDate = DateTime.Now.ToString("yyyy-MM-dd");
+            DateTime T1 = DateTime.Parse(SDate);
+            DateTime T2 = DateTime.Parse(EDate);
+            
+            TimeSpan ts = T2 - T1;
+            int diffDay = ts.Days;
+            int dayPlus = diffDay / 7;
+            nowTime += dayPlus;
+            
+            string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + nowTime;
+
+
+            string jsonResult = "";
+            using (var webClient = new System.Net.WebClient())
+            {
+                var myJsonString = webClient.DownloadString(URL);
+                jsonResult = myJsonString.ToString();
+            }
+
+            Context.Response.Write(jsonResult);
+            Context.Response.End();
+
+            return string.Empty;
+        }
+
 
 
         /// <summary>
