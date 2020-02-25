@@ -8,41 +8,54 @@
     </style>
     <div id="app" class="app-index">
         <div class="section section-0">
-            {{ message }}
+            <span style="font-size:15pt;">안녕하세요?</span><br />
+            <span>나의 로또 일상을 저장하는 로</span><span style="color:#1F77B4; font-weight:bold; font-size:15pt;">또그램</span>
         </div>
         <div class="section section-1">
-            <div class="box-1"><a href="CreateNumber.aspx">번호 생성</a></div>
-            <div class="box-2"><a href="ManageNumber.aspx">내 번호관리</a></div>
+            <a href="CreateNumber.aspx"><div class="box-1">번호 생성</div></a>
+            <a href="ManageNumber.aspx"><div class="box-2">내 번호관리</div></a>
         </div>
         <div class="section section-2">
-            <h2>행운번호</h2>
+            <h2 style="width:100%; text-align:center;">행운번호</h2>
             <ul>
                 <li>
-                    <span class="lottoBall ball_1" id="ball_1">{{ drwtNo1 }}</span>
-                    <span class="lottoBall ball_2">{{ drwtNo2 }}</span>
-                    <span class="lottoBall ball_3">{{ drwtNo3 }}</span>
-                    <span class="lottoBall ball_4">{{ drwtNo4 }}</span>
-                    <span class="lottoBall ball_5">{{ drwtNo5 }}</span>
-                    <span class="lottoBall ball_6">{{ drwtNo6 }}</span> + 보너스번호
-                    <span class="last lottoBall ball_7">{{ drwtNo7 }}</span>
+                    <div class="ball_wrap">
+                        <span class="lottoBall ball_1" id="ball_1">{{ drwtNo1 }}</span>
+                        <span class="lottoBall ball_2">{{ drwtNo2 }}</span>
+                        <span class="lottoBall ball_3">{{ drwtNo3 }}</span>
+                        <span class="lottoBall ball_4">{{ drwtNo4 }}</span>
+                        <span class="lottoBall ball_5">{{ drwtNo5 }}</span>
+                        <span class="lottoBall ball_6">{{ drwtNo6 }}</span>
+                        <span class="plus_mark">+</span> 
+                        <span class="last lottoBall ball_7">{{ drwtNo7 }}</span>
+                    </div>
                 </li>
             </ul>
         </div>
         <div class="section section-3">
-            <h2><span style="color:red;">{{ nowNumber }}회</span>차 당첨번호 <span>{{ nowDate }}</span></h2>
+            <h2 style="width:100%; text-align:center; padding-bottom:30px;">
+                <span style="color:#B40000; font-size:15pt;">{{ nowNumber }}회 </span><span style="color:#514856;font-size:15pt;">당첨결과</span>
+                <span style="width:100%; line-height:20px; float:left;font-size:10pt;color:#A5A5A5; height:20px;margin-top:-5px;">( {{ nowDate }}일 추첨 )</span>
+            </h2>
              <ul>
                 <li>
-                    <span class="lottoBall ball_1">{{ pre_drwtNo1 }}</span>
-                    <span class="lottoBall ball_2">{{ pre_drwtNo2 }}</span>
-                    <span class="lottoBall ball_3">{{ pre_drwtNo3 }}</span>
-                    <span class="lottoBall ball_4">{{ pre_drwtNo4 }}</span>
-                    <span class="lottoBall ball_5">{{ pre_drwtNo5 }}</span>
-                    <span class="lottoBall ball_6">{{ pre_drwtNo6 }}</span> + 보너스번호
-                    <span class="last lottoBall ball_7">{{ pre_drwtNo7 }}</span>
+                    <div class="ball_wrap">
+                        <span class="lottoBall ball_1">{{ pre_drwtNo1 }}</span>
+                        <span class="lottoBall ball_2">{{ pre_drwtNo2 }}</span>
+                        <span class="lottoBall ball_3">{{ pre_drwtNo3 }}</span>
+                        <span class="lottoBall ball_4">{{ pre_drwtNo4 }}</span>
+                        <span class="lottoBall ball_5">{{ pre_drwtNo5 }}</span>
+                        <span class="lottoBall ball_6">{{ pre_drwtNo6 }}</span> 
+                        <span class="plus_mark">+</span> 
+                        <span class="last lottoBall ball_7">{{ pre_drwtNo7 }}</span>
+                    </div>
                 </li>
             </ul>
         </div>
-        <div style="float:left; width:100%; height:400px; ">
+        <div class="section-title">
+            <h2>각 번호별 추첨 현황</h2>
+        </div>
+        <div style="float:left; width:100%; height:300px; padding-top:10px; background-color:#ffffff;">
             <div id="chart"></div>
         </div>
         <script>
@@ -97,9 +110,6 @@
             });
             
         </script>
-        <%--<div class="section section-4" id="chart">
-           <div id="chart" style="width:100%; display:block; float:left;height:200px; border:1px solid red;"></div>
-        </div>--%>
     </div>
     <!-- IE 에러 대비 -->
     <script src="../Content/js/jquery-3.3.1.min.js"></script>
@@ -114,7 +124,7 @@
       new Vue({
             el: '#app',
             data: {
-                message: '나의 로또 일상을 저장하는 로"또그램\"',
+                //message: '나의 로또 일상을 저장하는 로"또그램\"',
 
                 //회차정보
                 nowNumber: '1',
@@ -141,15 +151,17 @@
                 pre_drwtNo7: '1'
             },
             created() {
-                console.log("created");
+                //console.log("created");
                 
 
             },
             mounted() {
-                console.log("mounted");
+                //console.log("mounted");
                 this.getPreLuckyNumber();
             },
-            methods: {
+          methods: {
+
+                //당첨번호 가져오기
                 getPreLuckyNumber() {
                     
                     let reqUrl = "http://<%=hostString%>/DDoService.asmx/GetLottoNumber";
@@ -166,7 +178,7 @@
 
                         this.nowNumber = response.data.drwNo;
                         this.nowDate = response.data.drwNoDate;
-                        console.log(response);
+                        
                         })
                 }
             }
