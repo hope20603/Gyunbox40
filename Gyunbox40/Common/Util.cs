@@ -129,11 +129,11 @@ namespace Gyunbox40.Common
         {
             if(ds!=null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 

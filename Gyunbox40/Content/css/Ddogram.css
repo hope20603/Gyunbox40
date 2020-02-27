@@ -75,6 +75,7 @@ ul, li {
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 6px;
+    
 }
 
     .app-index .section h2 {
@@ -153,11 +154,12 @@ ul, li {
 }
 
 .app-index .section-2{
-    margin-top:20px;
+    margin-top:10px;
     width:100%;
     margin-left:0px;
     margin-right:0px;
-    height:115px;
+    height:160px;
+    padding-top:30px;
 }
 
 
@@ -176,14 +178,16 @@ ul, li {
     margin-left: 0px;
     margin-right: 0px;
     width: 100%;
+    min-height:160px;
     border: 0px;
     border-radius: 0;
     background-color: #F8F8F8;
+    padding-top:20px;
 }
 
-    .app-index .section-3 ul li span {
+    /*.app-index .section-3 ul li span {
         margin-right: 5px;
-    }
+    }*/
 
         .app-index .section-3 ul li span.last {
             margin-right: 0px;
@@ -196,26 +200,41 @@ ul, li {
 
 /* 로또볼 기본 모양 */
 .lottoBall {
-    border-radius: 50%;
-    height: 27px;
-    width: 27px;
-    line-height: 27px;
-    display: block;
+    position: relative;
     float: left;
+    border-radius: 50%;
+    width: 30px;
+    line-height: 30px;
+    height:30px;
+    display: block;
     text-align: center;
     font-weight: bold;
     border: 1px solid #d2d2d2;
     font-size: 12pt;
+    margin-right:5px;
 }
+
+    /*.lottoBall:before {
+        content: "";
+        display: block;
+        padding-top: 100%; 
+    }
+
+.ball_con {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}*/
 
 .plus_mark {
     float: left;
-    width: 27px;
-    line-height: 27px;
-    height: 27px;
+    width: 30px;
     text-align: center;
     font-size: 20pt;
     color: #AAAAAA;
+    border:0px;
 }
 
 .ball_wrap {
@@ -226,6 +245,10 @@ ul, li {
     height: 50px;
     padding-left: 10px;
     padding-top: 10px;
+    margin: auto;
+    /*border: 1px solid red;*/
+    text-align: center;
+    width: 315px;
     /*border:1px solid #d7d7d7;*/
 }
 

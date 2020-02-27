@@ -6,7 +6,7 @@
       		<div class="container">
       			<h2 class="sec-tit">Web Programmer</h2>
       			<p class="desc">
-      			    ASP.NET (C#) , ASP, Javascript, jQuery, HTML, CSS, ORACLE, DB2, MS-SQL
+      			    ASP.NET MVC(C#), ASP.NET Webform, ASP, Javascript, jQuery, HTML, CSS, Vue.js, ORACLE, DB2, MS-SQL
                 </p>
 			</div>
 		</section>

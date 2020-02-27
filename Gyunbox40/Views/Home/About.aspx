@@ -6,7 +6,7 @@
                 <h2 class="location">개발자 소개</h2>
                 <img src="/Images/Ksg.jpg" alt="KANG SEUNG GYUN" style="width:200px; height:auto;"/>
                    <ul>
-                    <li>5년차 웹프로그래머 <span class="sp_tit">강승균</span>입니다.</li>
+                    <li>6년차 웹프로그래머 <span class="sp_tit">강승균</span>입니다.</li>
                     <li><span class="sp_tit">ASP.NET(C#)</span>을 주력으로 하며, Front-End부터 Back-End 까지 개발 및 유지보수 경험이 있습니다.</li>
                     <li>맡은 업무에 <span class="sp_tit">최선</span>을 다하는 개발자가 되도록 하겠습니다.</li>
                    </ul>
@@ -18,12 +18,14 @@
                         <li><span class="st-th">정보처리기사</span><span class="sp-td"></span></li>
                     </ul>
                     <ul>
-                        <li><span class="st-th">ASP.NET(C#)</span><span class="sp-td"></span></li>
+                        <li><span class="st-th">ASP.NET Webform (C#)</span><span class="sp-td"></span></li>
+                        <li><span class="st-th">ASP.NET MVC (C#)</span><span class="sp-td"></span></li>
                         <li><span class="st-th">ASP</span><span class="sp-td"></span></li>
-                        <li><span class="st-th">JAVASCRIPT</span><span class="sp-td"></span></li>
-                        <li><span class="st-th">JQUERY</span><span class="sp-td"></span></li>
+                        <li><span class="st-th">Javascript</span><span class="sp-td"></span></li>
+                        <li><span class="st-th">jQuery</span><span class="sp-td"></span></li>
                         <li><span class="st-th">HTML</span><span class="sp-td"></span></li>
                         <li><span class="st-th">CSS</span><span class="sp-td"></span></li>
+                        <li><span class="st-th">Vue.js</span><span class="sp-td"></span></li>
                         <li><span class="st-th">ORACLE</span><span class="sp-td"></span></li>
                         <li><span class="st-th">MS-SQL</span><span class="sp-td"></span></li>
                     </ul>
@@ -137,9 +139,9 @@
                             <span class="spTd3">한진관광 CRM 도입에 따른 웹사이트 개발 </span>
                         </li>
                         <li>
-                            <span class="spTd1">18.12 ~ 현재</span>
+                            <span class="spTd1">18.12 ~ 19.12</span>
                             <span class="spTd2">(주)아이티엠코퍼레이션</span>
-                            <span class="spTd3">PMIS(건설사업관리시스템)사이트 유지보수 및 인사 사이트 개발</span>
+                            <span class="spTd3">인사관리 프로그램 개발 ( Microsoft Access 환경을 웹 환경으로 변경 ) </span>
                         </li>
                     </ul>
                 </div>

@@ -1,4 +1,5 @@
 ﻿using Gyunbox40.Common;
+using Microsoft.ApplicationBlocks.Data;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
@@ -90,6 +91,10 @@ namespace Gyunbox40.Model
             return ds;
         }
 
+        /// <summary>
+        /// 로또 당첨번호 DB에 입력하기
+        /// 1주일마다 실행시켜줘야함
+        /// </summary>
         public void InsertLottoNumber()
         {
             DBConn dbSql = new DBConn();
@@ -148,9 +153,9 @@ namespace Gyunbox40.Model
                 }
 
             }
-            catch (Exception ex)
+            catch
             {
-                string tmp = ex.ToString();
+                //string tmp = ex.ToString();
             }
             finally
             {
@@ -158,6 +163,43 @@ namespace Gyunbox40.Model
                 dbSql = null;
             }
 
+        }
+
+        /// <summary>
+        /// 각 번호별 추첨 횟수를 조회
+        /// </summary>
+        public DataSet GetLuckyPoint()
+        {
+
+            DataSet ds = null;
+            
+            string spName = "getDDONumberCnt";
+            SqlConnection oCon = new SqlConnection(connectionString);
+            
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName);
+
+            }
+            catch
+            {
+                ds = null;
+            }
+            finally
+            {
+                if(ds != null)
+                {
+                    ds.Dispose();
+                }
+                
+                if (oCon.State == ConnectionState.Open)
+                    oCon.Close();
+
+                oCon.Dispose();
+
+            }
+
+            return ds;
         }
     }
 }
