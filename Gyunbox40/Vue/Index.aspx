@@ -26,14 +26,14 @@
             <ul>
                 <li>
                     <div class="ball_wrap">
-                        <span class="lottoBall ball_1" id="ball_1"><span class="ball_con">{{ drwtNo1 }}</span></span>
-                        <span class="lottoBall ball_2"><span class="ball_con">{{ drwtNo2 }}</span></span>
-                        <span class="lottoBall ball_3"><span class="ball_con">{{ drwtNo3 }}</span></span>
-                        <span class="lottoBall ball_4"><span class="ball_con">{{ drwtNo4 }}</span></span>
-                        <span class="lottoBall ball_5"><span class="ball_con">{{ drwtNo5 }}</span></span>
-                        <span class="lottoBall ball_6"><span class="ball_con">{{ drwtNo6 }}</span></span>
+                        <span class="lottoBall ball_1" id="ball_1" v-bind:style="styleA"><span class="ball_con">{{ drwtNo1 }}</span></span>
+                        <span class="lottoBall ball_2" v-bind:style="styleB"><span class="ball_con">{{ drwtNo2 }}</span></span>
+                        <span class="lottoBall ball_3" v-bind:style="styleC"><span class="ball_con">{{ drwtNo3 }}</span></span>
+                        <span class="lottoBall ball_4" v-bind:style="styleD"><span class="ball_con">{{ drwtNo4 }}</span></span>
+                        <span class="lottoBall ball_5" v-bind:style="styleE"><span class="ball_con">{{ drwtNo5 }}</span></span>
+                        <span class="lottoBall ball_6" v-bind:style="styleF"><span class="ball_con">{{ drwtNo6 }}</span></span>
                         <span class="lottoBall plus_mark"><span class="ball_con">+</span></span>
-                        <span class="last lottoBall ball_7"><span class="ball_con">{{ drwtNo7 }}</span></span>
+                        <span class="last lottoBall ball_7" v-bind:style="styleG"><span class="ball_con">{{ drwtNo7 }}</span></span>
                     </div>
                 </li>
             </ul>
@@ -46,14 +46,14 @@
             <ul>
                 <li>
                     <div class="ball_wrap">
-                        <span class="lottoBall ball_1"><span class="ball_con">{{ pre_drwtNo1 }}</span></span>
-                        <span class="lottoBall ball_2"><span class="ball_con">{{ pre_drwtNo2 }}</span></span>
-                        <span class="lottoBall ball_3"><span class="ball_con">{{ pre_drwtNo3 }}</span></span>
-                        <span class="lottoBall ball_4"><span class="ball_con">{{ pre_drwtNo4 }}</span></span>
-                        <span class="lottoBall ball_5"><span class="ball_con">{{ pre_drwtNo5 }}</span></span>
-                        <span class="lottoBall ball_6"><span class="ball_con">{{ pre_drwtNo6 }}</span></span>
+                        <span class="lottoBall ball_1" v-bind:style="pre_styleA"><span class="ball_con">{{ pre_drwtNo1 }}</span></span>
+                        <span class="lottoBall ball_2" v-bind:style="pre_styleB"><span class="ball_con">{{ pre_drwtNo2 }}</span></span>
+                        <span class="lottoBall ball_3" v-bind:style="pre_styleC"><span class="ball_con">{{ pre_drwtNo3 }}</span></span>
+                        <span class="lottoBall ball_4" v-bind:style="pre_styleD"><span class="ball_con">{{ pre_drwtNo4 }}</span></span>
+                        <span class="lottoBall ball_5" v-bind:style="pre_styleE"><span class="ball_con">{{ pre_drwtNo5 }}</span></span>
+                        <span class="lottoBall ball_6" v-bind:style="pre_styleF"><span class="ball_con">{{ pre_drwtNo6 }}</span></span>
                         <span class="lottoBall plus_mark"><span class="ball_con">+</span></span>
-                        <span class="last lottoBall ball_7"><span class="ball_con">{{ pre_drwtNo7 }}</span></span>
+                        <span class="last lottoBall ball_7" v-bind:style="pre_styleG"><span class="ball_con">{{ pre_drwtNo7 }}</span></span>
                     </div>
                 </li>
             </ul>
@@ -154,7 +154,24 @@
                 pre_drwtNo4: '1',
                 pre_drwtNo5: '1',
                 pre_drwtNo6: '1',
-                pre_drwtNo7: '1'
+                pre_drwtNo7: '1',
+
+                //로또볼 색 정의
+                styleA: "background-color:#ffffff",
+                styleB: "background-color:#ffffff",
+                styleC: "background-color:#ffffff",
+                styleD: "background-color:#ffffff",
+                styleE: "background-color:#ffffff",
+                styleF: "background-color:#ffffff",
+                styleG: "background-color:#ffffff",
+
+                pre_styleA: "background-color:#ffffff",
+                pre_styleB: "background-color:#ffffff",
+                pre_styleC: "background-color:#ffffff",
+                pre_styleD: "background-color:#ffffff",
+                pre_styleE: "background-color:#ffffff",
+                pre_styleF: "background-color:#ffffff",
+                pre_styleG: "background-color:#ffffff"
             },
             created() {
                 //console.log("created");
@@ -185,8 +202,39 @@
                       this.nowNumber = response.data.drwNo;
                       this.nowDate = response.data.drwNoDate;
 
+                      this.pre_styleA = 'background-color:' + this.getColorClass(this.pre_drwtNo1);
+                      this.pre_styleB = 'background-color:' + this.getColorClass(this.pre_drwtNo2);
+                      this.pre_styleC = 'background-color:' + this.getColorClass(this.pre_drwtNo3);
+                      this.pre_styleD = 'background-color:' + this.getColorClass(this.pre_drwtNo4);
+                      this.pre_styleE = 'background-color:' + this.getColorClass(this.pre_drwtNo5);
+                      this.pre_styleF = 'background-color:' + this.getColorClass(this.pre_drwtNo6);
+                      this.pre_styleG = 'background-color:' + this.getColorClass(this.bnusNo);
+
+
+                      //행운번호 api로 이동해야 함.
+                      this.styleA = 'background-color:' + this.getColorClass(this.pre_drwtNo1);
+                      this.styleB = 'background-color:' + this.getColorClass(this.pre_drwtNo2);
+                      this.styleC = 'background-color:' + this.getColorClass(this.pre_drwtNo3);
+                      this.styleD = 'background-color:' + this.getColorClass(this.pre_drwtNo4);
+                      this.styleE = 'background-color:' + this.getColorClass(this.pre_drwtNo5);
+                      this.styleF = 'background-color:' + this.getColorClass(this.pre_drwtNo6);
+                      this.styleG = 'background-color:' + this.getColorClass(this.bnusNo);
+
                   })
-              }
+                },
+                getColorClass(value) {
+                    if (value <= 10) {
+                        return "#FCC43D;";
+                    } else if (value <= 20) {
+                        return "#8CC6E7;";
+                    } else if (value <= 30) {
+                        return "#F18D80;";
+                    } else if (value <= 40) {
+                        return "#A7A2DE;";
+                    } else {
+                        return "#6BCE9E;";
+                    }
+                }
           }
       })
 
