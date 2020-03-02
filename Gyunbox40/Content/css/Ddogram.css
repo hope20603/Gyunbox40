@@ -23,7 +23,7 @@ ul, li {
 .header {
     height: 20px;
     padding: 20px 5%;
-    background-color: #343A40;
+    background-color: #176D64;
 }
 
     .header .logo {
@@ -66,23 +66,18 @@ ul, li {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    /* display: block; */
-    /*margin-bottom: 10px;*/
-    /* min-height: 100px; */
     min-height: 80px;
     float: left;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #ffffff;
     border-radius: 6px;
-    
 }
 
     .app-index .section h2 {
         height: 30px;
         line-height: 30px;
         font-weight: bold;
-        color: #1F77B4;
+        color: #176d64;
         font-size: 15pt;
         width: 100%;
         text-align: center;
@@ -108,14 +103,18 @@ ul, li {
         font-weight:normal;
     }
 
-    .app-index .section-0 {
-        box-sizing: border-box;
-        padding: 10px;
-        padding-top: 20px;
-        width: 100%;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
+.app-index .section-0 {
+    box-sizing: border-box;
+    text-align:left;
+    padding: 10px;
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #ffffff;
+    color:black;
+    border-radius:0px;
+}
 
 .app-index .section-1 {
     margin-top:10px;
@@ -125,32 +124,36 @@ ul, li {
     padding-left:0px;
     padding-right:0px;
     padding-top:0px;
+    float:left;
+    width:100%;
+    box-sizing:border-box;
+    margin-left:0px;
 }
 
     .app-index .section-1 a {
         color: #ffffff;
     }
 
-.app-index .section.section-1 {
-    border: none;
-}
-
-.app-index .section-1 .box-1 {
-    width: 50%;
-    background: #385F73;
-    float: left;
-    height: 150px;
-    box-sizing:border-box;
-    padding:20px;
-}
+    .app-index .section-1 .box-1 {
+        width: 47%;
+        background: #ffffff;
+        float: left;
+        height: 150px;
+        box-sizing: border-box;
+        padding: 20px;
+        color: black;
+        margin-left: 2%;
+    }
 
 .app-index .section-1 .box-2 {
-    width: 50%;
-    background: #952175;
+    width: 47%;
+    background: #ffffff;
     float: right;
     height: 150px;
     box-sizing: border-box;
     padding: 20px;
+    color:black;
+    margin-right:2%;
 }
 
 .app-index .section-2{
@@ -160,6 +163,7 @@ ul, li {
     margin-right:0px;
     height:160px;
     padding-top:30px;
+    background-color:#ffffff;
 }
 
 
@@ -184,11 +188,6 @@ ul, li {
     background-color: #F8F8F8;
     padding-top:20px;
 }
-
-    /*.app-index .section-3 ul li span {
-        margin-right: 5px;
-    }*/
-
         .app-index .section-3 ul li span.last {
             margin-right: 0px;
         }
@@ -209,26 +208,35 @@ ul, li {
     display: block;
     text-align: center;
     font-weight: bold;
-    /*border: 1px solid #d2d2d2;*/
     font-size: 12pt;
     margin-right:5px;
     font-weight:bold;
     color:#ffffff;
 }
 
-    /*.lottoBall:before {
-        content: "";
-        display: block;
-        padding-top: 100%; 
+    .lottoBall.ball_color-1 {
+        background-color: #FCC43D;
     }
 
-.ball_con {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}*/
+    .lottoBall.ball_color-2 {
+        background-color: #8CC6E7;
+    }
+
+    .lottoBall.ball_color-3 {
+        background-color: #F18D80;
+    }
+
+    .lottoBall.ball_color-4 {
+        background-color: #A7A2DE;
+    }
+
+    .lottoBall.ball_color-5 {
+        background-color: #6BCE9E;
+    }
+
+    .lottoBall.active {
+        border: 2px solid #7C37AA;
+    }
 
 .plus_mark {
     float: left;
@@ -241,17 +249,14 @@ ul, li {
 
 .ball_wrap {
     display: block;
-    /*background-color: #F3F3F3;*/
     box-sizing: border-box;
     border-radius: 10px;
     height: 50px;
     padding-left: 10px;
     padding-top: 10px;
     margin: auto;
-    /*border: 1px solid red;*/
     text-align: center;
     width: 315px;
-    /*border:1px solid #d7d7d7;*/
 }
 
 
@@ -265,9 +270,7 @@ ul, li {
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
-        /* display: block; */
         margin-bottom: 10px;
-        /* min-height: 100px; */
         min-height: 100px;
         float: left;
         padding: 10px 0 10px 0;
@@ -280,14 +283,23 @@ ul, li {
             color: #1F7087;
         }
 
-    .app-createNumber .section-0 ul li span {
-        margin-right: 5px;
-        margin-bottom: 5px;
+    .app-createNumber .section-0{
+        width:100%;
+        margin:0px;
+        background-color:#ffffff;
+        border:none;
     }
+        .app-createNumber .section-0 .lottoBall {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
 
     .app-createNumber .section-1 ul li span {
         margin-right: 5px;
         margin-bottom: 5px;
+        
+        
     }
 
         .app-createNumber .section-1 ul li span.last {
@@ -296,10 +308,38 @@ ul, li {
 
 
     .app-createNumber .section-2 {
-        min-height: 50px !important;
+        min-height: 200px !important;
+        margin-top:10px;
+        background-color:#ffffff;
+        border:none;
     }
 
-        .app-createNumber .section-2 span {
+        .app-createNumber .section-2 .ball_wrap{
+            margin:auto;
+        }
+
+            .app-createNumber .section-2 .ball_wrap .createdDate {
+                width: 100%;
+                float: left;
+                text-align:left;
+                height:30px;
+                line-height:30px;
+            }
+
+            .app-createNumber .section-2 .ball_wrap li {
+                float: left;
+                width: 96%;
+                margin-bottom: 10px;
+            }
+
+            .app-createNumber .section-2 .ball_wrap .lottoBall {
+                margin-right: 5px;
+                padding-left: 0px;
+            }
+        /*.app-createNumber .section-2 .lottoBall {
+            background-color:#A7A2DE;
+        }*/
+        /*.app-createNumber .section-2 span {
             border: 1px solid red;
             width: 100px;
             height: 50px;
@@ -307,12 +347,10 @@ ul, li {
             line-height: 50px;
             text-align: center;
             cursor: pointer;
+        }*/
+        .app-createNumber .section-3 ul li span {
+            margin-right: 5px;
         }
-
-
-    .app-createNumber .section-3 ul li span {
-        margin-right: 5px;
-    }
 
         .app-createNumber .section-3 ul li span.last {
             margin-right: 0px;
@@ -322,19 +360,25 @@ ul, li {
         height: 200px;
     }
 
+    .app-createNumber .ball_wrap {
+        width:340px;
+    }
 
-/* ManageNumber.aspx */
-.app-manageNumber {
-}
+    .app-createNumber .ball_wrap .lottoBall {
+        margin-right: 10px;
+    }
+    
+    
+    /* ManageNumber.aspx */
+    .app-manageNumber {
+    }
 
     .app-manageNumber .section {
         border: 1px solid red;
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
-        /* display: block; */
         margin-bottom: 10px;
-        /* min-height: 100px; */
         min-height: 100px;
         float: left;
         padding: 10px 0 10px 0;
@@ -509,10 +553,29 @@ ul, li {
     text-align: center;
 }
 
-.btn_black {
-    background-color: #3F3F3F;
-    color: #ffffff;
+.btn_small{
+    font-size:12pt;
+    width:80px;
+    height:40px;
+    line-height:40px;
+    font-weight:bold;
+    display:block;
+    text-align:center;
 }
+
+.btn_green {
+    background-color: #176D64;
+    color:#ffffff;
+}
+
+    .btn_green a{
+        color:#ffffff;
+    }
+
+    .btn_black {
+        background-color: #3F3F3F;
+        color: #ffffff;
+    }
 
 .txt_wide {
     height: 50px;
@@ -527,3 +590,18 @@ ul, li {
 .txt_gray {
     background-color: #F4F4F4;
 }
+
+.btn_del {
+    background-image: url("../../images/button/btn_del.png");
+    background-size:20px;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.li_devider{
+    border-top:1px dashed #d7d7d7;
+    width:100%;
+    float:left;
+}
+
+

@@ -10,15 +10,23 @@
     </style>
     <div id="app" class="app-index">
         <div class="section section-0">
-            <span style="font-size: 15pt;">안녕하세요?</span><br />
-            <span>나의 로또 일상을 저장하는 로</span><span style="color: #1F77B4; font-weight: bold; font-size: 15pt;">또그램</span>
+            <span style="color: #176D64; padding-left:7px; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; ">안녕하세요</span><br />
+            <span style=" padding-left:7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
         </div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">
-                <div class="box-1">번호 생성</div>
+                <div class="box-1">
+                    <span style="width:57px; height:5px; background-color:#8CC6E7; float:left;"></span>
+                    <span style="width:100%; float:left; height:30px; line-height:30px; color:#BBB8B3;">Create</span>
+                    <span style="float:right; margin-top:60px; color:#514856;">번호 생성</span>
+                </div>
             </a>
             <a href="ManageNumber.aspx">
-                <div class="box-2">내 번호관리</div>
+                <div class="box-2">
+                    <span style="width:74px; height:5px; background-color:#0DA084; float:left;"></span>
+                    <span style="width:100%; float:left; height:30px; line-height:30px; color:#BBB8B3;">My page</span>
+                    <span style="float:right; margin-top:60px;  color:#514856;">내 번호 관리</span>
+                </div>
             </a>
         </div>
         <div class="section section-2">
@@ -202,27 +210,29 @@
                       this.nowNumber = response.data.drwNo;
                       this.nowDate = response.data.drwNoDate;
 
-                      this.pre_styleA = 'background-color:' + this.getColorClass(this.pre_drwtNo1);
-                      this.pre_styleB = 'background-color:' + this.getColorClass(this.pre_drwtNo2);
-                      this.pre_styleC = 'background-color:' + this.getColorClass(this.pre_drwtNo3);
-                      this.pre_styleD = 'background-color:' + this.getColorClass(this.pre_drwtNo4);
-                      this.pre_styleE = 'background-color:' + this.getColorClass(this.pre_drwtNo5);
-                      this.pre_styleF = 'background-color:' + this.getColorClass(this.pre_drwtNo6);
-                      this.pre_styleG = 'background-color:' + this.getColorClass(this.bnusNo);
+                      this.pre_styleA = 'background-color:' + this.getBallColor(this.pre_drwtNo1);
+                      this.pre_styleB = 'background-color:' + this.getBallColor(this.pre_drwtNo2);
+                      this.pre_styleC = 'background-color:' + this.getBallColor(this.pre_drwtNo3);
+                      this.pre_styleD = 'background-color:' + this.getBallColor(this.pre_drwtNo4);
+                      this.pre_styleE = 'background-color:' + this.getBallColor(this.pre_drwtNo5);
+                      this.pre_styleF = 'background-color:' + this.getBallColor(this.pre_drwtNo6);
+                      this.pre_styleG = 'background-color:' + this.getBallColor(this.bnusNo);
 
 
                       //행운번호 api로 이동해야 함.
-                      this.styleA = 'background-color:' + this.getColorClass(this.pre_drwtNo1);
-                      this.styleB = 'background-color:' + this.getColorClass(this.pre_drwtNo2);
-                      this.styleC = 'background-color:' + this.getColorClass(this.pre_drwtNo3);
-                      this.styleD = 'background-color:' + this.getColorClass(this.pre_drwtNo4);
-                      this.styleE = 'background-color:' + this.getColorClass(this.pre_drwtNo5);
-                      this.styleF = 'background-color:' + this.getColorClass(this.pre_drwtNo6);
-                      this.styleG = 'background-color:' + this.getColorClass(this.bnusNo);
+                      this.styleA = 'background-color:' + this.getBallColor(this.pre_drwtNo1);
+                      this.styleB = 'background-color:' + this.getBallColor(this.pre_drwtNo2);
+                      this.styleC = 'background-color:' + this.getBallColor(this.pre_drwtNo3);
+                      this.styleD = 'background-color:' + this.getBallColor(this.pre_drwtNo4);
+                      this.styleE = 'background-color:' + this.getBallColor(this.pre_drwtNo5);
+                      this.styleF = 'background-color:' + this.getBallColor(this.pre_drwtNo6);
+                      this.styleG = 'background-color:' + this.getBallColor(this.bnusNo);
 
                   })
                 },
-                getColorClass(value) {
+
+                //로또 볼 번호별 색상 정의
+                getBallColor(value) {
                     if (value <= 10) {
                         return "#FCC43D;";
                     } else if (value <= 20) {

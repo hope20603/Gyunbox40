@@ -84,19 +84,32 @@ namespace Gyunbox40
             nowTime += dayPlus;
             
             string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + nowTime;
-
-
             string jsonResult = "";
-            using (var webClient = new System.Net.WebClient())
-            {
-                var myJsonString = webClient.DownloadString(URL);
-                jsonResult = myJsonString.ToString();
-            }
+
+            GetJsonObjectFromUrl(URL);
 
             Context.Response.Write(jsonResult);
             Context.Response.End();
 
             return string.Empty;
+        }
+
+        /// <summary>
+        /// url을 호출하여 json객체로 리턴받아 온다.
+        /// </summary>
+        /// <param name="requestUrl"></param>
+        /// <returns></returns>
+        public JObject GetJsonObjectFromUrl(string requestUrl)
+        {
+            JObject json = new JObject();
+
+            using (var webClient = new System.Net.WebClient())
+            {
+                var myJsonString = webClient.DownloadString(requestUrl);
+                json = (JObject)myJsonString.ToString();
+            }
+
+            return json;
         }
 
 
@@ -156,7 +169,7 @@ namespace Gyunbox40
             {
                 ds = ddo.UserLogin(userId, userPwd);
 
-                if (util.ChkDsIsNull(ds))
+                if (!util.ChkDsIsNull(ds))
                 {
                     mem.Login(ds);
                 }
