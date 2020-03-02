@@ -212,6 +212,14 @@ ul, li {
     margin-right:5px;
     font-weight:bold;
     color:#ffffff;
+    border:2px solid #ffffff;
+}
+
+/* 번호생성 페이지에서는 lotto ball 사이즈 작게 */
+.app-createNumber .lottoBall {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
 }
 
     .lottoBall.ball_color-1 {
@@ -235,12 +243,12 @@ ul, li {
     }
 
     .lottoBall.active {
-        border: 2px solid #7C37AA;
+        border: 2px solid #176D64;
     }
 
 .plus_mark {
     float: left;
-    width: 30px;
+    width: 25px;
     text-align: center;
     font-size: 20pt;
     color: #AAAAAA;
@@ -328,7 +336,7 @@ ul, li {
 
             .app-createNumber .section-2 .ball_wrap li {
                 float: left;
-                width: 96%;
+                width: 100%;
                 margin-bottom: 10px;
             }
 
@@ -367,11 +375,15 @@ ul, li {
     .app-createNumber .ball_wrap .lottoBall {
         margin-right: 10px;
     }
-    
-    
-    /* ManageNumber.aspx */
-    .app-manageNumber {
-    }
+
+        .app-createNumber .ball_wrap .plus_mark{
+            width:15px;
+            
+        }
+
+        /* ManageNumber.aspx */
+        .app-manageNumber {
+        }
 
     .app-manageNumber .section {
         border: 1px solid red;
