@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -10,6 +11,7 @@ using Gyunbox40.Common;
 using Gyunbox40.Controller;
 using Gyunbox40.Model;
 using Newtonsoft.Json.Linq;
+using System.Web.Script.Serialization;
 
 namespace Gyunbox40
 {
@@ -83,10 +85,21 @@ namespace Gyunbox40
             int dayPlus = diffDay / 7;
             nowTime += dayPlus;
             
-            string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + nowTime;
+            string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=";
             string jsonResult = "";
 
-            GetJsonObjectFromUrl(URL);
+            JValue jVal = GetJsonObjectFromUrl(URL + nowTime);
+            if (jVal == null)
+            {
+                //해당회차에 에러가 나는 경우 이전 회차로 5회 더 요청해본다.
+                for (int i = nowTime-1; i >= nowTime - 5; i--)
+                {
+                    jVal = GetJsonObjectFromUrl(URL + i);
+                    if (jVal != null) break;
+                }
+            }
+
+            jsonResult = jVal.ToString();
 
             Context.Response.Write(jsonResult);
             Context.Response.End();
@@ -99,14 +112,22 @@ namespace Gyunbox40
         /// </summary>
         /// <param name="requestUrl"></param>
         /// <returns></returns>
-        public JObject GetJsonObjectFromUrl(string requestUrl)
+        public JValue GetJsonObjectFromUrl(string requestUrl)
         {
-            JObject json = new JObject();
+            //JObject json = new JObject();
+            JValue json = null;
 
-            using (var webClient = new System.Net.WebClient())
+            try
             {
-                var myJsonString = webClient.DownloadString(requestUrl);
-                json = (JObject)myJsonString.ToString();
+                using (var webClient = new System.Net.WebClient())
+                {
+                    var myJsonString = webClient.DownloadString(requestUrl);
+                    json = (JValue)myJsonString.ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                json = null;
             }
 
             return json;
@@ -184,7 +205,82 @@ namespace Gyunbox40
 
             return string.Empty;
         }
+
+        /// <summary>
+        /// 새로또번호 생성
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetNewNumber()
+        //public int GetArrayParamTest(List<string> pArrParams)
+        {
+            #region - Request Body 받기 --
+            var bodyStream = new StreamReader(HttpContext.Current.Request.InputStream);
+            bodyStream.BaseStream.Seek(0, SeekOrigin.Begin);
+            var bodyText = bodyStream.ReadToEnd();
+
+            JObject json = JObject.Parse(bodyText);
+            JToken jt = json.SelectToken("pArrParams");
+            int[] tmp = jt.ToObject<int[]>();
+            //ArrayList<String> arr = jt.ToObject<string[]>().ToArray();
+            List<int> arr = tmp.ToList<int>();
+            #endregion
+
+            int needCount = 7 - tmp.Length;
+
+            while (needCount > 0)
+            {
+                Random rand = new Random((int)DateTime.Now.Ticks);
+                int numIterations = 0;
+                //numIterations = rand.Next(1, 45);
+                numIterations = rand.Next(1, 46);
+                bool result = arr.Contains(numIterations);
+                if (!result)
+                {
+                    arr.Add(numIterations);
+                    needCount--;
+                }
+            }
+
+            //Random rand2 = new Random((int)DateTime.Now.Ticks);
+            //int test = rand2.Next(1, 3);
+
+            //마지막에 생성된 번호는 행운번호로 따로 뽑아둠
+            int luckyNumber = arr.Last<int>();
+            arr.RemoveAt(6);
+            arr.Sort();
+            arr.Add(luckyNumber);
+
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+
+            string output = jss.Serialize(arr);
+
+            //고정된 숫자는 그대로 두고.. ( 미리 배열에 집어 넣어줌 )
+            //나머지 숫자를 생성한다.
+            //겹치는 것은 제외하고 다시 생성함
+            //json 데이터로 리턴해주면됨
+            //향후에는 DB데이터로 확률따져서 가중치를 둬서 번호를 생성함
+            //조건은 처음엔 비율로 따지고...
+            //향후 홀짝 조건이라든지.. 뭐 해당월은 행운의 숫자라든지- 재미로 할만한 것들 추가
+            //나중에는 고객이 원하는 번호를 자유롭게 고정할 수 있는 기능도 만들 예정
+
+
+            //object[] arrParam = new object[2];
+            //
+            //
+            //arrParam[0] = pArrParams[1];
+            //arrParam[1] = pArrParams[2];
+
+            Context.Response.Write(output);
+            Context.Response.End();
+
+            return string.Empty;
+
+
+        }
     }
+
+
 
 
     //XML FROM URL

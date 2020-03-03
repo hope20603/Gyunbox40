@@ -279,7 +279,7 @@ ul, li {
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 10px;
-        min-height: 100px;
+        /*min-height: 100px;*/
         float: left;
         padding: 10px 0 10px 0;
     }
@@ -365,7 +365,7 @@ ul, li {
         }
 
     .app-createNumber .section-4 {
-        height: 200px;
+        border:none;
     }
 
     .app-createNumber .ball_wrap {
