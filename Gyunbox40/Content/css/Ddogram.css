@@ -555,6 +555,7 @@ ul, li {
     float: left;
     text-align: center;
     line-height: 50px;
+    cursor:pointer;
 }
 
 .btn_mid {
@@ -563,16 +564,18 @@ ul, li {
     line-height: 40px;
     float: left;
     text-align: center;
+    cursor: pointer;
 }
 
-.btn_small{
-    font-size:12pt;
-    width:80px;
-    height:40px;
-    line-height:40px;
-    font-weight:bold;
-    display:block;
-    text-align:center;
+.btn_small {
+    font-size: 12pt;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    cursor: pointer;
 }
 
 .btn_green {
@@ -588,6 +591,11 @@ ul, li {
         background-color: #3F3F3F;
         color: #ffffff;
     }
+
+.btn_red {
+    background-color: #A01309;
+    color: #ffffff;
+}
 
 .txt_wide {
     height: 50px;
@@ -616,4 +624,9 @@ ul, li {
     float:left;
 }
 
+.hidden-place{
+    display:none;
+    float:left;
+    border:1px solid red;
+}
 

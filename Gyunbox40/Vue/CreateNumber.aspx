@@ -46,11 +46,17 @@
         </div>
         <div class="section section-4">
             <!-- 로그인 된 상태에서만 저장버튼 노출 -->
-            <div class="btn_wide btn_black" @click="saveNumberList();">
+            <div class="btn_wide btn_red" style="width:49%; float:left;"  @click="deleteNumberList();">
+                모두 삭제
+            </div>
+            <div class="btn_wide btn_black" style="width:49%; float:right;" @click="saveNumberList();">
                 내 번호로 저장
             </div>
+            
         </div>
-        
+        <div class="hidden-place">
+            <input type="text" value="<%=IsLogin%>" ref="isLogin" />
+        </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
@@ -106,28 +112,16 @@
                     }
                 },
                 createLuckyNumber() {
-                    //let newNumber =
-                    //{
-                    //    createdDate: getToday(),
-                    //    number_1: 1,
-                    //    number_2: 11,
-                    //    number_3: 21,
-                    //    number_4: 31,
-                    //    number_5: 32,
-                    //    number_6: 33,
-                    //    number_7: 45
-                    //};
-
                     let newNumber =
                     {
                         createdDate: getToday(),
-                        number_1: {},
-                        number_2: {},
-                        number_3: {},
-                        number_4: {},
-                        number_5: {},
-                        number_6: {},
-                        number_7: {}
+                        number_1: "",
+                        number_2: "",
+                        number_3: "",
+                        number_4: "",
+                        number_5: "",
+                        number_6: "",
+                        number_7: ""
                     };
 
                     let jsonArr = JSON.stringify({ pArrParams: this.fixedNumbers });
@@ -148,14 +142,14 @@
                         }
                     });
 
+                    this.createdNumbers.push(newNumber);
+
                     //axios.post(reqUrl, {
                     //    data: jsonArr
                     //}).then(function (response) {
                     //    console.log(response);
                     //});
-                        
-
-                    this.createdNumbers.push(newNumber);
+                    
                     //Db에 axios로 고정된 번호를 서버로 전송함.
                     //고정된 번호가 없으면 그냥 랜덤으로 번호 생성함..
                     //이미 리스트에 있는 번호가 생성되는 경우도 있을듯...
@@ -177,15 +171,34 @@
                     this.luckyNumbers[index].class = (this.luckyNumbers[index].class.indexOf("active") > -1) ? this.luckyNumbers[index].class.replace(" active", "") : this.luckyNumbers[index].class + " active";
                 },
                 saveNumberList() {
-                    alert("저장되었습니다.");
-                    location.reload();
+                    
+                    //1. 로그인 체크
+                    
+                    if (this.$refs.isLogin.value == "N") {
+                        alert("로그인 후 이용해주세요!!");
+                    } else {
+                        //2. 로그인이 되어 있는 경우, 해당아이디로 로또번호 저장
+                        let jsonSaveArr = JSON.stringify({ pArrParams: this.createdNumbers });
+                        let reqSaveUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/SaveNewNumbers";
+
+                        axios({
+                            url: reqSaveUrl,
+                            method: 'post',
+                            data: jsonSaveArr
+                        }).then(function (response) {
+                            if (response.data.Result == "OKK") {
+                                alert(response.data.OkCount + "개가 저장되었습니다.");
+                                location.reload();
+                            } else {
+                                alert("저장 중 문제가 발생하였습니다.\n다시한번 시도해주세요.");
+                            }
+                        });
+                    }
+                },
+                deleteNumberList() {
+                    this.createdNumbers = [];
                 }
             }
         })
     </script>
-    <style>
-        
-
-        
-    </style>
 </asp:Content>

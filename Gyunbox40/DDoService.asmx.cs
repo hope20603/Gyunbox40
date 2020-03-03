@@ -207,6 +207,29 @@ namespace Gyunbox40
         }
 
         /// <summary>
+        /// 로그인 되어 있는지 체크
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod(EnableSession = true)]
+        public string IsLogin()
+        {
+            string userID = cc.g_USER_ID;
+
+            if (userID != "")
+            {
+                Context.Response.Write("OKK");
+            }
+            else
+            {
+                Context.Response.Write("FAIL");
+            }
+
+            Context.Response.End();
+
+            return string.Empty;
+        }
+
+        /// <summary>
         /// 새로또번호 생성
         /// </summary>
         /// <returns></returns>
@@ -278,6 +301,60 @@ namespace Gyunbox40
 
 
         }
+
+
+        /// <summary>
+        /// 새로 생성한 번호들을 로그인 계정에 모두 저장을 해준다.
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string SaveNewNumbers()
+        {
+            DaDdogram daDDo = new DaDdogram();
+            Util util = new Util();
+
+            #region - Request Body 받기 --
+            var bodyStream = new StreamReader(HttpContext.Current.Request.InputStream);
+            bodyStream.BaseStream.Seek(0, SeekOrigin.Begin);
+            var bodyText = bodyStream.ReadToEnd();
+            #endregion
+
+            JObject json = JObject.Parse(bodyText);
+            JToken jt = json.SelectToken("pArrParams");
+            //string ttt = jt[1]["createdDate"].ToString();
+            Hashtable ht = null;
+            int okCount = 0;
+
+            for(int i=0; i< jt.Count(); i++)
+            {
+                ht = new Hashtable();
+
+                ht["userId"] = util.NullToBlank(cc.g_USER_ID);
+                ht["createdDate"] = jt[i]["createdDate"].ToString();
+                ht["number_1"] = jt[i]["number_1"].ToString();
+                ht["number_2"] = jt[i]["number_2"].ToString();
+                ht["number_3"] = jt[i]["number_3"].ToString();
+                ht["number_4"] = jt[i]["number_4"].ToString();
+                ht["number_5"] = jt[i]["number_5"].ToString();
+                ht["number_6"] = jt[i]["number_6"].ToString();
+                ht["number_7"] = jt[i]["number_7"].ToString();
+                
+                if(daDDo.SaveNewNumber(ht).IndexOf("OKK") > -1)
+                {
+                    okCount++;
+                }
+            }
+
+            JObject resultJson = new JObject();
+            resultJson.Add("Result", "OKK");
+            resultJson.Add("OkCount", okCount);
+            
+            Context.Response.Write(resultJson.ToString());
+            Context.Response.End();
+
+            return string.Empty;
+        }
+
     }
 
 

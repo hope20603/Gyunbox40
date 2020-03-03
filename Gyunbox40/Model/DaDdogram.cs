@@ -201,5 +201,49 @@ namespace Gyunbox40.Model
 
             return ds;
         }
+
+        /// <summary>
+        /// 로또 번호를 저장
+        /// </summary>
+        /// <param name="ht"></param>
+        /// <returns></returns>
+        public string SaveNewNumber(Hashtable ht)
+        {
+            string result = "OKK";
+            StringBuilder sb = new StringBuilder();
+            DBConn dbSql = new DBConn();
+
+            try
+            {
+                sb.Clear();
+                sb.AppendLine(" Insert Into HOPE20603.DDOMNB  ");
+                sb.AppendLine("  ( userId, createdDate, num1, num2, num3, num4, num5, num6, num7 )");
+                sb.AppendLine(" Values ");
+                sb.AppendLine("  ( '@userId', '@createdDate', @num1, @num2, @num3, @num4, @num5, @num6, @num7 ); ");
+
+                sb.Replace("@userId", ht["userId"].ToString());
+                sb.Replace("@createdDate", ht["createdDate"].ToString());
+                sb.Replace("@num1", ht["number_1"].ToString());
+                sb.Replace("@num2", ht["number_2"].ToString());
+                sb.Replace("@num3", ht["number_3"].ToString());
+                sb.Replace("@num4", ht["number_4"].ToString());
+                sb.Replace("@num5", ht["number_5"].ToString());
+                sb.Replace("@num6", ht["number_6"].ToString());
+                sb.Replace("@num7", ht["number_7"].ToString());
+
+                dbSql.ExcuteNonQuery(sb.ToString());
+            }
+            catch
+            {
+                result = "FAIL";
+            }
+            finally
+            {
+                dbSql.Close();
+                dbSql = null;
+            }
+
+            return result;
+        }
     }
 }
