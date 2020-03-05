@@ -77,7 +77,7 @@ namespace Gyunbox40.Model
         /// <param name="userId"></param>
         /// <param name="userPwd"></param>
         /// <returns></returns>
-        public DataSet UserLogin(string userId, string userPwd)
+        public DataSet GetLoginInfo(string userId, string userPwd)
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
@@ -244,6 +244,42 @@ namespace Gyunbox40.Model
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 내가 저장한 번호를 가져옴
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public DataSet GetMyNumber(string userId)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+            try
+            {
+                sb.AppendLine(" select IDX,                                                    ");
+                sb.AppendLine("        userId,                                                 ");
+                sb.AppendLine("        convert(varchar(10), createdDate, 120) as createdDate,  ");
+                sb.AppendLine(" 	   num1,                                                   ");
+                sb.AppendLine(" 	   num2,                                                   ");
+                sb.AppendLine(" 	   num3,                                                   ");
+                sb.AppendLine(" 	   num4,                                                   ");
+                sb.AppendLine(" 	   num5,                                                   ");
+                sb.AppendLine(" 	   num6,                                                   ");
+                sb.AppendLine(" 	   num7                                                    ");
+                sb.AppendLine(" from hope20603.DDOMNB                                          ");
+                sb.AppendLine(" where userId = '@userID'                                       ");
+                sb.AppendLine(" order by idx desc;                                             ");
+                sb.Replace("@userID", userId);
+
+                ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_myNumber");
+            }
+            catch
+            {
+                ds = null;
+            }
+
+            return ds;
         }
     }
 }

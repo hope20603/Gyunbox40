@@ -11,8 +11,7 @@ namespace Gyunbox40.Controller
         public bool Login(DataSet ds)
         {
             g_USER_ID = ds.Tables[0].Rows[0]["UID"].ToString();
-            HttpContext.Current.Session["userID"] = g_USER_ID;
-
+            //HttpContext.Current.Session["userID"] = g_USER_ID;
             return true;
         }
     }

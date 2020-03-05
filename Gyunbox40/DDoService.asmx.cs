@@ -33,7 +33,6 @@ namespace Gyunbox40
             return "Hello World";
         }
 
-
         /// <summary>
         /// 테스트
         /// </summary>
@@ -63,7 +62,6 @@ namespace Gyunbox40
 
             return string.Empty;
         }
-
 
         /// <summary>
         /// 로또 당첨번호 가져오기
@@ -133,14 +131,11 @@ namespace Gyunbox40
             return json;
         }
 
-
-
         /// <summary>
         /// 테스트
         /// </summary>
         /// <returns></returns>
         [WebMethod]
-        //[ScriptMethod(UseHttpGet = true)]
         public string UserRegister()
         {
             string returnStr = "OKK";
@@ -167,13 +162,11 @@ namespace Gyunbox40
             return string.Empty;
         }
 
-
         /// <summary>
         /// 로그인
         /// </summary>
         /// <returns></returns>
         [WebMethod(EnableSession = true)]
-        //[ScriptMethod(UseHttpGet = true)]
         public string UserLogin()
         {
             string returnStr = "OKK";
@@ -188,7 +181,7 @@ namespace Gyunbox40
 
             if (userId != "" && userPwd != "")
             {
-                ds = ddo.UserLogin(userId, userPwd);
+                ds = ddo.GetLoginInfo(userId, userPwd);
 
                 if (!util.ChkDsIsNull(ds))
                 {
@@ -235,7 +228,6 @@ namespace Gyunbox40
         /// <returns></returns>
         [WebMethod]
         public string GetNewNumber()
-        //public int GetArrayParamTest(List<string> pArrParams)
         {
             #region - Request Body 받기 --
             var bodyStream = new StreamReader(HttpContext.Current.Request.InputStream);
@@ -301,7 +293,6 @@ namespace Gyunbox40
 
 
         }
-
 
         /// <summary>
         /// 새로 생성한 번호들을 로그인 계정에 모두 저장을 해준다.

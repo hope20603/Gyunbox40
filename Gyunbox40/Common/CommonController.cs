@@ -10,7 +10,7 @@ namespace Gyunbox40.Common
     {
         //기본이 되는 호스트 url
         public string hostString = "";
-        public string g_USER_ID { get { return CookieRead("USER_ID"); } set { CookieWrite("USER_ID", value); } }                    // 사용자 아이디
+        public string g_USER_ID { get { return GetSession("USER_ID"); } set { SetSession("USER_ID", value); } }                    // 사용자 아이디
 
         private HttpRequest iRequest = null;
         private HttpResponse iResponse = null;
@@ -193,6 +193,32 @@ namespace Gyunbox40.Common
                 HttpContext.Current.Response.Cookies[key].Value = null;
                 HttpContext.Current.Request.Cookies[key].Value = null;
             }
+        }
+
+        public void SetSession(string sessionKey, string value)
+        {
+            HttpContext.Current.Session[sessionKey] = value;
+        }
+
+        public string GetSession(string sessionKey)
+        {
+            if (HttpContext.Current.Session == null || HttpContext.Current.Session[sessionKey] == null || HttpContext.Current.Session[sessionKey].ToString().Length == 0)
+                return "";
+            else
+                return HttpContext.Current.Session[sessionKey].ToString();
+        }
+
+        public static bool CheckSession(string sessionKey)
+        {
+            if (HttpContext.Current.Session == null || HttpContext.Current.Session[sessionKey] == null || HttpContext.Current.Session[sessionKey].ToString().Length == 0) //세션없음
+                return false;
+            else
+                return true;
+        }
+
+        public static string GetSessionValue(string sessionKey)
+        {
+            return HttpContext.Current.Session[sessionKey].ToString();
         }
     }
 }

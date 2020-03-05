@@ -52,7 +52,9 @@
             <div class="btn_wide btn_black" style="width:49%; float:right;" @click="saveNumberList();">
                 내 번호로 저장
             </div>
-            
+            <div class="btn_wide btn_green" style="margin-top:20px;" @click="goManage();">
+                내가 저장한 번호 보기
+            </div>
         </div>
         <div class="hidden-place">
             <input type="text" value="<%=IsLogin%>" ref="isLogin" />
@@ -197,6 +199,15 @@
                 },
                 deleteNumberList() {
                     this.createdNumbers = [];
+                },
+                goManage() {
+                    if (this.createdNumbers.length > 0) {
+                        if (confirm("저장하지 않은 번호들은 모두 삭제됩니다.\n이동 하시겠습니까?")) {
+                            location.href = "ManageNumber.aspx";
+                        }
+                    } else {
+                        location.href = "ManageNumber.aspx";
+                    }
                 }
             }
         })

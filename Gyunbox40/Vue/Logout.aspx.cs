@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gyunbox40.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace Gyunbox40.Vue
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Clear();
+            CommonController cc = new CommonController();
+            cc.g_USER_ID = "";
             Response.Redirect("index.aspx");
             Response.End();
         }

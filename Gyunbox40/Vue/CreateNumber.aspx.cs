@@ -11,9 +11,12 @@ namespace Gyunbox40.Vue
     public partial class CreateNumber : System.Web.UI.Page
     {
         public string IsLogin = "N";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            IsLogin = (new CommonController().g_USER_ID != "") ? "Y" : "N";
+            Util util = new Util();
+            IsLogin = (util.NullToBlank(new CommonController().g_USER_ID) != "") ? "Y" : "N";
+            //세션으로 바꿔야함....
         }
     }
 }
