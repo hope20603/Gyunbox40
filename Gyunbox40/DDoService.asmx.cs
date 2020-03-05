@@ -346,6 +346,69 @@ namespace Gyunbox40
             return string.Empty;
         }
 
+        /// <summary>
+        /// 저장한 로또번호들을 json 형태로 리턴
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod(EnableSession = true)]
+        public string GetMyNumberList()
+        {
+            CommonController cc = new CommonController();
+            DaDdogram daDDo = new DaDdogram();
+            Util util = new Util();
+
+            int curPage = cc.NullToZero(HttpContext.Current.Request["page"]);
+            int pageSize = cc.NullToZero(HttpContext.Current.Request["size"]);
+
+            curPage = (curPage == 0) ? 1 : curPage;      //기본값으로 셋팅
+            pageSize = (pageSize == 0) ? 10 : pageSize;  //기본값으로 셋팅
+
+            int start = ((curPage * pageSize) - pageSize)+1;
+            int end = (curPage * pageSize) + 1;
+
+            cc.g_USER_ID = "hope20603@naver.com";
+
+            DataSet ds = daDDo.GetMyNumber(cc.g_USER_ID, start, end);
+            string jsonString = "";
+
+            if (!util.ChkDsIsNull(ds)) { 
+                jsonString = util.GetJsonFromDataSet(ds.Tables[0]);
+            }
+
+            Context.Response.Write(jsonString);
+            Context.Response.End();
+
+            return string.Empty;
+        }
+
+
+        /// <summary>
+        /// 저장한 로또번호들을 json 형태로 리턴
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod(EnableSession = true)]
+        public string GetMyNumberCount()
+        {
+            CommonController cc = new CommonController();
+            DaDdogram daDDo = new DaDdogram();
+            Util util = new Util();
+
+            cc.g_USER_ID = "hope20603@naver.com";
+
+            DataSet ds = daDDo.GetMyNumberCount(cc.g_USER_ID);
+            string jsonString = "";
+
+            if (!util.ChkDsIsNull(ds))
+            {
+                jsonString = util.GetJsonFromDataSet(ds.Tables[0]);
+            }
+
+            Context.Response.Write(jsonString);
+            Context.Response.End();
+
+            return string.Empty;
+        }
+
     }
 
 

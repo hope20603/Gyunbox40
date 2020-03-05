@@ -162,7 +162,7 @@ namespace Gyunbox40.Common
         /// </summary>
         /// <param name="table"></param>
         /// <returns></returns>
-        public string DataTableToJSONWithStringBuilder(DataTable table)
+        public string GetJsonFromDataSet(DataTable table)
         {
             var JSONString = new StringBuilder();
             if (table.Rows.Count > 0)
@@ -194,6 +194,111 @@ namespace Gyunbox40.Common
                 JSONString.Append("]");
             }
             return JSONString.ToString();
+        }
+
+        /// <summary>
+        /// DataTable을 Json형태의 String으로 리턴, count와 
+        /// </summary>
+        /// <param name="ds"></param>
+        /// <param name="req_name"></param>
+        /// <param name="data_obj_name"></param>
+        /// <returns></returns>
+        public string GetJsonFromDataSet(DataSet ds, String req_name, String data_obj_name)
+        {
+            StringBuilder jsonString = new StringBuilder();
+            StringBuilder jsonHeaderString = new StringBuilder();
+            StringBuilder jsonBodyString = new StringBuilder();
+
+            jsonString.Append("{");
+
+            int total_count = 0;
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                // 조회된 ds 전체 데이터 개수
+                total_count = ds.Tables[0].Rows.Count;
+
+                // 배열 시작
+                jsonBodyString.Append("[");
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    jsonBodyString.Append("{");
+                    for (int j = 0; j < ds.Tables[0].Columns.Count; j++)
+                    {
+                        if (j < ds.Tables[0].Columns.Count - 1)
+                        {
+                            jsonBodyString.Append("\"" + ds.Tables[0].Columns[j].ColumnName.ToString() + "\":" + "\"" + convertSpecialCharForJsonString(ds.Tables[0].Rows[i][j].ToString()) + "\",");
+                        }
+                        else if (j == ds.Tables[0].Columns.Count - 1)
+                        {
+                            jsonBodyString.Append("\"" + ds.Tables[0].Columns[j].ColumnName.ToString() + "\":" + "\"" + convertSpecialCharForJsonString(ds.Tables[0].Rows[i][j].ToString()) + "\"");
+                        }
+                    }
+
+                    if (i == ds.Tables[0].Rows.Count - 1)
+                    {
+                        jsonBodyString.Append("}");
+                    }
+                    else
+                    {
+                        jsonBodyString.Append("},");
+                    }
+                }
+                jsonBodyString.Append("]");
+            }
+
+            jsonHeaderString.Append("\"req_name\":" + "\"" + req_name + "\",");
+            jsonHeaderString.Append("\"total_count\":" + "\"" + total_count.ToString() + "\"");
+
+            if (string.IsNullOrEmpty(jsonBodyString.ToString()) == false)
+            {
+                // 결과 데이터 객체 이름 지정
+                if (string.IsNullOrEmpty(data_obj_name) == true)
+                {
+                    data_obj_name = "data";
+                }
+
+                jsonHeaderString.Append(",\"" + data_obj_name + "\":").Append(jsonBodyString);
+            }
+
+            jsonString.Append(jsonHeaderString);
+            jsonString.Append("}");
+
+            return jsonString.ToString();
+
+        }
+
+        public string convertSpecialCharForJsonString(String str)
+        {
+            string tempStr = "";
+
+            try
+            {
+                tempStr = str.ToString();
+
+                // 공백기호 처리
+                tempStr = tempStr.Replace("\t", "");
+                tempStr = tempStr.Replace("\r", "");
+                tempStr = tempStr.Replace("\n", "");
+
+                // 태그, 역슬래시(\) 기호 처리
+                tempStr = tempStr.Replace("<", "&lt;");
+                tempStr = tempStr.Replace(">", "&gt;");
+                tempStr = tempStr.Replace("\\", "\\\\");
+
+                // 따옴표 처리
+                tempStr = tempStr.Replace("\"", "\\\"");
+                tempStr = tempStr.Replace("''", "\''");
+
+                str = tempStr.ToString();
+            }
+            catch (Exception e)
+            {
+            }
+
+            // 특수문자 치환 중 예외 발생시, 원래 문자열 반환
+            return str;
         }
 
     }

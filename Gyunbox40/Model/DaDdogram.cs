@@ -251,28 +251,60 @@ namespace Gyunbox40.Model
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public DataSet GetMyNumber(string userId)
+        public DataSet GetMyNumber(string userId , int start, int end)
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
             try
             {
-                sb.AppendLine(" select IDX,                                                    ");
-                sb.AppendLine("        userId,                                                 ");
-                sb.AppendLine("        convert(varchar(10), createdDate, 120) as createdDate,  ");
-                sb.AppendLine(" 	   num1,                                                   ");
-                sb.AppendLine(" 	   num2,                                                   ");
-                sb.AppendLine(" 	   num3,                                                   ");
-                sb.AppendLine(" 	   num4,                                                   ");
-                sb.AppendLine(" 	   num5,                                                   ");
-                sb.AppendLine(" 	   num6,                                                   ");
-                sb.AppendLine(" 	   num7                                                    ");
-                sb.AppendLine(" from hope20603.DDOMNB                                          ");
-                sb.AppendLine(" where userId = '@userID'                                       ");
-                sb.AppendLine(" order by idx desc;                                             ");
+                sb.AppendLine(" select * from (                                                    ");
+                sb.AppendLine("     select IDX,                                                    ");
+                sb.AppendLine("            Row_Number() over(order by idx desc) as rowNum,         ");
+                sb.AppendLine("     	   userId,                                                 ");
+                sb.AppendLine("     	   convert(varchar(10), createdDate, 120) as createdDate,  ");
+                sb.AppendLine("     	   num1,                 ");
+                sb.AppendLine("     	   num2,                 ");
+                sb.AppendLine("     	   num3,                 ");
+                sb.AppendLine("     	   num4,                 ");
+                sb.AppendLine("     	   num5,                 ");
+                sb.AppendLine("     	   num6,                 ");
+                sb.AppendLine("     	   num7                  ");
+                sb.AppendLine("     from hope20603.DDOMNB        ");
+                sb.AppendLine("     where userId = '@userID'      ");
+                sb.AppendLine(" ) as a where rowNum >= @start and rowNum < @end   ;");
+
                 sb.Replace("@userID", userId);
+                sb.Replace("@start", start.ToString());
+                sb.Replace("@end", end.ToString());
 
                 ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_myNumber");
+            }
+            catch
+            {
+                ds = null;
+            }
+
+            return ds;
+        }
+
+        /// <summary>
+        /// 내가 저장한 번호를 가져옴
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public DataSet GetMyNumberCount(string userId)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+            try
+            {
+                
+                sb.AppendLine("     select count(IDX) as cnt     ");
+                sb.AppendLine("     from hope20603.DDOMNB        ");
+                sb.AppendLine("     where userId = '@userID'     ");
+                sb.Replace("@userID", userId);
+                
+                ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_myNumberCount");
             }
             catch
             {

@@ -31,11 +31,12 @@ namespace Gyunbox40.Vue
 
             cc.g_USER_ID = (Util.IsNullOrBlank(cc.g_USER_ID)) ? "hope20603@naver.com" : cc.g_USER_ID;
 
-            DataSet ds = daDDo.GetMyNumber(cc.g_USER_ID);
+            //처음에는 1~10까지만 select 한다.
+            DataSet ds = daDDo.GetMyNumber(cc.g_USER_ID, 1, 11);
 
             if (!util.ChkDsIsNull(ds))
             {
-                jsonString = util.DataTableToJSONWithStringBuilder(ds.Tables[0]);
+                jsonString = util.GetJsonFromDataSet(ds.Tables[0]);
             }
 
         }
