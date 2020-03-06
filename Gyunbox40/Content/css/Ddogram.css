@@ -447,12 +447,17 @@ ul, li {
             }
 
                 .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap .lottoBall {
-                    width: 22px;
-                    height: 22px;
+                    width: 24px;
+                    height: 24px;
                     line-height: 22px;
-                    color:black;
-                    border:1px solid black;
+                    color:#ffffff;
+                    border:none;
+                    
                 }
+
+                    .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap .lottoBall.plus_mark {
+                        color:black;
+                    }
 
         .app-manageNumber .section-1 .li-numbers .list-tail {
             width: 10%;
@@ -510,6 +515,7 @@ ul, li {
         color: black;
         margin-right: 2%;
     }
+
 
 
 /* login.aspx */
@@ -750,3 +756,64 @@ ul, li {
     text-align: center;
     width: 315px;
 }
+
+
+#loadingPop {
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    background-color: red;
+    position: fixed;
+    display: none;
+    text-align: center;
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+#loadingCircle {
+    bottom: 100px;
+    position: absolute;
+    margin: auto;
+    width: 90px;
+    border-radius: 50%;
+    height: 90px;
+    box-sizing: border-box;
+    padding-top: 35px;
+    border: 1px solid #d2d2d2;
+    font-weight: bold;
+    background-color: #2E2D2E;
+    color: #ffffff;
+}
+
+.section.section-paging {
+    background-color: #ffffff;
+}
+
+.li-paging {
+    width:100%;
+    text-align:center;
+}
+
+.li-paging span {
+    width:20px;
+    height:20px;
+    margin-right:10px;
+    line-height:20px;
+    border:1px solid #d2d2d2;
+    display:inline-block;
+}
+
+    .li-paging span.first {
+        border:none;
+    }
+
+    .li-paging span.last {
+        border:none;
+    }
+
+    .li-paging span.on {
+        background-color: #0070C0;
+        color: #ffffff;
+        font-weight: bold;
+        border: 1px solid #0070C0;
+    }

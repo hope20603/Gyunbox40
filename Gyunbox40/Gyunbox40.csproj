@@ -76,6 +76,7 @@
     <Content Include="Content\js\html5shiv.min.js" />
     <Content Include="Content\js\jsQR.js" />
     <Content Include="Content\js\util.js" />
+    <Content Include="Content\js\vue-infinite-loading.js" />
     <Content Include="DDoService.asmx" />
     <Content Include="Share\bootstrap.aspx" />
     <Content Include="SiteBlog.Master" />

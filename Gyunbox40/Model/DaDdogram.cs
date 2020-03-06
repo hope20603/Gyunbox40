@@ -283,6 +283,14 @@ namespace Gyunbox40.Model
             {
                 ds = null;
             }
+            finally
+            {
+                if (dbSql != null)
+                {
+                    dbSql.Close();
+                    dbSql = null;
+                }
+            }
 
             return ds;
         }
