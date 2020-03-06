@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="list-tail">
-                        <a @click=deleteNumber(index) title="삭제"><span class="btn_del"></span></a>
+                        <a @click=deleteNumber(index,item.IDX) title="삭제"><span class="btn_del"></span></a>
                     </div>
                 </li>
             </ul>
@@ -156,7 +156,9 @@
                             size: pageSize
                         }
                     }).then((response) => {
+                        //console.log(response);
                         if (response.data != null && response.data.length > 0) {
+                            //console.log(response);
                             this.listArr = this.listArr.concat(response.data);
                             //this.listArr = response.data;
                             $state.loaded();
@@ -185,16 +187,38 @@
                         url: reqUrl
                     }).then((response) => {
                         this.totalCount = response.data[0].cnt;
-                        this.makePager();
+                        //this.makePager();
                     }).catch((ex) => {
                         console.log("ERR!!!!! : ", ex)
                     });
                 },
 
                 //번호 리스트에서 삭제
-                deleteNumber(index) {
-                    console.log(index);
-                    this.listArr.splice(index, 1);
+                deleteNumber(index, idx) {
+                    console.debug("index", index);
+                    console.debug("idx", idx);
+
+                    //해당 번호의 소유자가 로그인 정보와 동일한지 확인 한 후 삭제
+                    let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/DeleteMyNumber";
+
+                    axios({
+                        method: 'GET',
+                        url: reqUrl,
+                        params: {
+                            targetIdx: idx
+                        }
+                    }).then((response) => {
+                        if (response.data == "OK") {
+                            this.listArr.splice(index, 1);
+                            this.getTotalCount();
+                        } else {
+                            alert("삭제 중 문제가 발생하였습니다.\n다시 시도해주세요!!");
+                        }
+                    }).catch((ex) => {
+                        //console.log("ERR!!!!! : ", ex)
+                    });
+                    
+
                 },
 
                 //페이징 만들기- 무한스크롤 방식으로 전환함
@@ -230,7 +254,7 @@
                                 size: pageSize
                             }
                         }).then((response) => {
-                            //무한 스크롤과 같은 방식으로 진행함...
+                            console.log(response);
                             if (response.data != null && response.data.length > 0) {
                                 this.listArr = response.data;
                             }

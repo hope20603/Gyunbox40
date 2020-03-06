@@ -87,13 +87,13 @@ namespace Gyunbox40
             string jsonResult = "";
 
             JValue jVal = GetJsonObjectFromUrl(URL + nowTime);
-            if (jVal == null)
+            if (jVal == null || jVal.Value.ToString().IndexOf("fail") > -1 )
             {
                 //해당회차에 에러가 나는 경우 이전 회차로 5회 더 요청해본다.
                 for (int i = nowTime-1; i >= nowTime - 5; i--)
                 {
                     jVal = GetJsonObjectFromUrl(URL + i);
-                    if (jVal != null) break;
+                    if (jVal != null && jVal.Value.ToString().IndexOf("fail") < 0) break;
                 }
             }
 
@@ -298,7 +298,7 @@ namespace Gyunbox40
         /// 새로 생성한 번호들을 로그인 계정에 모두 저장을 해준다.
         /// </summary>
         /// <returns></returns>
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public string SaveNewNumbers()
         {
             DaDdogram daDDo = new DaDdogram();
@@ -366,7 +366,7 @@ namespace Gyunbox40
             int start = ((curPage * pageSize) - pageSize)+1;
             int end = (curPage * pageSize) + 1;
 
-            cc.g_USER_ID = "hope20603@naver.com";
+            //cc.g_USER_ID = "hope20603@naver.com";
 
             DataSet ds = daDDo.GetMyNumber(cc.g_USER_ID, start, end);
             string jsonString = "";
@@ -393,7 +393,7 @@ namespace Gyunbox40
             DaDdogram daDDo = new DaDdogram();
             Util util = new Util();
 
-            cc.g_USER_ID = "hope20603@naver.com";
+            //cc.g_USER_ID = "hope20603@naver.com";
 
             DataSet ds = daDDo.GetMyNumberCount(cc.g_USER_ID);
             string jsonString = "";
@@ -409,6 +409,41 @@ namespace Gyunbox40
             return string.Empty;
         }
 
+        [WebMethod(EnableSession = true)]
+        public string DeleteMyNumber()
+        {
+            CommonController cc = new CommonController();
+            DaDdogram daDDo = new DaDdogram();
+            Util util = new Util();
+            string jsonResult = "";
+
+            string targetIdx = cc.NullToBlank(HttpContext.Current.Request["targetIdx"]);
+
+            //cc.g_USER_ID = "hope20603@naver.com";
+
+            if (targetIdx != "" && cc.g_USER_ID != "")
+            {
+                int result = daDDo.DeleteMyNumber(targetIdx, cc.g_USER_ID);
+                if(result == -1)
+                {
+                    jsonResult = "ERROR";
+                }
+                else if(result == 0)
+                {
+                    jsonResult = "NOT_MY_NUM";
+                }
+                else
+                {
+                    jsonResult = "OK";
+                }
+                
+            }
+
+            Context.Response.Write(jsonResult);
+            Context.Response.End();
+
+            return string.Empty;
+        }
     }
 
 

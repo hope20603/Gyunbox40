@@ -16,7 +16,7 @@ namespace Gyunbox40.Share
         protected string joinStr = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id = util.NullToBlank(Session["userID"]);
+            string id = cc.g_USER_ID;
 
             if (id != "")
             {

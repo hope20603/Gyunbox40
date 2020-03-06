@@ -82,11 +82,22 @@ namespace Gyunbox40.Model
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
 
-            sb.AppendLine("select * from hope20603.DDOMEM where uid='@userID' and pwd='@userPwd' ;");
-            sb.Replace("@userID", util.ChkInjection(userId));
-            sb.Replace("@userPwd", util.ChkInjection(userPwd));
+            try
+            {
+                sb.AppendLine("select * from hope20603.DDOMEM where uid='@userID' and pwd='@userPwd' ;");
+                sb.Replace("@userID", util.ChkInjection(userId));
+                sb.Replace("@userPwd", util.ChkInjection(userPwd));
 
-            ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_login");
+                ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_login");
+            }
+            finally
+            {
+                if(dbSql != null)
+                {
+                    dbSql.Close();
+                    dbSql = null;
+                }
+            }
 
             return ds;
         }
@@ -152,6 +163,85 @@ namespace Gyunbox40.Model
                     }
                 }
 
+            }
+            catch
+            {
+                //string tmp = ex.ToString();
+            }
+            finally
+            {
+                dbSql.Close();
+                dbSql = null;
+            }
+
+        }
+
+
+        /// <summary>
+        /// 특정 회차의 정보를 DB에 insert 해준다.
+        /// </summary>
+        /// <param name="targetNumber"></param>
+        public void InsertLottoNumber(string targetNumber)
+        {
+            DBConn dbSql = new DBConn();
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+            Util util = new Util();
+
+            try
+            {
+                sb.Append(" select * from hope20603.ddonum where drwNo=@drwNo ");
+                sb.Replace("@drwNo", targetNumber);
+                ds = dbSql.ExecuteWithDataSet(sb.ToString());
+
+                if (util.ChkDsIsNull(ds))
+                {
+                   string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + targetNumber;
+                   using (var webClient = new System.Net.WebClient())
+                    {
+                        var myJsonString = webClient.DownloadString(URL);
+
+                        var jo = JObject.Parse(myJsonString);
+
+                        string drwNo = jo.GetValue("drwNo").ToString();
+                        string totSellamnt = jo.GetValue("totSellamnt").ToString();
+                        string returnValue = jo.GetValue("returnValue").ToString();
+                        string drwNoDate = jo.GetValue("drwNoDate").ToString();
+                        string firstWinamnt = jo.GetValue("firstWinamnt").ToString();
+                        string firstPrzwnerCo = jo.GetValue("firstPrzwnerCo").ToString();
+                        string drwtNo1 = jo.GetValue("drwtNo1").ToString();
+                        string drwtNo2 = jo.GetValue("drwtNo2").ToString();
+                        string drwtNo3 = jo.GetValue("drwtNo3").ToString();
+                        string drwtNo4 = jo.GetValue("drwtNo4").ToString();
+                        string drwtNo5 = jo.GetValue("drwtNo5").ToString();
+                        string drwtNo6 = jo.GetValue("drwtNo6").ToString();
+                        string bnusNo = jo.GetValue("bnusNo").ToString();
+
+
+                        sb.Clear();
+                        sb.AppendLine("insert into hope20603.DDONUM  ");
+                        sb.AppendLine("values( ");
+                        sb.AppendLine(drwNo + ",");
+                        sb.AppendLine(totSellamnt + ",");
+                        sb.AppendLine("'" + returnValue + "',");
+                        sb.AppendLine("'" + drwNoDate + "',");
+                        sb.AppendLine(firstWinamnt + ",");
+                        sb.AppendLine(firstPrzwnerCo + ",");
+                        sb.AppendLine(drwtNo1 + ",");
+                        sb.AppendLine(drwtNo2 + ",");
+                        sb.AppendLine(drwtNo3 + ",");
+                        sb.AppendLine(drwtNo4 + ",");
+                        sb.AppendLine(drwtNo5 + ",");
+                        sb.AppendLine(drwtNo6 + ",");
+                        sb.AppendLine(bnusNo);
+                        sb.AppendLine(")");
+
+                        dbSql.ExcuteNonQuery(sb.ToString());
+
+                        //{ "Arithmetic overflow error converting expression to data type int.
+                        //\r\nThe statement has been terminated."}
+                    }
+                }
             }
             catch
             {
@@ -320,6 +410,45 @@ namespace Gyunbox40.Model
             }
 
             return ds;
+        }
+
+        /// <summary>
+        /// idx로 특정 번호 삭제
+        /// </summary>
+        /// <param name="idx"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public int DeleteMyNumber(string idx, string userId)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+            SqlConnection oCon = new SqlConnection(connectionString);
+
+            int result = 0;
+
+            try
+            {
+                sb.Clear();
+                sb.AppendLine("     delete                       ");
+                sb.AppendLine("     from hope20603.DDOMNB        ");
+                sb.AppendLine("     where userId = '@userID' and idx=@idx ");
+                sb.Replace("@userID", userId);
+                sb.Replace("@idx", idx);
+
+                result = SqlHelper.ExecuteNonQuery(oCon, CommandType.Text, sb.ToString()); 
+
+            }
+            catch
+            {
+                result = -1;
+            }
+            finally
+            {
+                oCon = null;
+            }
+
+            return result;
+            
         }
     }
 }

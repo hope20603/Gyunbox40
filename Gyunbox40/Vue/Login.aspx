@@ -5,21 +5,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-login">
         <div class="section section-0">
-            회원가입을 통해서 나의 번호를 따로 관리해보세요!
+            <span style="color: #176D64; padding-left:7px; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; ">로그인 해주세요.</span><br />
+            <span style=" padding-left:7px;">로그인 후 나의 번호를 관리해보세요!!</span>
+        </div>
+        <div class="section section-1">
             <h2>또그램 회원 로그인</h2>
             <div class="box-login">
                 <input type="text" id="userId" v-model="userId" class="txt_wide txt_gray" placeholder="아이디 입력" />
-                <input type="text" id="userPwd" v-model="userPwd" class="txt_wide txt_gray" placeholder="비밀번호 입력" />
-                <span class="sp_auto">
-                    <input type="checkbox" id="cb_autoLogin">자동 로그인</span>
-                <span><a id="btn_login" class="btn_wide btn_black" @click="clickLogin">로그인</a></span>
-                <div class="box_findId">
-                    <ul>
-                        <li><a onclick="javascript:alert('준비중입니다.');">아이디 찾기</a></li>
-                        <li><a onclick="javascript:alert('준비중입니다.');">비밀번호 찾기</a></li>
-                        <li class="last"><a href="Join.aspx">회원가입</a></li>
-                    </ul>
-                </div>
+                <input type="password" id="userPwd" v-model="userPwd" class="txt_wide txt_gray" placeholder="비밀번호 입력" />
+                <span><a id="btn_login" class="btn_wide btn_black" @click="clickLogin" style="margin-top:30px;">로그인</a></span>
+                <span><a id="btn_test_login" class="btn_wide btn_green" @click="guestLogin" style="margin-top:20px;">게스트 로그인</a></span>
             </div>
         </div>
     </div>
@@ -44,29 +39,39 @@
                         //    "x-api-key": "YOUR_API_KEY"
                         //}
                     }
-                    let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserLogin";
 
-                    //validation check
-                    var registerData = "";
-                    registerData = registerData + "userId=" + document.getElementById("userId").value;
-                    registerData = registerData + "&userPwd=" + document.getElementById("userPwd").value;
-                    
-                    
-                    axios.post(reqUrl, registerData, config).then((response) => {
-                        if (response.data == "OKK") {
-                            alert("어서오세요");
-                            location.href = "ManageNumber.aspx";
-                        } else {
-                            alert("로그인에 실패하였습니다.\n다시 시도해주세요.");
-                        }
-                    })
+                    if (this.userId == "" || this.userPwd == "") {
+                        alert("아이디 또는 패스워드를 다시 입력해주세요.");
+                    } else {
+                        let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserLogin";
+                        let form = new FormData();
+                        form.append('userId', this.userId);
+                        form.append('userPwd', this.userPwd);
+
+                        axios.post(reqUrl, form, config)
+                            .then((response) => {
+                                if (response.data == "OKK") {
+                                    alert("어서오세요");
+                                    location.href = "ManageNumber.aspx";
+                                } else {
+                                    alert("로그인에 실패하였습니다.\n다시 시도해주세요.");
+                                }
+                            });
+                    }
+                },
+                guestLogin() {
+                    this.userId = "GUEST";
+                    this.userPwd = "1004";
+                    this.clickLogin();
                 }
             }
         })
     </script>
     <style>
         
-
+        #wrap{
+            background-color:#ffffff;
+        }
         
     </style>
 </asp:Content>

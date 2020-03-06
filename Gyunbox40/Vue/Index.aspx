@@ -3,11 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .section {
-            position: relative;
-        }
-    </style>
     <div id="app" class="app-index">
         <div class="section section-0">
             <span style="color: #176D64; padding-left:7px; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; ">안녕하세요</span><br />

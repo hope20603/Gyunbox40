@@ -15,7 +15,8 @@ ul, li {
 
 #wrap {
     background-color: #F2F2F2;
-    display: inline-block;
+    display:inline-block;
+    width:100%;
 }
 
 
@@ -38,7 +39,7 @@ ul, li {
 
     .header .gnb {
         float: right;
-        width: 160px;
+        width: 140px;
     }
 
         .header .gnb li {
@@ -46,13 +47,15 @@ ul, li {
         }
 
         .header .gnb .menu_1 {
-            width: 80px;
+            width: 65px;
             float: left;
+            font-size:10pt;
         }
 
         .header .gnb .menu_2 {
-            width: 80px;
+            width: 65px;
             float: right;
+            font-size: 10pt;
         }
 
         .header .gnb a {
@@ -167,7 +170,6 @@ ul, li {
 
 
     .app-index .section-2 ul li span {
-        margin-right: 5px;
         margin-bottom: 5px;
     }
 
@@ -519,15 +521,33 @@ ul, li {
 
 
 /* login.aspx */
-.app-login h2 {
-    height: 50px;
-    font-size: 30px;
-    line-height: 50px;
-    text-align: center;
+
+.app-login .section-0 {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 10px;
+    padding-top: 20px;
     width: 100%;
-    font-weight: normal;
-    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 0px;
 }
+
+    .app-login .section-1{
+        background-color:#ffffff;
+    }
+
+    .app-login h2 {
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+        text-align: center;
+        width: 100%;
+        font-weight: normal;
+        margin-top: 20px;
+    }
 
 
 .app-login .box-login {
@@ -581,6 +601,19 @@ ul, li {
 /* join.aspx */
 .app-join {
 }
+
+    .app-join .section-0 {
+        box-sizing: border-box;
+        text-align: left;
+        padding: 10px;
+        padding-top: 20px;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #ffffff;
+        color: black;
+        border-radius: 0px;
+    }
 
     .app-join h2 {
         height: 50px;
