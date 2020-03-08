@@ -114,6 +114,7 @@
     <style>
         #wrap {
             background-color: #ffffff;
+            padding-bottom:50px;
         }
     </style>
 </asp:Content>

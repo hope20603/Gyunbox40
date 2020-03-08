@@ -6,7 +6,7 @@
       		<div class="container">
       			<h2 class="sec-tit">Web Programmer</h2>
       			<p class="desc">
-      			    ASP.NET MVC(C#), ASP.NET Webform, ASP, Javascript, jQuery, HTML, CSS, Vue.js, ORACLE, DB2, MS-SQL
+      			    ASP.NET MVC(C#), ASP.NET Webform, ASP, Javascript, jQuery, HTML, CSS, <a href="/Vue/index.aspx" title="Vue를 이용해 만든 사이트를 방문해보세요 :)">Vue.js</a>, ORACLE, DB2, MS-SQL
                 </p>
 			</div>
 		</section>

@@ -36,7 +36,10 @@
             </asp:ContentPlaceHolder>
         </div>
         <footer class="master_footer">
-            
+            <div>
+                <span class="sp_1"><a href="/" title="프로그래머의 사이트를 방문해보세요.">개발자 사이트 방문 :)</a></span>
+                <span class="sp_2">Copyright 2020. KSG all rights reserved.</span>
+            </div>
         </footer>
     </form>
 </body>

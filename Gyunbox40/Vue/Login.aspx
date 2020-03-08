@@ -71,6 +71,7 @@
         
         #wrap{
             background-color:#ffffff;
+            padding-bottom:60px;
         }
         
     </style>
