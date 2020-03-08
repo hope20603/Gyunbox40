@@ -18,11 +18,11 @@
                         <input type="hidden" v-model="dupeChk" />
                     </li>
                     <li>
-                        <input type="text" v-model="userPwd" class="txt_wide txt_gray" placeholder="비밀번호 입력" /></li>
+                        <input type="password" v-model="userPwd" class="txt_wide txt_gray" placeholder="비밀번호 입력"  style="margin-top:50px;" /></li>
                     <li>
-                        <input type="password"  v-model="userPwdAgain"  class="txt_wide txt_gray" placeholder="비밀번호 재입력" /></li>
+                        <input type="password"  v-model="userPwdAgain"  class="txt_wide txt_gray" placeholder="비밀번호 재입력" style="margin-top:10px;"/></li>
                     <li>
-                        <input type="text" v-model="userEml" class="txt_wide txt_gray" placeholder="비상용 이메일 주소 ( 비밀번호 찾기에 사용됩니다 )" /></li>
+                        <input type="text" v-model="userEml" class="txt_wide txt_gray" placeholder="비상용 이메일 주소 ( 비밀번호 찾기에 사용됩니다 )"  style="margin-top:30px;"/></li>
                     <li><span><a id="btn_login" class="btn_wide btn_black" @click="register">회원가입</a></span></li>
                 </ul>
             </div>
