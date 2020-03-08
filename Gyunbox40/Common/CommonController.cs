@@ -11,6 +11,7 @@ namespace Gyunbox40.Common
         //기본이 되는 호스트 url
         public string hostString = "";
         public string g_USER_ID { get { return GetSession("USER_ID"); } set { SetSession("USER_ID", value); } }                    // 사용자 아이디
+        public string g_PUSH_NUM { get { return GetSession("PUSH_NUM"); } set { SetSession("PUSH_NUM", value); } }                    // 행운의번호
 
         private HttpRequest iRequest = null;
         private HttpResponse iResponse = null;

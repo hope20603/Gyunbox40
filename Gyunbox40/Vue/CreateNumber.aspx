@@ -89,7 +89,7 @@
             },
             methods: {
                 setLuckyNumber() {
-                    var arrLucky = [1, 10, 11, 21, 31, 41, 45];
+                    var arrLucky = [<%=datas[0]%> ,<%=datas[1]%> ,<%=datas[2]%> ,<%=datas[3]%> ,<%=datas[4]%> ,<%=datas[5]%> ,<%=datas[6]%> ];
                     for (var i = 0; i < arrLucky.length; i++) {
                         this.luckyNumbers[i].l_num = arrLucky[i];
                         this.luckyNumbers[i].class = this.getBallColor(arrLucky[i]);

@@ -142,13 +142,13 @@
                 nowDate: "1900-01-01",
 
                 //추천행운번호
-                drwtNo1: '1',
-                drwtNo2: '2',
-                drwtNo3: '3',
-                drwtNo4: '4',
-                drwtNo5: '5',
-                drwtNo6: '6',
-                drwtNo7: '7',
+                drwtNo1: '<%=datas[0]%>',
+                drwtNo2: '<%=datas[1]%>',
+                drwtNo3: '<%=datas[2]%>',
+                drwtNo4: '<%=datas[3]%>',
+                drwtNo5: '<%=datas[4]%>',
+                drwtNo6: '<%=datas[5]%>',
+                drwtNo7: '<%=datas[6]%>',
 
                 //당첨번호
                 pre_drwtNo1: '1',
@@ -211,17 +211,17 @@
                       this.pre_styleD = 'background-color:' + this.getBallColor(this.pre_drwtNo4);
                       this.pre_styleE = 'background-color:' + this.getBallColor(this.pre_drwtNo5);
                       this.pre_styleF = 'background-color:' + this.getBallColor(this.pre_drwtNo6);
-                      this.pre_styleG = 'background-color:' + this.getBallColor(this.bnusNo);
+                      this.pre_styleG = 'background-color:' + this.getBallColor(this.pre_drwtNo7);
 
 
                       //행운번호 api로 이동해야 함.
-                      this.styleA = 'background-color:' + this.getBallColor(this.pre_drwtNo1);
-                      this.styleB = 'background-color:' + this.getBallColor(this.pre_drwtNo2);
-                      this.styleC = 'background-color:' + this.getBallColor(this.pre_drwtNo3);
-                      this.styleD = 'background-color:' + this.getBallColor(this.pre_drwtNo4);
-                      this.styleE = 'background-color:' + this.getBallColor(this.pre_drwtNo5);
-                      this.styleF = 'background-color:' + this.getBallColor(this.pre_drwtNo6);
-                      this.styleG = 'background-color:' + this.getBallColor(this.bnusNo);
+                      this.styleA = 'background-color:' + this.getBallColor(this.drwtNo1);
+                      this.styleB = 'background-color:' + this.getBallColor(this.drwtNo2);
+                      this.styleC = 'background-color:' + this.getBallColor(this.drwtNo3);
+                      this.styleD = 'background-color:' + this.getBallColor(this.drwtNo4);
+                      this.styleE = 'background-color:' + this.getBallColor(this.drwtNo5);
+                      this.styleF = 'background-color:' + this.getBallColor(this.drwtNo6);
+                      this.styleG = 'background-color:' + this.getBallColor(this.drwtNo7);
 
                   })
                 },

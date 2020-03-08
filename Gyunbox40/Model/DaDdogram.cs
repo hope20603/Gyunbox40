@@ -450,5 +450,42 @@ namespace Gyunbox40.Model
             return result;
             
         }
+
+        /// <summary>
+        /// 로또 번호별 비중을 가지고 온다.
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetLuckyNumber()
+        {
+            DataSet ds = null;
+
+            string spName = "setAndGetDDONumber";
+            SqlConnection oCon = new SqlConnection(connectionString);
+
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName);
+
+            }
+            catch
+            {
+                ds = null;
+            }
+            finally
+            {
+                if (ds != null)
+                {
+                    ds.Dispose();
+                }
+
+                if (oCon.State == ConnectionState.Open)
+                    oCon.Close();
+
+                oCon.Dispose();
+
+            }
+
+            return ds;
+        }
     }
 }
