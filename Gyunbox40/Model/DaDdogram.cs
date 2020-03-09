@@ -269,7 +269,6 @@ namespace Gyunbox40.Model
             try
             {
                 ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName);
-
             }
             catch
             {
@@ -329,7 +328,8 @@ namespace Gyunbox40.Model
             }
             finally
             {
-                dbSql.Close();
+                if(dbSql != null)
+                    dbSql.Close();
                 dbSql = null;
             }
 
@@ -394,6 +394,7 @@ namespace Gyunbox40.Model
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
+            
             try
             {
                 
@@ -407,6 +408,14 @@ namespace Gyunbox40.Model
             catch
             {
                 ds = null;
+            }
+            finally
+            {
+                if(dbSql != null)
+                {
+                    dbSql.Close();
+                    dbSql = null;
+                }
             }
 
             return ds;

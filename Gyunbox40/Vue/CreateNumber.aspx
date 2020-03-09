@@ -5,9 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-createNumber">
         <div class="section section-0">
-            <h2 style="width: 100%; text-align: center;">{{ message }}</h2>
-            <ul>
-                <li>
+            <div style="height:90px;">
+                <span style="color: #176D64; float:left;  box-sizing:border-box; text-align:center; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; width:100%; ">또그램이 제공하는 추천번호 :)</span><br />
+                <span style="width:100%; box-sizing:border-box; text-align:center; padding-bottom:30px; float:left;">원하는 번호를 선택한 후 번호를 생성해보세요.</span>
+            </div>
+            <ul  style="width:100%; height:50px;">
+                <li  style="background-color:#FCFCFC; border-top:1px solid #EBEBEB; border-bottom:1px solid #EBEBEB; padding-top:20px; padding-bottom:20px;">
                     <div class="ball_wrap" id="recommendNumber">
                             <span  v-for="(item, index) in luckyNumbers" class="lottoBall ball_1" v-bind:class=item.class @click="toggleClass(index);fixNumber(item.l_num);">
                                 <span class="ball_con">{{ item.l_num }}</span>
@@ -67,7 +70,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                message: '고정할 번호를 선택하세요.',
+                //message: '고정할 번호를 선택하세요.',
 
                 luckyNumbers: [
                     { l_num: 1, class: "" },
@@ -86,6 +89,25 @@
             created() {
                 this.setLuckyNumber();
                 //this.createLuckyNumber();
+            },
+            mounted() {
+                $(document).ready(function () {
+                    $("#recommendNumber .lottoBall").click(function () {
+                        if ($(this).attr("class").indexOf("active") < 0) {
+                            $(this).animate({ marginTop: "-10px" }, 300);
+                            $(this).addClass("active");
+                        } else {
+                            $(this).animate({ marginTop: "0px" }, 300);
+                            $(this).removeClass("active");
+                        }
+
+                        //$(this).animate({
+                        //    
+                        //}, 5000, function () {
+                        //    // Animation complete.
+                        //});
+                    });
+                });
             },
             methods: {
                 setLuckyNumber() {
@@ -170,7 +192,7 @@
                     }
                 },
                 toggleClass(index) {
-                    this.luckyNumbers[index].class = (this.luckyNumbers[index].class.indexOf("active") > -1) ? this.luckyNumbers[index].class.replace(" active", "") : this.luckyNumbers[index].class + " active";
+                    //this.luckyNumbers[index].class = (this.luckyNumbers[index].class.indexOf("active") > -1) ? this.luckyNumbers[index].class.replace(" active", "") : this.luckyNumbers[index].class + " active";
                 },
                 saveNumberList() {
                     

@@ -42,23 +42,31 @@ namespace Gyunbox40
         public string CheckUserId()
         {
             string returnStr = "OKK";
-            DaDdogram ddo = new DaDdogram();
-            //http://localhost:11111/DDoService.asmx/ServiceTest
-            string chkUid = cc.NullToBlank(HttpContext.Current.Request["uid"]);
-
-
-            if (chkUid != "")
+            try
             {
-                DataSet ds = ddo.ChkUserId(chkUid);
+               
+                DaDdogram ddo = new DaDdogram();
+                //http://localhost:11111/DDoService.asmx/ServiceTest
+                string chkUid = cc.NullToBlank(HttpContext.Current.Request["uid"]);
 
-                if (ds != null && ds.Tables[0].Rows.Count > 0)
+
+                if (chkUid != "")
                 {
-                    returnStr = "FAIL";
-                }
-            }
+                    DataSet ds = ddo.ChkUserId(chkUid);
 
-            Context.Response.Write(returnStr);
-            Context.Response.End();
+                    if (ds != null && ds.Tables[0].Rows.Count > 0)
+                    {
+                        returnStr = "FAIL";
+                    }
+                }
+
+                Context.Response.Write(returnStr);
+                Context.Response.End();
+            }
+            catch
+            {
+                returnStr = "ERROR";
+            }
 
             return string.Empty;
         }
@@ -170,29 +178,36 @@ namespace Gyunbox40
         public string UserLogin()
         {
             string returnStr = "OKK";
-            MemberController mem = new MemberController();
-            DaDdogram ddo = new DaDdogram();
-            DataSet ds = new DataSet();
-            Util util = new Util();
-
-            //http://localhost:11111/DDoService.asmx/ServiceTest
-            string userId = cc.NullToBlank(HttpContext.Current.Request["userId"]);
-            string userPwd = cc.NullToBlank(HttpContext.Current.Request["userPwd"]);
-
-            if (userId != "" && userPwd != "")
+            try
             {
-                ds = ddo.GetLoginInfo(userId, userPwd);
+                MemberController mem = new MemberController();
+                DaDdogram ddo = new DaDdogram();
+                DataSet ds = new DataSet();
+                Util util = new Util();
 
-                if (!util.ChkDsIsNull(ds))
+                //http://localhost:11111/DDoService.asmx/ServiceTest
+                string userId = cc.NullToBlank(HttpContext.Current.Request["userId"]);
+                string userPwd = cc.NullToBlank(HttpContext.Current.Request["userPwd"]);
+
+                if (userId != "" && userPwd != "")
                 {
-                    mem.Login(ds);
-                }
-                else
-                {
-                    returnStr = "FAIL";
+                    ds = ddo.GetLoginInfo(userId, userPwd);
+
+                    if (!util.ChkDsIsNull(ds))
+                    {
+                        mem.Login(ds);
+                    }
+                    else
+                    {
+                        returnStr = "FAIL";
+                    }
                 }
             }
-
+            catch
+            {
+                returnStr = "FAIL";
+            }
+            
             Context.Response.Write(returnStr);
             Context.Response.End();
 
@@ -278,13 +293,6 @@ namespace Gyunbox40
             //조건은 처음엔 비율로 따지고...
             //향후 홀짝 조건이라든지.. 뭐 해당월은 행운의 숫자라든지- 재미로 할만한 것들 추가
             //나중에는 고객이 원하는 번호를 자유롭게 고정할 수 있는 기능도 만들 예정
-
-
-            //object[] arrParam = new object[2];
-            //
-            //
-            //arrParam[0] = pArrParams[1];
-            //arrParam[1] = pArrParams[2];
 
             Context.Response.Write(output);
             Context.Response.End();

@@ -799,7 +799,8 @@ ul, li {
 }
 
 .lottoBall.active {
-    border: 2px solid #176D64;
+    border: 2px solid #176D64; 
+    /*margin-top:-10px;*/
 }
 
 .plus_mark {
