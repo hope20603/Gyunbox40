@@ -31,15 +31,15 @@
 							</p>
 						</a>
 					</li>
-					<%--<li>
-						<a href="/Views/Home/Contact.aspx">
+					<li>
+						<a href="/Vue/Index.aspx" target="_blank">
 							<img src="/images/s-images/promo04.png" alt="">    
-							<h3>Contact</h3>
+							<h3>또그램</h3>
 							<p>
-								개발자에게 문의
+								Vue.js 프로그램
 							</p>
 						</a>
-					</li>--%>
+					</li>
 				</ul>		
 			</div>
 		</section>
