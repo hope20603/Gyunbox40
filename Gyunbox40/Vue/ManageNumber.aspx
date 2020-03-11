@@ -109,7 +109,7 @@
                 strPaging : ''
                 
             },
-            created() {
+            created:function() {
 
                 this.getTotalCount();
 
@@ -136,15 +136,16 @@
                 //created훅에서는 data를 반응형으로 추적할 수 있게 되며 computed, methods, watch 등이 활성화되어 접근이 가능하게 됩니다.하지만 아직까지 DOM에는 추가되지 않은 상태입니다.
                 //data에 직접 접근이 가능하기 때문에, 컴포넌트 초기에 외부에서 받아온 값들로 data를 세팅해야 하거나 이벤트 리스너를 선언해야 한다면 이 단계에서 하는 것이 가장 적절합니다.
             },
-            mounted() {
+            mounted: function () {
                 
             },
-            updated() {
+            updated: function () {
                 //console.log("aaaaaaaaaa");
             },
             methods: {
                 //무한스크롤 구현
-                infiniteHandler($state) {
+                infiniteHandler: function ($state) {
+                    var self = this;
                     curPage += 1; //다음페이지 번호
                     let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetMyNumberList";
 
@@ -155,17 +156,17 @@
                             page: curPage,
                             size: pageSize
                         }
-                    }).then((response) => {
+                    }).then(function(response){
                         //console.log(response);
                         if (response.data != null && response.data.length > 0) {
                             //console.log(response);
-                            this.listArr = this.listArr.concat(response.data);
+                            self.listArr = self.listArr.concat(response.data);
                             //this.listArr = response.data;
                             $state.loaded();
                         } else {
                             $state.complete();
                         }
-                    }).catch((ex) => {
+                    }).catch(function(ex){
                         console.log("ERR!!!!! : ", ex)
                     });
                 },
@@ -180,24 +181,25 @@
                 },
                 */
                 //내가 저장한 번호 개수 
-                getTotalCount() {
+                getTotalCount: function () {
+                    var self = this;
                     let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetMyNumberCount";
                     axios({
                         method: 'GET',
                         url: reqUrl
-                    }).then((response) => {
-                        this.totalCount = response.data[0].cnt;
+                    }).then(function(response){
+                        self.totalCount = response.data[0].cnt;
                         //this.makePager();
-                    }).catch((ex) => {
+                    }).catch(function(ex){
                         console.log("ERR!!!!! : ", ex)
                     });
                 },
 
                 //번호 리스트에서 삭제
-                deleteNumber(index, idx) {
-                    console.debug("index", index);
-                    console.debug("idx", idx);
-
+                deleteNumber:function(index, idx) {
+                    //console.debug("index", index);
+                    //console.debug("idx", idx);
+                    var self = this;
                     //해당 번호의 소유자가 로그인 정보와 동일한지 확인 한 후 삭제
                     let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/DeleteMyNumber";
 
@@ -207,14 +209,14 @@
                         params: {
                             targetIdx: idx
                         }
-                    }).then((response) => {
+                    }).then(function(response){
                         if (response.data == "OK") {
-                            this.listArr.splice(index, 1);
-                            this.getTotalCount();
+                            self.listArr.splice(index, 1);
+                            self.getTotalCount();
                         } else {
                             alert("삭제 중 문제가 발생하였습니다.\n다시 시도해주세요!!");
                         }
-                    }).catch((ex) => {
+                    }).catch(function(ex){
                         //console.log("ERR!!!!! : ", ex)
                     });
                     
@@ -222,26 +224,27 @@
                 },
 
                 //페이징 만들기- 무한스크롤 방식으로 전환함
-                makePager() {
-                    let totalPage = Math.ceil(Number(this.totalCount / pageSize));
+                makePager: function () {
+                    var self = this;
+                    let totalPage = Math.ceil(Number(self.totalCount / pageSize));
 
-                    this.strPaging += "<a onclick='app.actionPaging(" + 1 + ");'><span class='first'><<</span></a>";
+                    self.strPaging += "<a onclick='app.actionPaging(" + 1 + ");'><span class='first'><<</span></a>";
 
                     for (var i = 0; i < totalPage; i++) {
                         let spClass = "";
                         if (i + 1 == curPage) {
                             spClass = "on";
                         }
-                        this.strPaging += "<a onclick='app.actionPaging(" + (i + 1) + ");'><span class='"+ spClass +"'>" + (i + 1) + "</span></a>";
+                        self.strPaging += "<a onclick='app.actionPaging(" + (i + 1) + ");'><span class='"+ spClass +"'>" + (i + 1) + "</span></a>";
                     }
 
-                    this.strPaging += "<a onclick='app.actionPaging(" + totalPage + ");'><span class='last' >>></span></a>";
+                    self.strPaging += "<a onclick='app.actionPaging(" + totalPage + ");'><span class='last' >>></span></a>";
                 },
 
                 //리스트 구성
-                makeMyList() {
-
-                    let totalPage = Math.ceil(Number(this.totalCount / pageSize));
+                makeMyList:function() {
+                    var self = this;
+                    let totalPage = Math.ceil(Number(self.totalCount / pageSize));
 
                     if (totalPage >= curPage) {
                         let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetMyNumberList";
@@ -253,28 +256,28 @@
                                 page: curPage,
                                 size: pageSize
                             }
-                        }).then((response) => {
+                        }).then(function(response){
                             console.log(response);
                             if (response.data != null && response.data.length > 0) {
-                                this.listArr = response.data;
+                                self.listArr = response.data;
                             }
-                        }).catch((ex) => {
+                        }).catch(function(ex){
                             console.log("ERR!!!!! : ", ex)
                         });
                     }
                 },
 
                 //페이징 클릭시 실행- 무한스크롤 방식으로 변경함.
-                actionPaging(page) {
+                actionPaging:function(page) {
                     curPage = page;
                     this.makeMyList();
                 },
 
                 //로또볼에 색상을 입힘
-                getClass(ballNumber) {
+                getClass:function(ballNumber) {
                     return this.getBallColor(ballNumber);
                 },
-                getBallColor(ballNum) {
+                getBallColor:function(ballNum) {
                     if (ballNum <= 10) {
                         return "ball_color-1";
                     } else if (ballNum <= 20) {

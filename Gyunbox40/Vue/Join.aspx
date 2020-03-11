@@ -44,45 +44,47 @@
                 dupeChk: 'N'
             },
             methods: {
-                setDupe(val) {
-                    this.dupeChk = val;
+                setDupe: function (val) {
+                    var self = this;
+                    self.dupeChk = val;
                 },
 
-                clickBtn() {
-                    if (this.userId == "") {
+                clickBtn: function () {
+                    var self = this;
+                    if (self.userId == "") {
                         alert("사용할 아이디를 입력해주세요.");
                     } else {
                         let reqUrl = "http://<%=hostString%>/DDoService.asmx/CheckUserId?";
-                        let params = "uid=" + this.userId;
+                        let params = "uid=" + self.userId;
 
                         axios({
                             method: 'GET',
                             url: reqUrl + params
-                        }).then((response) => {
+                        }).then(function(response){
                             if (response.data == "OKK") {
                                 alert("사용가능한 아이디입니다 :)");
-                                this.setDupe("Y");
+                                self.setDupe("Y");
                             } else {
                                 alert("사용중인 아이디입니다 :(");
-                                this.userId = "";
-                                this.setDupe("N");
+                                self.userId = "";
+                                self.setDupe("N");
                             }
-                        }).catch((ex) => {
+                        }).catch(function(ex){
                             console.log("ERR!!!!! : ", ex)
                         });
 
                     }
                 },
 
-                register() {
-
-                    if (this.dupeChk == "N") {
+                register: function() {
+                    var self = this;
+                    if (self.dupeChk == "N") {
                         alert("아이디 중복체크를 해주세요 :)");
-                    } else if (this.userPwd == "" || this.userPwdAgain == "") {
+                    } else if (self.userPwd == "" || self.userPwdAgain == "") {
                         alert("비밀번호를 입력해주세요 :)");
-                    } else if (this.userPwd != this.userPwdAgain) {
+                    } else if (self.userPwd != self.userPwdAgain) {
                         alert("입력하신 비밀번호가 서로 다릅니다 :(");
-                    } else if (this.userEml == "") {
+                    } else if (self.userEml == "") {
                         alert("이메일 주소를 입력해주세요 :)");
                     } else {
                         let config = {
@@ -92,12 +94,12 @@
                         }
                         let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserRegister";
                         let form = new FormData();
-                        form.append('userId', this.userId);
-                        form.append('userPwd', this.userPwd);
-                        form.append('userEml', this.userEml);
+                        form.append('userId', self.userId);
+                        form.append('userPwd', self.userPwd);
+                        form.append('userEml', self.userEml);
 
                         axios.post(reqUrl, form, config)
-                            .then((response) => {
+                            .then(function(response){
                                 if (response.data == "OKK") {
                                     alert("또그램 회원이 되신것을 환영합니다.\n좋아하는 번호를 저장해두고 관리하세요!");
                                     location.href = "ManageNumber.aspx";

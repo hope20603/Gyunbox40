@@ -25,31 +25,31 @@
     <script>
         new Vue({
             el: '#app',
-            data() {
-                return {
-                    //message: '회원가입을 통해서 나의 번호를 따로 관리해보세요!'
-                    userId: '',
-                    userPwd: ''
-                }
+            data: {
+                //message: '회원가입을 통해서 나의 번호를 따로 관리해보세요!'
+                userId: '',
+                userPwd: ''
+                
             },
             methods: {
-                clickLogin() {
+                clickLogin: function () {
+                    var self = this;
                     let config = {
                         //headers: {
                         //    "x-api-key": "YOUR_API_KEY"
                         //}
                     }
 
-                    if (this.userId == "" || this.userPwd == "") {
+                    if (self.userId == "" || self.userPwd == "") {
                         alert("아이디 또는 패스워드를 다시 입력해주세요.");
                     } else {
                         let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserLogin";
                         let form = new FormData();
-                        form.append('userId', this.userId);
-                        form.append('userPwd', this.userPwd);
+                        form.append('userId', self.userId);
+                        form.append('userPwd', self.userPwd);
 
                         axios.post(reqUrl, form, config)
-                            .then((response) => {
+                            .then(function(response) {
                                 if (response.data == "OKK") {
                                     alert("어서오세요");
                                     location.href = "ManageNumber.aspx";
@@ -59,7 +59,7 @@
                             });
                     }
                 },
-                guestLogin() {
+                guestLogin:function() {
                     this.userId = "GUEST";
                     this.userPwd = "1004";
                     this.clickLogin();

@@ -86,11 +86,11 @@
 
                 fixedNumbers : []
             },
-            created() {
+            created: function() {
                 this.setLuckyNumber();
                 //this.createLuckyNumber();
             },
-            mounted() {
+            mounted: function(){
                 $(document).ready(function () {
                     $("#recommendNumber .lottoBall").click(function () {
                         if ($(this).attr("class").indexOf("active") < 0) {
@@ -110,7 +110,7 @@
                 });
             },
             methods: {
-                setLuckyNumber() {
+                setLuckyNumber: function() {
                     var arrLucky = [<%=datas[0]%> ,<%=datas[1]%> ,<%=datas[2]%> ,<%=datas[3]%> ,<%=datas[4]%> ,<%=datas[5]%> ,<%=datas[6]%> ];
                     for (var i = 0; i < arrLucky.length; i++) {
                         this.luckyNumbers[i].l_num = arrLucky[i];
@@ -118,11 +118,11 @@
                         //console.log(this.luckyNumbers[i]);
                     }
                 },
-                getClass(ballNumber) {
+                getClass: function (ballNumber) {
                     return this.getBallColor(ballNumber);
 
                 },
-                getBallColor(ballNum) {
+                getBallColor: function (ballNum) {
                     if (ballNum <= 10) {
                         return "ball_color-1";
                     } else if (ballNum <= 20) {
@@ -135,7 +135,7 @@
                         return "ball_color-5";
                     }
                 },
-                createLuckyNumber() {
+                createLuckyNumber: function() {
                     let newNumber =
                     {
                         createdDate: getToday(),
@@ -179,22 +179,22 @@
                     //이미 리스트에 있는 번호가 생성되는 경우도 있을듯...
                     //로그인이 되어 있지 않은 상태면 생성된 번호를 list에만 추가해주고 새로고침할 경우 모두 사라짐
                 },
-                deleteNumber(index) {
+                deleteNumber: function (index) {
                     this.createdNumbers.splice(index, 1);
                     //로그인이 되어 있는 경우 - axios로 해당번호의 정보를 전송해서 DB에서 삭제함
                     //로그인이 되어 있지 않은 경우 - 뷰리스트에서만 삭제함 ( 리스트 뿌릴때 이미 로그인 된 경우와 아닌 경우를 구분해서 뿌려야 함... )
                 },
-                fixNumber(fixedNumber) {
+                fixNumber: function (fixedNumber) {
                     if (this.fixedNumbers.indexOf(fixedNumber) > -1) {
                         this.fixedNumbers.splice(this.fixedNumbers.indexOf(fixedNumber), 1);
                     } else {
                         this.fixedNumbers.push(fixedNumber);
                     }
                 },
-                toggleClass(index) {
+                toggleClass: function (index) {
                     //this.luckyNumbers[index].class = (this.luckyNumbers[index].class.indexOf("active") > -1) ? this.luckyNumbers[index].class.replace(" active", "") : this.luckyNumbers[index].class + " active";
                 },
-                saveNumberList() {
+                saveNumberList: function () {
                     
                     //1. 로그인 체크
                     
@@ -219,10 +219,10 @@
                         });
                     }
                 },
-                deleteNumberList() {
+                deleteNumberList: function () {
                     this.createdNumbers = [];
                 },
-                goManage() {
+                goManage: function () {
                     if (this.createdNumbers.length > 0) {
                         if (confirm("저장하지 않은 번호들은 모두 삭제됩니다.\n이동 하시겠습니까?")) {
                             location.href = "ManageNumber.aspx";

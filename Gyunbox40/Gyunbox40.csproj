@@ -78,9 +78,28 @@
     <Content Include="Content\js\util.js" />
     <Content Include="Content\js\vue-infinite-loading.js" />
     <Content Include="DDoService.asmx" />
+    <Content Include="lib\axios\axios.js" />
+    <Content Include="lib\axios\axios.min.js" />
+    <Content Include="lib\vue\vue.common.dev.js" />
+    <Content Include="lib\vue\vue.common.js" />
+    <Content Include="lib\vue\vue.common.prod.js" />
+    <Content Include="lib\vue\vue.esm.browser.js" />
+    <Content Include="lib\vue\vue.esm.browser.min.js" />
+    <Content Include="lib\vue\vue.esm.js" />
+    <Content Include="lib\vue\vue.js" />
+    <Content Include="lib\vue\vue.min.js" />
+    <Content Include="lib\vue\vue.runtime.common.dev.js" />
+    <Content Include="lib\vue\vue.runtime.common.js" />
+    <Content Include="lib\vue\vue.runtime.common.prod.js" />
+    <Content Include="lib\vue\vue.runtime.esm.js" />
+    <Content Include="lib\vue\vue.runtime.js" />
+    <Content Include="lib\vue\vue.runtime.min.js" />
     <Content Include="Share\bootstrap.aspx" />
     <Content Include="SiteBlog.Master" />
     <Content Include="Content\css\insight.scss" />
+    <Content Include="libman.json" />
+    <Content Include="lib\axios\axios.map" />
+    <Content Include="lib\axios\axios.min.map" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Share\Vue.Master" />
@@ -319,6 +338,7 @@
     <Content Include="Vue\Logout.aspx" />
     <Content Include="Vue\ManageNumber.aspx" />
     <Content Include="Vue\ReadQR.aspx" />
+    <Content Include="Vue\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
@@ -566,6 +586,13 @@
     </Compile>
     <Compile Include="Vue\ReadQR.aspx.designer.cs">
       <DependentUpon>ReadQR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

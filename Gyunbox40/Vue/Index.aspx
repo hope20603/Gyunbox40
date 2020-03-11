@@ -176,58 +176,58 @@
                 pre_styleF: "background-color:#ffffff",
                 pre_styleG: "background-color:#ffffff"
             },
-            created() {
+            created:function() {
                 //console.log("created");
 
 
             },
-            mounted() {
+            mounted: function () {
                 //console.log("mounted");
                 this.getPreLuckyNumber();
             },
             methods: {
 
                 //당첨번호 가져오기
-                getPreLuckyNumber() {
-
+                getPreLuckyNumber:function() {
+                    var self = this;
                     let reqUrl = "http://<%=hostString%>/DDoService.asmx/GetLottoNumber";
 
-                  axios.get(reqUrl).then((response) => {
+                  axios.get(reqUrl).then(function(response) {
 
-                      this.pre_drwtNo1 = response.data.drwtNo1;
-                      this.pre_drwtNo2 = response.data.drwtNo2;
-                      this.pre_drwtNo3 = response.data.drwtNo3;
-                      this.pre_drwtNo4 = response.data.drwtNo4;
-                      this.pre_drwtNo5 = response.data.drwtNo5;
-                      this.pre_drwtNo6 = response.data.drwtNo6;
-                      this.pre_drwtNo7 = response.data.bnusNo;
+                      self.pre_drwtNo1 = response.data.drwtNo1;
+                      self.pre_drwtNo2 = response.data.drwtNo2;
+                      self.pre_drwtNo3 = response.data.drwtNo3;
+                      self.pre_drwtNo4 = response.data.drwtNo4;
+                      self.pre_drwtNo5 = response.data.drwtNo5;
+                      self.pre_drwtNo6 = response.data.drwtNo6;
+                      self.pre_drwtNo7 = response.data.bnusNo;
 
-                      this.nowNumber = response.data.drwNo;
-                      this.nowDate = response.data.drwNoDate;
+                      self.nowNumber = response.data.drwNo;
+                      self.nowDate = response.data.drwNoDate;
 
-                      this.pre_styleA = 'background-color:' + this.getBallColor(this.pre_drwtNo1);
-                      this.pre_styleB = 'background-color:' + this.getBallColor(this.pre_drwtNo2);
-                      this.pre_styleC = 'background-color:' + this.getBallColor(this.pre_drwtNo3);
-                      this.pre_styleD = 'background-color:' + this.getBallColor(this.pre_drwtNo4);
-                      this.pre_styleE = 'background-color:' + this.getBallColor(this.pre_drwtNo5);
-                      this.pre_styleF = 'background-color:' + this.getBallColor(this.pre_drwtNo6);
-                      this.pre_styleG = 'background-color:' + this.getBallColor(this.pre_drwtNo7);
+                      self.pre_styleA = 'background-color:' + self.getBallColor(self.pre_drwtNo1);
+                      self.pre_styleB = 'background-color:' + self.getBallColor(self.pre_drwtNo2);
+                      self.pre_styleC = 'background-color:' + self.getBallColor(self.pre_drwtNo3);
+                      self.pre_styleD = 'background-color:' + self.getBallColor(self.pre_drwtNo4);
+                      self.pre_styleE = 'background-color:' + self.getBallColor(self.pre_drwtNo5);
+                      self.pre_styleF = 'background-color:' + self.getBallColor(self.pre_drwtNo6);
+                      self.pre_styleG = 'background-color:' + self.getBallColor(self.pre_drwtNo7);
 
 
                       //행운번호 api로 이동해야 함.
-                      this.styleA = 'background-color:' + this.getBallColor(this.drwtNo1);
-                      this.styleB = 'background-color:' + this.getBallColor(this.drwtNo2);
-                      this.styleC = 'background-color:' + this.getBallColor(this.drwtNo3);
-                      this.styleD = 'background-color:' + this.getBallColor(this.drwtNo4);
-                      this.styleE = 'background-color:' + this.getBallColor(this.drwtNo5);
-                      this.styleF = 'background-color:' + this.getBallColor(this.drwtNo6);
-                      this.styleG = 'background-color:' + this.getBallColor(this.drwtNo7);
+                      self.styleA = 'background-color:' + self.getBallColor(self.drwtNo1);
+                      self.styleB = 'background-color:' + self.getBallColor(self.drwtNo2);
+                      self.styleC = 'background-color:' + self.getBallColor(self.drwtNo3);
+                      self.styleD = 'background-color:' + self.getBallColor(self.drwtNo4);
+                      self.styleE = 'background-color:' + self.getBallColor(self.drwtNo5);
+                      self.styleF = 'background-color:' + self.getBallColor(self.drwtNo6);
+                      self.styleG = 'background-color:' + self.getBallColor(self.drwtNo7);
 
                   })
                 },
 
                 //로또 볼 번호별 색상 정의
-                getBallColor(value) {
+                getBallColor: function (value) {
                     if (value <= 10) {
                         return "#FCC43D;";
                     } else if (value <= 20) {
