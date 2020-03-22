@@ -103,6 +103,7 @@
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Share\Vue.Master" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
