@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GyunboxCore.Services;
 
 namespace GyunboxCore
 {
@@ -23,6 +24,15 @@ namespace GyunboxCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<InfoService>();
+
+            //[DI(Dependency Injection)] 서비스 등록
+            services.AddSingleton<CopyrightService>();
+
+            //[DI(Dependency Injection)] 서비스 등록
+            //services.AddTransient<ICopyrightService, CopyrightService>();
+            services.AddSingleton<ICopyrightService, CopyrightService>();
+            services.AddSingleton<IInfoService, InfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

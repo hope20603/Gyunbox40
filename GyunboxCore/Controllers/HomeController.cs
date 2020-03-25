@@ -28,6 +28,21 @@ namespace GyunboxCore.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 이벤트 리스트를 노출시킬 페이지
+        /// </summary>
+        /// <returns></returns>
+        [Route("Event"), Route("List")] //어트리뷰트 라우팅 테스트
+        public IActionResult Event()
+        {
+            return View();
+        }
+
+        public string StringAction()
+        {
+            return "String을 반환하는 액션 메서드";
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

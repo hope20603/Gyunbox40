@@ -1,0 +1,48 @@
+﻿@addTagHelper *, GyunboxCore
+@{
+    Layout = null;
+}
+<style>
+   .paging{
+        border:1px solid red;
+        float:left;
+        width:500px;
+    }
+
+     .paging ul,li{
+         list-style:none;
+
+     }
+
+       .paging li {
+            float:left;
+            border:1px solid #d2d2d2;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+        }
+</style>
+<h3>페이징 헬퍼 테스트</h3>
+<div class="paging">
+    <dnn-paging-helper url="@Context.Request.Path"
+                       page-index='Convert.ToInt32(Context.Request.Query["Page"])'
+                       page-size="10"
+                       record-count="155"
+                       search-mode="false"
+                       search-field="Name"
+                       search-query="홍길동">
+
+    </dnn-paging-helper>
+</div>
+
+<div class="paging">
+    <dnn-paging-helper url="@Context.Request.Path"
+                       page-index='Convert.ToInt32(Context.Request.Query["Page"])'
+                       page-size="10"
+                       record-count="70"
+                       search-mode="true"
+                       search-field="Name"
+                       search-query="홍길동">
+    </dnn-paging-helper>
+</div>

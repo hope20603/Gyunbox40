@@ -1,0 +1,22 @@
+﻿@using GyunboxCore.Services
+@inject CopyrightService CopyrightService
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AtInjectDemo</title>
+</head>
+<body>
+    <p>
+        &copy; : @CopyrightService.CopyrightString
+    </p>
+    <p>
+        &copy; : @CopyrightService.GetCopyrightString()
+    </p>
+</body>
+</html>

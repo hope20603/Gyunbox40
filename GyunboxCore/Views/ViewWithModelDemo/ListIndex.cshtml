@@ -1,0 +1,22 @@
+﻿@* @model List<GyunboxCore.Models.DemoModel>*@
+@model IEnumerable<GyunboxCore.Models.DemoModel>
+
+@{
+    Layout = null;
+}
+
+<h2>컬렉션 형태로 출력</h2>
+
+
+@*<ul>
+    <li>@Model[0].Id, @Model[0].Name</li>
+    <li>@Model[1].Id, @Model[1].Name</li>
+    <li>@Model[2].Id, @Model[2].Name</li>
+</ul>*@
+
+<ul>
+    @foreach(var m in Model)
+    {
+        <li>@m.Id, @m.Name</li>
+    }
+</ul>
