@@ -1,0 +1,22 @@
+﻿@model List<GyunboxCore.Models.Site>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Default</title>
+</head>
+<body>
+    <h3>Deault.cshtml</h3>
+    <ul>
+        @foreach (var t in Model)
+        {
+            <li><a href="@t.Url" target="_blank">@t.Title ( @t.Description)</a></li>
+        }
+    </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SiteListDemo</title>
+</head>
+<body>
+    <h3>현재 프로젝트에 관련된 추천 사이트</h3>
+    @await Component.InvokeAsync("SiteList" ,"Index")
+</body>
+</html>

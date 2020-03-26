@@ -18,13 +18,13 @@ namespace GyunboxCore.Controllers
         public IActionResult Index()
         {
             //index 페이지 실행시 로그의 Info 범주에 문자열과 시간 출력
-            _logger.LogInformation("Index View{time}", DateTime.Now);
+            //_logger.LogInformation("Index View{time}", DateTime.Now);
             return View();
         }
 
         public IActionResult About()
         {
-            _logger.LogInformation("About View{time}", DateTime.Now);
+            //_logger.LogInformation("About View{time}", DateTime.Now);
             return View();
         }
     }
