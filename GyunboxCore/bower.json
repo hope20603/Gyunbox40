@@ -1,0 +1,17 @@
+{
+  "name": "GyunboxCore",
+  "homepage": "https://github.com/hope20603/Gyunbox40",
+  "authors": [
+    "강승균 <hope20603@naver.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
