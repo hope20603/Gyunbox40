@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GyunboxCore.Services;
 using GyunboxCore.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace GyunboxCore
 {
@@ -42,6 +44,26 @@ namespace GyunboxCore
 
             //[Tech] 기술목록
             services.AddTransient<ITechRepository, TechRepository>();
+
+            //[CommunityCamp] 모듈 서비스 등록
+            services.AddTransient<ICommunityCampJoinMemberRepository, CommunityCampJoinMemberRepository>();
+
+            //services.AddAuthentication("CookieAuthentication")
+            //     .AddCookie("CookieAuthentication", config =>
+            //     {
+            //         config.Cookie.Name = "UserLoginCookie";
+            //         config.LoginPath = "/Home/Login";
+            //     });
+
+            // services.AddControllersWithViews();
+
+            // [DNN] TempData[] 개체 사용
+            services.AddMemoryCache();
+            services.AddSession();
+
+            //[MVC] MVC추가 및 JSON랜더링 옵션 지정
+            services.AddMvc();
+                 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,12 +83,17 @@ namespace GyunboxCore
 
             app.UseAuthorization();
 
+            //[DNN] TempData 개체 사용
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }
