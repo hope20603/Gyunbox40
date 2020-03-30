@@ -34,4 +34,8 @@
     <PackageReference Include="Node.js" Version="5.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GyunboxCore.Dul\GyunboxCore.Dul.csproj" />
+  </ItemGroup>
+
 </Project>
