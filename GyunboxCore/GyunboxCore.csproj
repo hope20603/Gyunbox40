@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Content Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\lib\angular\angular.js" />
     <None Include="wwwroot\lib\angular\angular.min.js" />
     <None Include="wwwroot\lib\angular\angular.min.js.gzip" />
@@ -36,11 +43,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GyunboxCore.Dul\GyunboxCore.Dul.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Images\dnn\" />
-    <Folder Include="Images\ext\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
