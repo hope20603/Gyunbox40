@@ -41,14 +41,14 @@ namespace GyunboxCore.Models.DotNetNote
 
             //[a] 공통
             p.Add("@Name", value: n.Name, dbType: DbType.String);
-            p.Add("@Email", value: n.Name, dbType: DbType.String);
-            p.Add("@Title", value: n.Name, dbType: DbType.String);
-            p.Add("@Content", value: n.Name, dbType: DbType.String);
-            p.Add("@Password", value: n.Name, dbType: DbType.String);
-            p.Add("@Encoding", value: n.Name, dbType: DbType.String);
-            p.Add("@Homepage", value: n.Name, dbType: DbType.String);
-            p.Add("@Filename", value: n.Name, dbType: DbType.String);
-            p.Add("@Filesize", value: n.Name, dbType: DbType.Int32);
+            p.Add("@Email", value: n.Email, dbType: DbType.String);
+            p.Add("@Title", value: n.Title, dbType: DbType.String);
+            p.Add("@Content", value: n.Content, dbType: DbType.String);
+            p.Add("@Password", value: n.Password, dbType: DbType.String);
+            p.Add("@Encoding", value: n.Encoding, dbType: DbType.String);
+            p.Add("@Homepage", value: n.Homepage, dbType: DbType.String);
+            p.Add("@Filename", value: n.FileName, dbType: DbType.String);
+            p.Add("@Filesize", value: n.FileSize, dbType: DbType.Int32);
 
             switch (formType) 
             {

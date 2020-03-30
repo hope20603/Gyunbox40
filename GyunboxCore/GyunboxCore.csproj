@@ -38,4 +38,11 @@
     <ProjectReference Include="..\GyunboxCore.Dul\GyunboxCore.Dul.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\dnn\" />
+    <Folder Include="Images\ext\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>

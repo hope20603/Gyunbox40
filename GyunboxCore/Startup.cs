@@ -52,8 +52,12 @@ namespace GyunboxCore
             //컴트롤러 실행시 자동으로 NoteRepository클래스의 인스턴스를 생성해주는 역할을 한다.
             services.AddTransient<INoteRepository, NoteRepository>();
 
+            //컴트롤러 실행시 자동으로 NoteRepository클래스의 인스턴스를 생성해주는 역할을 한다.
+            services.AddTransient<INoteRepository, NoteRepository>();
+
             //NoteCommentRepository 클래스 생성자에 데이터베이스 연결 문자열을 전송하는 방식을 사용
-            services.AddSingleton<INoteCommentRepository>(new NoteCommentRepository(Configuration["ConnectionString:DefaultConnection"]));
+            services.AddSingleton<INoteCommentRepository>(new NoteCommentRepository(Configuration["ConnectionStrings:DefaultConnection"]));
+            //NoteCommentRepository: INoteCommentRepository
 
             //services.AddAuthentication("CookieAuthentication")
             //     .AddCookie("CookieAuthentication", config =>

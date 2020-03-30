@@ -76,7 +76,7 @@ namespace GyunboxCore.Dul
                     string newImage = "";
                     if (objTs.TotalMinutes < 1440)
                     {
-                        newImage = "<img src=\"/images/dnn/new.gif\">";
+                        newImage = "<img src=\"~/images/dnn/new.gif\">";
                     }
                     return newImage;
                 }

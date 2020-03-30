@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyunboxInsa", "GyunboxInsa\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GyunboxCore", "GyunboxCore\GyunboxCore.csproj", "{3594D509-A243-448F-8E15-A70936B41310}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DotNetNote.Database", "C:\Users\KSG\source\repos\DotNetNote.Database\DotNetNote.Database\DotNetNote.Database.sqlproj", "{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyunboxCore.Dul", "GyunboxCore.Dul\GyunboxCore.Dul.csproj", "{9BB8026C-9590-42EB-AE52-FD21DB2BC28C}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Gyunbox", "Gyunbox\Gyunbox.sqlproj", "{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,16 +31,16 @@ Global
 		{3594D509-A243-448F-8E15-A70936B41310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3594D509-A243-448F-8E15-A70936B41310}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3594D509-A243-448F-8E15-A70936B41310}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20BA4FF0-BB96-4B8B-AC03-A6F3E14611AB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{9BB8026C-9590-42EB-AE52-FD21DB2BC28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9BB8026C-9590-42EB-AE52-FD21DB2BC28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BB8026C-9590-42EB-AE52-FD21DB2BC28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BB8026C-9590-42EB-AE52-FD21DB2BC28C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A3A5D2-1EC7-46A8-84A3-E36B200E59C2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
