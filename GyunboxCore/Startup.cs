@@ -13,13 +13,22 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using GyunboxCore.Models.DotNetNote;
 
+
 namespace GyunboxCore
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile(
+                    $"Settings\\DotNetNoteSettings.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -71,6 +80,25 @@ namespace GyunboxCore
             // [DNN] TempData[] 개체 사용
             services.AddMemoryCache();
             services.AddSession();
+
+
+            //[User][9] Policy 설정
+            services.AddAuthorization(options =>
+            {
+                // Users Role이 있으면, Users Policy 부여
+                options.AddPolicy(
+                    "Users", policy => policy.RequireRole("Users"));
+                // Users Role이 있고 UserId가 "Admin"이면 "Administrators" 부여
+                options.AddPolicy(
+                    "Administrators",
+                        policy => policy
+                            .RequireRole("Users")
+                            .RequireClaim("UserId", // 대소문자 구분
+                                Configuration
+                                    .GetSection("DotNetNoteSettings")
+                                    .GetSection("SiteAdmin").Value)
+                            );
+            });
 
             //[MVC] MVC추가 및 JSON랜더링 옵션 지정
             services.AddMvc();

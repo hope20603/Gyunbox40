@@ -234,7 +234,7 @@ namespace GyunboxCore.Controllers
             if(note.FileName.Length > 1)
             {
                 //[a] 파일 다운로드 링크: String.Format()으로 표현
-                ViewBag.FineName = String.Format("<a href='/DotNetNote/BoardDown?Id={0}'>{1}{2} / 전송수: {3}</a>", note.Id, "<img src=\"/images/ext/ext_zip.gif\" border=\"0\">", note.FileName, note.DownCount);
+                ViewBag.FileName = String.Format("<a href='/DotNetNote/BoardDown?Id={0}'>{1}{2} / 전송수: {3}</a>", note.Id, "<img src=\"/images/ext/ext_zip.gif\" border=\"0\">", note.FileName, note.DownCount);
 
                 //[b]이미지 미리보기
                 if (Dul.BoardLibrary.IsPhoto(note.FileName))
@@ -504,7 +504,7 @@ namespace GyunboxCore.Controllers
             else
             {
                 string strFileName = fileName;
-                string strFileExt = Path.GetExtension(strFileName);
+                string strFileExt = Path.GetExtension(strFileName).ToLower();
                 string strContentType = "";
 
                 if(strFileExt == ".gif" || strFileExt == ".jpg" || strFileExt == ".jpeg" || strFileExt == ".png")
@@ -526,7 +526,7 @@ namespace GyunboxCore.Controllers
                 _repository.UpdateDownCount(fileName);
 
                 //이미지 파일 정보 얻기
-                byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_environment.WebRootPath) + "\\" + fileName);
+                byte[] fileBytes = System.IO.File.ReadAllBytes(Path.Combine(_environment.WebRootPath) + "\\files\\" + fileName);
 
                 //이미지 파일 다운로드
                 return File(fileBytes, strContentType, fileName);

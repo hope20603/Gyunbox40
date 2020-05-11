@@ -72,12 +72,19 @@ namespace GyunboxCore.Models.DotNetNote
         /// </summary>
         public int DeleteNoteComment(int boardId, int id, string password)
         {
-            return con.Execute(@"Delete NoteComments Where BoardId = @BoardId And Id = @Id And Password = @Password; 
+            try
+            {
+                return con.Execute(@"Delete NoteComments Where BoardId = @BoardId And Id = @Id And Password = @Password; 
                                 Update Notes Set CommentCount = CommentCount - 1
                                 Where Id = @BoardId"
-                                 , new { BoardId = boardId, Id = id, Password = password }
-                                 , commandType: CommandType.Text
-                                 );
+                                     , new { BoardId = boardId, Id = id, Password = password }
+                                     , commandType: CommandType.Text
+                                     );
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
 
@@ -87,8 +94,16 @@ namespace GyunboxCore.Models.DotNetNote
         /// <returns></returns>
         public List<NoteComment> GetRecentComments()
         {
-            string sql = @"Select Top 3 Id, BoardId, Opinion, PostDate From NoteComments Order By Id Desc";
-            return con.Query<NoteComment>(sql).ToList();
+            try{
+                string sql = @"Select Top 3 Id, BoardId, Opinion, PostDate From NoteComments Order By Id Desc";
+                List<NoteComment> arr = con.Query<NoteComment>(sql).ToList();
+
+                return con.Query<NoteComment>(sql).ToList();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
     }

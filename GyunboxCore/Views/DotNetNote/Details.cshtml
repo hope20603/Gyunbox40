@@ -75,7 +75,10 @@
             <td class="text-right">
                 파일 :
             </td>
-            <td>
+            <td>@{
+                    string tmp = ViewBag.FileName;
+                }
+
                 @Html.Raw(ViewBag.FileName)
             </td>
         </tr>

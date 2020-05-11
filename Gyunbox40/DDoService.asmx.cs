@@ -12,6 +12,7 @@ using Gyunbox40.Controller;
 using Gyunbox40.Model;
 using Newtonsoft.Json.Linq;
 using System.Web.Script.Serialization;
+using System.Net;
 
 namespace Gyunbox40
 {
@@ -94,6 +95,7 @@ namespace Gyunbox40
             string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=";
             string jsonResult = "";
 
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
             JValue jVal = GetJsonObjectFromUrl(URL + nowTime);
             if (jVal == null || jVal.Value.ToString().IndexOf("fail") > -1 )
             {
