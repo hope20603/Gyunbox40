@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace Gyunbox40.Common
@@ -220,6 +221,24 @@ namespace Gyunbox40.Common
         public static string GetSessionValue(string sessionKey)
         {
             return HttpContext.Current.Session[sessionKey].ToString();
+        }
+
+        // SHA256  256bit 암호화 - kaldev에서 복사
+        public string ComputeHash(string input)
+        {
+            System.Security.Cryptography.SHA256 algorithm = System.Security.Cryptography.SHA256Managed.Create();
+            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hashedBytes.Length; i++)
+            {
+                sb.Append(String.Format("{0:x2}", hashedBytes[i]));
+            }
+
+
+            return sb.ToString();
         }
     }
 }
