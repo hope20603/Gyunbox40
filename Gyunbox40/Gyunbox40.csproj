@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="Asp_Common\Class\inc_class_ddo.asp" />
+    <Content Include="Asp_Common\inc_dbcon.asp" />
     <Content Include="Call.asp" />
     <Content Include="Content\css\accout.css" />
     <Content Include="Account\Web.config" />
