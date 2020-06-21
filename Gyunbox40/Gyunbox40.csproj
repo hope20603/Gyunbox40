@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="Call.asp" />
     <Content Include="Content\css\accout.css" />
     <Content Include="Account\Web.config" />
     <Content Include="Content\css\billboard.min.css" />
@@ -79,6 +80,7 @@
     <Content Include="Content\js\util.js" />
     <Content Include="Content\js\vue-infinite-loading.js" />
     <Content Include="DDoService.asmx" />
+    <Content Include="Index.asp" />
     <Content Include="lib\axios\axios.js" />
     <Content Include="lib\axios\axios.min.js" />
     <Content Include="lib\vue\vue.common.dev.js" />
@@ -95,6 +97,7 @@
     <Content Include="lib\vue\vue.runtime.esm.js" />
     <Content Include="lib\vue\vue.runtime.js" />
     <Content Include="lib\vue\vue.runtime.min.js" />
+    <Content Include="Proc.asp" />
     <Content Include="Share\bootstrap.aspx" />
     <Content Include="SiteBlog.Master" />
     <Content Include="Content\css\insight.scss" />
@@ -317,6 +320,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\Site.css" />
+    <Content Include="test.asp" />
     <Content Include="Views\DevHome\Board\Detail.aspx" />
     <Content Include="Views\DevHome\Board\List.aspx" />
     <Content Include="Views\DevHome\Board\Modify.aspx" />
