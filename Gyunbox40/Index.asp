@@ -9,6 +9,10 @@ Response.AddHeader "Pragma","no-cache"
 <!--#include virtual ="/Asp_Common/Class/inc_class_ddo.asp"//-->
 
 <%
+
+response.redirect "default.aspx"
+response.End
+
 Dim arrMember, cDdo
 Set cDdo = new clsDdo
 
