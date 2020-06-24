@@ -334,6 +334,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DaMember.cs" />
     <Compile Include="SiteBlog.Master.cs">
       <DependentUpon>SiteBlog.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
