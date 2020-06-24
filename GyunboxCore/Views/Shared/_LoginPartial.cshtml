@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@if (User.Identity.IsAuthenticated == true)
+{
+    <span>@User.FindFirst("Name").Value 님, 반갑습니다.</span>
+}
+else
+{
+    <a href="/Home/Login">로그인</a>
+}

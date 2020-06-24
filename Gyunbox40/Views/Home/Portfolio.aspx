@@ -426,6 +426,24 @@
                             </ul>
                         </div>
                     </div>
+
+                    <hr class="divider" />
+                    <!--  start : 프로젝트 단위로 반복 -->
+                    <div class="list_item_num">
+                        <span class="sp_num c1 w1">Project 23</span>
+                        <span class="sp_time"><time datetime="2018-12-01">2018.12 ~ 2019.12</time></span>
+                    </div>
+                    <div class="list_item cfixed">
+                        <img src="/images/project-images/po23-s.png" />
+                        <div class="info">
+                            <ul>
+                                <li class="lf">구분</li><li class="rf">ERP 인사관리 개발</li>
+                                <li class="lf">프로젝트명</li><li class="rf">인사관리 프로그램 개발</li>
+                                <li class="lf">작업기간</li><li class="rf">12개월</li>
+                                <li class="lf">사용기술</li><li class="rf">ASP.NET 4.0, JAVASCRIPT, JQUERY ,MS-SQL, 인프라지스틱스</li>
+                            </ul>
+                        </div>
+                    </div>
                    
                 </div>
             </div>

@@ -6,7 +6,7 @@
       		<div class="container">
       			<h2 class="sec-tit">Web Programmer</h2>
       			<p class="desc">
-      			    ASP.NET (C#) , ASP, Javascript, jQuery, HTML, CSS, ORACLE, DB2, MS-SQL
+      			    ASP.NET MVC(C#), ASP.NET Webform, ASP, Javascript, jQuery, HTML, CSS, <a href="/Vue/index.aspx" title="Vue를 이용해 만든 사이트를 방문해보세요 :)">Vue.js</a>, ORACLE, DB2, MS-SQL
                 </p>
 			</div>
 		</section>
@@ -31,15 +31,15 @@
 							</p>
 						</a>
 					</li>
-					<%--<li>
-						<a href="/Views/Home/Contact.aspx">
+					<li>
+						<a href="/Vue/Index.aspx" target="_blank">
 							<img src="/images/s-images/promo04.png" alt="">    
-							<h3>Contact</h3>
+							<h3>또그램</h3>
 							<p>
-								개발자에게 문의
+								Vue.js 프로그램
 							</p>
 						</a>
-					</li>--%>
+					</li>
 				</ul>		
 			</div>
 		</section>

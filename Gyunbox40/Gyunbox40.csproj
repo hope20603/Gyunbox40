@@ -39,11 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1777.29146, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationBlocks.Data.2.0.0\lib\net40\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -62,12 +65,51 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
+    <Content Include="Asp_Common\Class\inc_class_ddo.asp" />
+    <Content Include="Asp_Common\inc_dbcon.asp" />
+    <Content Include="Call.asp" />
     <Content Include="Content\css\accout.css" />
     <Content Include="Account\Web.config" />
+    <Content Include="Content\css\billboard.min.css" />
     <Content Include="Content\css\blogDefault.css" />
+    <Content Include="Content\css\Ddogram.css" />
     <Content Include="Content\css\erp.css" />
+    <Content Include="Content\css\jumbotron-narrow.css" />
+    <Content Include="Content\js\billboard.min.js" />
+    <Content Include="Content\js\html5shiv.min.js" />
+    <Content Include="Content\js\jsQR.js" />
+    <Content Include="Content\js\util.js" />
+    <Content Include="Content\js\vue-infinite-loading.js" />
+    <Content Include="DDoService.asmx" />
+    <Content Include="Index.asp" />
+    <Content Include="lib\axios\axios.js" />
+    <Content Include="lib\axios\axios.min.js" />
+    <Content Include="lib\vue\vue.common.dev.js" />
+    <Content Include="lib\vue\vue.common.js" />
+    <Content Include="lib\vue\vue.common.prod.js" />
+    <Content Include="lib\vue\vue.esm.browser.js" />
+    <Content Include="lib\vue\vue.esm.browser.min.js" />
+    <Content Include="lib\vue\vue.esm.js" />
+    <Content Include="lib\vue\vue.js" />
+    <Content Include="lib\vue\vue.min.js" />
+    <Content Include="lib\vue\vue.runtime.common.dev.js" />
+    <Content Include="lib\vue\vue.runtime.common.js" />
+    <Content Include="lib\vue\vue.runtime.common.prod.js" />
+    <Content Include="lib\vue\vue.runtime.esm.js" />
+    <Content Include="lib\vue\vue.runtime.js" />
+    <Content Include="lib\vue\vue.runtime.min.js" />
+    <Content Include="Proc.asp" />
+    <Content Include="Share\bootstrap.aspx" />
     <Content Include="SiteBlog.Master" />
+    <Content Include="Content\css\insight.scss" />
+    <Content Include="libman.json" />
+    <Content Include="lib\axios\axios.map" />
+    <Content Include="lib\axios\axios.min.map" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Share\Vue.Master" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -280,6 +322,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\Site.css" />
+    <Content Include="test.asp" />
     <Content Include="Views\DevHome\Board\Detail.aspx" />
     <Content Include="Views\DevHome\Board\List.aspx" />
     <Content Include="Views\DevHome\Board\Modify.aspx" />
@@ -295,6 +338,15 @@
     <Content Include="Views\Home\Project.aspx" />
     <Content Include="Views\Home\SaveContent.aspx" />
     <Content Include="Views\Shared\Pagenavigator.ascx" />
+    <Content Include="Vue\CreateNumber.aspx" />
+    <Content Include="Vue\Home.aspx" />
+    <Content Include="Vue\Index.aspx" />
+    <Content Include="Vue\Join.aspx" />
+    <Content Include="Vue\Login.aspx" />
+    <Content Include="Vue\Logout.aspx" />
+    <Content Include="Vue\ManageNumber.aspx" />
+    <Content Include="Vue\ReadQR.aspx" />
+    <Content Include="Vue\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
@@ -334,7 +386,34 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DaMember.cs" />
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Util.cs" />
+    <Compile Include="Controller\MemberController.cs" />
+    <Compile Include="DDoService.asmx.cs">
+      <DependentUpon>DDoService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\DaDdogram.cs" />
+    <Compile Include="Share\bootstrap.aspx.cs">
+      <DependentUpon>bootstrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Share\bootstrap.aspx.designer.cs">
+      <DependentUpon>bootstrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Share\Vue.Master.cs">
+      <DependentUpon>Vue.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Share\Vue.Master.designer.cs">
+      <DependentUpon>Vue.Master</DependentUpon>
+    </Compile>
     <Compile Include="SiteBlog.Master.cs">
       <DependentUpon>SiteBlog.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -466,6 +545,69 @@
     </Compile>
     <Compile Include="Views\Shared\Pagenavigator.ascx.designer.cs">
       <DependentUpon>Pagenavigator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\CreateNumber.aspx.cs">
+      <DependentUpon>CreateNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\CreateNumber.aspx.designer.cs">
+      <DependentUpon>CreateNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Join.aspx.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Join.aspx.designer.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\ManageNumber.aspx.cs">
+      <DependentUpon>ManageNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\ManageNumber.aspx.designer.cs">
+      <DependentUpon>ManageNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\ReadQR.aspx.cs">
+      <DependentUpon>ReadQR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\ReadQR.aspx.designer.cs">
+      <DependentUpon>ReadQR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

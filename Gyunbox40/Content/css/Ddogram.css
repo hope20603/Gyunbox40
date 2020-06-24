@@ -1,0 +1,886 @@
+﻿body {
+}
+
+a {
+    color: black;
+    cursor: pointer;
+}
+
+ul, li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+
+#wrap {
+    background-color: #F2F2F2;
+    display:inline-block;
+    width:100%;
+    
+}
+
+
+/* header */
+.header {
+    height: 20px;
+    padding: 20px 5%;
+    background-color: #176D64;
+}
+
+    .header .logo {
+        color: #ffffff;
+        width: 100px;
+        float: left;
+    }
+
+        .header .logo a {
+            color: #ffffff;
+        }
+
+    .header .gnb {
+        float: right;
+        width: 140px;
+    }
+
+        .header .gnb li {
+            float: right;
+        }
+
+        .header .gnb .menu_1 {
+            width: 65px;
+            float: left;
+            font-size:10pt;
+        }
+
+        .header .gnb .menu_2 {
+            width: 65px;
+            float: right;
+            font-size: 10pt;
+        }
+
+        .header .gnb a {
+            color: #ffffff;
+            float: left;
+        }
+
+/* Footer */
+.master_footer {
+    height: 100px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #176D64;
+    box-sizing:border-box;
+    padding-top:30px;
+    text-align:center;
+    margin-top:10px;
+}
+
+    .master_footer .sp_1{
+        width:100%;
+        height:20px;
+        text-align:center;
+        display:inline-block;
+    }
+
+    .master_footer .sp_1 a{
+        color:#ffffff;
+    }
+
+    .master_footer .sp_2 {
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        display: inline-block;
+
+    }
+
+
+    /* index.aspx */
+    .app-index .section {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        min-height: 80px;
+        float: left;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 6px;
+    }
+
+    .app-index .section h2 {
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        color: #176d64;
+        font-size: 15pt;
+        width: 100%;
+        text-align: center;
+    }
+
+.app-index .section-title {
+    width: 100%;
+    float: left;
+    text-align: center;
+    background-color: #ffffff;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 50px;
+    box-sizing: border-box;
+    line-height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+    .app-index .section-title h2 {
+        font-size: 15pt;
+        font-weight: normal;
+    }
+
+.app-index .section-0 {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 10px;
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 0px;
+}
+
+.app-index .section-1 {
+    margin-top: 10px;
+    display: block;
+    height: 150px;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0px;
+}
+
+    .app-index .section-1 a {
+        color: #ffffff;
+    }
+
+    .app-index .section-1 .box-1 {
+        width: 47%;
+        background: #ffffff;
+        float: left;
+        height: 150px;
+        box-sizing: border-box;
+        padding: 20px;
+        color: black;
+        margin-left: 2%;
+    }
+
+    .app-index .section-1 .box-2 {
+        width: 47%;
+        background: #ffffff;
+        float: right;
+        height: 150px;
+        box-sizing: border-box;
+        padding: 20px;
+        color: black;
+        margin-right: 2%;
+    }
+
+.app-index .section-2 {
+    margin-top: 10px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 160px;
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+
+
+    .app-index .section-2 ul li span {
+        margin-bottom: 5px;
+    }
+
+        .app-index .section-2 ul li span.last {
+            margin-right: 0px;
+        }
+
+
+.app-index .section-3 {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    min-height: 160px;
+    border: 0px;
+    border-radius: 0;
+    background-color: #F8F8F8;
+    padding-top: 20px;
+}
+
+    .app-index .section-3 ul li span.last {
+        margin-right: 0px;
+    }
+
+.app-index .section-4 {
+    height: 200px;
+}
+
+
+/* 로또볼 기본 모양 */
+.lottoBall {
+    position: relative;
+    float: left;
+    border-radius: 50%;
+    width: 30px;
+    line-height: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-right: 5px;
+    font-weight: bold;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+/* 번호생성 페이지에서는 lotto ball 사이즈 작게 */
+.app-createNumber .lottoBall {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+}
+
+
+
+
+
+/* createNumber */
+.app-createNumber {
+}
+
+    .app-createNumber .section {
+        border: 1px solid red;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 10px;
+        /*min-height: 100px;*/
+        float: left;
+        padding: 10px 0 10px 0;
+    }
+
+        .app-createNumber .section h2 {
+            height: 30px;
+            line-height: 30px;
+            font-weight: bold;
+            color: #1F7087;
+        }
+
+    .app-createNumber .section-0 {
+        width: 100%;
+        margin: 0px;
+        background-color: #ffffff;
+        border: none;
+    }
+
+        .app-createNumber .section-0 .lottoBall {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+    .app-createNumber .section-1 ul li span {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+        .app-createNumber .section-1 ul li span.last {
+            margin-right: 0px;
+        }
+
+
+    .app-createNumber .section-2 {
+        min-height: 200px !important;
+        margin-top: 10px;
+        background-color: #ffffff;
+        border: none;
+    }
+
+        .app-createNumber .section-2 .ball_wrap {
+            margin: auto;
+        }
+
+            .app-createNumber .section-2 .ball_wrap .createdDate {
+                width: 100%;
+                float: left;
+                text-align: left;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .app-createNumber .section-2 .ball_wrap li {
+                float: left;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .app-createNumber .section-2 .ball_wrap .lottoBall {
+                margin-right: 5px;
+                padding-left: 0px;
+            }
+    /*.app-createNumber .section-2 .lottoBall {
+            background-color:#A7A2DE;
+        }*/
+    /*.app-createNumber .section-2 span {
+            border: 1px solid red;
+            width: 100px;
+            height: 50px;
+            float: right;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }*/
+    .app-createNumber .section-3 ul li span {
+        margin-right: 5px;
+    }
+
+        .app-createNumber .section-3 ul li span.last {
+            margin-right: 0px;
+        }
+
+    .app-createNumber .section-4 {
+        border: none;
+    }
+
+    .app-createNumber .ball_wrap {
+        width: 340px;
+    }
+
+        .app-createNumber .ball_wrap .lottoBall {
+            margin-right: 10px;
+        }
+
+        .app-createNumber .ball_wrap .plus_mark {
+            width: 15px;
+        }
+
+/* ManageNumber.aspx */
+
+
+
+.app-manageNumber .section {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    min-height: 80px;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+    .app-manageNumber .section h2 {
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        color: #176d64;
+        font-size: 15pt;
+        width: 100%;
+        text-align: center;
+    }
+
+.app-manageNumber .section-title {
+    width: 100%;
+    float: left;
+    text-align: center;
+    background-color: #ffffff;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 50px;
+    box-sizing: border-box;
+    line-height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+    .app-manageNumber .section-title h2 {
+        font-size: 15pt;
+        font-weight: normal;
+    }
+
+.app-manageNumber .section-0 {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 10px;
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 0px;
+}
+
+.app-manageNumber .section-1 {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    min-height: 160px;
+    border: 0px;
+    border-radius: 0;
+    background-color: #F8F8F8;
+    padding-top: 20px;
+    background-color:#ffffff;
+}
+
+    .app-manageNumber .section-1 .li-numbers {
+        min-height: 40px;
+        float: left;
+        width: 100%;
+        /*outline: 1px solid red;*/
+        margin-bottom: 10px;
+    }
+
+        .app-manageNumber .section-1 .li-numbers .list-index {
+            width: 10%;
+            float: left;
+            height: 49px;
+            line-height: 49px;
+            background-color: #176D64;
+            text-align: center;
+            /*
+            border-top-right-radius: 30%;
+            border: 1px solid blue;
+            */
+            box-sizing: border-box;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .app-manageNumber .section-1 .li-numbers .list-con {
+            width: 80%;
+            height:50px;
+            float: left;
+        }
+
+            .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap {
+                margin:auto;
+                width:245px;
+                height:50px;
+                line-height:50px;
+                box-sizing:border-box;
+                padding-top:10px;
+                border-bottom:1px solid #d2d2d2;
+            }
+
+                .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap .lottoBall {
+                    width: 24px;
+                    height: 24px;
+                    line-height: 22px;
+                    color:#ffffff;
+                    border:none;
+                    
+                }
+
+                    .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap .lottoBall.plus_mark {
+                        color:black;
+                    }
+
+        .app-manageNumber .section-1 .li-numbers .list-tail {
+            width: 10%;
+            float: right;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+            .app-manageNumber .section-1 .li-numbers .list-tail .btn_del{
+                line-height:22px;
+                width:22px;
+                height:22px;
+                display:block;
+                margin:auto;
+                margin-top:12px;
+            }
+
+            .app-manageNumber .section-2 {
+                margin-top: 10px;
+                display: block;
+                height: 160px;
+                font-weight: bold;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-top: 0px;
+                float: left;
+                width: 100%;
+                box-sizing: border-box;
+                margin-left: 0px;
+            }
+
+    .app-manageNumber .section-2 a {
+        color: #ffffff;
+    }
+
+    .app-manageNumber .section-2 .box-1 {
+        width: 47%;
+        background: #ffffff;
+        float: left;
+        height: 150px;
+        box-sizing: border-box;
+        padding: 20px;
+        color: black;
+        margin-left: 2%;
+    }
+
+    .app-manageNumber .section-2 .box-2 {
+        width: 47%;
+        background: #ffffff;
+        float: right;
+        height: 150px;
+        box-sizing: border-box;
+        padding: 20px;
+        color: black;
+        margin-right: 2%;
+    }
+
+
+
+/* login.aspx */
+
+.app-login .section-0 {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 10px;
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 0px;
+}
+
+    .app-login .section-1{
+        background-color:#ffffff;
+    }
+
+    .app-login h2 {
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+        text-align: center;
+        width: 100%;
+        font-weight: normal;
+        margin-top: 20px;
+    }
+
+
+.app-login .box-login {
+    padding: 20px;
+}
+
+    .app-login .box-login #userPwd {
+        margin-top: 20px;
+    }
+
+
+    .app-login .box-login .sp_auto {
+        margin-top: 40px;
+        float: left;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+        .app-login .box-login .sp_auto input {
+            float: left;
+            width: 30px;
+            height: 30px;
+        }
+
+    .app-login .box-login .box_findId {
+        width: 80%;
+        margin: auto;
+        height: 80px;
+    }
+
+        .app-login .box-login .box_findId ul {
+            height: 20px;
+            width: 100%;
+            float: left;
+            padding-top: 50px;
+        }
+
+        .app-login .box-login .box_findId li {
+            width: 110px;
+            float: left;
+            text-align: center;
+            border-right: 1px solid #d2d2d2;
+            height: 20px;
+        }
+
+            .app-login .box-login .box_findId li.last {
+                border: none;
+            }
+
+/* join.aspx */
+.app-join {
+}
+
+    .app-join .section-0 {
+        box-sizing: border-box;
+        text-align: left;
+        padding: 10px;
+        padding-top: 20px;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #ffffff;
+        color: black;
+        border-radius: 0px;
+    }
+
+    .app-join h2 {
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+        text-align: center;
+        width: 100%;
+        font-weight: normal;
+        margin-top: 20px;
+    }
+
+
+    .app-join .box-join {
+        padding: 20px;
+        margin-bottom:30px;
+    }
+
+        .app-join .box-join li {
+            width: 100%;
+            float: left;
+            text-align: left;
+        }
+
+
+        .app-join .box-join #userId {
+        }
+
+        .app-join .box-join #btn_userIdChk {
+            float: right;
+            margin-right: 0px;
+            margin-top: 10px;
+        }
+
+        .app-join .box-join #userPwd {
+            margin-top: 20px;
+        }
+
+        .app-join .box-join #userPwdChk {
+            margin-top: 20px;
+        }
+
+        .app-join .box-join #userEml {
+            margin-top: 40px;
+        }
+
+        .app-join .box-join #btn_login {
+            margin-top: 40px;
+        }
+
+/* 공용 css */
+.btn_wide {
+    width: 100%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.btn_mid {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn_small {
+    font-size: 12pt;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn_green {
+    background-color: #176D64;
+    color: #ffffff;
+}
+
+    .btn_green a {
+        color: #ffffff;
+    }
+
+.btn_black {
+    background-color: #3F3F3F;
+    color: #ffffff;
+}
+
+.btn_red {
+    background-color: #A01309;
+    color: #ffffff;
+}
+
+.txt_wide {
+    height: 50px;
+    width: 90%;
+    padding: 5px 5% 5px 5%;
+    border: none;
+    color: #C7C7CC;
+    font-size: 15px;
+    font-family: "Montserrat",DroidSans,AppleSDGothicNeo,Sans-serif,Helvetica
+}
+
+.txt_gray {
+    background-color: #F4F4F4;
+}
+
+.btn_del {
+    background-image: url("../../images/button/btn_del.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.li_devider {
+    border-top: 1px dashed #d7d7d7;
+    width: 100%;
+    float: left;
+}
+
+.hidden-place {
+    display: none;
+    float: left;
+    border: 1px solid red;
+}
+
+
+.lottoBall.ball_color-1 {
+    background-color: #FCC43D;
+}
+
+.lottoBall.ball_color-2 {
+    background-color: #8CC6E7;
+}
+
+.lottoBall.ball_color-3 {
+    background-color: #F18D80;
+}
+
+.lottoBall.ball_color-4 {
+    background-color: #A7A2DE;
+}
+
+.lottoBall.ball_color-5 {
+    background-color: #6BCE9E;
+}
+
+.lottoBall.active {
+    border: 2px solid #176D64; 
+    /*margin-top:-10px;*/
+}
+
+.plus_mark {
+    float: left;
+    width: 25px;
+    text-align: center;
+    font-size: 20pt;
+    color: #AAAAAA;
+    border: 0px;
+}
+
+.ball_wrap {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: auto;
+    text-align: center;
+    width: 315px;
+}
+
+
+#loadingPop {
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    background-color: red;
+    position: fixed;
+    display: none;
+    text-align: center;
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+#loadingCircle {
+    bottom: 100px;
+    position: absolute;
+    margin: auto;
+    width: 90px;
+    border-radius: 50%;
+    height: 90px;
+    box-sizing: border-box;
+    padding-top: 35px;
+    border: 1px solid #d2d2d2;
+    font-weight: bold;
+    background-color: #2E2D2E;
+    color: #ffffff;
+}
+
+.section.section-paging {
+    background-color: #ffffff;
+}
+
+.li-paging {
+    width:100%;
+    text-align:center;
+}
+
+.li-paging span {
+    width:20px;
+    height:20px;
+    margin-right:10px;
+    line-height:20px;
+    border:1px solid #d2d2d2;
+    display:inline-block;
+}
+
+    .li-paging span.first {
+        border:none;
+    }
+
+    .li-paging span.last {
+        border:none;
+    }
+
+    .li-paging span.on {
+        background-color: #0070C0;
+        color: #ffffff;
+        font-weight: bold;
+        border: 1px solid #0070C0;
+    }

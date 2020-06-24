@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="정보" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="About.aspx.cs" Inherits="Gyunbox400.About" %>
+    CodeBehind="About.aspx.cs" Inherits="Gyunbox40.About" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

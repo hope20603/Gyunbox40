@@ -1,0 +1,11 @@
+﻿@model List<GyunboxCore.Models.Tech>
+@{
+    Layout = null;
+}
+
+    <ul>
+        @foreach(var t in Model)
+        {
+            <li>@t.Title</li>
+        }
+    </ul>
