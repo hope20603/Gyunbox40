@@ -91,8 +91,9 @@ namespace Gyunbox40
             int diffDay = ts.Days;
             int dayPlus = diffDay / 7;
             nowTime += dayPlus;
-            
-            string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=";
+
+            //string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=";
+            string URL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=";
             string jsonResult = "";
 
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
