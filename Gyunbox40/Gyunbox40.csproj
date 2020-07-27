@@ -68,6 +68,7 @@
     <Content Include="Admin.aspx" />
     <Content Include="Asp_Common\Class\inc_class_ddo.asp" />
     <Content Include="Asp_Common\inc_dbcon.asp" />
+    <Content Include="Board.asp" />
     <Content Include="Call.asp" />
     <Content Include="Content\css\accout.css" />
     <Content Include="Account\Web.config" />
@@ -341,6 +342,7 @@
     <Content Include="Vue\CreateNumber.aspx" />
     <Content Include="Vue\Home.aspx" />
     <Content Include="Vue\Index.aspx" />
+    <Content Include="Vue\Index_v2.aspx" />
     <Content Include="Vue\Join.aspx" />
     <Content Include="Vue\Login.aspx" />
     <Content Include="Vue\Logout.aspx" />
@@ -566,6 +568,13 @@
     </Compile>
     <Compile Include="Vue\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Index_v2.aspx.cs">
+      <DependentUpon>Index_v2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Index_v2.aspx.designer.cs">
+      <DependentUpon>Index_v2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Join.aspx.cs">
       <DependentUpon>Join.aspx</DependentUpon>

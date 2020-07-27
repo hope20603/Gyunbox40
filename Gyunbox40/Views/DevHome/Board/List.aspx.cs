@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Gyunbox40.Common;
 using System.Data.SqlClient;
+using Microsoft.ApplicationBlocks.Data;
 
 namespace Gyunbox40.Views.DevHome.Board
 {
@@ -27,6 +28,7 @@ namespace Gyunbox40.Views.DevHome.Board
             {
                 //페이지 초기화
                 GetBoardList();
+                InitCategory();
             }
             else
             {
@@ -34,6 +36,55 @@ namespace Gyunbox40.Views.DevHome.Board
                 //전체 페이지
                 //현재페이지
                 //페이지사이즈 -- 전달 후 호출하는 방식 구상
+            }
+        }
+
+        /// <summary>
+        /// 카테고리 초기화
+        /// </summary>
+        public void InitCategory()
+        {
+
+            DataSet ds = null;
+            //ope20603.sp_selectBRDMNU 
+            //초기화
+            //ListItem item1 = new ListItem("카테고리", "0");
+            //this.ddl_category.Items.Add(item1);
+
+            string spName = "sp_getBRDMNU";
+            SqlConnection oCon = new SqlConnection(cc.GetConnectionString());
+            //SqlParameter[] _sqlParam = null;
+
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    this.ltl_brdMnu.Text += "<select name='category'><option value='0'>카테고리</option>";
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        //ListItem tmpItem = new ListItem(ds.Tables[0].Rows[i]["BRDNME"].ToString(), ds.Tables[0].Rows[i]["BRDSEQ"].ToString());
+                        //this.ddl_category.Items.Add(tmpItem);
+                        this.ltl_brdMnu.Text += "<option  value='" + ds.Tables[0].Rows[i]["BRDSEQ"].ToString() + "'>" + ds.Tables[0].Rows[i]["BRDNME"].ToString() + "</option>";
+                    }
+                    this.ltl_brdMnu.Text += "</select>";
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex);
+                Response.Flush();
+                Response.End();
+            }
+            finally
+            {
+                ds.Dispose();
+                if (oCon.State == ConnectionState.Open)
+                    oCon.Close();
+
+                oCon.Dispose();
+
             }
         }
 

@@ -29,6 +29,14 @@
             location.href = pageUrl;
         }
     </script>
+    <div class="section search">
+        <div class="logo"></div>
+        <div class="search_inner_wrap">
+            <asp:Literal ID="ltl_brdMnu" runat="server"></asp:Literal>
+            <input type="text" id="searchText" name="searchText" value="" class="input_w600_h50"/>
+            <input type="button" value="검색" onclick="javascript: alert('test');" class="btn-search"/>
+        </div>
+    </div>
     <table class="tbl_base list" summary="개발정보 게시판">
         <colgroup>
             <col width="5%" />

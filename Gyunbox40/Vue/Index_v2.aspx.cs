@@ -14,7 +14,7 @@ using Gyunbox40.Common;
 
 namespace Gyunbox40.Vue
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Index_v2 : System.Web.UI.Page
     {
         public string hostString = "";
         public string luckyPoint = "";
@@ -25,23 +25,22 @@ namespace Gyunbox40.Vue
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("Index_v2.aspx");
-            Response.End();
-
             hostString = new Common.CommonController().hostString;
-            
+
             //아래 내용은 캐시에 저장해서 속도를 향상 시킬 수 있음.
             if (HttpContext.Current.Application["LUCKY_POINT"] == null)
             {
-                
-                HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
+               
+                //HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
+                HttpContext.Current.Application["LUCKY_POINT"] = GetMainChartData();
                 HttpContext.Current.Application["LUCKY_POINT_INSERT_TIME"] = DateTime.Now;
             }
             else
             {
-                if(Convert.ToDateTime(HttpContext.Current.Application["LUCKY_POINT_INSERT_TIME"]) < DateTime.Now.AddHours(-1))
+                if (Convert.ToDateTime(HttpContext.Current.Application["LUCKY_POINT_INSERT_TIME"]) < DateTime.Now.AddHours(-1))
                 {
-                    HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
+                    //HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
+                    HttpContext.Current.Application["LUCKY_POINT"] = GetMainChartData();
                     HttpContext.Current.Application["LUCKY_POINT_INSERT_TIME"] = DateTime.Now;
                 }
                 else
@@ -49,20 +48,10 @@ namespace Gyunbox40.Vue
                     htLucky = (Hashtable)HttpContext.Current.Application["LUCKY_POINT"];
                 }
             }
-            
-            InsertLottoInfo();
 
-            //행운의 번호에 대한 정책이 필요함..
-            //영업기밀..
-            //0. 우선은 비율을 가지고 와야함... 각 당첨번호가 얼마나 나왔는지 비율계산 ( 우선은 가중치를 통한 숫자 뽑기만 진행함 )
-            //1. 얼마마다 번호를 생성할 것인가??? -> index.aspx 페이지가 새로고침 될때마다 생성함.  시간이 조금 걸릴 수 있어서 로딩창이 필요할 수 있음
-            //2. 모든 회원에게 같은 번호를 지급할 것인가??? -> 아님
-            //3. 로그인 하지 않으면.. 행운의 번호를 저장할 곳이 없음.. --> 행운의 번호는 저장하지 않음
-            //4. 로그인 하지 않은 사용자에게도 행운의 번호는 제공해주어야 함... --> 오키
-            //5. 모든 회원에게 행운의 번호를 동일하게 제공하는 것은 .. 별로임.. --> 오키
-            //6. 새로고침 할때마다 행운의 번호를 계속 바꾸는 것도 별로임... --> 행운의 번호를 계속 바꿀 예정임
-            //7. 행운의 번호를 쿠키로 구워뒀다가.. 계속 사용함...--> 별로임->쿠키가 남음...
-            //8 -> index 페이지에서 행운의 번호를 생성하고... createNumber에서는 행운의 번호를 가지고 와서 사용만 하면됨 --session에 담아두고 사용하면 됨.
+            // 횟수 지정해서 가끔 한번 해주면 됨.
+            // DaDdogram daDD = new DaDdogram();
+            // daDD.InsertLottoNumber();
 
             if (util.NullToBlank(cc.g_PUSH_NUM) == "")
             {
@@ -85,22 +74,22 @@ namespace Gyunbox40.Vue
         {
             Util util = new Util();
             //Dictionary<int, int> datas = new Dictionary<int, int>();
-            
+
             DaDdogram daDdo = new DaDdogram();
             DataSet ds = daDdo.GetLuckyNumber(); //비중을 가지고 옴
             float[] inputNumbers = new float[45];
-            
+
             //로또 번호의 비중치를 넣어준다.
             if (!util.ChkDsIsNull(ds))
             {
-                for(int i=0; i<ds.Tables[0].Rows.Count; i++)
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     inputNumbers[i] = ((float)Convert.ToDouble(ds.Tables[0].Rows[i]["DDOWGT"])) * 100;
                 }
             }
 
             float sumVal = 0;
-            for(int i=0; i<inputNumbers.Length; i++)
+            for (int i = 0; i < inputNumbers.Length; i++)
             {
                 sumVal += inputNumbers[i];
             }
@@ -110,12 +99,12 @@ namespace Gyunbox40.Vue
 
             int getNumberCount = 7;
 
-            while(getNumberCount > 0)
+            while (getNumberCount > 0)
             {
                 Random seedRnd = new Random((int)DateTime.Now.Ticks + getNumberCount); //단순히 중복된 seed를 피하기위함임.
 
                 int returnValue = GetLottoNumber(inputNumbers, seedRnd);
-                if(datas.Contains(returnValue) == false)
+                if (datas.Contains(returnValue) == false)
                 {
                     datas.Add(returnValue);
                     getNumberCount--;
@@ -128,7 +117,7 @@ namespace Gyunbox40.Vue
             datas.Add(bonusNum);
 
             //문자열로 세션에 담아두고, CreateNumber.aspx 에서 고정할 번호에 동일하게 노출시켜 준다.
-            cc.g_PUSH_NUM = string.Join("|",datas); //세션에 집어넣어 주기
+            cc.g_PUSH_NUM = string.Join("|", datas); //세션에 집어넣어 주기
 
         }
 
@@ -146,14 +135,14 @@ namespace Gyunbox40.Vue
             //float dr = pivot/10;
             float cumulative = 0.0f;
             int reVal = 0;
-            
-            for(int i=0; i<inputDatas.Length; i++)
+
+            for (int i = 0; i < inputDatas.Length; i++)
             {
                 cumulative += inputDatas[i];
-                if(dr <= cumulative)
+                if (dr <= cumulative)
                 {
                     //reVal = 45 - i; break;
-                    reVal = i+1; break;
+                    reVal = i + 1; break;
                 }
             }
 
@@ -181,6 +170,35 @@ namespace Gyunbox40.Vue
                 for (int i = 0; i < 45; i++)
                 {
                     htLucky.Add("" + i + "", "0");
+                }
+            }
+
+            return htLucky;
+        }
+
+        /// <summary>
+        /// 차트에 사용할 해시테이블을 구성해준다.
+        /// </summary>
+        /// <returns></returns>
+        public Hashtable GetMainChartData()
+        {
+            DaDdogram daddo = new DaDdogram();
+            DataSet ds = daddo.GetWainChartData();
+
+            if (!util.ChkDsIsNull(ds))
+            {
+                for (int i = 0; i < 45; i++)
+                {
+                    htLucky.Add("" + (i + 1) + "", ds.Tables[0].Rows[i]["CNT"].ToString());
+                    htLucky.Add("PER_" + (i + 1) + "", ds.Tables[0].Rows[i]["PER"].ToString());
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 45; i++)
+                {
+                    htLucky.Add("" + i + "", "0");
+                    htLucky.Add("PER_" + (i + 1) + "", "0");
                 }
             }
 
@@ -236,8 +254,8 @@ namespace Gyunbox40.Vue
             {
                 total += inputDatas[i];
             }
-            
-            float pivot = (float)random.NextDouble() * total; 
+
+            float pivot = (float)random.NextDouble() * total;
 
             for (int i = 0; i < inputDatas.Length; i++)
             {

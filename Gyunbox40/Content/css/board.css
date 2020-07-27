@@ -36,6 +36,24 @@ table {
     .tbl_base tr td:last-child {
         border-right: none;
     }
+
+
+/* input text */
+
+
+
+
+
+
+
+
+
+/* button */
+.btn-search{
+    
+}
+
+
 /* Write.aspx */
 .container.write {
     width: 1200px;
@@ -97,12 +115,71 @@ table {
     }
 
 /* list.aspx */
-
 .tbl_base.list {
     background-color: #ffffff;
+    
+}
+    .tbl_base.list td a {
+        color: #000000;
+    }
+
+.tbl_base .sec {
+    text-align: left;
+}
+
+.tbl_base.list {
+    width: 1200px;
+}
+
+    .tbl_base.list .hide_mobile {
+        visibility: visible;
+    }
+
+.tbl_base td {
+    min-height: 30px;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.tbl_base .fst {
+    color: #ED6668;
+    font-weight: bold;
+    width: 30px;
+}
+
+.section.search{
+    border:1px solid red;
+    height:100px;
     width:100%;
 }
 
+    .section.search .search_inner_wrap {
+        width:1200px;
+        background-color:red;
+        margin:auto;
+        text-align:center;
+    }
+
+.input_w400_h50 {
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #d2d2d2;
+}
+
+.input_w500_h50 {
+    width: 500px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #d2d2d2;
+}
+
+.input_w600_h50 {
+    width: 600px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #d2d2d2;
+}
+/*
     .tbl_base.list .hide_mobile {
         visibility:hidden;
     }
@@ -129,7 +206,7 @@ table {
         .tbl_base.list td a:hover {
             text-decoration: underline;
         }
-
+*/
 /* detail.aspx */
 .board_wrap {
     width: 100%;

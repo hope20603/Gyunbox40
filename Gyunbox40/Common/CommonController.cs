@@ -240,5 +240,11 @@ namespace Gyunbox40.Common
 
             return sb.ToString();
         }
+
+        public string GetConnectionString()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["GyunBox"].ConnectionString;
+            return connectionString;
+        }
     }
 }

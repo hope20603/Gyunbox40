@@ -114,9 +114,10 @@ namespace Gyunbox40.Model
             try
             {
 
-                for (int i = 1; i < 900; i++)
+                for (int i = 902; i < 922; i++)
                 {
-                    string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + i;
+                    //string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + i;
+                    string URL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + i;
                     using (var webClient = new System.Net.WebClient())
                     {
                         var myJsonString = webClient.DownloadString(URL);
@@ -196,8 +197,10 @@ namespace Gyunbox40.Model
 
                 if (util.ChkDsIsNull(ds))
                 {
-                   string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + targetNumber;
-                   using (var webClient = new System.Net.WebClient())
+                    //string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=" + targetNumber;
+                    string URL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + targetNumber;
+
+                    using (var webClient = new System.Net.WebClient())
                     {
                         var myJsonString = webClient.DownloadString(URL);
 
@@ -281,6 +284,45 @@ namespace Gyunbox40.Model
                     ds.Dispose();
                 }
                 
+                if (oCon.State == ConnectionState.Open)
+                    oCon.Close();
+
+                oCon.Dispose();
+
+            }
+
+            return ds;
+        }
+
+        /// <summary>
+        /// 메인페이지에서 사용할 데이터를 가지고 온다
+        /// 번호별 당첨횟수, max값 기준 percent
+        /// num, cnt, per
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetWainChartData()
+        {
+
+            DataSet ds = null;
+
+            string spName = "sp_GetMainChart";
+            SqlConnection oCon = new SqlConnection(connectionString);
+
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName, new SqlParameter("@INCLUDE_BONUS", 1));
+            }
+            catch
+            {
+                ds = null;
+            }
+            finally
+            {
+                if (ds != null)
+                {
+                    ds.Dispose();
+                }
+
                 if (oCon.State == ConnectionState.Open)
                     oCon.Close();
 
