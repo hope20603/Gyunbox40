@@ -127,7 +127,14 @@
                 </table>
             </div>
         </div>
-
+        <div class="visit_wrap">
+            <div class="inner_wrap">
+                <span class="sp_tit">접속중</span><span class="sp_con"><%=ViewState["nowVisit"]%></span>
+                <span class="sp_tit">오늘</span>  <span class="sp_con"><%=ViewState["todayVisit"]%></span>
+                <span class="sp_tit">전체</span>  <span class="sp_con"><%=ViewState["totalVisit"]%></span>
+            </div>
+            
+        </div>
         <script>
             var shown = true;          //글자 깜빡임을 위한 변수
 
@@ -321,7 +328,14 @@
             .tbl_data .ball_645.ball3 {background-color:#F18D80;}
             .tbl_data .ball_645.ball4 {background-color:#A7A2DE;}
             .tbl_data .ball_645.ball5 {background-color:#6BCE9E;}
-        
+      /* 방문자 */
+        .visit_wrap {height:20px; line-height:20px; float:left; background-color:#ffffff; width:100%; padding-top:30px; padding-bottom:20px;}
+            .visit_wrap .inner_wrap{margin:auto; width:80%;}
+                .visit_wrap .inner_wrap span{width:80px;}
+                .visit_wrap .inner_wrap span.sp_tit {font-weight:bold; margin-right:10px; border-left:1px solid #d2d2d2; padding-left:20px;}
+                .visit_wrap .inner_wrap span.sp_tit:first-child{border:none;}
+                .visit_wrap .inner_wrap span.sp_con {margin-right:30px; }
+
     </style>
 
 </asp:Content>

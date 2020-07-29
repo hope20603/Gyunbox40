@@ -538,5 +538,106 @@ namespace Gyunbox40.Model
 
             return ds;
         }
+
+        /// <summary>
+        /// 방문자 더하기
+        /// </summary>
+        public static void AddVisitor()
+        {
+            StringBuilder sb = new StringBuilder();
+            DBConn dbSql = new DBConn();
+
+            try
+            {
+                sb.AppendLine(" Select Count(*) from hope20603.lot_visit Where Today='@today';");
+                sb.Replace("@today", DateTime.Now.ToString("yyyyMMdd"));
+                var data = dbSql.ExecuteScalar(sb.ToString());
+
+                sb.Clear();
+                if (Convert.ToInt32(data) == 0)
+                {
+                    //오늘 첫 방문자
+                    sb.Append(" INSERT INTO hope20603.LOT_VISIT VALUES ( '@today', 1); ");
+                    sb.Replace("@today", DateTime.Now.ToString("yyyyMMdd"));
+                }
+                else
+                {
+                    sb.Append(" UPDATE hope20603.LOT_VISIT SET VISITOR_COUNT=VISITOR_COUNT+1 WHERE TODAY='@today'; ");
+                    sb.Replace("@today", DateTime.Now.ToString("yyyyMMdd"));
+                }
+
+                dbSql.MSDBExcute(sb.ToString());
+
+            }
+            catch
+            {
+            }
+            finally
+            {
+                if (dbSql != null)
+                    dbSql.Close();
+                dbSql = null;
+            }
+
+        }
+
+        /// <summary>
+        /// 전체 방문자 수 
+        /// </summary>
+        public static int GetTotalVisitor()
+        {
+            StringBuilder sb = new StringBuilder();
+            DBConn dbSql = new DBConn();
+            int visitors = 0;
+
+            try
+            {
+                sb.AppendLine(" Select Sum(Visitor_Count) from hope20603.lot_visit;");
+                visitors = Convert.ToInt32(dbSql.ExecuteScalar(sb.ToString()));
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                if (dbSql != null)
+                    dbSql.Close();
+                dbSql = null;
+            }
+
+            return Convert.ToInt32(visitors);
+
+        }
+
+        /// <summary>
+        /// 오늘 방문자 수 
+        /// </summary>
+        public static int GetTodayVisitor()
+        {
+            StringBuilder sb = new StringBuilder();
+            DBConn dbSql = new DBConn();
+            int visitors = 0;
+
+            try
+            {
+                sb.AppendLine(" Select Sum(Visitor_Count) from hope20603.lot_visit where today='@today';");
+                sb.Replace("@today", DateTime.Now.ToString("yyyyMMdd"));
+                visitors = Convert.ToInt32(dbSql.ExecuteScalar(sb.ToString()));
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                if (dbSql != null)
+                    dbSql.Close();
+                dbSql = null;
+            }
+
+            return Convert.ToInt32(visitors);
+
+        }
     }
 }

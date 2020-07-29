@@ -63,6 +63,10 @@ namespace Gyunbox40.Vue
                 datas = cc.g_PUSH_NUM.Split('|').Select(Int32.Parse).ToList();
             }
 
+            ViewState["nowVisit"] = Application["CurrentVisit"].ToString();
+            ViewState["totalVisit"] = DaDdogram.GetTotalVisitor().ToString();
+            ViewState["todayVisit"] = DaDdogram.GetTodayVisitor().ToString();
+
             //GetRandom();
         }
 
