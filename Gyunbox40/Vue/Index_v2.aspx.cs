@@ -195,6 +195,8 @@ namespace Gyunbox40.Vue
                 {
                     htLucky.Add("" + (i + 1) + "", ds.Tables[0].Rows[i]["CNT"].ToString());
                     htLucky.Add("PER_" + (i + 1) + "", ds.Tables[0].Rows[i]["PER"].ToString());
+                    htLucky.Add("INC_" + (i + 1) + "", ds.Tables[1].Rows[i]["CNT"].ToString());
+                    htLucky.Add("INC_PER_" + (i + 1) + "", ds.Tables[1].Rows[i]["PER"].ToString());
                 }
             }
             else
@@ -203,6 +205,8 @@ namespace Gyunbox40.Vue
                 {
                     htLucky.Add("" + i + "", "0");
                     htLucky.Add("PER_" + (i + 1) + "", "0");
+                    htLucky.Add("INC_" + i + "", "0");
+                    htLucky.Add("INC_PER_" + (i + 1) + "", "0");
                 }
             }
 

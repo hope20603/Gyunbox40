@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <div id="app" class="app-index">
         <div class="section section-0" style="height: 120px;">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
@@ -10,6 +11,7 @@
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">회원가입 없이도 사용하실 수 있습니다.</span>
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;" class="blink">또그램은 <span style="color: #ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>
         </div>
+        <div class="section section-ad" style="display:none;"></div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">
                 <div class="box-1">
@@ -71,13 +73,14 @@
             <div class="rd_wrap">
                 <div class="rd_inner_wrap">
                     <span class="sp_tit">보너스 번호</span>
-                    <span class="sp_bonus-y"><input type="radio" value="Y" id="rd_bonus_y" name="rd_bonus" checked/><label for="rd_bonus_y">포함</label></span>
-                    <span class="sp_bonus-n"><input type="radio" value="N" id="rd_bonus_n"name="rd_bonus" disabled/><label for="rd_bonus_n" >불포함</label></span>
+                    <span class="sp_bonus-y"><input type="radio" value="Y" id="rd_bonus_y" name="rd_bonus" @change="rdChange($event)" checked/><label for="rd_bonus_y">포함</label></span>
+                    <span class="sp_bonus-n"><input type="radio" value="N" id="rd_bonus_n"name="rd_bonus" @change="rdChange($event)" /><label for="rd_bonus_n" >불포함</label></span>
                 </div>
             </div>
             <!-- 각번호별 1등에 나온 횟수 -->
-            <div id="chart_wrap" style="display:BLOCK;">
-                <table class="tbl_data" id="tbl_chart">
+            <div id="chart_wrap" >
+                <!--불포함-->
+                <table class="tbl_data" id="tbl_chart" style="display:none;">
                     <caption></caption>
                     <colgroup>
                         <col style="width: 30px">
@@ -118,6 +121,56 @@
                                 </div>
                             </td>
                             <td><%=winCount%></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                        
+                    </tbody>
+                </table>
+
+                <!-- 포함 -->
+                <table class="tbl_data" id="tbl_chart2" style="clear:both;display:block;width:100%;">
+                    <caption></caption>
+                    <colgroup>
+                        <col style="width:5%">
+                        <col style="width:85%">
+                        <col style="width:10%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">번호</th>
+                            <th scope="col">그래프</th>
+                            <th scope="col">당첨횟수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            string clsColor2 = "";
+                            string barWidth2 = "";
+                            string winCount2 = "";
+                            string clsBall2 = "";
+
+                            for(int i=1; i<=45; i++)
+                            {
+                                if (i <= 10) { clsColor2 = "color1"; clsBall2 = "ball1"; }
+                                else if (i <= 20) { clsColor2 = "color2"; clsBall2 = "ball2"; }
+                                else if (i <= 30) { clsColor2 = "color3"; clsBall2 = "ball3"; }
+                                else if (i <= 40) { clsColor2 = "color4"; clsBall2 = "ball4"; }
+                                else { clsColor2 = "color5"; clsBall2 = "ball5"; }
+
+                                barWidth2 = htLucky["INC_PER_" + i].ToString();
+                                winCount2 = htLucky["INC_" + i.ToString()].ToString();
+                        %>
+
+                        <tr>
+                            <td><span class="ball_645 sml <%=clsBall2%>"><%=i%></span></td>
+                            <td class="graph">
+                                <div class="graph_bar no_note">
+                                    <span class="bar <%=clsColor2%>" style="width:<%=barWidth2%>%"><span style="font-size:5px;">&nbsp;</span></span>
+                                </div>
+                            </td>
+                            <td><%=winCount2%></td>
                         </tr>
                         <%
                             }
@@ -271,6 +324,18 @@
                     } else {
                         return "#6BCE9E;";
                     }
+                },
+                rdChange: function (event) {
+                    var optionText = event.target.value;
+                    if (optionText == "N") {
+                        $("#tbl_chart").show();
+                        $("#tbl_chart2").hide();
+                    } else {
+                        $("#tbl_chart").hide();
+                        $("#tbl_chart2").show();
+                        
+                    }
+                    
                 }
             }
         })

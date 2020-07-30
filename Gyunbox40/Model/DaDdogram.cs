@@ -302,17 +302,23 @@ namespace Gyunbox40.Model
         /// <returns></returns>
         public DataSet GetWainChartData()
         {
-
-            DataSet ds = null;
+            DataSet ds = new DataSet();
+            DataSet ds2= new DataSet();
 
             string spName = "sp_GetMainChart";
             SqlConnection oCon = new SqlConnection(connectionString);
 
             try
             {
-                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName, new SqlParameter("@INCLUDE_BONUS", 1));
+                //ds.Merge(dbSql.ExecuteWithDataSet(oCon, CommandType.StoredProcedure, spName, new SqlParameter("@INCLUDE_BONUS", 1)));
+                ds = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName, new SqlParameter("@INCLUDE_BONUS", 0));
+                ds.Tables[0].TableName = "tbl_0";
+                ds2 = SqlHelper.ExecuteDataset(oCon, CommandType.StoredProcedure, spName, new SqlParameter("@INCLUDE_BONUS", 1));
+                ds2.Tables[0].TableName = "tbl_1";
+                ds.Merge(ds2);
+
             }
-            catch
+            catch(Exception e)
             {
                 ds = null;
             }
