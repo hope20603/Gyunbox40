@@ -38,6 +38,34 @@ namespace Gyunbox40.Model
             return ds;
         }
 
+        public DataSet GetStores(string lot_seq)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+
+            try
+            {
+                sb.AppendLine("select * from hope20603.lot_store where seq=@seq;");
+                sb.Replace("@seq", util.ChkInjection(lot_seq));
+
+                ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_stores");
+            }
+            catch
+            {
+                ds = null;
+            }
+            finally
+            {
+                if (dbSql != null)
+                {
+                    dbSql.Close();
+                    dbSql = null;
+                }
+            }
+
+            return ds;
+        }
+
         /// <summary>
         /// 회원가입
         /// </summary>

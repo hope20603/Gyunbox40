@@ -15,9 +15,8 @@ ul, li {
 
 #wrap {
     background-color: #F2F2F2;
-    display:inline-block;
-    width:100%;
-    
+    display: inline-block;
+    width: 100%;
 }
 
 
@@ -50,7 +49,7 @@ ul, li {
         .header .gnb .menu_1 {
             width: 65px;
             float: left;
-            font-size:10pt;
+            font-size: 10pt;
         }
 
         .header .gnb .menu_2 {
@@ -70,43 +69,42 @@ ul, li {
     font-weight: bold;
     color: #ffffff;
     background-color: #176D64;
-    box-sizing:border-box;
-    padding-top:30px;
-    text-align:center;
-    margin-top:10px;
+    box-sizing: border-box;
+    padding-top: 30px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-    .master_footer .sp_1{
-        width:100%;
-        height:20px;
-        text-align:center;
-        display:inline-block;
+    .master_footer .sp_1 {
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        display: inline-block;
     }
 
-    .master_footer .sp_1 a{
-        color:#ffffff;
-    }
+        .master_footer .sp_1 a {
+            color: #ffffff;
+        }
 
     .master_footer .sp_2 {
         width: 100%;
         height: 20px;
         text-align: center;
         display: inline-block;
-
     }
 
 
-    /* index.aspx */
-    .app-index .section {
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-        min-height: 80px;
-        float: left;
-        padding: 10px;
-        box-sizing: border-box;
-        border-radius: 6px;
-    }
+/* index.aspx */
+.app-index .section {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    min-height: 80px;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
 
     .app-index .section h2 {
         height: 30px;
@@ -230,6 +228,64 @@ ul, li {
     height: 200px;
 }
 
+/* 횟차별 당첨 가게 정보 */
+.app-stores {
+}
+
+    .app-stores .section-1 {
+
+    }
+    
+/*    .app-stores .section-1 .inner-1{
+        margin:auto;
+        width:300px;
+    }
+
+        .app-stores .section-1 .inner-1 span{
+            margin-left:20px;
+        }
+
+        .app-stores .section-1 .inner-1 select{
+            height:30px; 
+            border:none;
+            width:200px;
+        }*/
+.section-hf {
+    float:left;
+    margin-top: 10px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: auto;
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+
+    .section-hf .tbl_stores {
+        float: left;
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10pt;
+    }
+
+        .section-hf .tbl_stores th {
+            text-align: center;
+            background-color: #AAAEEB;
+            height: 30px;
+            line-height: 30px;
+            color: #ffffff;
+            border-right:1px solid #ffffff;
+        }
+        .section-hf .tbl_stores td {
+            height: 40px;
+            line-height:40px;
+            padding:2px;
+            border-bottom:1px solid #d2d2d2;
+        }
+
+        .section-hf .tbl_stores td:first-child {
+            padding-left:10px;
+        }
 
 /* 로또볼 기본 모양 */
 .lottoBall {
@@ -437,7 +493,7 @@ ul, li {
     border-radius: 0;
     background-color: #F8F8F8;
     padding-top: 20px;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
     .app-manageNumber .section-1 .li-numbers {
@@ -466,31 +522,30 @@ ul, li {
 
         .app-manageNumber .section-1 .li-numbers .list-con {
             width: 80%;
-            height:50px;
+            height: 50px;
             float: left;
         }
 
             .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap {
-                margin:auto;
-                width:245px;
-                height:50px;
-                line-height:50px;
-                box-sizing:border-box;
-                padding-top:10px;
-                border-bottom:1px solid #d2d2d2;
+                margin: auto;
+                width: 245px;
+                height: 50px;
+                line-height: 50px;
+                box-sizing: border-box;
+                padding-top: 10px;
+                border-bottom: 1px solid #d2d2d2;
             }
 
                 .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap .lottoBall {
                     width: 24px;
                     height: 24px;
                     line-height: 22px;
-                    color:#ffffff;
-                    border:none;
-                    
+                    color: #ffffff;
+                    border: none;
                 }
 
                     .app-manageNumber .section-1 .li-numbers .list-con .list-ball_wrap .lottoBall.plus_mark {
-                        color:black;
+                        color: black;
                     }
 
         .app-manageNumber .section-1 .li-numbers .list-tail {
@@ -501,28 +556,28 @@ ul, li {
             text-align: center;
         }
 
-            .app-manageNumber .section-1 .li-numbers .list-tail .btn_del{
-                line-height:22px;
-                width:22px;
-                height:22px;
-                display:block;
-                margin:auto;
-                margin-top:12px;
+            .app-manageNumber .section-1 .li-numbers .list-tail .btn_del {
+                line-height: 22px;
+                width: 22px;
+                height: 22px;
+                display: block;
+                margin: auto;
+                margin-top: 12px;
             }
 
-            .app-manageNumber .section-2 {
-                margin-top: 10px;
-                display: block;
-                height: 160px;
-                font-weight: bold;
-                padding-left: 0px;
-                padding-right: 0px;
-                padding-top: 0px;
-                float: left;
-                width: 100%;
-                box-sizing: border-box;
-                margin-left: 0px;
-            }
+.app-manageNumber .section-2 {
+    margin-top: 10px;
+    display: block;
+    height: 160px;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0px;
+}
 
     .app-manageNumber .section-2 a {
         color: #ffffff;
@@ -567,19 +622,19 @@ ul, li {
     border-radius: 0px;
 }
 
-    .app-login .section-1{
-        background-color:#ffffff;
-    }
+.app-login .section-1 {
+    background-color: #ffffff;
+}
 
-    .app-login h2 {
-        height: 50px;
-        font-size: 30px;
-        line-height: 50px;
-        text-align: center;
-        width: 100%;
-        font-weight: normal;
-        margin-top: 20px;
-    }
+.app-login h2 {
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+    margin-top: 20px;
+}
 
 
 .app-login .box-login {
@@ -660,7 +715,7 @@ ul, li {
 
     .app-join .box-join {
         padding: 20px;
-        margin-bottom:30px;
+        margin-bottom: 30px;
     }
 
         .app-join .box-join li {
@@ -799,7 +854,7 @@ ul, li {
 }
 
 .lottoBall.active {
-    border: 2px solid #176D64; 
+    border: 2px solid #176D64;
     /*margin-top:-10px;*/
 }
 
@@ -857,30 +912,30 @@ ul, li {
 }
 
 .li-paging {
-    width:100%;
-    text-align:center;
+    width: 100%;
+    text-align: center;
 }
 
-.li-paging span {
-    width:20px;
-    height:20px;
-    margin-right:10px;
-    line-height:20px;
-    border:1px solid #d2d2d2;
-    display:inline-block;
-}
-
-    .li-paging span.first {
-        border:none;
+    .li-paging span {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        line-height: 20px;
+        border: 1px solid #d2d2d2;
+        display: inline-block;
     }
 
-    .li-paging span.last {
-        border:none;
-    }
+        .li-paging span.first {
+            border: none;
+        }
 
-    .li-paging span.on {
-        background-color: #0070C0;
-        color: #ffffff;
-        font-weight: bold;
-        border: 1px solid #0070C0;
-    }
+        .li-paging span.last {
+            border: none;
+        }
+
+        .li-paging span.on {
+            background-color: #0070C0;
+            color: #ffffff;
+            font-weight: bold;
+            border: 1px solid #0070C0;
+        }

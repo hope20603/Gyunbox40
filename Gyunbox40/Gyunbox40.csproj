@@ -349,6 +349,7 @@
     <Content Include="Vue\Logout.aspx" />
     <Content Include="Vue\ManageNumber.aspx" />
     <Content Include="Vue\ReadQR.aspx" />
+    <Content Include="Vue\Stores.aspx" />
     <Content Include="Vue\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
@@ -611,6 +612,13 @@
     </Compile>
     <Compile Include="Vue\ReadQR.aspx.designer.cs">
       <DependentUpon>ReadQR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Stores.aspx.cs">
+      <DependentUpon>Stores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Stores.aspx.designer.cs">
+      <DependentUpon>Stores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

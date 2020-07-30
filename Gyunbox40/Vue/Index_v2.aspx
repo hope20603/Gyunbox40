@@ -83,9 +83,9 @@
                 <table class="tbl_data" id="tbl_chart" style="display:none;">
                     <caption></caption>
                     <colgroup>
-                        <col style="width: 30px">
-                        <col>
-                        <col style="width: 50px">
+                        <col style="width:5%">
+                        <col style="width:85%">
+                        <col style="width:10%">
                     </colgroup>
                     <thead>
                         <tr>

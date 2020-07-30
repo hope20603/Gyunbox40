@@ -29,7 +29,7 @@
             location.href = pageUrl;
         }
     </script>
-    <div class="section search">
+    <div class="section search" style="display:none;">
         <div class="logo"></div>
         <div class="search_inner_wrap">
             <asp:Literal ID="ltl_brdMnu" runat="server"></asp:Literal>
