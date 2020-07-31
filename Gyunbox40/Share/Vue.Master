@@ -16,8 +16,10 @@
     <script src="../Content/js/util.js"></script>
     <link rel="shortcut icon" href="/images/favicon/GB.png" />
     <link rel="apple-touch-icon-precomposed" href="/images/favicon/indigo-touch-icon.png">
-    <link href="../Content/css/Ddogram.css" rel="stylesheet" />
+    <link href="../Content/css/Ddogram.css?v=1" rel="stylesheet" />
     <link href="../Content/css/reset.css" rel="stylesheet" />
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>또그램</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -37,10 +39,11 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <footer class="master_footer">
-               <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="master-sns-box" >
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_inline_share_toolbox"></div>
-
+        </div>
+        <footer class="master_footer">
             <div>
                 <span class="sp_1"><a href="/" title="프로그래머의 사이트를 방문해보세요.">개발자 사이트 방문 :)</a></span>
                 <span class="sp_2">Copyright 2020. KSG all rights reserved.</span>
@@ -49,6 +52,5 @@
     </form>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f237224f6fe70e7"></script>
-
 </body>
 </html>

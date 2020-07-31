@@ -11,18 +11,17 @@
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;" class="blink">또그램은 <span style="color: #ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>
         </div>
         <div class="section section-ad" style="display:block;">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 모바일광고1_헤더 -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 또그램_모바일_상단 -->
 <ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:100px"
+     style="display:block"
      data-ad-client="ca-pub-8384080521274050"
-     data-ad-slot="1727320124"></ins>
+     data-ad-slot="7056829024"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-
-
         </div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">

@@ -62,7 +62,10 @@ ul, li {
             color: #ffffff;
             float: left;
         }
-
+.master-sns-box {
+    width: 200px;
+    margin: auto;
+}
 /* Footer */
 .master_footer {
     height: 100px;
