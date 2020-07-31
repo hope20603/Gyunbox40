@@ -38,11 +38,17 @@
             </asp:ContentPlaceHolder>
         </div>
         <footer class="master_footer">
+               <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox"></div>
+
             <div>
                 <span class="sp_1"><a href="/" title="프로그래머의 사이트를 방문해보세요.">개발자 사이트 방문 :)</a></span>
                 <span class="sp_2">Copyright 2020. KSG all rights reserved.</span>
             </div>
         </footer>
     </form>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f237224f6fe70e7"></script>
+
 </body>
 </html>

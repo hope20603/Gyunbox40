@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <div id="app" class="app-index">
         <div class="section section-0" style="height: 120px;">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
@@ -11,7 +10,20 @@
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">회원가입 없이도 사용하실 수 있습니다.</span>
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;" class="blink">또그램은 <span style="color: #ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>
         </div>
-        <div class="section section-ad" style="display:none;"></div>
+        <div class="section section-ad" style="display:block;">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 모바일광고1_헤더 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:100px"
+     data-ad-client="ca-pub-8384080521274050"
+     data-ad-slot="1727320124"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+        </div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">
                 <div class="box-1">
@@ -101,7 +113,7 @@
                             string winCount = "";
                             string clsBall = "";
 
-                            for(int i=1; i<=45; i++)
+                            for (int i = 1; i <= 45; i++)
                             {
                                 if (i <= 10) { clsColor = "color1"; clsBall = "ball1"; }
                                 else if (i <= 20) { clsColor = "color2"; clsBall = "ball2"; }
@@ -151,7 +163,7 @@
                             string winCount2 = "";
                             string clsBall2 = "";
 
-                            for(int i=1; i<=45; i++)
+                            for (int i = 1; i <= 45; i++)
                             {
                                 if (i <= 10) { clsColor2 = "color1"; clsBall2 = "ball1"; }
                                 else if (i <= 20) { clsColor2 = "color2"; clsBall2 = "ball2"; }
@@ -333,9 +345,9 @@
                     } else {
                         $("#tbl_chart").hide();
                         $("#tbl_chart2").show();
-                        
+
                     }
-                    
+
                 }
             }
         })
@@ -369,38 +381,159 @@
     </script>
     <style>
         /* 그래프 */
-        .rd_wrap{width:100%;float:left;  height:30px; }
-        .rd_wrap .rd_inner_wrap{ width:350px; margin:auto; height:50px;}
-        .rd_wrap span{width:100px; float:left;}
-        .rd_wrap span.sp_tit{height:20px; line-height:20px; font-weight:bold;}
-        .rd_wrap input[type=radio]{width:20px; height:20px; border:1px solid black; appearance:auto; margin-right:10px;}
-            .rd_wrap span.sp_bonus-y {height:20px; line-height:20px;}
-            .rd_wrap span.sp_bonus-n {height:20px; line-height:20px;}
+        .rd_wrap {
+            width: 100%;
+            float: left;
+            height: 30px;
+        }
 
-        .tbl_data {width:100%; min-height:1000px; float:left; border-collapse:collapse; margin-top:10px;}
-        .tbl_data th{height:20px; border:1px solid #d2d2d2; background-color:#d7d7d7; color:#ffffff; padding:5px; text-align:center;}
-        .tbl_data td{height:20px; border:1px solid #d2d2d2;  text-align:center;}
-        .tbl_data td .graph_bar .bar{float:left; margin-top:10px;}
-        .tbl_data td .graph_bar .color1{background-color:#FCC43D; }
-        .tbl_data td .graph_bar .color2{background-color:#8CC6E7; }
-        .tbl_data td .graph_bar .color3{background-color:#F18D80; }
-        .tbl_data td .graph_bar .color4{background-color:#A7A2DE; }
-        .tbl_data td .graph_bar .color5{background-color:#6BCE9E; }
+            .rd_wrap .rd_inner_wrap {
+                width: 350px;
+                margin: auto;
+                height: 50px;
+            }
 
-            .tbl_data .ball_645 {border:1px solid #ffffff; border-radius:50%; font-weight:bold; color:#ffffff; width:22px; height:22px; display:inline-block; line-height:22px;}
-            .tbl_data .ball_645.ball1 {background-color:#FCC43D;}
-            .tbl_data .ball_645.ball2 {background-color:#8CC6E7;}
-            .tbl_data .ball_645.ball3 {background-color:#F18D80;}
-            .tbl_data .ball_645.ball4 {background-color:#A7A2DE;}
-            .tbl_data .ball_645.ball5 {background-color:#6BCE9E;}
-      /* 방문자 */
-        .visit_wrap {height:20px; line-height:20px; float:left; background-color:#ffffff; width:100%; padding-top:30px; padding-bottom:20px;}
-            .visit_wrap .inner_wrap{margin:auto; width:300px;}
-                .visit_wrap .inner_wrap span{width:80px;}
-                .visit_wrap .inner_wrap span.sp_tit {font-weight:bold; margin-right:10px; border-left:1px solid #d2d2d2; padding-left:10px;}
-                .visit_wrap .inner_wrap span.sp_tit:first-child{border:none;}
-                .visit_wrap .inner_wrap span.sp_con {margin-right:10px; }
+            .rd_wrap span {
+                width: 100px;
+                float: left;
+            }
 
+                .rd_wrap span.sp_tit {
+                    height: 20px;
+                    line-height: 20px;
+                    font-weight: bold;
+                }
+
+            .rd_wrap input[type=radio] {
+                width: 20px;
+                height: 20px;
+                border: 1px solid black;
+                appearance: auto;
+                margin-right: 10px;
+            }
+
+            .rd_wrap span.sp_bonus-y {
+                height: 20px;
+                line-height: 20px;
+            }
+
+            .rd_wrap span.sp_bonus-n {
+                height: 20px;
+                line-height: 20px;
+            }
+
+        .tbl_data {
+            width: 100%;
+            min-height: 1000px;
+            float: left;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+            .tbl_data th {
+                height: 20px;
+                border: 1px solid #d2d2d2;
+                background-color: #d7d7d7;
+                color: #ffffff;
+                padding: 5px;
+                text-align: center;
+            }
+
+            .tbl_data td {
+                height: 20px;
+                border: 1px solid #d2d2d2;
+                text-align: center;
+            }
+
+                .tbl_data td .graph_bar .bar {
+                    float: left;
+                    margin-top: 10px;
+                }
+
+                .tbl_data td .graph_bar .color1 {
+                    background-color: #FCC43D;
+                }
+
+                .tbl_data td .graph_bar .color2 {
+                    background-color: #8CC6E7;
+                }
+
+                .tbl_data td .graph_bar .color3 {
+                    background-color: #F18D80;
+                }
+
+                .tbl_data td .graph_bar .color4 {
+                    background-color: #A7A2DE;
+                }
+
+                .tbl_data td .graph_bar .color5 {
+                    background-color: #6BCE9E;
+                }
+
+            .tbl_data .ball_645 {
+                border: 1px solid #ffffff;
+                border-radius: 50%;
+                font-weight: bold;
+                color: #ffffff;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                line-height: 22px;
+            }
+
+                .tbl_data .ball_645.ball1 {
+                    background-color: #FCC43D;
+                }
+
+                .tbl_data .ball_645.ball2 {
+                    background-color: #8CC6E7;
+                }
+
+                .tbl_data .ball_645.ball3 {
+                    background-color: #F18D80;
+                }
+
+                .tbl_data .ball_645.ball4 {
+                    background-color: #A7A2DE;
+                }
+
+                .tbl_data .ball_645.ball5 {
+                    background-color: #6BCE9E;
+                }
+        /* 방문자 */
+        .visit_wrap {
+            height: 20px;
+            line-height: 20px;
+            float: left;
+            background-color: #ffffff;
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+            .visit_wrap .inner_wrap {
+                margin: auto;
+                width: 300px;
+            }
+
+                .visit_wrap .inner_wrap span {
+                    width: 80px;
+                }
+
+                    .visit_wrap .inner_wrap span.sp_tit {
+                        font-weight: bold;
+                        margin-right: 10px;
+                        border-left: 1px solid #d2d2d2;
+                        padding-left: 10px;
+                    }
+
+                        .visit_wrap .inner_wrap span.sp_tit:first-child {
+                            border: none;
+                        }
+
+                    .visit_wrap .inner_wrap span.sp_con {
+                        margin-right: 10px;
+                    }
     </style>
 
 </asp:Content>
