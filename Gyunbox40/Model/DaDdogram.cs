@@ -1,4 +1,5 @@
-﻿using Gyunbox40.Common;
+﻿using Dapper;
+using Gyunbox40.Common;
 using Microsoft.ApplicationBlocks.Data;
 using Newtonsoft.Json.Linq;
 using System;
@@ -15,10 +16,16 @@ namespace Gyunbox40.Model
 {
     public class DaDdogram
     {
+
+        //Repository 역할
         private string connectionString = ConfigurationManager.ConnectionStrings["GyunBox"].ConnectionString;
+        //Dapper도 사용해 보자
+        private IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["GyunBox"].ConnectionString);
+
         CommonController cc = new CommonController();
         DBConn dbSql = new DBConn();
         Util util = new Util();
+
 
         /// <summary>
         /// 사용중인 아이디 인지 체크
@@ -38,6 +45,11 @@ namespace Gyunbox40.Model
             return ds;
         }
 
+        /// <summary>
+        /// 회차별 1등 당첨 가게 목록을 가져온다.
+        /// </summary>
+        /// <param name="lot_seq"></param>
+        /// <returns></returns>
         public DataSet GetStores(string lot_seq)
         {
             StringBuilder sb = new StringBuilder();
@@ -59,11 +71,165 @@ namespace Gyunbox40.Model
                 if (dbSql != null)
                 {
                     dbSql.Close();
+                    //dbSql = null;
+                }
+            }
+
+            return ds;
+        }
+
+        /// <summary>
+        /// 제일 최신 추첨일 seq를 가져 온다.
+        /// </summary>
+        /// <returns></returns>
+        public int GetRecentLotSeq()
+        {
+            string sqlQuery = string.Empty;
+            int result = -1;
+            
+            try
+            {
+                sqlQuery = @"Select max(seq) from hope20603.lot_num;";
+                var data = dbSql.ExecuteScalar(sqlQuery);
+                if (data != null) result = Convert.ToInt32(data);
+            }
+            catch
+            {
+                result = -1;
+            }
+            finally
+            {
+                if (dbSql != null)
+                {
+                    dbSql.Close();
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 제일 최신 추첨일 seq를 가져 온다.-dapper사용해봄..
+        /// </summary>
+        /// <returns></returns>
+        public LotnumModel GetRecentLotNum()
+        {
+            string sqlQuery = string.Empty;
+            
+            try
+            {
+                sqlQuery = @"Select top 1 [seq],[num1],[num2],[num3],[num4],[num5],[num6],[num7]
+                            ,convert(char(10), [win_date], 23) as win_date
+                            ,[total_sel] from hope20603.lot_num order by seq desc";
+                return this.db.QueryFirstOrDefault<LotnumModel>(sqlQuery);
+            }
+            catch
+            {
+                return null;    
+            }
+            
+            
+        }
+
+        /// <summary>
+        /// 특정 회차의 당첨번호 정보를 가져옴. -dapper사용해봄..
+        /// </summary>
+        /// <returns></returns>
+        public LotnumModel GetLotNumBySeq(string seq)
+        {
+            string sqlQuery = string.Empty;
+
+            try
+            {
+                sqlQuery = @"Select [seq],[num1],[num2],[num3],[num4],[num5],[num6],[num7]
+                            ,convert(char(10), [win_date], 23) as win_date
+                            ,[total_sel] from hope20603.lot_num Where seq=@seq";
+                return this.db.QueryFirstOrDefault<LotnumModel>(sqlQuery,new { seq = int.Parse(seq) });
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 모든 당첨번호 정보를 가져옴. -dapper 짱나서 안씀..
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetLotNumAll()
+        {
+            StringBuilder sb = new StringBuilder();
+            DataSet ds = new DataSet();
+
+            try
+            {
+                sb.AppendLine("select [seq],[num1],[num2],[num3],[num4],[num5],[num6],[num7] ");
+                sb.AppendLine(" , convert(char(10), [win_date], 23) as win_date ");
+                sb.AppendLine(" ,[total_sel] from hope20603.lot_num order by seq desc;");
+                
+                ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_lot");
+            }
+            finally
+            {
+                if (dbSql != null)
+                {
+                    dbSql.Close();
                     dbSql = null;
                 }
             }
 
             return ds;
+        }
+
+        /// <summary>
+        /// 모든 당첨번호 정보를 가져옴. -Dapper
+        /// </summary>
+        /// <returns></returns>
+        public List<LotnumModel> GetLotNumAllModel()
+        {
+            StringBuilder sb = new StringBuilder();
+            
+            try
+            {
+                sb.AppendLine("select [seq],[num1],[num2],[num3],[num4],[num5],[num6],[num7] ");
+                sb.AppendLine(" , convert(char(10), [win_date], 23) as win_date ");
+                sb.AppendLine(" ,[total_sel] from hope20603.lot_num order by seq desc;");
+
+                return db.Query<LotnumModel>(sb.ToString()).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 등수별 당첨정보
+        /// </summary>
+        /// <param name="seq"></param>
+        /// <returns></returns>
+        public List<LotWinner> GetWinnerInfo(string seq)
+        {
+            string sql = string.Empty;
+            try
+            {
+                sql = @"  SELECT ORD, PRIZE_1_CNT AS CNT, MNY_1 AS MNY FROM (
+                            SELECT 1 as ord, prize_1_cnt, mny_1 FROM lot_win WHERE seq=@seq
+                            UNION 
+                            SELECT 2 as ord, prize_2_cnt, mny_2 FROM lot_win WHERE seq=@seq
+                            UNION 
+                            SELECT 3 as ord, prize_3_cnt, mny_3 FROM lot_win WHERE seq=@seq
+                            UNION 
+                            SELECT 4 as ord, prize_4_cnt, mny_4 FROM lot_win WHERE seq=@seq
+                            UNION 
+                            SELECT 5 as ord, prize_5_cnt, mny_5 FROM lot_win WHERE seq=@seq
+                          ) AS winner";
+                return db.Query<LotWinner>(sql, new { seq=seq }).ToList();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         /// <summary>

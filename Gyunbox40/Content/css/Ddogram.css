@@ -62,6 +62,7 @@ ul, li {
             color: #ffffff;
             float: left;
         }
+
 .master-sns-box {
     width: 200px;
     margin: auto;
@@ -236,9 +237,21 @@ ul, li {
 }
 
     .app-stores .section-1 {
-
     }
-    
+
+    .app-stores .section-1 .sp_search{
+        
+    }
+
+        .app-stores .section-1 .sp_search select{
+            height:30px;
+            /*border:1px solid #d2d2d2;*/
+            border:none;
+            position:absolute;
+            right:0px;
+        }
+
+
 /*    .app-stores .section-1 .inner-1{
         margin:auto;
         width:300px;
@@ -254,8 +267,8 @@ ul, li {
             width:200px;
         }*/
 .section-hf {
-    float:left;
-    margin-top: 10px;
+    float: left;
+    /*margin-top: 10px;*/
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;
@@ -264,49 +277,199 @@ ul, li {
     background-color: #ffffff;
 }
 
-    .section-hf .tbl_stores {
-        float: left;
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 10pt;
+.div_list-stores .title{
+    width:100%;
+    float:left;
+    padding-left:10px;
+    box-sizing:border-box;
+    height:30px;
+    line-height:30px;
+    background-color:#d7d7d7;
+}
+
+.div_list-stores .tbl_stores {
+    float: left;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+}
+
+    .div_list-stores .tbl_stores th {
+        text-align: center;
+        background-color: #AAAEEB;
+        height: 30px;
+        line-height: 30px;
+        color: #ffffff;
+        border-right: 1px solid #ffffff;
     }
 
-        .section-hf .tbl_stores th {
+    .div_list-stores .tbl_stores td {
+        height: 40px;
+        line-height: 40px;
+        padding: 2px;
+        border-bottom: 1px solid #d2d2d2;
+    }
+
+        .div_list-stores .tbl_stores td:first-child {
+            padding-left: 10px;
+        }
+
+.div_list-stores {
+    padding-bottom: 30px;
+}
+
+    .div_list-stores .listBox {
+        position: relative;
+        background: #fff;
+        margin-top: 0;
+        padding-left: 38px;
+        padding-right: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 13px;
+        overflow: hidden;
+        border-bottom: 1px solid #d2d2d2;
+        /*margin-bottom:5px;*/
+    }
+
+        .div_list-stores .listBox:first-child {
+            border-top: 1px solid #d2d2d2;
+        }
+
+        .div_list-stores .listBox .store-ord {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            text-align: left;
+            border-right: 1px dotted #ccc;
+            height: 100%;
+            line-height: 100%;
             text-align: center;
-            background-color: #AAAEEB;
+            padding: 5px;
+            padding-top: 25px;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .div_list-stores .listBox .store-name {
+            height: 20px;
+            line-height: 20px;
+        }
+
+            .div_list-stores .listBox .store-name .sp_name {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .div_list-stores .listBox .store-name .sp_map_icon {
+                float: right;
+            }
+
+
+        .div_list-stores .listBox .store-address {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .div_list-stores .listBox .store-gub {
+            height: 20px;
+            line-height: 20px;
+        }
+
+
+
+.div_list-winner {
+    padding-bottom: 30px;
+    display:block;
+    width:100%;
+}
+
+    .div_list-winner .title {
+        width: 100%;
+        float: left;
+        padding-left: 10px;
+        box-sizing: border-box;
+        height: 30px;
+        line-height: 30px;
+        background-color: #d7d7d7;
+    }
+
+    .div_list-winner .listBox {
+        position: relative;
+        background: #fff;
+        margin-top: 0;
+        padding-left: 55px;
+        padding-right: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 13px;
+        overflow: hidden;
+        border-bottom: 1px solid #d2d2d2;
+        /*margin-bottom:5px;*/
+    }
+
+        .div_list-winner .listBox:first-child {
+            border-top: 1px solid #d2d2d2;
+        }
+
+        .div_list-winner .listBox .win-ord {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            text-align: left;
+            border-right: 1px dotted #ccc;
+            height: 100%;
+            line-height: 100%;
+            text-align: center;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            padding-top:15px;
+            font-size:14px;
+
+        }
+
+        .div_list-winner .listBox .win-cnt {
+            width: 100px;
+            float: left;
+            height: 30px;
+            line-height:30px;
+            font-size: 14px;
+            padding-top: 5px;
+        }
+
+        .div_list-winner .listBox .win-mny {
+            width: 70%;
+            float: right;
+            text-align: right;
+            font-size: 18px;
             height: 30px;
             line-height: 30px;
-            color: #ffffff;
-            border-right:1px solid #ffffff;
-        }
-        .section-hf .tbl_stores td {
-            height: 40px;
-            line-height:40px;
-            padding:2px;
-            border-bottom:1px solid #d2d2d2;
+            padding-top: 5px;
+            
         }
 
-        .section-hf .tbl_stores td:first-child {
-            padding-left:10px;
-        }
-
-/* 로또볼 기본 모양 */
-.lottoBall {
-    position: relative;
-    float: left;
-    border-radius: 50%;
-    width: 30px;
-    line-height: 30px;
-    height: 30px;
-    display: block;
-    text-align: center;
-    font-weight: bold;
-    font-size: 12pt;
-    margin-right: 5px;
-    font-weight: bold;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-}
+            /* 로또볼 기본 모양 */
+            .lottoBall {
+                position: relative;
+                float: left;
+                border-radius: 50%;
+                width: 30px;
+                line-height: 30px;
+                height: 30px;
+                display: block;
+                text-align: center;
+                font-weight: bold;
+                font-size: 12pt;
+                margin-right: 5px;
+                font-weight: bold;
+                color: #ffffff;
+                border: 2px solid #ffffff;
+            }
 
 /* 번호생성 페이지에서는 lotto ball 사이즈 작게 */
 .app-createNumber .lottoBall {
@@ -315,9 +478,25 @@ ul, li {
     line-height: 28px;
 }
 
+.lottoBall.color_1 {
+    background-color: #FCC43D;
+}
 
+.lottoBall.color_2 {
+    background-color: #8CC6E7;
+}
 
+.lottoBall.color_3 {
+    background-color: #F18D80;
+}
 
+.lottoBall.color_4 {
+    background-color: #A7A2DE;
+}
+
+.lottoBall.color_5 {
+    background-color: #6BCE9E;
+}
 
 /* createNumber */
 .app-createNumber {
@@ -821,6 +1000,10 @@ ul, li {
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.icon-small{
+    height:20px;
 }
 
 .li_devider {
