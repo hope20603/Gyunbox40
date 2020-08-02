@@ -607,6 +607,7 @@
     <Content Include="Views\Home\Project.aspx" />
     <Content Include="Views\Home\SaveContent.aspx" />
     <Content Include="Views\Shared\Pagenavigator.ascx" />
+    <Content Include="Vue\About.aspx" />
     <Content Include="Vue\Calc.aspx" />
     <Content Include="Vue\CreateNumber.aspx" />
     <Content Include="Vue\Home.aspx" />
@@ -820,6 +821,13 @@
     </Compile>
     <Compile Include="Views\Shared\Pagenavigator.ascx.designer.cs">
       <DependentUpon>Pagenavigator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Calc.aspx.cs">
       <DependentUpon>Calc.aspx</DependentUpon>

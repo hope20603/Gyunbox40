@@ -45,6 +45,7 @@
                         <li><a href="ManageNumber.aspx">내 번호 관리</a></li>
                         <li><a href="Stores.aspx">추첨결과/당첨판매점</a></li>
                         <li><a href="Calc.aspx">실수령액 계산기</a></li>
+                        <li><a href="About.aspx">또그램정보/댓글</a></li>
                         <li><%=loginState%></li>
                         <li><%=joinStr%></li>
                     </ul>
@@ -60,7 +61,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div class="master-sns-box">
+        <div class="master-sns-box" style="margin-top:30px;">
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
             <div class="addthis_inline_share_toolbox"></div>
         </div>
