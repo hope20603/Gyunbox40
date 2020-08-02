@@ -19,7 +19,7 @@ namespace Gyunbox40.Vue
         LotnumModel model;
         List<LotWinner> mWinner;
         List<LotnumModel> models;
-        string seq = string.Empty;
+        protected string seq = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {

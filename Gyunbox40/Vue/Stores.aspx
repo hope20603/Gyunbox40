@@ -11,13 +11,13 @@
         </div>
         <div class="section section-1">
             <h2 style="width: 100%; text-align: center; padding-bottom: 30px;">
-                <span style="color: #B40000; font-size: 15pt;"><%=htLot["seq"]%>회 </span><span style="color: #514856; font-size: 15pt;">당첨결과</span>
+                <%--<span style="color: #B40000; font-size: 15pt;"><%=htLot["seq"]%>회 </span><span style="color: #514856; font-size: 15pt;">당첨결과</span>
+                <span style="width: 100%; line-height: 20px; float: left; font-size: 10pt; color: #A5A5A5; height: 20px; margin-top: -5px;">( <%=htLot["win_date"]%>일 추첨 )</span>--%>
                 <!-- 당첨결과 선택해서 조회 가능하도록 수정 -->
-            <span class="sp_search">
-                <asp:DropDownList ID="ddl_lotSeq" runat="server" OnDataBound="ddl_lotSeq_DataBound" AutoPostBack="True" OnSelectedIndexChanged="ddl_lotSeq_SelectedIndexChanged"></asp:DropDownList>
-            </span>
-                <span style="width: 100%; line-height: 20px; float: left; font-size: 10pt; color: #A5A5A5; height: 20px; margin-top: -5px;">( <%=htLot["win_date"]%>일 추첨 )</span>
-
+                <span class="sp_search">
+                    <asp:DropDownList ID="ddl_lotSeq" runat="server" OnDataBound="ddl_lotSeq_DataBound" AutoPostBack="True" OnSelectedIndexChanged="ddl_lotSeq_SelectedIndexChanged"></asp:DropDownList>
+                </span>
+                <span style="color: #514856; font-size: 14pt; margin-left:5px;">당첨결과</span>
             </h2>
             <ul>
                 <li>
@@ -55,7 +55,7 @@
                         <div class="store-name">
                             <span class="sp_name"><%#Eval("store_name")%></span>
                             <span class="sp_map_icon">
-                                <a href="javascript:;" onclick="javascript:alert('<%#Eval("store_loc")%>');">
+                                <a href="StoresMap.aspx?seq=<%=seq%>&loc=<%#Eval("store_loc")%>">
                                     <img src="../images/icon/icons8-map-marker-100.png" alt="map" class="icon-small" />
                                 </a>
                             </span>

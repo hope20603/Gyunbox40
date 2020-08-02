@@ -33,4 +33,15 @@ namespace Gyunbox40.Model
         public string MNY { get; set; }
         
     }
+
+    /// <summary>
+    /// 맵에서 가게 정보를 불러올때 사용
+    /// </summary>
+    public class LotStore
+    {
+        public string store_name { get; set; }
+        public string store_add { get; set; }
+        public string store_loc { get; set; }
+        public string wincnt { get; set; }
+    }
 }

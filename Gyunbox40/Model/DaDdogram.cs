@@ -79,6 +79,28 @@ namespace Gyunbox40.Model
         }
 
         /// <summary>
+        /// 가게 정보 불러오기
+        /// </summary>
+        /// <param name="locNumber"></param>
+        /// <returns></returns>
+        public LotStore GetStoreDetail(string locNumber)
+        {
+            string sqlQuery = string.Empty;
+
+            try
+            {
+                sqlQuery = @" select store_name, store_add, store_loc,(select count(seq) from hope20603.lot_store where store_loc=@store_loc) as wincnt from (
+                            	select top 1 *  from hope20603.lot_store where store_loc=@store_loc order by seq desc
+                              ) as a";
+                return this.db.QueryFirstOrDefault<LotStore>(sqlQuery, new { store_loc=locNumber });
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// 제일 최신 추첨일 seq를 가져 온다.
         /// </summary>
         /// <returns></returns>
@@ -432,6 +454,23 @@ namespace Gyunbox40.Model
                         sb.AppendLine(drwtNo6 + ",");
                         sb.AppendLine(bnusNo);
                         sb.AppendLine(")");
+
+                        dbSql.ExcuteNonQuery(sb.ToString());
+
+                        sb.Clear();
+                        sb.AppendLine(" insert into hope20603.lot_num   ");
+                        sb.AppendLine(" values(                         ");
+                        sb.AppendLine(drwNo + ","           );
+                        sb.AppendLine(drwtNo1 + ","        );
+                        sb.AppendLine(drwtNo2 + ","        );
+                        sb.AppendLine(drwtNo3+","          );
+                        sb.AppendLine(drwtNo4+","          );
+                        sb.AppendLine(drwtNo5+","          );
+                        sb.AppendLine(drwtNo6 + ","        );
+                        sb.AppendLine(bnusNo + ","         );
+                        sb.AppendLine(drwNoDate + ","    );
+                        sb.AppendLine(totSellamnt);
+                        sb.AppendLine(" ); ");
 
                         dbSql.ExcuteNonQuery(sb.ToString());
 
@@ -838,6 +877,14 @@ namespace Gyunbox40.Model
 
             return Convert.ToInt32(visitors);
 
+        }
+
+        public bool CheckExistDrwNo(string nowTime)
+        {
+            string sql = "select count(drwno) from hope20603.ddonum where drwno=@drwno";
+            int count = Convert.ToInt32(db.ExecuteScalar(sql, new { drwno = nowTime }));
+            if (count == 0) return false;
+            else return true;
         }
     }
 }

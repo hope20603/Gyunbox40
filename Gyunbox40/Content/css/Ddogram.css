@@ -247,8 +247,9 @@ ul, li {
             height:30px;
             /*border:1px solid #d2d2d2;*/
             border:none;
-            position:absolute;
-            right:0px;
+            /*position:absolute;*/
+            /*right:0px;*/
+            width:150px;
         }
 
 
@@ -471,6 +472,90 @@ ul, li {
                 border: 2px solid #ffffff;
             }
 
+/* 맵 */
+.app-maps .store_info_wrap {
+    width: 100%;
+    float: left;
+    height: 50px;
+    padding-bottom: 30px;
+    background-color: #ffffff;
+}
+
+/*.app-maps .store_info_wrap .btn_wrap{
+    width: 100%;
+    float: left;
+    height: 30px;
+    padding-bottom: 30px;
+    background-color: #ffffff;
+    border:1px solid red;
+}*/
+
+    .app-maps .store_info_wrap .btn_wrap .icon-h50{
+        position:absolute;
+        right:0;
+        top:0;
+    }
+
+.app-maps .map_wrap{
+    
+    width:100%;
+    float:left;
+    height:400px;
+    padding-bottom:30px;
+    background-color:#ffffff;
+}
+.tbl_basic{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tbl_basic th,td{
+    text-align:left;
+    padding:5px;
+    height:20px;
+    vertical-align:center;
+}
+.app-maps .store_info {
+    /*padding-top: 20px;*/
+}
+
+    .app-maps .store_info .info_title {
+        height: 50px;
+        line-height: 50px;
+        background-color: #176D64;
+        /*font-weight:bold;*/
+        color: #ffffff;
+        font-size: 17px;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+
+    .app-maps .store_info .info_address {
+        height: 30px;
+        line-height: 30px;
+        font-size: 15px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        float:left;
+        width:90%;
+    }
+
+    .app-maps .store_info .info_win {
+        width: 10%;
+        float: right;
+        font-size: 15px;
+        padding-top: 5px;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .app-maps .store_info .info_win .sp_win{
+        margin-top:5px;
+    }
+
+.app-maps .tbl_store_info {
+    
+}
 /* 번호생성 페이지에서는 lotto ball 사이즈 작게 */
 .app-createNumber .lottoBall {
     width: 28px;
@@ -1004,6 +1089,10 @@ ul, li {
 
 .icon-small{
     height:20px;
+}
+
+.icon-h50 {
+    height: 50px;
 }
 
 .li_devider {

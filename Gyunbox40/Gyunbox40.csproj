@@ -345,6 +345,10 @@
     <Content Include="images\docimg\doc-icon.png" />
     <Content Include="images\icon\icons8-map-marker-100.png" />
     <Content Include="images\icon\icons8-map-pin-100.png" />
+    <Content Include="images\icon\icons8-medal-first-place-64.png" />
+    <Content Include="images\icon\icons8-multiply-100.png" />
+    <Content Include="images\icon\icons8-multiply-100_green.png" />
+    <Content Include="images\icon\icons8-multiply-50.png" />
     <Content Include="Index.asp" />
     <Content Include="lib\axios\axios.js" />
     <Content Include="lib\axios\axios.min.js" />
@@ -612,6 +616,7 @@
     <Content Include="Vue\ManageNumber.aspx" />
     <Content Include="Vue\ReadQR.aspx" />
     <Content Include="Vue\Stores.aspx" />
+    <Content Include="Vue\StoresMap.aspx" />
     <Content Include="Vue\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
@@ -882,6 +887,13 @@
     </Compile>
     <Compile Include="Vue\Stores.aspx.designer.cs">
       <DependentUpon>Stores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\StoresMap.aspx.cs">
+      <DependentUpon>StoresMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\StoresMap.aspx.designer.cs">
+      <DependentUpon>StoresMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

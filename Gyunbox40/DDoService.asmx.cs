@@ -80,8 +80,8 @@ namespace Gyunbox40
         [ScriptMethod(UseHttpGet = true)]
         public string GetLottoNumber()
         {
+            DaDdogram daddo = new DaDdogram();
             int nowTime = 898;
-            
             string SDate = "2020-02-15";
             string EDate = DateTime.Now.ToString("yyyy-MM-dd");
             DateTime T1 = DateTime.Parse(SDate);
@@ -95,9 +95,14 @@ namespace Gyunbox40
             //string URL = "https://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=";
             string URL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=";
             string jsonResult = "";
-
+            //nowtime으로 db에 데이터가 있는지 확인- 있으면 패스... 없으면 insert
+            if(!daddo.CheckExistDrwNo(nowTime.ToString()))
+            {
+                daddo.InsertLottoNumber(nowTime.ToString());
+            }
+            
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-            JValue jVal = GetJsonObjectFromUrl(URL + nowTime);
+            JValue jVal = GetJsonObjectFromUrl(URL + nowTime); 
             if (jVal == null || jVal.Value.ToString().IndexOf("fail") > -1 )
             {
                 //해당회차에 에러가 나는 경우 이전 회차로 5회 더 요청해본다.
