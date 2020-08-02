@@ -36,12 +36,17 @@
         </div>
         <div class="section-hf div_list-winner">
             <h1 class="title">등수별 당첨 정보</h1>
-            <asp:Repeater ID="rpt_winner" runat="server">
+            <asp:Repeater ID="rpt_winner" runat="server" OnItemDataBound="rpt_winner_ItemDataBound">
                 <ItemTemplate>
                     <div class="listBox">
                         <div class="win-ord"><%#Eval("ORD")%>등</div>
                         <div class="win-cnt"><%#Eval("CNT")%>명</div>
-                        <div class="win-mny"><%#Eval("MNY")%></div>
+                        <div class="win-mny">
+                            <%#Eval("MNY")%>
+                            <span class="sp_real">
+                                (실 수령액 : <span class="sp_hi"><asp:Label ID="lbl_realGet" runat="server" Text="Label"></asp:Label></span> 원 )
+                            </span>
+                        </div>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Gyunbox40.Common;
+using Gyunbox40.Controller;
 using Gyunbox40.Model;
 
 namespace Gyunbox40.Vue
@@ -14,7 +15,7 @@ namespace Gyunbox40.Vue
     public partial class Stores : System.Web.UI.Page
     {
         protected Hashtable htLot;
-        CommonController cc;
+        LottoController lot;
         DaDdogram daDdo;
         LotnumModel model;
         List<LotWinner> mWinner;
@@ -23,11 +24,11 @@ namespace Gyunbox40.Vue
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            cc = new CommonController();
+            lot = new LottoController();
             daDdo = new DaDdogram();
             htLot = new Hashtable();
 
-            seq = cc.NullToBlank(Request["seq"]);
+            seq = lot.NullToBlank(Request["seq"]);
 
             InitData(seq);
 
@@ -52,13 +53,13 @@ namespace Gyunbox40.Vue
             htLot["seq"] = model.SEQ;
             htLot["win_date"] = model.WIN_DATE;
 
-            htLot["num1_class"] = getBallClass(model.NUM1);
-            htLot["num2_class"] = getBallClass(model.NUM2);
-            htLot["num3_class"] = getBallClass(model.NUM3);
-            htLot["num4_class"] = getBallClass(model.NUM4);
-            htLot["num5_class"] = getBallClass(model.NUM5);
-            htLot["num6_class"] = getBallClass(model.NUM6);
-            htLot["num7_class"] = getBallClass(model.NUM7);
+            htLot["num1_class"] = lot.getBallClass(model.NUM1);
+            htLot["num2_class"] = lot.getBallClass(model.NUM2);
+            htLot["num3_class"] = lot.getBallClass(model.NUM3);
+            htLot["num4_class"] = lot.getBallClass(model.NUM4);
+            htLot["num5_class"] = lot.getBallClass(model.NUM5);
+            htLot["num6_class"] = lot.getBallClass(model.NUM6);
+            htLot["num7_class"] = lot.getBallClass(model.NUM7);
 
             htLot["num1"] = model.NUM1;
             htLot["num2"] = model.NUM2;
@@ -78,30 +79,7 @@ namespace Gyunbox40.Vue
             rpt_stores.DataBind();
         }
 
-        public string getBallClass(int num)
-        {
-            if(num <= 10)
-            {
-                return "color_1";
-            }
-            else if (num <= 20)
-            {
-                return "color_2";
-            }
-            else if (num <= 30)
-            {
-                return "color_3";
-            }
-            else if (num <= 40)
-            {
-                return "color_4";
-            }
-            else
-            {
-                return "color_5";
-            }
-
-        }
+        
 
         /// <summary>
         /// text field 값 셋팅
@@ -122,6 +100,33 @@ namespace Gyunbox40.Vue
             string seq = ddl_lotSeq.SelectedValue;
 
             InitData(seq);
+        }
+
+        protected void rpt_winner_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            object items = e.Item.DataItem as object;
+            string tmp = DataBinder.Eval(items, "MNY").ToString();
+            tmp = tmp.Replace("원", "");
+            tmp = tmp.Replace(",", "");
+            double wMoney = Convert.ToDouble(tmp);
+
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lbl_real = e.Item.FindControl("lbl_realGet") as Label;
+                lbl_real.Text = string.Format("{0:#,0}", lot.getRealGetMoney(wMoney));
+                //ArrayList arr = e.Item.DataItem as ArrayList;
+                //String strTest = arr[0] as String;    //CommandArgument  값 row 마다 DataSource 값(동적인 값)을 사용하여 이벤트 처리시 사용
+                //LinkButton btnlink = e.Item.FindControl("btnlink") as LinkButton;
+                ////버튼의 속성 값 등록
+                //btnlink.CommandArgument = strTest;
+                //btnlink.CommandName = "name";
+                ////이벤트 등록을 할 수 도 있다
+                //btnlink.Click += new EventHandler(btnlink_Click);
+                ////row에 이벤트를 주기 위해 Link버튼 이벤트를 호출 한다
+                //HtmlTableRow tr = e.Item.FindControl("tr") as HtmlTableRow;
+                //tr.Attributes.Add("onclick", Page.GetPostBackEventReference(btnlink));
+
+            }
         }
     }
 }

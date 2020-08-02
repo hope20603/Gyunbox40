@@ -448,11 +448,24 @@ ul, li {
             float: right;
             text-align: right;
             font-size: 18px;
-            height: 30px;
+            height: 60px;
             line-height: 30px;
             padding-top: 5px;
             
         }
+
+
+            .div_list-winner .listBox .win-mny .sp_real {
+                width:100%;
+                float:right;
+                text-align:right;
+                font-size:15px;
+            }
+
+                .div_list-winner .listBox .win-mny .sp_real .sp_hi {
+                    font-weight: bold;
+                    color: #FF0000;
+                }
 
             /* 로또볼 기본 모양 */
             .lottoBall {
@@ -553,9 +566,97 @@ ul, li {
         margin-top:5px;
     }
 
-.app-maps .tbl_store_info {
-    
+/* 실수령액 계산기 */
+.app-calc{
+
 }
+
+.app-calc .section-0 {
+    background-color:#ffffff;
+
+}
+
+    .app-calc .section-1 {
+        padding-top:20px;
+    }
+
+    .app-calc .section-2 {
+        padding-top: 20px;
+        background-color:#ffffff;
+        height:450px;
+    }
+
+        .app-calc .section-2 h1 {
+            height: 50px;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            width: 100%;
+            font-weight: normal;
+            margin-top: 20px;
+            color: #514856;
+            margin-bottom:30px;
+        }
+
+        .app-calc .section-2 .input_wrap {
+            width: 95%;
+            margin: auto;
+        }
+
+            .app-calc .section-2 .input_wrap h2 {
+                height: 30px;
+                line-height: 30px;
+                color: #514856;
+            }
+
+            .app-calc .section-2 .input_wrap .txt_wide {
+                color: #FF6550;
+                font-weight:bold;
+                font-size:20px;
+            }
+
+        .app-calc .section-2 .btn_wrap {
+            width: 95%;
+            margin: auto;
+            margin-top:15px;
+        }
+
+            .app-calc .section-2 .btn_wrap .btn_black {
+                width: 49%;
+                float: left;
+                height: 50px;
+                font-size:17px;
+            }
+
+            .app-calc .section-2 .btn_wrap .btn_green {
+                width: 49%;
+                float: right;
+                height: 50px;
+                font-size: 17px;
+            }
+
+
+        .app-calc .section-2 .result_wrap {
+            width:100%;
+            margin-top:130px;
+        }
+
+        .app-calc .section-2 .result_wrap .inner{
+            width:95%;
+            height:100px;
+            margin:auto;
+        }
+
+            .app-calc .section-2 .result_wrap .inner span{
+                font-size:20px;
+            }
+
+                .app-calc .section-2 .result_wrap .inner span.sp_hi {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #FF0000;
+                }
+
 /* 번호생성 페이지에서는 lotto ball 사이즈 작게 */
 .app-createNumber .lottoBall {
     width: 28px;
@@ -588,7 +689,6 @@ ul, li {
 }
 
     .app-createNumber .section {
-        border: 1px solid red;
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
@@ -1214,3 +1314,8 @@ ul, li {
             font-weight: bold;
             border: 1px solid #0070C0;
         }
+
+
+.blind{
+    display:none;
+}

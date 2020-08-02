@@ -39,6 +39,22 @@
                 </div>
             </a>
         </div>
+        <div class="section section-1">
+            <a href="Stores.aspx">
+                <div class="box-1">
+                    <span style="width: 74px; height: 5px; background-color: #A7A2DE; float: left;"></span>
+                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Result & Stores</span>
+                    <span style="float: right; margin-top: 60px; color: #514856;">추첨결과/당첨판매점</span>
+                </div>
+            </a>
+            <a href="Join.aspx">
+                <div class="box-2">
+                    <span style="width: 74px; height: 5px; background-color: #F18D80; float: left;"></span>
+                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Join us</span>
+                    <span style="float: right; margin-top: 60px; color: #514856;">회원가입</span>
+                </div>
+            </a>
+        </div>
         <div class="section section-2">
             <h2 style="width: 100%; text-align: center;">행운번호</h2>
             <ul>

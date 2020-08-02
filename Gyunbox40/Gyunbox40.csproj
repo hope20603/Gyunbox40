@@ -83,6 +83,7 @@
     <Content Include="Content\js\billboard.min.js" />
     <Content Include="Content\js\html5shiv.min.js" />
     <Content Include="Content\js\jsQR.js" />
+    <Content Include="Content\js\lotto.js" />
     <Content Include="Content\js\util.js" />
     <Content Include="Content\js\vue-infinite-loading.js" />
     <Content Include="DDoService.asmx" />
@@ -606,6 +607,7 @@
     <Content Include="Views\Home\Project.aspx" />
     <Content Include="Views\Home\SaveContent.aspx" />
     <Content Include="Views\Shared\Pagenavigator.ascx" />
+    <Content Include="Vue\Calc.aspx" />
     <Content Include="Vue\CreateNumber.aspx" />
     <Content Include="Vue\Home.aspx" />
     <Content Include="Vue\Index.aspx" />
@@ -665,6 +667,7 @@
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Util.cs" />
+    <Compile Include="Controller\LottoController.cs" />
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="DDoService.asmx.cs">
       <DependentUpon>DDoService.asmx</DependentUpon>
@@ -817,6 +820,13 @@
     </Compile>
     <Compile Include="Views\Shared\Pagenavigator.ascx.designer.cs">
       <DependentUpon>Pagenavigator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Calc.aspx.cs">
+      <DependentUpon>Calc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Calc.aspx.designer.cs">
+      <DependentUpon>Calc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\CreateNumber.aspx.cs">
       <DependentUpon>CreateNumber.aspx</DependentUpon>
