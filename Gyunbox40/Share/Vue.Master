@@ -27,7 +27,7 @@
 <body>
     <form id="form1" runat="server">
         <div id="wrap">
-            <header class="header cfixed">
+            <%--<header class="header cfixed">
                 <h1 class="logo"><a href="/vue/index.aspx">또그램</a></h1>
                 <nav>
                     <ul class="gnb">
@@ -35,13 +35,34 @@
                         <li class="menu_2"><%=loginState%></li>
                     </ul>
                 </nav>
+            </header>--%>
+            <header class="header cfixed">
+                <h1 class="logo"><a href="/Vue/Index_v2.aspx">또그램</a></h1>
+                <nav>
+                    <ul class="gnb" style="display: none;z-index: 999;">
+                        <li><a href="/Vue/Index_v2.aspx">홈</a></li>
+                        <li><a href="CreateNumber.aspx">번호생성</a></li>
+                        <li><a href="ManageNumber.aspx">내 번호 관리</a></li>
+                        <li><a href="Stores.aspx">추첨결과/당첨판매점</a></li>
+                        <li><a href="Calc.aspx">실수령액 계산기</a></li>
+                        <li><%=loginState%></li>
+                        <li><%=joinStr%></li>
+                    </ul>
+                </nav>
+                <a style="cursor: pointer;">
+                    <span class="menu-toggle-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </a>
             </header>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div class="master-sns-box" >
+        <div class="master-sns-box">
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_inline_share_toolbox"></div>
+            <div class="addthis_inline_share_toolbox"></div>
         </div>
         <footer class="master_footer">
             <div>
@@ -51,6 +72,13 @@
         </footer>
     </form>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f237224f6fe70e7"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f237224f6fe70e7"></script>
+    <script>
+        $(document).ready(function () {
+            $(".menu-toggle-btn").click(function () {
+                $(".gnb").stop().slideToggle("fast");
+            });
+        });
+    </script>
 </body>
 </html>

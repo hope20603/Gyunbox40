@@ -8,7 +8,7 @@
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">회원가입 없이도 사용하실 수 있습니다.</span>
-            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;" class="blink">또그램은 <span style="color: #ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>
+            <%--<span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;" class="blink">또그램은 <span style="color: #ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>--%>
         </div>
         <div class="section section-ad" style="display:block;">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -42,16 +42,16 @@
         <div class="section section-1">
             <a href="Stores.aspx">
                 <div class="box-1">
-                    <span style="width: 74px; height: 5px; background-color: #A7A2DE; float: left;"></span>
+                    <span style="width: 122px; height: 5px; background-color: #A7A2DE; float: left;"></span>
                     <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Result & Stores</span>
                     <span style="float: right; margin-top: 60px; color: #514856;">추첨결과/당첨판매점</span>
                 </div>
             </a>
-            <a href="Join.aspx">
+            <a href="Calc.aspx">
                 <div class="box-2">
-                    <span style="width: 74px; height: 5px; background-color: #F18D80; float: left;"></span>
-                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Join us</span>
-                    <span style="float: right; margin-top: 60px; color: #514856;">회원가입</span>
+                    <span style="width: 83px; height: 5px; background-color: #F18D80; float: left;"></span>
+                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Calculator</span>
+                    <span style="float: right; margin-top: 60px; color: #514856;">실수령액 계산기</span>
                 </div>
             </a>
         </div>
@@ -216,20 +216,20 @@
             
         </div>
         <script>
-            var shown = true;          //글자 깜빡임을 위한 변수
+            //var shown = true;          //글자 깜빡임을 위한 변수
 
-            //글자 깜빡임
-            setInterval(toggle, 1000);
+            ////글자 깜빡임
+            //setInterval(toggle, 1000);
 
-            function toggle() {
-                if (shown) {
-                    $(".blink").fadeOut();
-                    shown = false;
-                } else {
-                    $(".blink").fadeIn();
-                    shown = true;
-                }
-            }
+            //function toggle() {
+            //    if (shown) {
+            //        $(".blink").fadeOut();
+            //        shown = false;
+            //    } else {
+            //        $(".blink").fadeIn();
+            //        shown = true;
+            //    }
+            //}
         </script>
     </div>
     <!-- IE 에러 대비 -->

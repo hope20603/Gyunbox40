@@ -21,7 +21,7 @@ ul, li {
 
 
 /* header */
-.header {
+/*.header {
     height: 20px;
     padding: 20px 5%;
     background-color: #176D64;
@@ -61,7 +61,62 @@ ul, li {
         .header .gnb a {
             color: #ffffff;
             float: left;
+        }*/
+
+/* 헤더 영역 CSS */
+.header {
+    position: relative;
+    height: 20px;
+    padding: 20px 5%;
+    background-color: #176D64;
+}
+
+    .header .logo {
+        float: left;
+    }
+
+        .header .logo a {
+            font-size: 26px;
+            /*color:#3f51b5;*/
+            color: #ffffff;
+            font-weight: normal;
         }
+
+    .header .gnb {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        /*background: #3f51b5;*/
+        background-color: #0DA084;
+    }
+
+        .header .gnb li a {
+            display: block;
+            padding: 14px 0 14px 5%;
+            font-size: 14px;
+            color: #fff;
+        }
+
+    .header .menu-toggle-btn {
+        float: right;
+        width: 20px;
+        margin-top: 4px;
+        cursor: :pointer;
+    }
+
+        .header .menu-toggle-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            /*background:#3f51b5;*/
+            background: #ffffff;
+        }
+
+            .header .menu-toggle-btn span:nth-child(2) {
+                margin: 5px 0;
+            }
 
 .master-sns-box {
     width: 200px;
@@ -233,7 +288,8 @@ ul, li {
 }
 
 /* 횟차별 당첨 가게 정보 */
-.app-stores {
+.app-stores .lottoBall{
+    position:inherit;
 }
 
     .app-stores .section-1 {
@@ -571,10 +627,19 @@ ul, li {
 
 }
 
-.app-calc .section-0 {
-    background-color:#ffffff;
-
-}
+    .app-calc .section-0 {
+        box-sizing: border-box;
+        text-align: left;
+        padding: 10px;
+        padding-top: 20px;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #ffffff;
+        color: black;
+        border-radius: 0px;
+        height:100px;
+    }
 
     .app-calc .section-1 {
         padding-top:20px;
@@ -792,10 +857,12 @@ ul, li {
         .app-createNumber .ball_wrap .plus_mark {
             width: 15px;
         }
-
+    .app-createNumber .lottoBall {
+        position: inherit;
+    }
 /* ManageNumber.aspx */
 
-
+    
 
 .app-manageNumber .section {
     width: 90%;

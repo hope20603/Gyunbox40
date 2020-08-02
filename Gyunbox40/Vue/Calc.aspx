@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-calc">
-        <div class="section section-0" style="height: 80px;">
+        <div class="section section-0" style="">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">실수령액을 계산해보세요.</span>

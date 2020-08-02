@@ -30,7 +30,7 @@ namespace Gyunbox40.Controller
                 totalTax = Math.Round(wTaxMoney * 0.22);
                 revenuMoney = wMoney - totalTax;
             }
-            else if (3000000000 < wMoney)
+            else if (300000000 < wMoney)
             {
                 double aTax = Math.Round(300000000 * 0.22);
                 double divMoney = wTaxMoney - 300000000;
