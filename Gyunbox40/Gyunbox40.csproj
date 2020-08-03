@@ -368,6 +368,7 @@
     <Content Include="lib\vue\vue.runtime.js" />
     <Content Include="lib\vue\vue.runtime.min.js" />
     <Content Include="Proc.asp" />
+    <Content Include="robots.txt" />
     <Content Include="Share\bootstrap.aspx" />
     <Content Include="SiteBlog.Master" />
     <Content Include="Content\css\insight.scss" />
@@ -378,6 +379,7 @@
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Share\Vue.Master" />
     <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile3.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
