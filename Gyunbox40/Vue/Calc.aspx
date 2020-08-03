@@ -62,6 +62,12 @@
         function CheckValue() {
             var tb = "<%=tb_mny.ClientID%>";
             var chkValue = $("#" + tb).val();
+
+            if (chkValue == "") {
+                alert('당첨금액을 입력해주세요.');
+                return false;
+            }
+
             if (isNaN(chkValue)) {
                 alert('숫자만 입력해주세요.');
                 return false;
