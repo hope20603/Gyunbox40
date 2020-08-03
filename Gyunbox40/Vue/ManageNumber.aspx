@@ -147,7 +147,7 @@
                 infiniteHandler: function ($state) {
                     var self = this;
                     curPage += 1; //다음페이지 번호
-                    let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetMyNumberList";
+                    let reqUrl = "/DDoService.asmx/GetMyNumberList";
 
                     axios({
                         method: 'GET',
@@ -183,7 +183,7 @@
                 //내가 저장한 번호 개수 
                 getTotalCount: function () {
                     var self = this;
-                    let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetMyNumberCount";
+                    let reqUrl = "/DDoService.asmx/GetMyNumberCount";
                     axios({
                         method: 'GET',
                         url: reqUrl
@@ -201,7 +201,7 @@
                     //console.debug("idx", idx);
                     var self = this;
                     //해당 번호의 소유자가 로그인 정보와 동일한지 확인 한 후 삭제
-                    let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/DeleteMyNumber";
+                    let reqUrl = "/DDoService.asmx/DeleteMyNumber";
 
                     axios({
                         method: 'GET',
@@ -247,7 +247,7 @@
                     let totalPage = Math.ceil(Number(self.totalCount / pageSize));
 
                     if (totalPage >= curPage) {
-                        let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetMyNumberList";
+                        let reqUrl = "/DDoService.asmx/GetMyNumberList";
 
                         axios({
                             method: 'GET',

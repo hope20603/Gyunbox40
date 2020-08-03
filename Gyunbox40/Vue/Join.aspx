@@ -54,7 +54,7 @@
                     if (self.userId == "") {
                         alert("사용할 아이디를 입력해주세요.");
                     } else {
-                        let reqUrl = "http://<%=hostString%>/DDoService.asmx/CheckUserId?";
+                        let reqUrl = "/DDoService.asmx/CheckUserId?";
                         let params = "uid=" + self.userId;
 
                         axios({
@@ -92,7 +92,7 @@
                             //    "x-api-key": "YOUR_API_KEY"
                             //}
                         }
-                        let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserRegister";
+                        let reqUrl = "/DDoService.asmx/UserRegister";
                         let form = new FormData();
                         form.append('userId', self.userId);
                         form.append('userPwd', self.userPwd);

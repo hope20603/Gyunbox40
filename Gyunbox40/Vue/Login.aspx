@@ -43,7 +43,7 @@
                     if (self.userId == "" || self.userPwd == "") {
                         alert("아이디 또는 패스워드를 다시 입력해주세요.");
                     } else {
-                        let reqUrl = "http://<%=hostString%>/DDoService.asmx/UserLogin";
+                        let reqUrl = "/DDoService.asmx/UserLogin";
                         let form = new FormData();
                         form.append('userId', self.userId);
                         form.append('userPwd', self.userPwd);

@@ -81,7 +81,7 @@
                     //    this.pre_styleG = 'background-color:' + this.getBallColor(this.pre_drwtNo7);
                 },
                 getPreLuckyNumber: function() {
-                    let reqUrl = "http://localhost:11111/DDoService.asmx/GetLottoNumber";
+                    let reqUrl = "/DDoService.asmx/GetLottoNumber";
                     var self = this;
 
                     axios({

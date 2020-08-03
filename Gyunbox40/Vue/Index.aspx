@@ -213,7 +213,7 @@
                 //당첨번호 가져오기
                 getPreLuckyNumber:function() {
                     var self = this;
-                    let reqUrl = "http://<%=hostString%>/DDoService.asmx/GetLottoNumber";
+                    let reqUrl = "/DDoService.asmx/GetLottoNumber";
 
                   axios.get(reqUrl).then(function(response) {
 

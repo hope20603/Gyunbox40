@@ -6,7 +6,7 @@
     <style>
         .app-about{width:95%; background-color:#ffffff; margin:10px auto; padding:10px; box-sizing:border-box; margin-bottom:30px;}
         .app-about .section_info {min-height:300px;}
-        .app-about .section_info li{width:100%; height:30px; line-height:30px;}
+        .app-about .section_info li{width:100%; min-height:30px; line-height:30px;}
     </style>
     <div id="app" class="app-about">
         <div class="section_info">

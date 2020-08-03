@@ -150,7 +150,8 @@
 
                     let jsonArr = JSON.stringify({ pArrParams: this.fixedNumbers });
                     //console.log(jsonArr);
-                    let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetNewNumber";
+                    //let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/GetNewNumber";
+                    let reqUrl = "/DDoService.asmx/GetNewNumber";
                     //let reqUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/UserLogin";
                     //console.log(reqUrl);
 
@@ -203,7 +204,7 @@
                     } else {
                         //2. 로그인이 되어 있는 경우, 해당아이디로 로또번호 저장
                         let jsonSaveArr = JSON.stringify({ pArrParams: this.createdNumbers });
-                        let reqSaveUrl = "http://<%=(new CommonController()).hostString%>/DDoService.asmx/SaveNewNumbers";
+                        let reqSaveUrl = "/DDoService.asmx/SaveNewNumbers";
 
                         axios({
                             url: reqSaveUrl,

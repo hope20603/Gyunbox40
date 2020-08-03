@@ -11,6 +11,12 @@ namespace Gyunbox40
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string host = Request.Url.Host.ToUpper();
+            if(host.IndexOf("DDOGRAM") > -1)
+            {
+                Response.Redirect("/Vue/Index.aspx");
+                Response.End();
+            }
 
         }
     }

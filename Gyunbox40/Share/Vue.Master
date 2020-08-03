@@ -18,8 +18,8 @@
     <link rel="apple-touch-icon-precomposed" href="/images/favicon/indigo-touch-icon.png">
     <link href="../Content/css/Ddogram.css?v=1" rel="stylesheet" />
     <link href="../Content/css/reset.css" rel="stylesheet" />
-    <!-- 구글 애드센스 -->
-    <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <%--<!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--%>
     <title>또그램</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
