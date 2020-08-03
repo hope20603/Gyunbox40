@@ -87,6 +87,7 @@
     <Content Include="Content\js\util.js" />
     <Content Include="Content\js\vue-infinite-loading.js" />
     <Content Include="DDoService.asmx" />
+    <Content Include="google6a7775c88ee9a3e4.html" />
     <Content Include="ig_res\Default\ig_calendarview.css" />
     <Content Include="ig_res\Default\ig_captcha.css" />
     <Content Include="ig_res\Default\ig_dataGrid.css" />
