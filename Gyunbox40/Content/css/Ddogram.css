@@ -631,14 +631,14 @@ ul, li {
         box-sizing: border-box;
         text-align: left;
         padding: 10px;
-        padding-top: 20px;
+        /*padding-top: 20px;*/
         width: 100%;
         margin-left: 0px;
         margin-right: 0px;
         background-color: #ffffff;
         color: black;
         border-radius: 0px;
-        height:100px;
+        height:88px;
     }
 
     .app-calc .section-1 {
@@ -760,7 +760,7 @@ ul, li {
         margin-bottom: 10px;
         /*min-height: 100px;*/
         float: left;
-        padding: 10px 0 10px 0;
+        padding: 0 0 10px 0;
     }
 
         .app-createNumber .section h2 {
@@ -908,7 +908,7 @@ ul, li {
     box-sizing: border-box;
     text-align: left;
     padding: 10px;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;

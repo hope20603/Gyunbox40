@@ -5,7 +5,26 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-createNumber">
         <div class="section section-0">
-            <div style="height:90px;">
+            <div>
+            <%--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 또그램_모바일_상단 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8384080521274050"
+     data-ad-slot="7056829024"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>--%>
+            <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-sohv6m57ry9i" 
+ data-ad-width   = "320" 
+ data-ad-height  = "50"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+        </div>
+            <div style="height:70px;margin-top:20px;">
                 <span style="color: #176D64; float:left;  box-sizing:border-box; text-align:center; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; width:100%; ">또그램이 제공하는 추천번호 :)</span><br />
                 <span style="width:100%; box-sizing:border-box; text-align:center; padding-bottom:30px; float:left;">원하는 번호를 선택한 후 번호를 생성해보세요.</span>
             </div>

@@ -5,6 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-manageNumber">
+        <div>
+            <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-sohv6m57ry9i" 
+ data-ad-width   = "320" 
+ data-ad-height  = "50"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+        </div>
         <div class="section section-0">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
             <span style="padding-left: 7px;float:left;">내가 좋아하는 번호들을 관리하세요.</span>

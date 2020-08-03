@@ -3,6 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-calc">
+        <div>
+            <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-sohv6m57ry9i" 
+ data-ad-width   = "320" 
+ data-ad-height  = "50"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+        </div>
         <div class="section section-0" style="">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
@@ -11,7 +19,7 @@
         <div class="section section-1" style="height: 120px;">
             <h2 style="width: 100%; text-align: center; padding-bottom: 30px;">
                 <span style="color: #B40000; font-size: 15pt;"><%=htLot["seq"]%>회 </span><span style="color: #514856; font-size: 15pt;">당첨결과</span>
-                <span style="width: 100%; line-height: 20px; float: left; font-size: 10pt; color: #A5A5A5; height: 20px; margin-top: -5px;">( <%=htLot["win_date"]%>일 추첨 )</span>
+                <span style="width: 100%; line-height: 40px; float: left; font-size: 10pt; color: #A5A5A5; height: 40px; margin-top: -5px;">( <%=htLot["win_date"]%>일 추첨 )</span>
                 <!-- 당첨결과 선택해서 조회 가능하도록 수정 -->
                 <%--<span class="sp_search">
                     <asp:DropDownList ID="ddl_lotSeq" runat="server" OnDataBound="ddl_lotSeq_DataBound" AutoPostBack="True" OnSelectedIndexChanged="ddl_lotSeq_SelectedIndexChanged"></asp:DropDownList>
