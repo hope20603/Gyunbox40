@@ -344,6 +344,7 @@
     <Content Include="ig_res\Default\images\spellchecker_back.jpg" />
     <Content Include="ig_res\Default\images\spellchecker_button.png" />
     <Content Include="images\button\btn_del.png" />
+    <Content Include="images\ddogram.png" />
     <Content Include="images\docimg\doc-icon.png" />
     <Content Include="images\icon\icons8-map-marker-100.png" />
     <Content Include="images\icon\icons8-map-pin-100.png" />

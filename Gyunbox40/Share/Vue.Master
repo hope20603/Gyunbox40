@@ -12,7 +12,7 @@
     <meta property="og:type" content="website"> 
     <meta property="og:title" content="또그램">
     <meta property="og:description" content="또그램,로또실수령액계산기,로또번호생성,로또당첨번호확인,로또번호확인">
-    <%--<meta property="og:image" content="http://www.mysite.com/myimage.jpg">--%>
+    <meta property="og:image" content="../images/ddogram.png">
     <meta property="og:url" content="http://ddogram.ga">
     <link rel="canonical" href="http://ddogram.ga/Vue/Index_v2.aspx">
     <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
