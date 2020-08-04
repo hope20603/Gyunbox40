@@ -594,6 +594,7 @@
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="sitemap.xml" />
     <Content Include="Styles\Site.css" />
     <Content Include="test.asp" />
     <Content Include="Views\DevHome\Board\Detail.aspx" />
