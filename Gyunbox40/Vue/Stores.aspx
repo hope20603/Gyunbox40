@@ -6,15 +6,15 @@
     <div id="app" class="app-index app-stores">
         <div>
             <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-sohv6m57ry9i" 
+ data-ad-unit    = "DAN-qxtvjk0wtmpe" 
  data-ad-width   = "320" 
- data-ad-height  = "50"></ins> 
+ data-ad-height  = "100"></ins> 
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
         </div>
         <div class="section section-0" style="height:90px;padding-top:0px;">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
-            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
+            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또집사입니다.</span>
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">당첨된 지역을 확인해보세요!</span>
         </div>
         <div class="section section-1">

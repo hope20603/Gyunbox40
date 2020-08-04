@@ -9,7 +9,7 @@
             <span style=" padding-left:7px;">로그인 후 나의 번호를 관리해보세요!!</span>
         </div>
         <div class="section section-1">
-            <h2>또그램 회원 로그인</h2>
+            <h2>로또집사 회원 로그인</h2>
             <div class="box-login">
                 <input type="text" id="userId" v-model="userId" class="txt_wide txt_gray" placeholder="아이디 입력" />
                 <input type="password" id="userPwd" v-model="userPwd" class="txt_wide txt_gray" placeholder="비밀번호 입력" />

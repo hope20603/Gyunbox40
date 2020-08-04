@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="naver-site-verification" content="82cc77dc1ba0460437698b7b3cb7e2a9855306d5" />
-    <meta name="description" content="또그램,로또실수령액계산기,로또번호생성,로또당첨번호확인,로또번호확인">
+    <meta name="description" content="로또집사,로또실수령액계산기,로또번호생성,로또당첨번호확인,로또번호확인">
     <meta property="og:type" content="website"> 
-    <meta property="og:title" content="또그램">
-    <meta property="og:description" content="또그램,로또실수령액계산기,로또번호생성,로또당첨번호확인,로또번호확인">
+    <meta property="og:title" content="로또집사">
+    <meta property="og:description" content="로또집사,로또실수령액계산기,로또번호생성,로또당첨번호확인,로또번호확인">
     <meta property="og:image" content="../images/ddogram.png">
     <meta property="og:url" content="http://ddogram.ga">
     <link rel="canonical" href="http://ddogram.ga/Vue/Index_v2.aspx">
@@ -28,7 +28,7 @@
     <link href="../Content/css/reset.css" rel="stylesheet" />
     <%--<!-- 구글 애드센스 -->
     <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--%>
-    <title>또그램</title>
+    <title>로또집사</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -45,7 +45,7 @@
                 </nav>
             </header>--%>
             <header class="header cfixed">
-                <h1 class="logo"><a href="/Vue/Index_v2.aspx">또그램</a></h1>
+                <h1 class="logo"><a href="/Vue/Index_v2.aspx">로또집사</a></h1>
                 <nav>
                     <ul class="gnb" style="display: none;z-index: 999;">
                         <li><a href="/Vue/Index_v2.aspx">홈</a></li>
@@ -53,7 +53,7 @@
                         <li><a href="ManageNumber.aspx">내 번호 관리</a></li>
                         <li><a href="Stores.aspx">추첨결과/당첨판매점</a></li>
                         <li><a href="Calc.aspx">실수령액 계산기</a></li>
-                        <li><a href="About.aspx">또그램정보/댓글</a></li>
+                        <li><a href="About.aspx">로또집사 정보/댓글</a></li>
                         <li><%=loginState%></li>
                         <li><%=joinStr%></li>
                     </ul>

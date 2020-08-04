@@ -9,11 +9,11 @@
             <span style=" padding-left:7px;">회원가입을 통해서 나의 번호를 따로 관리해보세요  :)</span>
         </div>
         <div class="section section-1">
-            <h2>또그램 회원가입</h2>
+            <h2>로또집사 회원가입</h2>
             <div class="box-join">
                 <ul>
                     <li>
-                        <input type="text" v-model="userId"  class="txt_wide txt_gray" placeholder="아이디(이메일 주소)" />
+                        <input type="text" v-model="userId"  class="txt_wide txt_gray" placeholder="아이디" />
                         <a id="btn_userIdChk" class="btn_mid btn_black" @click="clickBtn">중복확인</a>
                         <input type="hidden" v-model="dupeChk" />
                     </li>
@@ -101,7 +101,7 @@
                         axios.post(reqUrl, form, config)
                             .then(function(response){
                                 if (response.data == "OKK") {
-                                    alert("또그램 회원이 되신것을 환영합니다.\n좋아하는 번호를 저장해두고 관리하세요!");
+                                    alert("로또집사 회원이 되신것을 환영합니다.\n좋아하는 번호를 저장해두고 관리하세요!");
                                     location.href = "ManageNumber.aspx";
                                 } else {
                                     alert("죄송합니다.\n가입중 문제가 생겼습니다.\n다시한번 시도해주세요.");

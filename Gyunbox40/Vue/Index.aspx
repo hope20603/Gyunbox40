@@ -6,8 +6,8 @@
     <div id="app" class="app-index">
         <div class="section section-0" style="height:100px;">
             <span style="color: #176D64; padding-left:7px; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; ">안녕하세요</span><br />
-            <span style="width:100%; float:left; box-sizing:border-box; padding-left:7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
-            <span style="width:100%; float:left; box-sizing:border-box; padding-left:7px;" class="blink">또그램은 <span style="color:#ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>
+            <span style="width:100%; float:left; box-sizing:border-box; padding-left:7px;">나의 로또 일상을 기록하는 로또집사입니다.</span>
+            <span style="width:100%; float:left; box-sizing:border-box; padding-left:7px;" class="blink">로또집사는 <span style="color:#ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>
         </div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">

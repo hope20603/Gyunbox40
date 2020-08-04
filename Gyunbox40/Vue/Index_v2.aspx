@@ -5,61 +5,57 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-index">
         <div>
-            <%--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 또그램_모바일_상단 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8384080521274050"
-     data-ad-slot="7056829024"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>--%>
             <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-sohv6m57ry9i" 
+ data-ad-unit    = "DAN-qxtvjk0wtmpe" 
  data-ad-width   = "320" 
- data-ad-height  = "50"></ins> 
+ data-ad-height  = "100"></ins> 
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
         </div>
         <div class="section section-0" style="height: 100px;">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
-            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또그램입니다.</span>
-            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">회원가입 없이도 사용하실 수 있습니다.</span>
+            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또집사입니다.</span>
+            <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">회원가입 없이도 게스트로 사용하실 수 있습니다.</span>
             <%--<span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;" class="blink">또그램은 <span style="color: #ED184E;">모바일</span>에 최적화 되어있습니다 :)</span>--%>
         </div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">
-                <div class="box-1">
-                    <span style="width: 57px; height: 5px; background-color: #8CC6E7; float: left;"></span>
-                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Create</span>
-                    <span style="float: right; margin-top: 60px; color: #514856;">번호 생성</span>
-                </div>
-            </a>
-            <a href="ManageNumber.aspx">
-                <div class="box-2">
-                    <span style="width: 74px; height: 5px; background-color: #0DA084; float: left;"></span>
-                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">My page</span>
-                    <span style="float: right; margin-top: 60px; color: #514856;">내 번호 관리</span>
-                </div>
-            </a>
-        </div>
-        <div class="section section-1">
-            <a href="Stores.aspx">
-                <div class="box-1">
-                    <span style="width: 122px; height: 5px; background-color: #A7A2DE; float: left;"></span>
-                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Result & Stores</span>
-                    <span style="float: right; margin-top: 60px; color: #514856;">추첨결과/당첨판매점</span>
+                <div class="box-1" style="background-color:#8CC6E7;">
+                    <%--<span style="width: 57px; height: 5px; background-color: #8CC6E7; float: left;"></span>--%>
+                    <%--<span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Create</span>--%>
+                    <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:40px; display:inline-block;" >번호 생성</span>
                 </div>
             </a>
             <a href="Calc.aspx">
-                <div class="box-2">
-                    <span style="width: 83px; height: 5px; background-color: #F18D80; float: left;"></span>
+                <div class="box-2" style="background-color: #F18D80;">
+                    <%--<span style="width: 83px; height: 5px; background-color: #F18D80; float: left;"></span>
                     <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Calculator</span>
-                    <span style="float: right; margin-top: 60px; color: #514856;">실수령액 계산기</span>
+                    <span style="float: right; margin-top: 60px; color: #514856;">실수령액 계산기</span>--%>
+                    <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:30px; display:inline-block;" >실수령액<br />계산기</span>
                 </div>
             </a>
+            
+        </div>
+       
+            <div class="section section-1">
+            <a href="Stores.aspx">
+                <div class="box-1" style="background-color: #A7A2DE">
+                    <%--<span style="width: 122px; height: 5px; background-color: #A7A2DE; float: left;"></span>
+                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Result & Stores</span>
+                    <span style="float: right; margin-top: 60px; color: #514856;">추첨결과/당첨판매점</span>--%>
+                    <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:30px; display:inline-block;" >추첨결과<br />당첨판매점</span>
+                </div>
+            </a>
+                <a href="Login.aspx">
+                <div class="box-2" style="background-color:#0DA084;">
+                    
+                    <%--<span style="width: 74px; height: 5px; background-color: #0DA084; float: left;"></span>
+                    <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">My page</span>--%>
+                    
+                   <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:40px; display:inline-block;" >로그인</span>
+                </div>
+            </a>
+            
         </div>
         <div class="section section-2">
             <h2 style="width: 100%; text-align: center;">행운번호</h2>
@@ -77,6 +73,22 @@
                     </div>
                 </li>
             </ul>
+        </div>
+        <div class="section-add">
+            <div style="width:50%;float:left;overflow:hidden;">
+                <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-1k1ty6cac4h9g" 
+ data-ad-width   = "250" 
+ data-ad-height  = "250"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            </div>
+            <div style="width:50%;float:right;overflow:hidden;">
+                <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-1iextrvmvi52u" 
+ data-ad-width   = "250" 
+ data-ad-height  = "250"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            </div>
         </div>
         <div class="section section-3">
             <!-- 당첨결과 선택해서 조회 가능하도록 수정 -->
@@ -163,7 +175,7 @@
                 </table>
 
                 <!-- 포함 -->
-                <table class="tbl_data" id="tbl_chart2" style="clear:both;display:block;width:100%;">
+                <table class="tbl_data" id="tbl_chart2" style="clear:both;width:100%;">
                     <caption></caption>
                     <colgroup>
                         <col style="width:5%">

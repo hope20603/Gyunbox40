@@ -34,7 +34,7 @@
 					<li>
 						<a href="/Vue/Index.aspx" target="_blank">
 							<img src="/images/s-images/promo04.png" alt="">    
-							<h3>또그램</h3>
+							<h3>로또집사</h3>
 							<p>
 								Vue.js 프로그램
 							</p>
