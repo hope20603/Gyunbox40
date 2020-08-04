@@ -1,2 +1,3 @@
 User-agent: *
 Allow:/
+sitemap: http://ddogram.ga/sitemap.xml
