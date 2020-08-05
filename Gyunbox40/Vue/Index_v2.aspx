@@ -23,7 +23,7 @@
                 <div class="box-1" style="background-color:#8CC6E7;">
                     <%--<span style="width: 57px; height: 5px; background-color: #8CC6E7; float: left;"></span>--%>
                     <%--<span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Create</span>--%>
-                    <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:40px; display:inline-block;" >번호 생성</span>
+                    <span style="color:#ffffff; font-size:25px; margin:auto;width:100%;text-align:center; margin-top:40px; display:inline-block;" >번호 생성</span>
                 </div>
             </a>
             <a href="Calc.aspx">
@@ -31,7 +31,7 @@
                     <%--<span style="width: 83px; height: 5px; background-color: #F18D80; float: left;"></span>
                     <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Calculator</span>
                     <span style="float: right; margin-top: 60px; color: #514856;">실수령액 계산기</span>--%>
-                    <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:30px; display:inline-block;" >실수령액<br />계산기</span>
+                    <span style="color:#ffffff; font-size:25px; margin:auto;width:100%;text-align:center; margin-top:30px; display:inline-block;" >실수령액<br />계산기</span>
                 </div>
             </a>
             
@@ -43,7 +43,7 @@
                     <%--<span style="width: 122px; height: 5px; background-color: #A7A2DE; float: left;"></span>
                     <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">Result & Stores</span>
                     <span style="float: right; margin-top: 60px; color: #514856;">추첨결과/당첨판매점</span>--%>
-                    <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:30px; display:inline-block;" >추첨결과<br />당첨판매점</span>
+                    <span style="color:#ffffff; font-size:25px; margin:auto;width:100%;text-align:center; margin-top:30px; display:inline-block;" >추첨결과<br />당첨판매점</span>
                 </div>
             </a>
                 <a href="Login.aspx">
@@ -52,7 +52,7 @@
                     <%--<span style="width: 74px; height: 5px; background-color: #0DA084; float: left;"></span>
                     <span style="width: 100%; float: left; height: 30px; line-height: 30px; color: #BBB8B3;">My page</span>--%>
                     
-                   <span style="color:#ffffff; font-size:30px; margin:auto;width:100%;text-align:center; margin-top:40px; display:inline-block;" >로그인</span>
+                   <span style="color:#ffffff; font-size:25px; margin:auto;width:100%;text-align:center; margin-top:40px; display:inline-block;" >로그인</span>
                 </div>
             </a>
             
