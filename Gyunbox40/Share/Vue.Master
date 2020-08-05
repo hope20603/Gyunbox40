@@ -12,7 +12,7 @@
     <meta property="og:type" content="website"> 
     <meta property="og:title" content="로또집사">
     <meta property="og:description" content="로또집사,로또실수령액계산기,로또번호생성,로또당첨번호확인,로또번호확인">
-    <meta property="og:image" content="../images/ddogram.png">
+    <meta property="og:image" content="http://ddogram.ga/images/ddogram-share.png">
     <meta property="og:url" content="http://ddogram.ga">
     <link rel="canonical" href="http://ddogram.ga/Vue/Index_v2.aspx">
     <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
@@ -31,6 +31,7 @@
     <title>로또집사</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -71,7 +72,11 @@
         </div>
         <div class="master-sns-box" style="margin-top:30px;">
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_inline_share_toolbox"></div>
+            <%--<div class="addthis_inline_share_toolbox"></div>--%>
+            <a href="javascript:;" onclick="javascript:sendKakao();"><img src="../images/icon/kakao.png" style="width:50px;"/></a>
+            <a href="javascript:;" onclick="javascript:sFacebook();"><img src="../images/icon/facebook.png" style="width:50px;margin-left:5px;"/></a>
+            <a href="javascript:;" onclick="javascript:TourUrlCopy();"><img src="../images/icon/link-copy.png" style="width:50px;margin-left:5px;"/></a>
+            
         </div>
         <footer class="master_footer">
             <div>
@@ -81,7 +86,7 @@
         </footer>
     </form>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f237224f6fe70e7"></script>
+    <%--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f237224f6fe70e7"></script>--%>
     <script>
         $(document).ready(function () {
             $(".menu-toggle-btn").click(function () {
@@ -89,5 +94,78 @@
             });
         });
     </script>
+    <script>
+        //카카오 공유!
+        Kakao.init("f4a35fa33556ec5319b6c83e451a78f7");
+
+        function sendKakao() {
+            var title = "로또집사,로또실수령액계산기,무료로또번호제공";
+            var desc = "로또집사로 로또번호를 만들고 저장하자.";
+            var imgUrl = "http://ddogram.ga/images/ddogram-share.png";
+            var webUrl = 'http://ddogram.ga/vue/index_v2.aspx';
+            var mobileWebUrl = 'http://ddogram.ga/vue/index_v2.aspx';
+
+            shareKakaoLink(title, desc, imgUrl, webUrl, mobileWebUrl);
+        }
+
+
+        function shareKakaoLink(title, desc, imgUrl, webUrl, mobileWebUrl) {
+            Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: title,
+                    description: desc,
+                    imageUrl: imgUrl,
+                    link: {
+                        webUrl: webUrl,
+                        mobileWebUrl: mobileWebUrl,
+                    },
+                },
+                buttons: [
+                    {
+                        title: '자세히 보기',
+                        link: {
+                            webUrl: webUrl,
+                            mobileWebUrl: mobileWebUrl,
+                        },
+                    },
+                ],
+
+                success: function (response) {
+                    //          console.log(response);
+                },
+                fail: function (error) {
+                    //          console.log(error);
+                }
+            });
+        }
+
+        //주소복사
+        function TourUrlCopy() {
+            var addrTxt = "http://ddogram.ga/vue/index_v2.aspx";
+            
+            var isIE = false;
+            var agent = navigator.userAgent.toLowerCase();
+            if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1)) {
+                isIE = true;
+            }
+
+            if (isIE) {
+                if (confirm("이 글의 주소를 클립보드에 복사하시겠습니까?"))
+                    window.clipboardData.setData("Text", addrTxt);
+            } else {
+                temp = prompt("Ctrl+C를 눌러 주소를 클립보드로 복사하세요.", addrTxt);
+            }
+        }
+
+        /* 페이스북 공유 */
+        function sFacebook() {
+            let webUrl = 'http://ddogram.ga/vue/index_v2.aspx';
+            let url = encodeURIComponent(webUrl);
+            let shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+            window.open(shareUrl, "", "width=400, height=400, left=600");
+        }
+    </script>
+
 </body>
 </html>
