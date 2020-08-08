@@ -24,7 +24,7 @@
     <script src="../Content/js/util.js"></script>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon.ico">
-    <link href="../Content/css/Ddogram.css?v=2" rel="stylesheet" />
+    <link href="../Content/css/Ddogram.css?v=3" rel="stylesheet" />
     <link href="../Content/css/reset.css" rel="stylesheet" />
     <%--<!-- 구글 애드센스 -->
     <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--%>

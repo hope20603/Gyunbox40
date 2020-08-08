@@ -114,7 +114,14 @@
         <div class="section-title">
             <h2>각 번호별 추첨 현황</h2>
         </div>
-        <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff;">
+        <div class="section-tab">
+            <div class="tab tab_1 on" onclick="javascript:Tab('1');">번호순</div>
+            <div class="tab tab_2" onclick="javascript:Tab('2');">당첨횟수순</div>
+        </div>
+        <div class="section-tab-content">
+            <div class="tab_con tab-content-1">
+        <!-- start : 번호순 -->
+        <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff; margin-top:-5px;">
             <div class="rd_wrap">
                 <div class="rd_inner_wrap">
                     <span class="sp_tit">보너스 번호</span>
@@ -128,9 +135,9 @@
                 <table class="tbl_data" id="tbl_chart" style="display:none;">
                     <caption></caption>
                     <colgroup>
-                        <col style="width:5%">
-                        <col style="width:85%">
                         <col style="width:10%">
+                        <col style="width:75%">
+                        <col style="width:15%">
                     </colgroup>
                     <thead>
                         <tr>
@@ -178,9 +185,9 @@
                 <table class="tbl_data" id="tbl_chart2" style="clear:both;width:100%;">
                     <caption></caption>
                     <colgroup>
-                        <col style="width:5%">
-                        <col style="width:85%">
                         <col style="width:10%">
+                        <col style="width:75%">
+                        <col style="width:15%">
                     </colgroup>
                     <thead>
                         <tr>
@@ -224,6 +231,130 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <!-- end : 번호순 -->
+                </div>
+            <div class="tab_con tab-content-2" style="display:none;">
+        <!-- start : 당첨횟수순 -->
+        <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff; margin-top:-5px;">
+            <div class="rd_wrap">
+                <div class="rd_inner_wrap">
+                    <span class="sp_tit">보너스 번호</span>
+                    <span class="sp_bonus-y"><input type="radio" value="Y" id="rd_bonus_y2" name="rd_bonus2" @change="rdChange2($event)" checked/><label for="rd_bonus_y2">포함</label></span>
+                    <span class="sp_bonus-n"><input type="radio" value="N" id="rd_bonus_n2"name="rd_bonus2" @change="rdChange2($event)" /><label for="rd_bonus_n2" >불포함</label></span>
+                </div>
+            </div>
+            <!-- 각번호별 1등에 나온 횟수 -->
+            <div id="chart_wrap2" >
+                <!--불포함-->
+                <table class="tbl_data" id="tbl_chart3" style="display:none;">
+                    <caption></caption>
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:75%">
+                        <col style="width:15%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">번호</th>
+                            <th scope="col">그래프</th>
+                            <th scope="col">당첨횟수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            string clsColor3 = "";
+                            string barWidth3 = "";
+                            string winCount3 = "";
+                            string clsBall3 = "";
+                            int tNum3 = 0;
+
+                            for (int i = 1; i <= 45; i++)
+                            {
+                                tNum3 = Convert.ToInt16(htLuckyOrd["NUM_" + i]);
+
+                                if (tNum3 <= 10) { clsColor3 = "color1"; clsBall3 = "ball1"; }
+                                else if (tNum3 <= 20) { clsColor3 = "color2"; clsBall3 = "ball2"; }
+                                else if (tNum3 <= 30) { clsColor3 = "color3"; clsBall3 = "ball3"; }
+                                else if (tNum3 <= 40) { clsColor3 = "color4"; clsBall3 = "ball4"; }
+                                else { clsColor3 = "color5"; clsBall3 = "ball5"; }
+
+                                barWidth3 = htLuckyOrd["PER_" + i].ToString();
+                                winCount3 = htLuckyOrd[i.ToString()].ToString();
+                        %>
+
+                        <tr>
+                            <td><span class="ball_645 sml <%=clsBall3%>"><%=tNum3%></span></td>
+                            <td class="graph">
+                                <div class="graph_bar no_note">
+                                    <span class="bar <%=clsColor3%>" style="width:<%=barWidth3%>%"><span style="font-size:5px;">&nbsp;</span></span>
+                                </div>
+                            </td>
+                            <td><%=winCount3%></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                        
+                    </tbody>
+                </table>
+
+                <!-- 포함 -->
+                <table class="tbl_data" id="tbl_chart4" style="clear:both;width:100%;">
+                    <caption></caption>
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:75%">
+                        <col style="width:15%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">번호</th>
+                            <th scope="col">그래프</th>
+                            <th scope="col">당첨횟수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            string clsColor4 = "";
+                            string barWidth4 = "";
+                            string winCount4 = "";
+                            string clsBall4 = "";
+                            int tNum = 0;
+
+                            for (int i = 1; i <= 45; i++)
+                            {
+                                tNum = Convert.ToInt16(htLuckyOrd["INC_NUM_" + i]);
+
+                                if (tNum <= 10) { clsColor4 = "color1"; clsBall4 = "ball1"; }
+                                else if (tNum <= 20) { clsColor4 = "color2"; clsBall4 = "ball2"; }
+                                else if (tNum <= 30) { clsColor4 = "color3"; clsBall4 = "ball3"; }
+                                else if (tNum <= 40) { clsColor4 = "color4"; clsBall4 = "ball4"; }
+                                else { clsColor4 = "color5"; clsBall4 = "ball5"; }
+
+                                barWidth4 = htLuckyOrd["INC_PER_" + i].ToString();
+                                winCount4 = htLuckyOrd["INC_" + i.ToString()].ToString();
+                        %>
+
+                        <tr>
+                            <td><span class="ball_645 sml <%=clsBall4%>"><%=tNum%></span></td>
+                            <td class="graph">
+                                <div class="graph_bar no_note">
+                                    <span class="bar <%=clsColor4%>" style="width:<%=barWidth4%>%"><span style="font-size:5px;">&nbsp;</span></span>
+                                </div>
+                            </td>
+                            <td><%=winCount4%></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- end : 번호순 -->
+                </div>
         </div>
         <div class="coupang_wrap">
             <div class="inner" style="margin:auto;width:360px;">
@@ -271,6 +402,13 @@
             //        shown = true;
             //    }
             //}
+
+            function Tab(tabNum) {
+                $(".tab_con").hide();
+                $(".tab-content-" + tabNum).show();
+                $(".tab").removeClass("on");
+                $(".tab_" + tabNum).addClass("on");
+            }
         </script>
     </div>
     <!-- IE 에러 대비 -->
@@ -402,6 +540,18 @@
                     } else {
                         $("#tbl_chart").hide();
                         $("#tbl_chart2").show();
+
+                    }
+
+                },
+                rdChange2: function (event) {
+                    var optionText = event.target.value;
+                    if (optionText == "N") {
+                        $("#tbl_chart3").show();
+                        $("#tbl_chart4").hide();
+                    } else {
+                        $("#tbl_chart3").hide();
+                        $("#tbl_chart4").show();
 
                     }
 

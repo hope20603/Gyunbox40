@@ -287,6 +287,32 @@ ul, li {
     height: 200px;
 }
 
+.app-index .section-tab{
+    height:50px;
+    width:100%;
+    background-color:#ffffff;
+    display:inline-block;
+    padding:10px 0;
+}
+
+.app-index .section-tab .tab{
+    height: 50px;
+    width: 50%;
+    background-color: #f4f4f4;
+    display: inline-block;
+    box-sizing:border-box;
+    font-size:20px;
+    line-height:50px;
+    text-align:center;
+    float:left;
+}
+
+    .app-index .section-tab .tab.on {
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #918ADF;
+    }
+
 /* 횟차별 당첨 가게 정보 */
 .app-stores .lottoBall{
     position:inherit;

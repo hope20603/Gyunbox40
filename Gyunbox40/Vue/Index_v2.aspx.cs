@@ -19,6 +19,7 @@ namespace Gyunbox40.Vue
         public string hostString = "";
         public string luckyPoint = "";
         public Hashtable htLucky = new Hashtable();
+        public Hashtable htLuckyOrd = new Hashtable();
         public List<int> datas = new List<int>(); //행운의 번호 - 서버에서 제공해줄 번호!
         public Util util = new Util();
         DaDdogram daDDo;
@@ -35,6 +36,7 @@ namespace Gyunbox40.Vue
                
                 //HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
                 HttpContext.Current.Application["LUCKY_POINT"] = GetMainChartData();
+                HttpContext.Current.Application["LUCKY_POINT_ORDERBY"] = GetMainChartDataOrderBy();
                 HttpContext.Current.Application["LUCKY_POINT_INSERT_TIME"] = DateTime.Now;
             }
             else
@@ -43,11 +45,13 @@ namespace Gyunbox40.Vue
                 {
                     //HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
                     HttpContext.Current.Application["LUCKY_POINT"] = GetMainChartData();
+                    HttpContext.Current.Application["LUCKY_POINT_ORDERBY"] = GetMainChartDataOrderBy();
                     HttpContext.Current.Application["LUCKY_POINT_INSERT_TIME"] = DateTime.Now;
                 }
                 else
                 {
                     htLucky = (Hashtable)HttpContext.Current.Application["LUCKY_POINT"];
+                    htLuckyOrd = (Hashtable)HttpContext.Current.Application["LUCKY_POINT_ORDERBY"];
                 }
             }
 
@@ -219,6 +223,49 @@ namespace Gyunbox40.Vue
             }
 
             return htLucky;
+        }
+
+        /// <summary>
+        /// 차트에 사용할 해시테이블을 구성해준다.
+        /// </summary>
+        /// <returns></returns>
+        public Hashtable GetMainChartDataOrderBy()
+       {
+            DaDdogram daddo = new DaDdogram();
+            DataSet ds = daddo.GetWainChartData();
+            DataTable dt1 = new DataTable();
+            DataTable dtInc = new DataTable();
+
+            if (!util.ChkDsIsNull(ds))
+            {
+                ds.Tables[0].DefaultView.Sort = "cnt desc"; //보너스 번호 불포함
+                ds.Tables[1].DefaultView.Sort = "cnt desc"; //보너스 번호 포함
+
+                dt1 = ds.Tables[0].DefaultView.ToTable();
+                dtInc = ds.Tables[1].DefaultView.ToTable();
+
+                for (int i = 0; i < 45; i++)
+                {
+                    htLuckyOrd.Add("" + (i + 1) + "", dt1.Rows[i]["CNT"].ToString());
+                    htLuckyOrd.Add("NUM_" + (i + 1) + "", dt1.Rows[i]["NUM"].ToString());
+                    htLuckyOrd.Add("PER_" + (i + 1) + "", dt1.Rows[i]["PER"].ToString());
+                    htLuckyOrd.Add("INC_" + (i + 1) + "", dtInc.Rows[i]["CNT"].ToString());
+                    htLuckyOrd.Add("INC_NUM_" + (i + 1) + "", dtInc.Rows[i]["NUM"].ToString());
+                    htLuckyOrd.Add("INC_PER_" + (i + 1) + "", dtInc.Rows[i]["PER"].ToString());
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 45; i++)
+                {
+                    htLuckyOrd.Add("" + i + "", "0");
+                    htLuckyOrd.Add("PER_" + (i + 1) + "", "0");
+                    htLuckyOrd.Add("INC_" + i + "", "0");
+                    htLuckyOrd.Add("INC_PER_" + (i + 1) + "", "0");
+                }
+            }
+
+            return htLuckyOrd;
         }
 
         /// <summary>
