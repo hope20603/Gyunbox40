@@ -619,6 +619,7 @@
     <Content Include="Vue\About.aspx" />
     <Content Include="Vue\Calc.aspx" />
     <Content Include="Vue\CreateNumber.aspx" />
+    <Content Include="Vue\FindUser.aspx" />
     <Content Include="Vue\Home.aspx" />
     <Content Include="Vue\Index.aspx" />
     <Content Include="Vue\Index_v2.aspx" />
@@ -851,6 +852,13 @@
     </Compile>
     <Compile Include="Vue\CreateNumber.aspx.designer.cs">
       <DependentUpon>CreateNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FindUser.aspx.cs">
+      <DependentUpon>FindUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\FindUser.aspx.designer.cs">
+      <DependentUpon>FindUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

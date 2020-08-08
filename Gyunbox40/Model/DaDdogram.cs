@@ -422,57 +422,62 @@ namespace Gyunbox40.Model
 
                         var jo = JObject.Parse(myJsonString);
 
-                        string drwNo = jo.GetValue("drwNo").ToString();
-                        string totSellamnt = jo.GetValue("totSellamnt").ToString();
-                        string returnValue = jo.GetValue("returnValue").ToString();
-                        string drwNoDate = jo.GetValue("drwNoDate").ToString();
-                        string firstWinamnt = jo.GetValue("firstWinamnt").ToString();
-                        string firstPrzwnerCo = jo.GetValue("firstPrzwnerCo").ToString();
-                        string drwtNo1 = jo.GetValue("drwtNo1").ToString();
-                        string drwtNo2 = jo.GetValue("drwtNo2").ToString();
-                        string drwtNo3 = jo.GetValue("drwtNo3").ToString();
-                        string drwtNo4 = jo.GetValue("drwtNo4").ToString();
-                        string drwtNo5 = jo.GetValue("drwtNo5").ToString();
-                        string drwtNo6 = jo.GetValue("drwtNo6").ToString();
-                        string bnusNo = jo.GetValue("bnusNo").ToString();
+                        if(jo.GetValue("returnValue").ToString() != "fail")
+                        {
+                            string drwNo = jo.GetValue("drwNo").ToString();
+                            string totSellamnt = jo.GetValue("totSellamnt").ToString();
+                            string returnValue = jo.GetValue("returnValue").ToString();
+                            string drwNoDate = jo.GetValue("drwNoDate").ToString();
+                            string firstWinamnt = jo.GetValue("firstWinamnt").ToString();
+                            string firstPrzwnerCo = jo.GetValue("firstPrzwnerCo").ToString();
+                            string drwtNo1 = jo.GetValue("drwtNo1").ToString();
+                            string drwtNo2 = jo.GetValue("drwtNo2").ToString();
+                            string drwtNo3 = jo.GetValue("drwtNo3").ToString();
+                            string drwtNo4 = jo.GetValue("drwtNo4").ToString();
+                            string drwtNo5 = jo.GetValue("drwtNo5").ToString();
+                            string drwtNo6 = jo.GetValue("drwtNo6").ToString();
+                            string bnusNo = jo.GetValue("bnusNo").ToString();
 
 
-                        sb.Clear();
-                        sb.AppendLine("insert into hope20603.DDONUM  ");
-                        sb.AppendLine("values( ");
-                        sb.AppendLine(drwNo + ",");
-                        sb.AppendLine(totSellamnt + ",");
-                        sb.AppendLine("'" + returnValue + "',");
-                        sb.AppendLine("'" + drwNoDate + "',");
-                        sb.AppendLine(firstWinamnt + ",");
-                        sb.AppendLine(firstPrzwnerCo + ",");
-                        sb.AppendLine(drwtNo1 + ",");
-                        sb.AppendLine(drwtNo2 + ",");
-                        sb.AppendLine(drwtNo3 + ",");
-                        sb.AppendLine(drwtNo4 + ",");
-                        sb.AppendLine(drwtNo5 + ",");
-                        sb.AppendLine(drwtNo6 + ",");
-                        sb.AppendLine(bnusNo);
-                        sb.AppendLine(")");
+                            sb.Clear();
+                            sb.AppendLine("insert into hope20603.DDONUM  ");
+                            sb.AppendLine("values( ");
+                            sb.AppendLine(drwNo + ",");
+                            sb.AppendLine(totSellamnt + ",");
+                            sb.AppendLine("'" + returnValue + "',");
+                            sb.AppendLine("'" + drwNoDate + "',");
+                            sb.AppendLine(firstWinamnt + ",");
+                            sb.AppendLine(firstPrzwnerCo + ",");
+                            sb.AppendLine(drwtNo1 + ",");
+                            sb.AppendLine(drwtNo2 + ",");
+                            sb.AppendLine(drwtNo3 + ",");
+                            sb.AppendLine(drwtNo4 + ",");
+                            sb.AppendLine(drwtNo5 + ",");
+                            sb.AppendLine(drwtNo6 + ",");
+                            sb.AppendLine(bnusNo);
+                            sb.AppendLine(")");
 
-                        dbSql.ExcuteNonQuery(sb.ToString());
+                            dbSql.ExcuteNonQuery(sb.ToString());
 
-                        sb.Clear();
-                        sb.AppendLine(" insert into hope20603.lot_num   ");
-                        sb.AppendLine(" values(                         ");
-                        sb.AppendLine(drwNo + ","           );
-                        sb.AppendLine(drwtNo1 + ","        );
-                        sb.AppendLine(drwtNo2 + ","        );
-                        sb.AppendLine(drwtNo3+","          );
-                        sb.AppendLine(drwtNo4+","          );
-                        sb.AppendLine(drwtNo5+","          );
-                        sb.AppendLine(drwtNo6 + ","        );
-                        sb.AppendLine(bnusNo + ","         );
-                        sb.AppendLine(drwNoDate + ","    );
-                        sb.AppendLine(totSellamnt);
-                        sb.AppendLine(" ); ");
+                            sb.Clear();
+                            sb.AppendLine(" insert into hope20603.lot_num   ");
+                            sb.AppendLine(" values(                         ");
+                            sb.AppendLine(drwNo + ",");
+                            sb.AppendLine(drwtNo1 + ",");
+                            sb.AppendLine(drwtNo2 + ",");
+                            sb.AppendLine(drwtNo3 + ",");
+                            sb.AppendLine(drwtNo4 + ",");
+                            sb.AppendLine(drwtNo5 + ",");
+                            sb.AppendLine(drwtNo6 + ",");
+                            sb.AppendLine(bnusNo + ",");
+                            sb.AppendLine(drwNoDate + ",");
+                            sb.AppendLine(totSellamnt);
+                            sb.AppendLine(" ); ");
 
-                        dbSql.ExcuteNonQuery(sb.ToString());
+                            dbSql.ExcuteNonQuery(sb.ToString());
+                        }
+
+                        
 
                         //{ "Arithmetic overflow error converting expression to data type int.
                         //\r\nThe statement has been terminated."}
@@ -885,6 +890,37 @@ namespace Gyunbox40.Model
             int count = Convert.ToInt32(db.ExecuteScalar(sql, new { drwno = nowTime }));
             if (count == 0) return false;
             else return true;
+        }
+
+        /// <summary>
+        /// 아이디 , 이메일로 패스워드 찾기
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="eml"></param>
+        /// <returns></returns>
+        public LotUser GetUserPwd(string uid, string eml)
+        {
+            string sql = "select * from hope20603.ddomem where uid=@uid and eml=@eml";
+            //db.Query<LotUser>(sql, new { id = uid, eml = eml }).SingleOrDefault();
+            return db.QuerySingleOrDefault<LotUser>(sql, new { uid = uid, eml = eml });
+        }
+
+        /// <summary>
+        /// 로그인 할때마다 로그를 남겨보자
+        /// </summary>
+        /// <param name="refUrl"></param>
+        /// <param name="uid"></param>
+        public void SetLoginLog(string refUrl, string uid)
+        {
+            string sql = "insert into hope20603.ddolog values ( @uid, @ref_url, getdate());";
+            try
+            {
+                db.Execute(sql, new { uid = uid, ref_url = refUrl });
+            }
+            catch
+            {
+                //에러만 안나게 처리..
+            }
         }
     }
 }

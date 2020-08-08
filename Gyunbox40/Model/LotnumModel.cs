@@ -44,4 +44,12 @@ namespace Gyunbox40.Model
         public string store_loc { get; set; }
         public string wincnt { get; set; }
     }
+
+    public class LotUser
+    {
+        public int IDX { get; set; }
+        public string UID { get; set; }
+        public string PWD { get; set; }
+        public string EML { get; set; }
+    }
 }

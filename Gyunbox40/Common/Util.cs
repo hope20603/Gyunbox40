@@ -301,5 +301,19 @@ namespace Gyunbox40.Common
             return str;
         }
 
+        public static void WriteMsg(string msg, string redirectUrl)
+        {
+            if(redirectUrl == "")
+            {
+                HttpContext.Current.Response.Write(string.Format("<script>alert('{0}');</script>", msg));
+                HttpContext.Current.Response.End();
+            }
+            else
+            {
+                HttpContext.Current.Response.Write(string.Format("<script>alert('{0}');location.href='{1}';</script>", msg, redirectUrl));
+                HttpContext.Current.Response.End();
+            }
+        }
+
     }
 }

@@ -6,7 +6,9 @@
     <div id="app" class="app-join">
         <div class="section section-0">
             <span style="color: #176D64; padding-left:7px; font-weight: bold; font-size: 15pt; height:30px; line-height:30px; ">환영합니다!!</span><br />
-            <span style=" padding-left:7px;">회원가입을 통해서 나의 번호를 따로 관리해보세요  :)</span>
+            <span style=" padding-left:7px;">회원가입을 통해서 나의 번호를 따로 관리해보세요  :)</span><br />
+            <span style=" padding-left:7px;color:#C00000;">* 민감한 개인정보는 입력하지 말아주세요.</span><br />
+            <span style=" padding-left:7px;color:#C00000;">* 이메일 주소는 아이디 찾기에만 사용됩니다.</span>
         </div>
         <div class="section section-1">
             <h2>로또집사 회원가입</h2>
@@ -19,10 +21,9 @@
                     </li>
                     <li>
                         <input type="password" v-model="userPwd" class="txt_wide txt_gray" placeholder="비밀번호 입력"  style="margin-top:50px;" /></li>
-                    <li>
-                        <input type="password"  v-model="userPwdAgain"  class="txt_wide txt_gray" placeholder="비밀번호 재입력" style="margin-top:10px;"/></li>
-                    <li>
-                        <input type="text" v-model="userEml" class="txt_wide txt_gray" placeholder="비상용 이메일 주소 ( 비밀번호 찾기에 사용됩니다 )"  style="margin-top:30px;"/></li>
+                    <li><input type="password"  v-model="userPwdAgain"  class="txt_wide txt_gray" placeholder="비밀번호 재입력" style="margin-top:10px;"/></li>
+                    <li style="margin-top:30px;">* 비상용 이메일은 입력하지 않으셔도 가입가능합니다. <br />&nbsp;&nbsp;다만 패스워드를 잃어버렸을 경우에는 재가입하셔야 합니다.</li>
+                    <li><input type="text" v-model="userEml" class="txt_wide txt_gray" placeholder="비상용 이메일 주소 ( 비밀번호 찾기에 사용됩니다 )" style="margin-top:10px;"/></li>
                     <li><span><a id="btn_login" class="btn_wide btn_black" @click="register">회원가입</a></span></li>
                 </ul>
             </div>
@@ -84,9 +85,13 @@
                         alert("비밀번호를 입력해주세요 :)");
                     } else if (self.userPwd != self.userPwdAgain) {
                         alert("입력하신 비밀번호가 서로 다릅니다 :(");
-                    } else if (self.userEml == "") {
-                        alert("이메일 주소를 입력해주세요 :)");
-                    } else {
+                    }
+
+                    //else if (self.userEml == "") {
+                    //    alert("이메일 주소를 입력해주세요 :)");
+                    //}
+
+                    else {
                         let config = {
                             //headers: {
                             //    "x-api-key": "YOUR_API_KEY"

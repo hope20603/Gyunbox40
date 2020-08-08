@@ -1119,6 +1119,28 @@ ul, li {
                 border: none;
             }
 
+.app-login .section-2 {
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    background-color: #ffffff;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+    .app-login .section-2 .inner_wrap {
+        width:200px;
+        margin:auto;
+    }
+
+    .app-login .section-2 .inner_wrap a:first-child{
+        padding-right:10px;
+        border-right:1px solid #d2d2d2;
+    }
+        .app-login .section-2 .inner_wrap a:last-child {
+            margin-left:5px;
+        }
 /* join.aspx */
 .app-join {
 }
@@ -1238,8 +1260,9 @@ ul, li {
     width: 90%;
     padding: 5px 5% 5px 5%;
     border: none;
-    color: #C7C7CC;
-    font-size: 15px;
+    /*color: #C7C7CC;*/
+    color: #686868;
+    font-size: 20px;
     font-family: "Montserrat",DroidSans,AppleSDGothicNeo,Sans-serif,Helvetica
 }
 

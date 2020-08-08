@@ -17,6 +17,12 @@
                 <span><a id="btn_test_login" class="btn_wide btn_green" @click="guestLogin" style="margin-top:20px;">게스트 로그인</a></span>
             </div>
         </div>
+        <div class="section section-2">
+            <div class="inner_wrap">
+                <a href="Join.aspx">회원가입</a>
+                <a href="FindUser.aspx">비밀번호찾기</a>
+            </div>
+        </div>
     </div>
 <!-- IE 에러 대비 -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
