@@ -163,7 +163,7 @@ namespace Gyunbox40
             string userEml = cc.NullToBlank(HttpContext.Current.Request["userEml"]);
 
 
-            if (userId != "" && userPwd != "" && userEml != "")
+            if (userId != "" && userPwd != "")
             {
                 ht["UID"] = userId;
                 ht["PWD"] = userPwd;
@@ -203,7 +203,10 @@ namespace Gyunbox40
 
                     if (!util.ChkDsIsNull(ds))
                     {
+                        string whereCom = HttpContext.Current.Request.UrlReferrer.ToString();
+
                         mem.Login(ds);
+                        mem.WriteLoginLog(whereCom, userId);
                     }
                     else
                     {
