@@ -122,6 +122,28 @@ namespace Gyunbox40
         }
 
         /// <summary>
+        /// 최신회차 번호 가져오기
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public string GetNowDrNum()
+        {
+            int nowTime = 898;
+            string SDate = "2020-02-15";
+            string EDate = DateTime.Now.ToString("yyyy-MM-dd");
+            DateTime T1 = DateTime.Parse(SDate);
+            DateTime T2 = DateTime.Parse(EDate);
+
+            TimeSpan ts = T2 - T1;
+            int diffDay = ts.Days;
+            int dayPlus = diffDay / 7;
+            nowTime += dayPlus;
+
+            return nowTime.ToString();
+        }
+
+        /// <summary>
         /// url을 호출하여 json객체로 리턴받아 온다.
         /// </summary>
         /// <param name="requestUrl"></param>
