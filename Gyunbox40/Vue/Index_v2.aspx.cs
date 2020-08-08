@@ -21,11 +21,13 @@ namespace Gyunbox40.Vue
         public Hashtable htLucky = new Hashtable();
         public List<int> datas = new List<int>(); //행운의 번호 - 서버에서 제공해줄 번호!
         public Util util = new Util();
+        DaDdogram daDDo;
         CommonController cc = new CommonController();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             hostString = new Common.CommonController().hostString;
+            daDDo = new DaDdogram();
 
             //아래 내용은 캐시에 저장해서 속도를 향상 시킬 수 있음.
             if (HttpContext.Current.Application["LUCKY_POINT"] == null)
@@ -61,6 +63,12 @@ namespace Gyunbox40.Vue
             {
                 //string[] tmp = cc.g_PUSH_NUM.Split('|');
                 datas = cc.g_PUSH_NUM.Split('|').Select(Int32.Parse).ToList();
+            }
+
+            string tmp = Request.UserHostName.ToString();
+            if (tmp != "::1")
+            {
+                daDDo.SetLoginLog(util.NullToBlank(Request.UrlReferrer), "");
             }
 
             ViewState["nowVisit"] = Application["CurrentVisit"].ToString();
