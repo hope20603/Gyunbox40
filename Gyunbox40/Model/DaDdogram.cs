@@ -23,8 +23,8 @@ namespace Gyunbox40.Model
         private IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["GyunBox"].ConnectionString);
 
         CommonController cc = new CommonController();
-        DBConn dbSql = new DBConn();
         Util util = new Util();
+        DBConn dbSql;
 
 
         /// <summary>
@@ -34,14 +34,30 @@ namespace Gyunbox40.Model
         /// <returns></returns>
         public DataSet ChkUserId(string userId)
         {
+            dbSql = new DBConn();
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
 
-            sb.AppendLine("select * from hope20603.DDOMEM where uid='@userID'");
-            sb.Replace("@userID", userId);
+            try
+            {
+                sb.AppendLine("select * from hope20603.DDOMEM where uid='@userID'");
+                sb.Replace("@userID", userId);
 
-            ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_user");
+                ds = dbSql.ExecuteWithDataSet(sb.ToString(), "tbl_user");
+            }
+            catch
+            {
 
+            }
+            finally
+            {
+                if (dbSql != null)
+                {
+                    dbSql.Close();
+                    dbSql = null;
+                }
+            }
+            
             return ds;
         }
 
@@ -54,6 +70,7 @@ namespace Gyunbox40.Model
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
+            dbSql = new DBConn();
 
             try
             {
@@ -71,7 +88,7 @@ namespace Gyunbox40.Model
                 if (dbSql != null)
                 {
                     dbSql.Close();
-                    //dbSql = null;
+                    dbSql = null;
                 }
             }
 
@@ -108,7 +125,8 @@ namespace Gyunbox40.Model
         {
             string sqlQuery = string.Empty;
             int result = -1;
-            
+            dbSql = new DBConn();
+
             try
             {
                 sqlQuery = @"Select max(seq) from hope20603.lot_num;";
@@ -124,6 +142,7 @@ namespace Gyunbox40.Model
                 if (dbSql != null)
                 {
                     dbSql.Close();
+                    dbSql = null;
                 }
             }
 
@@ -182,6 +201,7 @@ namespace Gyunbox40.Model
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
+            dbSql = new DBConn();
 
             try
             {
@@ -263,7 +283,7 @@ namespace Gyunbox40.Model
         {
             string result = "OKK";
             StringBuilder sb = new StringBuilder();
-            DBConn dbSql = new DBConn();
+            dbSql = new DBConn();
 
             try
             {
@@ -280,8 +300,11 @@ namespace Gyunbox40.Model
             }
             finally
             {
-                dbSql.Close();
-                dbSql = null;
+                if (dbSql != null)
+                {
+                    dbSql.Close();
+                    dbSql = null;
+                }
             }
 
             return result;
@@ -297,6 +320,7 @@ namespace Gyunbox40.Model
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
+            dbSql = new DBConn();
 
             try
             {
@@ -326,6 +350,7 @@ namespace Gyunbox40.Model
         {
             DBConn dbSql = new DBConn();
             StringBuilder sb = new StringBuilder();
+            dbSql = new DBConn();
 
             try
             {
@@ -404,6 +429,7 @@ namespace Gyunbox40.Model
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
             Util util = new Util();
+            dbSql = new DBConn();
 
             try
             {
@@ -470,7 +496,7 @@ namespace Gyunbox40.Model
                             sb.AppendLine(drwtNo5 + ",");
                             sb.AppendLine(drwtNo6 + ",");
                             sb.AppendLine(bnusNo + ",");
-                            sb.AppendLine(drwNoDate + ",");
+                            sb.AppendLine("'" + drwNoDate + "',");
                             sb.AppendLine(totSellamnt);
                             sb.AppendLine(" ); ");
 
@@ -586,7 +612,7 @@ namespace Gyunbox40.Model
         {
             string result = "OKK";
             StringBuilder sb = new StringBuilder();
-            DBConn dbSql = new DBConn();
+            dbSql = new DBConn();
 
             try
             {
@@ -631,6 +657,7 @@ namespace Gyunbox40.Model
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
+            dbSql = new DBConn();
             try
             {
                 sb.AppendLine(" select * from (                                                    ");
@@ -680,6 +707,7 @@ namespace Gyunbox40.Model
         {
             StringBuilder sb = new StringBuilder();
             DataSet ds = new DataSet();
+            dbSql = new DBConn();
             
             try
             {
@@ -739,7 +767,10 @@ namespace Gyunbox40.Model
             }
             finally
             {
-                oCon = null;
+
+                if (oCon.State == ConnectionState.Open)
+                    oCon.Close();
+                oCon.Dispose();
             }
 
             return result;
