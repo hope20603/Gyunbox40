@@ -313,6 +313,161 @@ ul, li {
         background-color: #918ADF;
     }
 
+/* 그래프 */
+.app-index .rd_wrap {
+    width: 100%;
+    float: left;
+    height: 30px;
+}
+
+    .app-index .rd_wrap .rd_inner_wrap {
+        width: 350px;
+        margin: auto;
+        height: 50px;
+    }
+
+    .app-index .rd_wrap span {
+        width: 100px;
+        float: left;
+    }
+
+        .app-index .rd_wrap span.sp_tit {
+            height: 20px;
+            line-height: 20px;
+            font-weight: bold;
+        }
+
+    .app-index .rd_wrap input[type=radio] {
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        appearance: auto;
+        margin-right: 10px;
+    }
+
+    .app-index .rd_wrap span.sp_bonus-y {
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .app-index .rd_wrap span.sp_bonus-n {
+        height: 20px;
+        line-height: 20px;
+    }
+
+.app-index .tbl_data {
+    width: 100%;
+    min-height: 1000px;
+    float: left;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+    .app-index .tbl_data th {
+        height: 20px;
+        border: 1px solid #d2d2d2;
+        background-color: #d7d7d7;
+        color: #ffffff;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .app-index .tbl_data td {
+        height: 20px;
+        border: 1px solid #d2d2d2;
+        text-align: center;
+    }
+
+        .app-index .tbl_data td .graph_bar .bar {
+            float: left;
+            margin-top: 10px;
+        }
+
+        .app-index .tbl_data td .graph_bar .color1 {
+            background-color: #FCC43D;
+        }
+
+        .app-index .tbl_data td .graph_bar .color2 {
+            background-color: #8CC6E7;
+        }
+
+        .app-index .tbl_data td .graph_bar .color3 {
+            background-color: #F18D80;
+        }
+
+        .app-index .tbl_data td .graph_bar .color4 {
+            background-color: #A7A2DE;
+        }
+
+        .app-index .tbl_data td .graph_bar .color5 {
+            background-color: #6BCE9E;
+        }
+
+    .app-index .tbl_data .ball_645 {
+        border: 1px solid #ffffff;
+        border-radius: 50%;
+        font-weight: bold;
+        color: #ffffff;
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        line-height: 22px;
+    }
+
+        .app-index .tbl_data .ball_645.ball1 {
+            background-color: #FCC43D;
+        }
+
+        .app-index .tbl_data .ball_645.ball2 {
+            background-color: #8CC6E7;
+        }
+
+        .app-index .tbl_data .ball_645.ball3 {
+            background-color: #F18D80;
+        }
+
+        .app-index .tbl_data .ball_645.ball4 {
+            background-color: #A7A2DE;
+        }
+
+        .app-index .tbl_data .ball_645.ball5 {
+            background-color: #6BCE9E;
+        }
+/* 방문자 */
+.app-index .visit_wrap {
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    background-color: #ffffff;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+    .app-index .visit_wrap .inner_wrap {
+        margin: auto;
+        width: 300px;
+    }
+
+        .app-index .visit_wrap .inner_wrap span {
+            width: 80px;
+        }
+
+            .app-index .visit_wrap .inner_wrap span.sp_tit {
+                font-weight: bold;
+                margin-right: 10px;
+                border-left: 1px solid #d2d2d2;
+                padding-left: 10px;
+            }
+
+                .app-index .visit_wrap .inner_wrap span.sp_tit:first-child {
+                    border: none;
+                }
+
+            .app-index .visit_wrap .inner_wrap span.sp_con {
+                margin-right: 10px;
+            }
+
 /* 횟차별 당첨 가게 정보 */
 .app-stores .lottoBall{
     position:inherit;

@@ -347,6 +347,7 @@
     <Content Include="images\ddogram-share.png" />
     <Content Include="images\ddogram.png" />
     <Content Include="images\docimg\doc-icon.png" />
+    <Content Include="images\icon\ajax-loader.gif" />
     <Content Include="images\icon\facebook.png" />
     <Content Include="images\icon\icons8-map-marker-100.png" />
     <Content Include="images\icon\icons8-map-pin-100.png" />
@@ -623,6 +624,7 @@
     <Content Include="Vue\Home.aspx" />
     <Content Include="Vue\Index.aspx" />
     <Content Include="Vue\Index_v2.aspx" />
+    <Content Include="Vue\Index_v3.aspx" />
     <Content Include="Vue\Join.aspx" />
     <Content Include="Vue\Login.aspx" />
     <Content Include="Vue\Logout.aspx" />
@@ -880,6 +882,13 @@
     </Compile>
     <Compile Include="Vue\Index_v2.aspx.designer.cs">
       <DependentUpon>Index_v2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Index_v3.aspx.cs">
+      <DependentUpon>Index_v3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Index_v3.aspx.designer.cs">
+      <DependentUpon>Index_v3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Join.aspx.cs">
       <DependentUpon>Join.aspx</DependentUpon>

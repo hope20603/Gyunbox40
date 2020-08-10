@@ -45,7 +45,7 @@ namespace Gyunbox40
             string returnStr = "OKK";
             try
             {
-               
+
                 DaDdogram ddo = new DaDdogram();
                 //http://localhost:11111/DDoService.asmx/ServiceTest
                 string chkUid = cc.NullToBlank(HttpContext.Current.Request["uid"]);
@@ -86,7 +86,7 @@ namespace Gyunbox40
             string EDate = DateTime.Now.ToString("yyyy-MM-dd");
             DateTime T1 = DateTime.Parse(SDate);
             DateTime T2 = DateTime.Parse(EDate);
-            
+
             TimeSpan ts = T2 - T1;
             int diffDay = ts.Days;
             int dayPlus = diffDay / 7;
@@ -96,17 +96,17 @@ namespace Gyunbox40
             string URL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=";
             string jsonResult = "";
             //nowtime으로 db에 데이터가 있는지 확인- 있으면 패스... 없으면 insert
-            if(!daddo.CheckExistDrwNo(nowTime.ToString()))
+            if (!daddo.CheckExistDrwNo(nowTime.ToString()))
             {
                 daddo.InsertLottoNumber(nowTime.ToString());
             }
-            
+
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-            JValue jVal = GetJsonObjectFromUrl(URL + nowTime); 
-            if (jVal == null || jVal.Value.ToString().IndexOf("fail") > -1 )
+            JValue jVal = GetJsonObjectFromUrl(URL + nowTime);
+            if (jVal == null || jVal.Value.ToString().IndexOf("fail") > -1)
             {
                 //해당회차에 에러가 나는 경우 이전 회차로 5회 더 요청해본다.
-                for (int i = nowTime-1; i >= nowTime - 5; i--)
+                for (int i = nowTime - 1; i >= nowTime - 5; i--)
                 {
                     jVal = GetJsonObjectFromUrl(URL + i);
                     if (jVal != null && jVal.Value.ToString().IndexOf("fail") < 0) break;
@@ -161,12 +161,93 @@ namespace Gyunbox40
                     json = (JValue)myJsonString.ToString();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 json = null;
             }
 
             return json;
+        }
+
+
+        /// <summary>
+        /// url을 호출하여 json객체로 리턴받아 온다.
+        /// </summary>
+        /// <param name="requestUrl"></param>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string GetLuckyNumberFive()
+        {
+            List<int> datas = new List<int>(); //행운의 번호 - 서버에서 제공해줄 번호!
+            Util util = new Util();
+            DaDdogram daDDo = new DaDdogram();
+            DataSet ds = daDDo.GetLuckyNumber();
+            float[] inputNumbers = new float[45];
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("seq");
+            dt.Columns.Add("no1");
+            dt.Columns.Add("no2");
+            dt.Columns.Add("no3");
+            dt.Columns.Add("no4");
+            dt.Columns.Add("no5");
+            dt.Columns.Add("no6");
+            dt.Columns.Add("no7");
+
+            //로또 번호의 비중치를 넣어준다.
+            if (!util.ChkDsIsNull(ds))
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    inputNumbers[i] = ((float)Convert.ToDouble(ds.Tables[0].Rows[i]["DDOWGT"])) * 100;
+                }
+            }
+
+            float sumVal = 0;
+            for (int i = 0; i < inputNumbers.Length; i++)
+            {
+                sumVal += inputNumbers[i];
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                datas = new List<int>(); //행운의 번호 - 서버에서 제공해줄 번호!
+                DataRow row = dt.NewRow();
+                int getNumberCount = 7;
+                while (getNumberCount > 0)
+                {
+                    Random seedRnd = new Random((int)DateTime.Now.Ticks + getNumberCount); //단순히 중복된 seed를 피하기위함임.
+                    System.Threading.Thread.Sleep(100);
+
+                    int returnValue = SelectLottoNumber(inputNumbers, seedRnd);
+                    if (datas.Contains(returnValue) == false)
+                    {
+                        datas.Add(returnValue);
+                        getNumberCount--;
+                    }
+                }
+
+                int bonusNum = datas[6];
+                datas.RemoveAt(6);
+                datas.Sort();
+                datas.Add(bonusNum);
+
+                row[0] = i + 1;
+
+                for (int j = 0; j < datas.Count; j++)
+                {
+                    row[j + 1] = datas[j];
+                }
+
+                dt.Rows.Add(row);
+
+            }
+
+            
+
+            return util.DtToJson(dt);
         }
 
         /// <summary>
@@ -240,7 +321,7 @@ namespace Gyunbox40
             {
                 returnStr = "FAIL";
             }
-            
+
             Context.Response.Write(returnStr);
             Context.Response.End();
 
@@ -357,7 +438,7 @@ namespace Gyunbox40
             Hashtable ht = null;
             int okCount = 0;
 
-            for(int i=0; i< jt.Count(); i++)
+            for (int i = 0; i < jt.Count(); i++)
             {
                 ht = new Hashtable();
 
@@ -370,8 +451,8 @@ namespace Gyunbox40
                 ht["number_5"] = jt[i]["number_5"].ToString();
                 ht["number_6"] = jt[i]["number_6"].ToString();
                 ht["number_7"] = jt[i]["number_7"].ToString();
-                
-                if(daDDo.SaveNewNumber(ht).IndexOf("OKK") > -1)
+
+                if (daDDo.SaveNewNumber(ht).IndexOf("OKK") > -1)
                 {
                     okCount++;
                 }
@@ -380,7 +461,7 @@ namespace Gyunbox40
             JObject resultJson = new JObject();
             resultJson.Add("Result", "OKK");
             resultJson.Add("OkCount", okCount);
-            
+
             Context.Response.Write(resultJson.ToString());
             Context.Response.End();
 
@@ -404,7 +485,7 @@ namespace Gyunbox40
             curPage = (curPage == 0) ? 1 : curPage;      //기본값으로 셋팅
             pageSize = (pageSize == 0) ? 10 : pageSize;  //기본값으로 셋팅
 
-            int start = ((curPage * pageSize) - pageSize)+1;
+            int start = ((curPage * pageSize) - pageSize) + 1;
             int end = (curPage * pageSize) + 1;
 
             //cc.g_USER_ID = "hope20603@naver.com";
@@ -412,7 +493,8 @@ namespace Gyunbox40
             DataSet ds = daDDo.GetMyNumber(cc.g_USER_ID, start, end);
             string jsonString = "";
 
-            if (!util.ChkDsIsNull(ds)) { 
+            if (!util.ChkDsIsNull(ds))
+            {
                 jsonString = util.GetJsonFromDataSet(ds.Tables[0]);
             }
 
@@ -465,11 +547,11 @@ namespace Gyunbox40
             if (targetIdx != "" && cc.g_USER_ID != "")
             {
                 int result = daDDo.DeleteMyNumber(targetIdx, cc.g_USER_ID);
-                if(result == -1)
+                if (result == -1)
                 {
                     jsonResult = "ERROR";
                 }
-                else if(result == 0)
+                else if (result == 0)
                 {
                     jsonResult = "NOT_MY_NUM";
                 }
@@ -477,7 +559,7 @@ namespace Gyunbox40
                 {
                     jsonResult = "OK";
                 }
-                
+
             }
 
             Context.Response.Write(jsonResult);
@@ -485,6 +567,36 @@ namespace Gyunbox40
 
             return string.Empty;
         }
+
+
+        /// <summary>
+        /// 제공된 비중에 따라서 로또번호를 뽑는다.
+        /// 숫자 하나당 거의 1~2프로 정도의 확률을 가지고 있어서, 거의 랜덤으로 뽑는것과 동일한 확률이긴 함.
+        /// </summary>
+        /// <param name="inputDatas"></param>
+        /// <param name="seedRnd"></param>
+        /// <returns></returns>
+        public int SelectLottoNumber(float[] inputDatas, Random seedRnd)
+        {
+            float pivot = (float)seedRnd.NextDouble();
+            float dr = pivot * 100.0f;
+            //float dr = pivot/10;
+            float cumulative = 0.0f;
+            int reVal = 0;
+
+            for (int i = 0; i < inputDatas.Length; i++)
+            {
+                cumulative += inputDatas[i];
+                if (dr <= cumulative)
+                {
+                    //reVal = 45 - i; break;
+                    reVal = i + 1; break;
+                }
+            }
+
+            return reVal;
+        }
+
     }
 
 
