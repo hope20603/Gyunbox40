@@ -50,7 +50,7 @@
                 </div>
             </a>
         </div>
-        <div class="section section-2" style="height:300px;">
+        <div class="section section-2" style="height: 300px;">
             <h2 style="width: 100%; text-align: center;">행운번호</h2>
             <ul>
                 <li>
@@ -82,17 +82,19 @@
         <div class="section section-3">
             <div id="AjaxWeekNumTarget"></div>
         </div>
-        <div class="section-title">
-            <h2>각 번호별 추첨 현황</h2>
-        </div>
-        <div class="section-tab">
-            <div class="tab tab_1 on" onclick="javascript:Tab('1');">번호순</div>
-            <div class="tab tab_2" onclick="javascript:Tab('2');">당첨횟수순</div>
+        <div class="section-tab-wrap">
+            <div class="section-title" style="box-sizing: border-box;">
+                <h2>각 번호별 추첨 현황</h2>
+            </div>
+            <div class="section-tab">
+                <div class="tab tab_1 on" onclick="javascript:Tab('1');">번호순</div>
+                <div class="tab tab_2" onclick="javascript:Tab('2');">당첨횟수순</div>
+            </div>
         </div>
         <div class="section-tab-content">
             <div class="tab_con tab-content-1">
                 <!-- start : 번호순 -->
-                <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff; margin-top: -5px; box-sizing:border-box;">
+                <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff; margin-top: -5px; box-sizing: border-box;">
                     <div class="rd_wrap">
                         <div class="rd_inner_wrap">
                             <span class="sp_tit">보너스 번호</span>
@@ -330,17 +332,17 @@
         <div class="banner_wrap">
             <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- ddogram.ga 하단 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8384080521274050"
-     data-ad-slot="3192841291"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- ddogram.ga 하단 -->
+            <ins class="adsbygoogle"
+                style="display: block"
+                data-ad-client="ca-pub-8384080521274050"
+                data-ad-slot="3192841291"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
         </div>
         <div class="visit_wrap">

@@ -82,12 +82,12 @@
         <div class="section section-3">
             <div id="AjaxWeekNumTarget"></div>
         </div>
-        <div class="section-title">
+        <div class="section-title" style="box-sizing:border-box;">
             <h2>각 번호별 추첨 현황</h2>
         </div>
-        <div class="section-tab">
-            <div class="tab tab_1 on" onclick="javascript:Tab('1');">번호순</div>
-            <div class="tab tab_2" onclick="javascript:Tab('2');">당첨횟수순</div>
+        <div class="section-tab"  style="box-sizing:border-box;">
+            <div class="tab tab_1 on" onclick="javascript:Tab('1');"  style="box-sizing:border-box;">번호순</div>
+            <div class="tab tab_2" onclick="javascript:Tab('2');"  style="box-sizing:border-box;">당첨횟수순</div>
         </div>
         <div class="section-tab-content">
             <div class="tab_con tab-content-1">
