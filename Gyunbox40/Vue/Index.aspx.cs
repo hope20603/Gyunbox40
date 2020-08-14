@@ -112,8 +112,10 @@ namespace Gyunbox40.Vue
 
             while(getNumberCount > 0)
             {
-                Random seedRnd = new Random((int)DateTime.Now.Ticks + getNumberCount); //단순히 중복된 seed를 피하기위함임.
-
+                Random seedOfSeed = new Random();
+                int seedInt = seedOfSeed.Next(0, 100);
+                Random seedRnd = new Random((int)DateTime.Now.Ticks + getNumberCount + seedInt); //단순히 중복된 seed를 피하기위함임.
+                
                 int returnValue = GetLottoNumber(inputNumbers, seedRnd);
                 if(datas.Contains(returnValue) == false)
                 {

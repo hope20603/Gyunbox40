@@ -369,13 +369,15 @@ namespace Gyunbox40
             int[] tmp = jt.ToObject<int[]>();
             //ArrayList<String> arr = jt.ToObject<string[]>().ToArray();
             List<int> arr = tmp.ToList<int>();
+            Random seedOfSeed = new Random();
             #endregion
 
             int needCount = 7 - tmp.Length;
 
             while (needCount > 0)
             {
-                Random rand = new Random((int)DateTime.Now.Ticks);
+                int seedInt = seedOfSeed.Next(0, 100);
+                Random rand = new Random((int)DateTime.Now.Ticks + needCount + seedInt);
                 int numIterations = 0;
                 //numIterations = rand.Next(1, 45);
                 numIterations = rand.Next(1, 46);
