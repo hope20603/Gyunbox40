@@ -81,17 +81,6 @@
         </div>
         <div class="section section-3">
             <div id="AjaxWeekNumTarget"></div>
-            <!-- 당첨결과 선택해서 조회 가능하도록 수정 -->
-            <%--<h2 style="width: 100%; text-align: center; padding-bottom: 30px;">
-                <span style="color: #B40000; font-size: 15pt;">회 </span><span style="color: #514856; font-size: 15pt;">당첨결과</span>
-                <span style="width: 100%; line-height: 20px; float: left; font-size: 10pt; color: #A5A5A5; height: 20px; margin-top: -5px;">( 일 추첨 )</span>
-            </h2>
-            <ul>
-                <li>
-                    <div class="ball_wrap">
-                    </div>
-                </li>
-            </ul>--%>
         </div>
         <div class="section-title">
             <h2>각 번호별 추첨 현황</h2>
@@ -338,6 +327,22 @@
                 <!-- end : 번호순 -->
             </div>
         </div>
+        <div class="banner_wrap">
+            <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ddogram.ga 하단 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8384080521274050"
+     data-ad-slot="3192841291"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
         <div class="visit_wrap">
             <div class="inner_wrap">
                 <span class="sp_tit">접속중</span><span class="sp_con"><%=ViewState["nowVisit"]%></span>
@@ -354,7 +359,6 @@
                 $(".tab_" + tabNum).addClass("on");
             }
 
-            //vue.js 들어냄...
             function rdChange(tb) {
                 var optionText = tb;
                 if (optionText == "N") {
@@ -373,13 +377,11 @@
                 }
             }
 
-
             $(document).ready(function () {
                 getLuckyNumberFive();
                 changeWeekAjax(0);
             });
 
-            
             function changeWeekAjax(tSeq) {
                 let reqUrl = "AjaxWeekNum.aspx";
 
@@ -407,8 +409,6 @@
                     return false;
                 }
             }
-
-
 
             function getLuckyNumberFive() {
                 let reqUrl = "/DDoService.asmx/GetLuckyNumberFive";
@@ -469,7 +469,5 @@
                 }
             }
         </script>
-
-
     </div>
 </asp:Content>

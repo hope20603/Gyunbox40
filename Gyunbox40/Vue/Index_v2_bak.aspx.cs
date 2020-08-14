@@ -1,17 +1,20 @@
-﻿using Gyunbox40.Common;
-using Gyunbox40.Model;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
+using Newtonsoft.Json.Linq;
+using Gyunbox40.Model;
+using System.Text;
+using System.Collections;
+using System.Data;
+using Gyunbox40.Common;
 
 namespace Gyunbox40.Vue
 {
-    public partial class Index_v2 : System.Web.UI.Page
+    public partial class Index_v2_bak : System.Web.UI.Page
     {
         public string hostString = "";
         public string luckyPoint = "";
@@ -30,7 +33,7 @@ namespace Gyunbox40.Vue
             //아래 내용은 캐시에 저장해서 속도를 향상 시킬 수 있음.
             if (HttpContext.Current.Application["LUCKY_POINT"] == null)
             {
-
+               
                 //HttpContext.Current.Application["LUCKY_POINT"] = MakeHashtable();
                 HttpContext.Current.Application["LUCKY_POINT"] = GetMainChartData();
                 HttpContext.Current.Application["LUCKY_POINT_ORDERBY"] = GetMainChartDataOrderBy();
@@ -227,7 +230,7 @@ namespace Gyunbox40.Vue
         /// </summary>
         /// <returns></returns>
         public Hashtable GetMainChartDataOrderBy()
-        {
+       {
             DaDdogram daddo = new DaDdogram();
             DataSet ds = daddo.GetWainChartData();
             DataTable dt1 = new DataTable();

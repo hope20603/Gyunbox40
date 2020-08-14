@@ -628,6 +628,7 @@
     <Content Include="Vue\FindUser.aspx" />
     <Content Include="Vue\Home.aspx" />
     <Content Include="Vue\Index.aspx" />
+    <Content Include="Vue\Index_v2_bak.aspx" />
     <Content Include="Vue\Index_v2.aspx" />
     <Content Include="Vue\Index_v3.aspx" />
     <Content Include="Vue\Join.aspx" />
@@ -894,6 +895,13 @@
     </Compile>
     <Compile Include="Vue\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Index_v2_bak.aspx.cs">
+      <DependentUpon>Index_v2_bak.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\Index_v2_bak.aspx.designer.cs">
+      <DependentUpon>Index_v2_bak.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Index_v2.aspx.cs">
       <DependentUpon>Index_v2.aspx</DependentUpon>
