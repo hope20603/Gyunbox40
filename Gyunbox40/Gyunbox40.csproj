@@ -349,12 +349,15 @@
     <Content Include="images\docimg\doc-icon.png" />
     <Content Include="images\icon\ajax-loader.gif" />
     <Content Include="images\icon\facebook.png" />
+    <Content Include="images\icon\icon-next.png" />
+    <Content Include="images\icon\icon-prev.png" />
     <Content Include="images\icon\icons8-map-marker-100.png" />
     <Content Include="images\icon\icons8-map-pin-100.png" />
     <Content Include="images\icon\icons8-medal-first-place-64.png" />
     <Content Include="images\icon\icons8-multiply-100.png" />
     <Content Include="images\icon\icons8-multiply-100_green.png" />
     <Content Include="images\icon\icons8-multiply-50.png" />
+    <Content Include="images\icon\icons8-plus-math-30.png" />
     <Content Include="images\icon\kakao.png" />
     <Content Include="images\icon\link-copy.png" />
     <Content Include="Index.asp" />

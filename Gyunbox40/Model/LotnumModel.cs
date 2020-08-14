@@ -43,6 +43,9 @@ namespace Gyunbox40.Model
         public string WIN_DATE { get; set; } //추첨일
         public string TOTAL_SEL { get; set; } //총 판매금액
 
+        public int PREVNO { get; set; }
+        public int NEXTNO { get; set; }
+
     }
 
     /// <summary>

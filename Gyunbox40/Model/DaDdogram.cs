@@ -195,7 +195,8 @@ namespace Gyunbox40.Model
 
 
         /// <summary>
-        /// 특정 회차의 당첨번호 정보를 가져옴 - 색상 값까지. -dapper사용해봄..
+        /// 특정 회차의 당첨번호 정보를 가져옴 
+        /// - 색상 값 + 이전회차 다음회차까지
         /// </summary>
         /// <returns></returns>
         public LotColorModel GetLotNumBySeqWithColor(string seq)
@@ -204,16 +205,19 @@ namespace Gyunbox40.Model
 
             try
             {
-                sqlQuery = @"Select seq
-,num1 , hope20603.fn_getClassNumber(num1) as col1
-,num2 , hope20603.fn_getClassNumber(num2) as col2
-,num3 , hope20603.fn_getClassNumber(num3) as col3
-,num4 , hope20603.fn_getClassNumber(num4) as col4
-,num5 , hope20603.fn_getClassNumber(num5) as col5
-,num6 , hope20603.fn_getClassNumber(num6) as col6
-,num7 , hope20603.fn_getClassNumber(num7) as col7
-,convert(char(10), [win_date], 23) as win_date
-,[total_sel] from hope20603.lot_num Where seq=@seq";
+                sqlQuery = @"Select SEQ
+    ,NUM1 , hope20603.fn_getClassNumber(num1) as COL1
+    ,NUM2 , hope20603.fn_getClassNumber(num2) as COL2
+    ,NUM3 , hope20603.fn_getClassNumber(num3) as COL3
+    ,NUM4 , hope20603.fn_getClassNumber(num4) as COL4
+    ,NUM5 , hope20603.fn_getClassNumber(num5) as COL5
+    ,NUM6 , hope20603.fn_getClassNumber(num6) as COL6
+    ,NUM7 , hope20603.fn_getClassNumber(num7) as COL7
+    ,convert(char(10), [win_date], 23) as WIN_DATE
+    ,TOTAL_SEL 
+    ,case when (select count(*) from lot_num where seq < a.seq ) > 0 then seq - 1 else -1 end PREVNO
+    ,case when (select count(*) from lot_num where seq > a.seq ) > 0 then seq + 1 else -1 end NEXTNO
+from hope20603.lot_num a Where seq=@seq";
                 return this.db.QueryFirstOrDefault<LotColorModel>(sqlQuery, new { seq = int.Parse(seq) });
             }
             catch (Exception e)

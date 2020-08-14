@@ -12,11 +12,11 @@ namespace Gyunbox40.Vue
     public partial class AjaxWeekNum : System.Web.UI.Page
     {
         protected LotColorModel model;
-        protected string seq;
+        protected int seq;
         Util util = new Util();
         protected void Page_Load(object sender, EventArgs e)
         {
-            seq = util.NullToBlank(Request["seq"]);
+            seq = util.NullToZero(Request["seq"]);
 
             InitData();
         }
@@ -27,7 +27,7 @@ namespace Gyunbox40.Vue
            
 
             //파라미터가 
-            if (seq == "")
+            if (seq == 0)
             {
                 int nowTime = 898;
                 string SDate = "2020-02-15";
@@ -50,7 +50,7 @@ namespace Gyunbox40.Vue
             }
             else
             {
-                model = daddo.GetLotNumBySeqWithColor(seq);
+                model = daddo.GetLotNumBySeqWithColor(seq.ToString());
             }
 
            

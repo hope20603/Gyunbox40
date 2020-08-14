@@ -20,6 +20,26 @@ ul, li {
 }
 
 
+/* key colors */
+.key_clr1 {
+    color: #007bc3 !important
+}
+/* blue */
+.key_clr2 {
+    color: #dc1f1f !important
+}
+/* red */
+.key_clr3 {
+    color: #e03f0e !important
+}
+/* orange */
+.key_clr4 {
+    color: #12a19a !important
+}
+/* green */
+
+
+
 /* header */
 /*.header {
     height: 20px;
@@ -931,6 +951,36 @@ ul, li {
 }
 
 /* 새로운 디자인 - 로또페이지 참고 */
+
+.week_wrap {
+    width: 100%;
+    height: 100px;
+    padding:10px 0;
+    background-color:#ffffff;
+    position:relative;
+}
+
+    .week_wrap .btn {
+        position: absolute;
+        top: 65px;
+    }
+
+        .week_wrap .btn img {
+            width: 10px;
+        }
+
+        .week_wrap .btn.btn_prev {
+            left: 10px;
+        }
+
+        .week_wrap .btn.btn_next {
+            right: 10px;
+        }
+
+    .week_wrap .prizeresult {
+        text-align: center;
+    }
+
 .prizeresult .num {
     display: inline-block;
     width: 30px;
@@ -982,12 +1032,41 @@ ul, li {
         width: 9px;
         height: 9px;
         margin-top: -5px;
-        background: url(/images/mobile/content/ico_plus.png) 0 0 no-repeat;
+        background: url(/images/icon/icons8-plus-math-30.png) 0 0 no-repeat;
         background-size: 9px auto
     }
 
 
+.week_wrap .section_title {
+    position: relative;
+    padding-top: 7px
+}
 
+    .week_wrap .section_title h2 {
+        padding-bottom: 13px;
+        font-weight: 700;
+        font-size: 17px;
+        color: #333;
+        letter-spacing: -0.025em;
+        text-align:center;
+
+    }
+
+    .week_wrap .section_title .date {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 11px;
+        color: #888;
+        letter-spacing: 0
+    }
+
+    .week_wrap .section_title .cap {
+        padding-bottom: 16px;
+        font-size: 13px;
+        color: #333;
+        letter-spacing: 0
+    }
 
 /* createNumber */
 .app-createNumber {

@@ -80,8 +80,9 @@
             </div>
         </div>
         <div class="section section-3">
+            <div id="AjaxWeekNumTarget"></div>
             <!-- 당첨결과 선택해서 조회 가능하도록 수정 -->
-            <h2 style="width: 100%; text-align: center; padding-bottom: 30px;">
+            <%--<h2 style="width: 100%; text-align: center; padding-bottom: 30px;">
                 <span style="color: #B40000; font-size: 15pt;">회 </span><span style="color: #514856; font-size: 15pt;">당첨결과</span>
                 <span style="width: 100%; line-height: 20px; float: left; font-size: 10pt; color: #A5A5A5; height: 20px; margin-top: -5px;">( 일 추첨 )</span>
             </h2>
@@ -90,7 +91,7 @@
                     <div class="ball_wrap">
                     </div>
                 </li>
-            </ul>
+            </ul>--%>
         </div>
         <div class="section-title">
             <h2>각 번호별 추첨 현황</h2>
@@ -407,9 +408,39 @@
 
             $(document).ready(function () {
                 getLuckyNumberFive();
+                changeWeekAjax(0);
             });
 
-            var jsonData = null;
+            
+            function changeWeekAjax(tSeq) {
+                let reqUrl = "AjaxWeekNum.aspx";
+
+                if (tSeq >= 0) {
+                    $.ajax({
+                        url: reqUrl,
+                        type: 'GET',
+                        async: true,
+                        data: "seq=" + tSeq,
+                        dataType: "html",
+                        timeout: 10000,
+                        //contentType: "application/json",
+                        success: function (data) {
+                            $("#AjaxWeekNumTarget").html(data);
+                        },
+                        error: function (request, status, error) {
+
+                        },
+                        fail: function () {
+
+                        }
+                    });
+                } else {
+                    alert('마지막 회차입니다.');
+                    return false;
+                }
+            }
+
+
 
             function getLuckyNumberFive() {
                 let reqUrl = "/DDoService.asmx/GetLuckyNumberFive";
