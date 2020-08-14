@@ -19,16 +19,24 @@ namespace Gyunbox40.Vue
         LottoController lot;
         DaDdogram daDdo;
         LotnumModel model;
+        Util util;
         protected void Page_Load(object sender, EventArgs e)
         {
             lot = new LottoController();
             daDdo = new DaDdogram();
             htLot = new Hashtable();
+            util = new Util();
 
             //if (!IsPostBack)
             //{
                 InitData();
             //}
+
+            string tmp = Request.UserHostName.ToString();
+            if (tmp != "::1")
+            {
+                daDdo.SetLoginLog(util.NullToBlank(Request.UrlReferrer), "");
+            }
         }
 
         public void InitData()

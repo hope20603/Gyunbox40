@@ -77,4 +77,17 @@ namespace Gyunbox40.Model
         public string PWD { get; set; }
         public string EML { get; set; }
     }
+
+    /// <summary>
+    /// 당첨 예상금액, 누적판매량
+    /// </summary>
+    public class LotExpect
+    {
+        public double SEQ { get; set; }
+        public string PRE_MONEY { get; set; }
+        public string TOTAL_SALE { get; set; }
+        public string YMD_STR { get; set; }
+        public string YMD { get; set; }
+    }
+
 }

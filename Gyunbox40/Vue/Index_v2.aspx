@@ -22,6 +22,20 @@
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">나의 로또 일상을 기록하는 로또집사입니다.</span>
             <span style="width: 100%; float: left; box-sizing: border-box; padding-left: 7px;">회원가입 없이도 게스트로 사용하실 수 있습니다.</span>
         </div>
+        <div class="section" style="height: 100px; background-color: #ffffff; width: 100%; padding: 0px; margin: 0px; margin-top: 10px;">
+            <div class="section_next_game">
+                <strong class="tit">다음회차</strong>
+                <span class="next_date"><%=model.YMD_STR%></span>
+                <p>
+                    <span class="expect">1등 예상 당첨금 
+	                    	<strong><%=model.PRE_MONEY%></strong>
+                    </span>
+                    <span class="accum">누적 판매금 
+	                    	<%=model.TOTAL_SALE%>
+                    </span>
+                </p>
+            </div>
+        </div>
         <div class="section section-1">
             <a href="CreateNumber.aspx">
                 <div class="box-1" style="background-color: #8CC6E7;">

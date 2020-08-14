@@ -19,6 +19,7 @@ namespace Gyunbox40.Vue
         public Hashtable htLuckyOrd = new Hashtable();
         public List<int> datas = new List<int>(); //행운의 번호 - 서버에서 제공해줄 번호!
         public Util util = new Util();
+        protected LotExpect model ;
         DaDdogram daDDo;
         CommonController cc = new CommonController();
 
@@ -71,6 +72,8 @@ namespace Gyunbox40.Vue
             {
                 daDDo.SetLoginLog(util.NullToBlank(Request.UrlReferrer), "");
             }
+
+            model = daDDo.GetExpectInfo();
 
             ViewState["nowVisit"] = Application["CurrentVisit"].ToString();
             ViewState["totalVisit"] = DaDdogram.GetTotalVisitor().ToString();

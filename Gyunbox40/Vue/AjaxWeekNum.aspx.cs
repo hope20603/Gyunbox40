@@ -45,7 +45,16 @@ namespace Gyunbox40.Vue
                     daddo.InsertLottoNumber(nowTime.ToString());
                 }
 
-                model = daddo.GetLotNumBySeqWithColor(nowTime.ToString());
+                if (!daddo.CheckExistDrwNo(nowTime.ToString()))
+                {
+                    model = daddo.GetLotNumBySeqWithColor((nowTime - 1).ToString());
+                }
+                else
+                {
+                    model = daddo.GetLotNumBySeqWithColor(nowTime.ToString());
+                }
+
+                
 
             }
             else

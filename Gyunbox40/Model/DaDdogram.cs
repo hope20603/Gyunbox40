@@ -986,5 +986,15 @@ from hope20603.lot_num a Where seq=@seq";
                 //에러만 안나게 처리..
             }
         }
+
+        /// <summary>
+        /// 당첨예상금액, 누적판매금액 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public LotExpect GetExpectInfo()
+        {
+            string sql = "select top 1 * from hope20603.lot_pre order by seq desc;";
+            return db.QuerySingleOrDefault<LotExpect>(sql);
+        }
     }
 }
