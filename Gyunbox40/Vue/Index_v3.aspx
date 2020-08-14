@@ -103,7 +103,7 @@
         <div class="section-tab-content">
             <div class="tab_con tab-content-1">
                 <!-- start : 번호순 -->
-                <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff; margin-top: -5px;">
+                <div style="float: left; width: 100%; padding-top: 10px; background-color: #ffffff; margin-top: -5px; box-sizing:border-box;">
                     <div class="rd_wrap">
                         <div class="rd_inner_wrap">
                             <span class="sp_tit">보너스 번호</span>
@@ -337,38 +337,6 @@
                 </div>
                 <!-- end : 번호순 -->
             </div>
-        </div>
-        <div class="coupang_wrap">
-            <div class="inner" style="margin: auto; width: 360px;">
-                <div style="float: left;">
-                    <a href="https://coupa.ng/bHwYHI" target="_blank">
-                        <img src="https://static.coupangcdn.com/image/affiliate/banner/83a324d17fe67268309c74cbf7fb298a@2x.jpg" alt="LG전자 그램14 노트북 (35.5cm WIN미포함 SSD128G), 팬티엄 5405U, 4GB" width="120" height="240"></a>
-                </div>
-                <div style="float: left;">
-                    <a href="https://coupa.ng/bHwZcW" target="_blank">
-                        <img src="https://static.coupangcdn.com/image/affiliate/banner/cab3d3adc847189c1211e9bbba3c845e@2x.jpg" alt="퀸센스 리모컨 서큘레이터 선풍기, QSF-300RK" width="120" height="240"></a>
-                </div>
-                <div style="float: left;">
-                    <a href="https://coupa.ng/bHwZq3" target="_blank">
-                        <img src="https://static.coupangcdn.com/image/affiliate/banner/0df648ab21abb380c24a9ff7263add1b@2x.jpg" alt="칼로바이 다밀 다이어트쉐이크 오곡맛 50 g x 7p + 허니바닐라맛 50 g x 7p, 1세트" width="120" height="240"></a>
-                </div>
-            </div>
-        </div>
-        <div class="banner_wrap">
-            <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- ddogram.ga 하단 -->
-            <ins class="adsbygoogle"
-                style="display: block"
-                data-ad-client="ca-pub-8384080521274050"
-                data-ad-slot="3192841291"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-
         </div>
         <div class="visit_wrap">
             <div class="inner_wrap">
