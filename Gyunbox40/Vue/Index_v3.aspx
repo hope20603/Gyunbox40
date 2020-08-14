@@ -107,9 +107,9 @@
                         <div class="rd_inner_wrap">
                             <span class="sp_tit">보너스 번호</span>
                             <span class="sp_bonus-y">
-                                <input type="radio" value="Y" id="rd_bonus_y" name="rd_bonus" onchange="rdChange($event)" checked /><label for="rd_bonus_y">포함</label></span>
+                                <input type="radio" value="Y" id="rd_bonus_y" name="rd_bonus" onchange="rdChange('Y')" checked /><label for="rd_bonus_y">포함</label></span>
                             <span class="sp_bonus-n">
-                                <input type="radio" value="N" id="rd_bonus_n" name="rd_bonus" onchange="rdChange($event)" /><label for="rd_bonus_n">불포함</label></span>
+                                <input type="radio" value="N" id="rd_bonus_n" name="rd_bonus" onchange="rdChange('N')" /><label for="rd_bonus_n">불포함</label></span>
                         </div>
                     </div>
                     <!-- 각번호별 1등에 나온 횟수 -->
@@ -222,9 +222,9 @@
                         <div class="rd_inner_wrap">
                             <span class="sp_tit">보너스 번호</span>
                             <span class="sp_bonus-y">
-                                <input type="radio" value="Y" id="rd_bonus_y2" name="rd_bonus2" onchange="rdChange2($event)" checked /><label for="rd_bonus_y2">포함</label></span>
+                                <input type="radio" value="Y" id="rd_bonus_y2" name="rd_bonus2" onchange="rdChange('Y2')" checked /><label for="rd_bonus_y2">포함</label></span>
                             <span class="sp_bonus-n">
-                                <input type="radio" value="N" id="rd_bonus_n2" name="rd_bonus2" onchange="rdChange2($event)" /><label for="rd_bonus_n2">불포함</label></span>
+                                <input type="radio" value="N" id="rd_bonus_n2" name="rd_bonus2" onchange="rdChange('N2')" /><label for="rd_bonus_n2">불포함</label></span>
                         </div>
                     </div>
                     <!-- 각번호별 1등에 나온 횟수 -->
@@ -383,6 +383,25 @@
                 $(".tab-content-" + tabNum).show();
                 $(".tab").removeClass("on");
                 $(".tab_" + tabNum).addClass("on");
+            }
+
+            //vue.js 들어냄...
+            function rdChange(tb) {
+                var optionText = tb;
+                if (optionText == "N") {
+                    $("#tbl_chart").show();
+                    $("#tbl_chart2").hide();
+                } else if (optionText == "Y") {
+                    $("#tbl_chart").hide();
+                    $("#tbl_chart2").show();
+
+                } else if (optionText == "N2") {
+                    $("#tbl_chart3").show();
+                    $("#tbl_chart4").hide();
+                } else {
+                    $("#tbl_chart3").hide();
+                    $("#tbl_chart4").show();
+                }
             }
 
 

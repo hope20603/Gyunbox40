@@ -128,3 +128,18 @@ function number_format(num) {
 	}
 	return result;
 }
+
+
+function getColorClass(value) {
+	if (value <= 10) {
+		return "clr1";
+	} else if (value <= 20) {
+		return "clr2";
+	} else if (value <= 30) {
+		return "clr3";
+	} else if (value <= 40) {
+		return "clr4";
+	} else {
+		return "clr5";
+	}
+}

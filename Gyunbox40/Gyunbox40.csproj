@@ -388,6 +388,7 @@
     <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile3.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <Content Include="Share\Ajax.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -618,6 +619,7 @@
     <Content Include="Views\Home\SaveContent.aspx" />
     <Content Include="Views\Shared\Pagenavigator.ascx" />
     <Content Include="Vue\About.aspx" />
+    <Content Include="Vue\AjaxWeekNum.aspx" />
     <Content Include="Vue\Calc.aspx" />
     <Content Include="Vue\CreateNumber.aspx" />
     <Content Include="Vue\FindUser.aspx" />
@@ -688,6 +690,13 @@
     </Compile>
     <Compile Include="Model\DaDdogram.cs" />
     <Compile Include="Model\LotnumModel.cs" />
+    <Compile Include="Share\Ajax.Master.cs">
+      <DependentUpon>Ajax.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Share\Ajax.Master.designer.cs">
+      <DependentUpon>Ajax.Master</DependentUpon>
+    </Compile>
     <Compile Include="Share\bootstrap.aspx.cs">
       <DependentUpon>bootstrap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -840,6 +849,13 @@
     </Compile>
     <Compile Include="Vue\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AjaxWeekNum.aspx.cs">
+      <DependentUpon>AjaxWeekNum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vue\AjaxWeekNum.aspx.designer.cs">
+      <DependentUpon>AjaxWeekNum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vue\Calc.aspx.cs">
       <DependentUpon>Calc.aspx</DependentUpon>

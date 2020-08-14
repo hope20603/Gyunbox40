@@ -930,6 +930,65 @@ ul, li {
     background-color: #6BCE9E;
 }
 
+/* 새로운 디자인 - 로또페이지 참고 */
+.prizeresult .num {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    letter-spacing: -0.025em;
+    text-align: center;
+    border-radius: 100%
+}
+
+    .prizeresult .num ~ .num {
+        margin-left: 3px
+    }
+
+.prizeresult .clr1 {
+    background: #e4a816 /*1~10*/
+}
+
+.prizeresult .clr2 {
+    background: #1994da /*11~20*/
+}
+
+.prizeresult .clr3 {
+    background: #e86352 /*21~30*/
+}
+
+.prizeresult .clr4 {
+    background: #8f8f8f /*31~40*/
+}
+
+.prizeresult .clr5 {
+    background: #5bb544 /*41~45*/
+}
+
+.prizeresult .num.bonus {
+    position: relative;
+    margin-left: 23px
+}
+
+    .prizeresult .num.bonus:after {
+        content: "";
+        position: absolute;
+        left: -17px;
+        top: 50%;
+        z-index: 1;
+        width: 9px;
+        height: 9px;
+        margin-top: -5px;
+        background: url(/images/mobile/content/ico_plus.png) 0 0 no-repeat;
+        background-size: 9px auto
+    }
+
+
+
+
 /* createNumber */
 .app-createNumber {
 }

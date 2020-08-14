@@ -186,6 +186,7 @@ namespace Gyunbox40
             DataSet ds = daDDo.GetLuckyNumber();
             float[] inputNumbers = new float[45];
             DataTable dt = new DataTable();
+            int[] seedArr = new int[] { 11, 9, 7, 5, 3 }; //seed값 중복을 피하기 위함
 
             dt.Columns.Add("seq");
             dt.Columns.Add("no1");
@@ -218,8 +219,8 @@ namespace Gyunbox40
                 int getNumberCount = 7;
                 while (getNumberCount > 0)
                 {
-                    Random seedRnd = new Random((int)DateTime.Now.Ticks + getNumberCount); //단순히 중복된 seed를 피하기위함임.
-                    System.Threading.Thread.Sleep(100);
+                    Random seedRnd = new Random((int)DateTime.Now.Ticks + getNumberCount+ seedArr[i]); //단순히 중복된 seed를 피하기위함임.
+                    System.Threading.Thread.Sleep(150);
 
                     int returnValue = SelectLottoNumber(inputNumbers, seedRnd);
                     if (datas.Contains(returnValue) == false)

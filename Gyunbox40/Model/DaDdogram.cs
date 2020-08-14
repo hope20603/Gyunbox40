@@ -193,6 +193,35 @@ namespace Gyunbox40.Model
             }
         }
 
+
+        /// <summary>
+        /// 특정 회차의 당첨번호 정보를 가져옴 - 색상 값까지. -dapper사용해봄..
+        /// </summary>
+        /// <returns></returns>
+        public LotColorModel GetLotNumBySeqWithColor(string seq)
+        {
+            string sqlQuery = string.Empty;
+
+            try
+            {
+                sqlQuery = @"Select seq
+,num1 , hope20603.fn_getClassNumber(num1) as col1
+,num2 , hope20603.fn_getClassNumber(num2) as col2
+,num3 , hope20603.fn_getClassNumber(num3) as col3
+,num4 , hope20603.fn_getClassNumber(num4) as col4
+,num5 , hope20603.fn_getClassNumber(num5) as col5
+,num6 , hope20603.fn_getClassNumber(num6) as col6
+,num7 , hope20603.fn_getClassNumber(num7) as col7
+,convert(char(10), [win_date], 23) as win_date
+,[total_sel] from hope20603.lot_num Where seq=@seq";
+                return this.db.QueryFirstOrDefault<LotColorModel>(sqlQuery, new { seq = int.Parse(seq) });
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// 모든 당첨번호 정보를 가져옴. -dapper 짱나서 안씀..
         /// </summary>
