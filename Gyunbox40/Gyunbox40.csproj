@@ -82,6 +82,7 @@
     <Content Include="Content\css\jumbotron-narrow.css" />
     <Content Include="Content\js\billboard.min.js" />
     <Content Include="Content\js\html5shiv.min.js" />
+    <Content Include="Content\js\jQueryRotateCompressed.js" />
     <Content Include="Content\js\jsQR.js" />
     <Content Include="Content\js\lotto.js" />
     <Content Include="Content\js\util.js" />
