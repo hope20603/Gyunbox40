@@ -65,7 +65,9 @@
             </a>
         </div>
         <div class="section section-2" style="height: 300px;">
-            <h2 style="width: 100%; text-align: center;">행운번호</h2>
+            <h2 style="width: 100%;text-align: center;position: relative;">행운번호<a href="javascript:;" onclick="getNewNumber();" id="btn_reflash" style="position: absolute; right: 30px; top: 0px;">
+                <img src="../images/icon/icons8-refresh-16.png" alt="새로고침" id="img_reflash" />
+            </a></h2>
             <ul>
                 <li>
                     <div class="ball_wrap">
@@ -365,8 +367,8 @@
                 <span class="sp_tit">오늘</span>  <span class="sp_con"><%=ViewState["todayVisit"]%></span>
                 <span class="sp_tit">전체</span>  <span class="sp_con"><%=ViewState["totalVisit"]%></span>
             </div>
-
         </div>
+        <script src="../Content/js/jQueryRotateCompressed.js"></script>
         <script type="text/javascript">
             function Tab(tabNum) {
                 $(".tab_con").hide();
@@ -398,6 +400,30 @@
                 changeWeekAjax(0);
             });
 
+            function DoRotate(targetId, d) {
+                $(targetId).css({
+                    '-moz-transform': 'rotate(' + d + 'deg)',
+                    '-webkit-transform': 'rotate(' + d + 'deg)',
+                    '-o-transform': 'rotate(' + d + 'deg)',
+                    '-ms-transform': 'rotate(' + d + 'deg)',
+                    'transform': 'rotate(' + d + 'deg)'
+                });
+            }
+
+            var timer = 0;
+
+            function startRotate() {
+                var angle = 0;
+                timer = setInterval(function () {
+                    angle += 5;
+                    DoRotate("#img_reflash", angle);
+                }, 100);
+            }
+
+            function stopRotate() {
+                clearInterval(timer);
+            }
+
             function changeWeekAjax(tSeq) {
                 let reqUrl = "AjaxWeekNum.aspx";
 
@@ -426,6 +452,10 @@
                 }
             }
 
+            function getNewNumber() {
+                getLuckyNumberFive();
+            }
+
             function getLuckyNumberFive() {
                 let reqUrl = "/DDoService.asmx/GetLuckyNumberFive";
 
@@ -439,10 +469,13 @@
                     contentType: "application/json",
                     beforeSend: function () {
                         //    $(''.wrap - loading'').removeClass(''display - none'');
+                        $("#ajaxTarget").html("");
                         $('.loading').show();
+                        startRotate();
                     },
                     complete: function () {
                         $('.loading').hide();
+                        stopRotate();
                     },
                     success: function (data) {
                         setLuckyNumberFive(JSON.parse(data.d))
@@ -457,6 +490,7 @@
             }
 
             function setLuckyNumberFive(jsonObj) {
+                $("#ajaxTarget").html("");
                 let li_num = "";
                 for (var i = 0; i < jsonObj.length; i++) {
                     li_num = "<span class='lottoBall " + getBallColor(jsonObj[i].no1) + " ball_1'>" + jsonObj[i].no1 + "</span>";
