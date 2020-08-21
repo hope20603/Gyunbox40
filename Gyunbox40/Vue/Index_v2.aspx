@@ -345,22 +345,6 @@
                 <!-- end : 번호순 -->
             </div>
         </div>
-        <div class="banner_wrap">
-            <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- ddogram.ga 하단 -->
-            <ins class="adsbygoogle"
-                style="display: block"
-                data-ad-client="ca-pub-8384080521274050"
-                data-ad-slot="3192841291"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-
-        </div>
         <div class="visit_wrap">
             <div class="inner_wrap">
                 <span class="sp_tit">접속중</span><span class="sp_con"><%=ViewState["nowVisit"]%></span>

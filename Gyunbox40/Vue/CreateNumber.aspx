@@ -5,11 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-createNumber">
          <div>
-            <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-qxtvjk0wtmpe" 
- data-ad-width   = "320" 
- data-ad-height  = "100"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+           <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
         </div>
         <div class="section section-0">
@@ -68,16 +64,28 @@
             </div>
         </div>
         <div class="section">
-            <ins class="kakao_ad_area" style="display:none;" 
+           <%-- <ins class="kakao_ad_area" style="display:none;" 
  data-ad-unit    = "DAN-s16362oxdjqx" 
  data-ad-width   = "320" 
  data-ad-height  = "100"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>--%>
+             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 또그램_푸더 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8384080521274050"
+     data-ad-slot="8472593292"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
         </div>
         <div class="hidden-place">
             <input type="text" value="<%=IsLogin%>" ref="isLogin" />
         </div>
     </div>
+   
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

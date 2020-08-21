@@ -5,12 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="app" class="app-index app-stores">
         <div>
-            <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-qxtvjk0wtmpe" 
- data-ad-width   = "320" 
- data-ad-height  = "100"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-
+           <script data-ad-client="ca-pub-8384080521274050" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </div>
         <div class="section section-0" style="height:90px;padding-top:0px;">
             <span style="color: #176D64; padding-left: 7px; font-weight: bold; font-size: 15pt; height: 30px; line-height: 30px;">안녕하세요</span><br />
