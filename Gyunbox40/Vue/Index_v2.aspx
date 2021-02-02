@@ -98,6 +98,13 @@
         <div class="section section-3">
             <div id="AjaxWeekNumTarget"></div>
         </div>
+         <div class="coupang_wrap">
+            <div class="inner" style="margin:auto;width:360px;">
+                <div style="float:left;"><a href="https://coupa.ng/bHwYHI" target="_blank"><img src="https://static.coupangcdn.com/image/affiliate/banner/83a324d17fe67268309c74cbf7fb298a@2x.jpg" alt="LG전자 그램14 노트북 (35.5cm WIN미포함 SSD128G), 팬티엄 5405U, 4GB" width="120" height="240"></a></div>
+                <div style="float:left;"><a href="https://coupa.ng/bHwZcW" target="_blank"><img src="https://static.coupangcdn.com/image/affiliate/banner/cab3d3adc847189c1211e9bbba3c845e@2x.jpg" alt="퀸센스 리모컨 서큘레이터 선풍기, QSF-300RK" width="120" height="240"></a></div>
+                <div style="float:left;"><a href="https://coupa.ng/bHwZq3" target="_blank"><img src="https://static.coupangcdn.com/image/affiliate/banner/0df648ab21abb380c24a9ff7263add1b@2x.jpg" alt="칼로바이 다밀 다이어트쉐이크 오곡맛 50 g x 7p + 허니바닐라맛 50 g x 7p, 1세트"  width="120" height="240"></a></div>
+            </div>
+        </div>
         <div class="section-tab-wrap">
             <div class="section-title" style="box-sizing: border-box;">
                 <h2>각 번호별 추첨 현황</h2>
